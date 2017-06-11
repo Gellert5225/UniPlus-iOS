@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/UPError.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/UPError</TokenIdentifier>
+			<Abstract type="html">This class represents the errors.</Abstract>
+			<DeclaredIn>UPError.h</DeclaredIn>
+            
+			
+			<NodeRef refid="20"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPError/setErrorString:</TokenIdentifier>
+			<Abstract type="html">The error string</Abstract>
+			<DeclaredIn>UPError.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *errorString</Declaration>
+			
+			
+			<Anchor>//api/name/errorString</Anchor>
+            <NodeRef refid="20"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPError/errorString</TokenIdentifier>
+			<Abstract type="html">The error string</Abstract>
+			<DeclaredIn>UPError.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *errorString</Declaration>
+			
+			
+			<Anchor>//api/name/errorString</Anchor>
+            <NodeRef refid="20"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/UPError/errorString</TokenIdentifier>
+			<Abstract type="html">The error string</Abstract>
+			<DeclaredIn>UPError.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *errorString</Declaration>
+			
+			
+			<Anchor>//api/name/errorString</Anchor>
+            <NodeRef refid="20"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPError/setDelegate:</TokenIdentifier>
+			<Abstract type="html">The UPErrorDelegate</Abstract>
+			<DeclaredIn>UPError.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) id&lt;UPErrorDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+            <NodeRef refid="20"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPError/delegate</TokenIdentifier>
+			<Abstract type="html">The UPErrorDelegate</Abstract>
+			<DeclaredIn>UPError.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) id&lt;UPErrorDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+            <NodeRef refid="20"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/UPError/delegate</TokenIdentifier>
+			<Abstract type="html">The UPErrorDelegate</Abstract>
+			<DeclaredIn>UPError.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) id&lt;UPErrorDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+            <NodeRef refid="20"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPError/initWithErrorString:</TokenIdentifier>
+			<Abstract type="html">A designated initializer.</Abstract>
+			<DeclaredIn>UPError.h</DeclaredIn>
+			
+			<Declaration>- (id)initWithErrorString:(NSString *)error</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>error</Name>
+					<Abstract type="html">The error string</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/initWithErrorString:</Anchor>
+            <NodeRef refid="20"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPError/configurePopupDialog</TokenIdentifier>
+			<Abstract type="html">To configure the PopupDialog</Abstract>
+			<DeclaredIn>UPError.h</DeclaredIn>
+			
+			<Declaration>- (PopupDialog *)configurePopupDialog</Declaration>
+			
+			<ReturnValue><Abstract type="html">It returns the PopupDialog instance.</Abstract></ReturnValue>
+			<Anchor>//api/name/configurePopupDialog</Anchor>
+            <NodeRef refid="20"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

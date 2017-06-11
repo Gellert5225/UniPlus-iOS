@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/QuestionDetailTableViewController.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/QuestionDetailTableViewController</TokenIdentifier>
+			<Abstract type="html">Displays the detail of a Question, including question body, author, comments, answers, votes...etc.</Abstract>
+			<DeclaredIn>QuestionDetailTableViewController.h</DeclaredIn>
+            
+			
+			<NodeRef refid="13"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/QuestionDetailTableViewController/setViewModel:</TokenIdentifier>
+			<Abstract type="html">The QuestionDetailViewModel object.</Abstract>
+			<DeclaredIn>QuestionDetailTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) QuestionDetailViewModel *viewModel</Declaration>
+			
+			
+			<Anchor>//api/name/viewModel</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/QuestionDetailTableViewController/viewModel</TokenIdentifier>
+			<Abstract type="html">The QuestionDetailViewModel object.</Abstract>
+			<DeclaredIn>QuestionDetailTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) QuestionDetailViewModel *viewModel</Declaration>
+			
+			
+			<Anchor>//api/name/viewModel</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/QuestionDetailTableViewController/viewModel</TokenIdentifier>
+			<Abstract type="html">The QuestionDetailViewModel object.</Abstract>
+			<DeclaredIn>QuestionDetailTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) QuestionDetailViewModel *viewModel</Declaration>
+			
+			
+			<Anchor>//api/name/viewModel</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/QuestionDetailTableViewController/setQuestionObject:</TokenIdentifier>
+			<Abstract type="html">The Question in a form of PFObject.</Abstract>
+			<DeclaredIn>QuestionDetailTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) PFObject *questionObject</Declaration>
+			
+			
+			<Anchor>//api/name/questionObject</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/QuestionDetailTableViewController/questionObject</TokenIdentifier>
+			<Abstract type="html">The Question in a form of PFObject.</Abstract>
+			<DeclaredIn>QuestionDetailTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) PFObject *questionObject</Declaration>
+			
+			
+			<Anchor>//api/name/questionObject</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/QuestionDetailTableViewController/questionObject</TokenIdentifier>
+			<Abstract type="html">The Question in a form of PFObject.</Abstract>
+			<DeclaredIn>QuestionDetailTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) PFObject *questionObject</Declaration>
+			
+			
+			<Anchor>//api/name/questionObject</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/QuestionDetailTableViewController/setQuestionId:</TokenIdentifier>
+			<Abstract type="html">The objectId of the question.</Abstract>
+			<DeclaredIn>QuestionDetailTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *questionId</Declaration>
+			
+			
+			<Anchor>//api/name/questionId</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/QuestionDetailTableViewController/questionId</TokenIdentifier>
+			<Abstract type="html">The objectId of the question.</Abstract>
+			<DeclaredIn>QuestionDetailTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *questionId</Declaration>
+			
+			
+			<Anchor>//api/name/questionId</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/QuestionDetailTableViewController/questionId</TokenIdentifier>
+			<Abstract type="html">The objectId of the question.</Abstract>
+			<DeclaredIn>QuestionDetailTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *questionId</Declaration>
+			
+			
+			<Anchor>//api/name/questionId</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/QuestionDetailTableViewController/setIsLoading:</TokenIdentifier>
+			<Abstract type="html">Whether the view is loading or not.</Abstract>
+			<DeclaredIn>QuestionDetailTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL isLoading</Declaration>
+			
+			
+			<Anchor>//api/name/isLoading</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/QuestionDetailTableViewController/isLoading</TokenIdentifier>
+			<Abstract type="html">Whether the view is loading or not.</Abstract>
+			<DeclaredIn>QuestionDetailTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL isLoading</Declaration>
+			
+			
+			<Anchor>//api/name/isLoading</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/QuestionDetailTableViewController/isLoading</TokenIdentifier>
+			<Abstract type="html">Whether the view is loading or not.</Abstract>
+			<DeclaredIn>QuestionDetailTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL isLoading</Declaration>
+			
+			
+			<Anchor>//api/name/isLoading</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/QuestionDetailTableViewController/setIsFromProfile:</TokenIdentifier>
+			<Abstract type="html">Whether the view is presenting from clicking a user&apos;s profile.</Abstract>
+			<DeclaredIn>QuestionDetailTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL isFromProfile</Declaration>
+			
+			
+			<Anchor>//api/name/isFromProfile</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/QuestionDetailTableViewController/isFromProfile</TokenIdentifier>
+			<Abstract type="html">Whether the view is presenting from clicking a user&apos;s profile.</Abstract>
+			<DeclaredIn>QuestionDetailTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL isFromProfile</Declaration>
+			
+			
+			<Anchor>//api/name/isFromProfile</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/QuestionDetailTableViewController/isFromProfile</TokenIdentifier>
+			<Abstract type="html">Whether the view is presenting from clicking a user&apos;s profile.</Abstract>
+			<DeclaredIn>QuestionDetailTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL isFromProfile</Declaration>
+			
+			
+			<Anchor>//api/name/isFromProfile</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/QuestionDetailTableViewController/setPreview:</TokenIdentifier>
+			<Abstract type="html">Whether the user is previewing their question.</Abstract>
+			<DeclaredIn>QuestionDetailTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL preview</Declaration>
+			
+			
+			<Anchor>//api/name/preview</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/QuestionDetailTableViewController/preview</TokenIdentifier>
+			<Abstract type="html">Whether the user is previewing their question.</Abstract>
+			<DeclaredIn>QuestionDetailTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL preview</Declaration>
+			
+			
+			<Anchor>//api/name/preview</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/QuestionDetailTableViewController/preview</TokenIdentifier>
+			<Abstract type="html">Whether the user is previewing their question.</Abstract>
+			<DeclaredIn>QuestionDetailTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL preview</Declaration>
+			
+			
+			<Anchor>//api/name/preview</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/QuestionDetailTableViewController/initWithStyle:questionID:questionObject:setFromProfile:setLoading:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>QuestionDetailTableViewController.h</DeclaredIn>
+			
+			<Declaration>- (id)initWithStyle:(UITableViewStyle)style questionID:(NSString *)ID questionObject:(PFObject *)object setFromProfile:(BOOL)fromProfile setLoading:(BOOL)loading</Declaration>
+			
+			
+			<Anchor>//api/name/initWithStyle:questionID:questionObject:setFromProfile:setLoading:</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

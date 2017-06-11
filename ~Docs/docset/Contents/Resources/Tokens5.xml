@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/FeedsViewController.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/FeedsViewController</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FeedsViewController.h</DeclaredIn>
+            
+			
+			<NodeRef refid="5"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FeedsViewController/setUser:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FeedsViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) PFUser *user</Declaration>
+			
+			
+			<Anchor>//api/name/user</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FeedsViewController/user</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FeedsViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) PFUser *user</Declaration>
+			
+			
+			<Anchor>//api/name/user</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/FeedsViewController/user</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FeedsViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) PFUser *user</Declaration>
+			
+			
+			<Anchor>//api/name/user</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FeedsViewController/setIsLoadingForFirstTime:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FeedsViewController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL isLoadingForFirstTime</Declaration>
+			
+			
+			<Anchor>//api/name/isLoadingForFirstTime</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FeedsViewController/isLoadingForFirstTime</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FeedsViewController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL isLoadingForFirstTime</Declaration>
+			
+			
+			<Anchor>//api/name/isLoadingForFirstTime</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/FeedsViewController/isLoadingForFirstTime</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>FeedsViewController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL isLoadingForFirstTime</Declaration>
+			
+			
+			<Anchor>//api/name/isLoadingForFirstTime</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

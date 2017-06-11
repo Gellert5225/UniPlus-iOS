@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/EditTopicTableViewController.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/EditTopicTableViewController</TokenIdentifier>
+			<Abstract type="html">The EditTopicTableViewController conforms to the SearchMajorTableViewControllerDelegate Protocol.&lt;br/&gt;
+Here user can add or delete their topics, however, user must select at least one topic.</Abstract>
+			<DeclaredIn>EditTopicTableViewController.h</DeclaredIn>
+            
+			
+			<NodeRef refid="3"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/EditTopicTableViewController/setDelegate:</TokenIdentifier>
+			<Abstract type="html">EditTopicTableViewControllerDelegate</Abstract>
+			<DeclaredIn>EditTopicTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) id&lt;EditTopicTableViewControllerDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/EditTopicTableViewController/delegate</TokenIdentifier>
+			<Abstract type="html">EditTopicTableViewControllerDelegate</Abstract>
+			<DeclaredIn>EditTopicTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) id&lt;EditTopicTableViewControllerDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/EditTopicTableViewController/delegate</TokenIdentifier>
+			<Abstract type="html">EditTopicTableViewControllerDelegate</Abstract>
+			<DeclaredIn>EditTopicTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) id&lt;EditTopicTableViewControllerDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/EditTopicTableViewController/setEditableMajorArray:</TokenIdentifier>
+			<Abstract type="html">Topics selected by user</Abstract>
+			<DeclaredIn>EditTopicTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSMutableArray *editableMajorArray</Declaration>
+			
+			
+			<Anchor>//api/name/editableMajorArray</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/EditTopicTableViewController/editableMajorArray</TokenIdentifier>
+			<Abstract type="html">Topics selected by user</Abstract>
+			<DeclaredIn>EditTopicTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSMutableArray *editableMajorArray</Declaration>
+			
+			
+			<Anchor>//api/name/editableMajorArray</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/EditTopicTableViewController/editableMajorArray</TokenIdentifier>
+			<Abstract type="html">Topics selected by user</Abstract>
+			<DeclaredIn>EditTopicTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSMutableArray *editableMajorArray</Declaration>
+			
+			
+			<Anchor>//api/name/editableMajorArray</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

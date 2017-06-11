@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/SRActionSheet.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/SRActionSheet</TokenIdentifier>
+			<Abstract type="html">A custom action sheet view</Abstract>
+			<DeclaredIn>SRActionSheet.h</DeclaredIn>
+            
+			
+			<NodeRef refid="16"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SRActionSheet/setDelegate:</TokenIdentifier>
+			<Abstract type="html">The SRActionSheetDelegate property</Abstract>
+			<DeclaredIn>SRActionSheet.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) id&lt;SRActionSheetDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+            <NodeRef refid="16"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SRActionSheet/delegate</TokenIdentifier>
+			<Abstract type="html">The SRActionSheetDelegate property</Abstract>
+			<DeclaredIn>SRActionSheet.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) id&lt;SRActionSheetDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+            <NodeRef refid="16"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/SRActionSheet/delegate</TokenIdentifier>
+			<Abstract type="html">The SRActionSheetDelegate property</Abstract>
+			<DeclaredIn>SRActionSheet.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) id&lt;SRActionSheetDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+            <NodeRef refid="16"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SRActionSheet/setSelectSheetBlock:</TokenIdentifier>
+			<Abstract type="html">A block used for handling the selection events</Abstract>
+			<DeclaredIn>SRActionSheet.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) ActionSheetDidSelectSheetBlock selectSheetBlock</Declaration>
+			
+			
+			<Anchor>//api/name/selectSheetBlock</Anchor>
+            <NodeRef refid="16"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SRActionSheet/selectSheetBlock</TokenIdentifier>
+			<Abstract type="html">A block used for handling the selection events</Abstract>
+			<DeclaredIn>SRActionSheet.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) ActionSheetDidSelectSheetBlock selectSheetBlock</Declaration>
+			
+			
+			<Anchor>//api/name/selectSheetBlock</Anchor>
+            <NodeRef refid="16"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/SRActionSheet/selectSheetBlock</TokenIdentifier>
+			<Abstract type="html">A block used for handling the selection events</Abstract>
+			<DeclaredIn>SRActionSheet.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) ActionSheetDidSelectSheetBlock selectSheetBlock</Declaration>
+			
+			
+			<Anchor>//api/name/selectSheetBlock</Anchor>
+            <NodeRef refid="16"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/SRActionSheet/sr_showActionSheetViewWithTitle:cancelButtonTitle:destructiveButtonTitle:otherButtonTitles:selectSheetBlock:</TokenIdentifier>
+			<Abstract type="html">Initialize the SRActionSheet and handle the selection events using selectSheetBlock.</Abstract>
+			<DeclaredIn>SRActionSheet.h</DeclaredIn>
+			
+			<Declaration>+ (void)sr_showActionSheetViewWithTitle:(NSString *)title cancelButtonTitle:(NSString *)cancelButtonTitle destructiveButtonTitle:(NSString *)destructiveButtonTitle otherButtonTitles:(NSArray *)otherButtonTitles selectSheetBlock:(ActionSheetDidSelectSheetBlock)selectSheetBlock</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>title</Name>
+					<Abstract type="html">The title of the action sheet</Abstract>
+				</Parameter><Parameter>
+					<Name>cancelButtonTitle</Name>
+					<Abstract type="html">The title of the cancel button</Abstract>
+				</Parameter><Parameter>
+					<Name>destructiveButtonTitle</Name>
+					<Abstract type="html">The title of the destructive button</Abstract>
+				</Parameter><Parameter>
+					<Name>otherButtonTitles</Name>
+					<Abstract type="html">An array of titles for other buttons</Abstract>
+				</Parameter><Parameter>
+					<Name>selectSheetBlock</Name>
+					<Abstract type="html">The selectSheetBlock</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/sr_showActionSheetViewWithTitle:cancelButtonTitle:destructiveButtonTitle:otherButtonTitles:selectSheetBlock:</Anchor>
+            <NodeRef refid="16"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/SRActionSheet/sr_showActionSheetViewWithTitle:cancelButtonTitle:destructiveButtonTitle:otherButtonTitles:delegate:</TokenIdentifier>
+			<Abstract type="html">Initialize the SRActionSheet and handle the selection events using SRActionSheetDelegate.</Abstract>
+			<DeclaredIn>SRActionSheet.h</DeclaredIn>
+			
+			<Declaration>+ (void)sr_showActionSheetViewWithTitle:(NSString *)title cancelButtonTitle:(NSString *)cancelButtonTitle destructiveButtonTitle:(NSString *)destructiveButtonTitle otherButtonTitles:(NSArray *)otherButtonTitles delegate:(id&lt;SRActionSheetDelegate&gt;)delegate</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>title</Name>
+					<Abstract type="html">The title of the action sheet</Abstract>
+				</Parameter><Parameter>
+					<Name>cancelButtonTitle</Name>
+					<Abstract type="html">The title of the cancel button</Abstract>
+				</Parameter><Parameter>
+					<Name>destructiveButtonTitle</Name>
+					<Abstract type="html">The title of the destructive button</Abstract>
+				</Parameter><Parameter>
+					<Name>otherButtonTitles</Name>
+					<Abstract type="html">An array of titles for other buttons</Abstract>
+				</Parameter><Parameter>
+					<Name>delegate</Name>
+					<Abstract type="html">The SRActionSheetDelegate</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/sr_showActionSheetViewWithTitle:cancelButtonTitle:destructiveButtonTitle:otherButtonTitles:delegate:</Anchor>
+            <NodeRef refid="16"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SRActionSheet/initWithTitle:cancelButtonTitle:destructiveButtonTitle:otherButtonTitles:selectSheetBlock:</TokenIdentifier>
+			<Abstract type="html">Initialize the SRActionSheet and handle the selection events using selectSheetBlock.</Abstract>
+			<DeclaredIn>SRActionSheet.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithTitle:(NSString *)title cancelButtonTitle:(NSString *)cancelButtonTitle destructiveButtonTitle:(NSString *)destructiveButtonTitle otherButtonTitles:(NSArray *)otherButtonTitles selectSheetBlock:(ActionSheetDidSelectSheetBlock)selectSheetBlock</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>title</Name>
+					<Abstract type="html">The title of the action sheet</Abstract>
+				</Parameter><Parameter>
+					<Name>cancelButtonTitle</Name>
+					<Abstract type="html">The title of the cancel button</Abstract>
+				</Parameter><Parameter>
+					<Name>destructiveButtonTitle</Name>
+					<Abstract type="html">The title of the destructive button</Abstract>
+				</Parameter><Parameter>
+					<Name>otherButtonTitles</Name>
+					<Abstract type="html">An array of titles for other buttons</Abstract>
+				</Parameter><Parameter>
+					<Name>selectSheetBlock</Name>
+					<Abstract type="html">The selectSheetBlock</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instancetype - SRActionSheet *</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithTitle:cancelButtonTitle:destructiveButtonTitle:otherButtonTitles:selectSheetBlock:</Anchor>
+            <NodeRef refid="16"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SRActionSheet/initWithTitle:cancelButtonTitle:destructiveButtonTitle:otherButtonTitles:delegate:</TokenIdentifier>
+			<Abstract type="html">Initialize the SRActionSheet and handle the selection events using SRActionSheetDelegate.</Abstract>
+			<DeclaredIn>SRActionSheet.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithTitle:(NSString *)title cancelButtonTitle:(NSString *)cancelButtonTitle destructiveButtonTitle:(NSString *)destructiveButtonTitle otherButtonTitles:(NSArray *)otherButtonTitles delegate:(id&lt;SRActionSheetDelegate&gt;)delegate</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>title</Name>
+					<Abstract type="html">The title of the action sheet</Abstract>
+				</Parameter><Parameter>
+					<Name>cancelButtonTitle</Name>
+					<Abstract type="html">The title of the cancel button</Abstract>
+				</Parameter><Parameter>
+					<Name>destructiveButtonTitle</Name>
+					<Abstract type="html">The title of the destructive button</Abstract>
+				</Parameter><Parameter>
+					<Name>otherButtonTitles</Name>
+					<Abstract type="html">An array of titles for other buttons</Abstract>
+				</Parameter><Parameter>
+					<Name>delegate</Name>
+					<Abstract type="html">The SRActionSheetDelegate</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instancetype - SRActionSheet *</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithTitle:cancelButtonTitle:destructiveButtonTitle:otherButtonTitles:delegate:</Anchor>
+            <NodeRef refid="16"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

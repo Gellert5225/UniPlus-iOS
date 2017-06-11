@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/University.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/University</TokenIdentifier>
+			<Abstract type="html">  Parse university objects from JSON file into this class.</Abstract>
+			<DeclaredIn>University.h</DeclaredIn>
+            
+			
+			<NodeRef refid="25"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/University/setInstitutionName:</TokenIdentifier>
+			<Abstract type="html">The name of the institution.</Abstract>
+			<DeclaredIn>University.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *institutionName</Declaration>
+			
+			
+			<Anchor>//api/name/institutionName</Anchor>
+            <NodeRef refid="25"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/University/institutionName</TokenIdentifier>
+			<Abstract type="html">The name of the institution.</Abstract>
+			<DeclaredIn>University.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *institutionName</Declaration>
+			
+			
+			<Anchor>//api/name/institutionName</Anchor>
+            <NodeRef refid="25"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/University/institutionName</TokenIdentifier>
+			<Abstract type="html">The name of the institution.</Abstract>
+			<DeclaredIn>University.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *institutionName</Declaration>
+			
+			
+			<Anchor>//api/name/institutionName</Anchor>
+            <NodeRef refid="25"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/University/setInstitutionNameAlias:</TokenIdentifier>
+			<Abstract type="html">The alias of the institution.</Abstract>
+			<DeclaredIn>University.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *institutionNameAlias</Declaration>
+			
+			
+			<Anchor>//api/name/institutionNameAlias</Anchor>
+            <NodeRef refid="25"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/University/institutionNameAlias</TokenIdentifier>
+			<Abstract type="html">The alias of the institution.</Abstract>
+			<DeclaredIn>University.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *institutionNameAlias</Declaration>
+			
+			
+			<Anchor>//api/name/institutionNameAlias</Anchor>
+            <NodeRef refid="25"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/University/institutionNameAlias</TokenIdentifier>
+			<Abstract type="html">The alias of the institution.</Abstract>
+			<DeclaredIn>University.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *institutionNameAlias</Declaration>
+			
+			
+			<Anchor>//api/name/institutionNameAlias</Anchor>
+            <NodeRef refid="25"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/University/setInstitutionWebsite:</TokenIdentifier>
+			<Abstract type="html">The website of the institution.</Abstract>
+			<DeclaredIn>University.h</DeclaredIn>
+			
+			<Declaration>@property (assign, nonatomic) NSString *institutionWebsite</Declaration>
+			
+			
+			<Anchor>//api/name/institutionWebsite</Anchor>
+            <NodeRef refid="25"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/University/institutionWebsite</TokenIdentifier>
+			<Abstract type="html">The website of the institution.</Abstract>
+			<DeclaredIn>University.h</DeclaredIn>
+			
+			<Declaration>@property (assign, nonatomic) NSString *institutionWebsite</Declaration>
+			
+			
+			<Anchor>//api/name/institutionWebsite</Anchor>
+            <NodeRef refid="25"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/University/institutionWebsite</TokenIdentifier>
+			<Abstract type="html">The website of the institution.</Abstract>
+			<DeclaredIn>University.h</DeclaredIn>
+			
+			<Declaration>@property (assign, nonatomic) NSString *institutionWebsite</Declaration>
+			
+			
+			<Anchor>//api/name/institutionWebsite</Anchor>
+            <NodeRef refid="25"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/University/setInstitutionCityLocation:</TokenIdentifier>
+			<Abstract type="html">The city location of the institution.</Abstract>
+			<DeclaredIn>University.h</DeclaredIn>
+			
+			<Declaration>@property (assign, nonatomic) NSString *institutionCityLocation</Declaration>
+			
+			
+			<Anchor>//api/name/institutionCityLocation</Anchor>
+            <NodeRef refid="25"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/University/institutionCityLocation</TokenIdentifier>
+			<Abstract type="html">The city location of the institution.</Abstract>
+			<DeclaredIn>University.h</DeclaredIn>
+			
+			<Declaration>@property (assign, nonatomic) NSString *institutionCityLocation</Declaration>
+			
+			
+			<Anchor>//api/name/institutionCityLocation</Anchor>
+            <NodeRef refid="25"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/University/institutionCityLocation</TokenIdentifier>
+			<Abstract type="html">The city location of the institution.</Abstract>
+			<DeclaredIn>University.h</DeclaredIn>
+			
+			<Declaration>@property (assign, nonatomic) NSString *institutionCityLocation</Declaration>
+			
+			
+			<Anchor>//api/name/institutionCityLocation</Anchor>
+            <NodeRef refid="25"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/University/getUniversitiesFromJSON</TokenIdentifier>
+			<Abstract type="html">Get a list of universities from a JSON file</Abstract>
+			<DeclaredIn>University.h</DeclaredIn>
+			
+			<Declaration>+ (NSMutableArray *)getUniversitiesFromJSON</Declaration>
+			
+			<ReturnValue><Abstract type="html">An array of University objects.</Abstract></ReturnValue>
+			<Anchor>//api/name/getUniversitiesFromJSON</Anchor>
+            <NodeRef refid="25"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

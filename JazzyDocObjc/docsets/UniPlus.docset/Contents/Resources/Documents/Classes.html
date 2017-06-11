@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Classes  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="Classes  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">UniPlus Docs</a> (100% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">UniPlus Reference</a>
+        <img id="carat" src="img/carat.png" />
+        Classes  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/GlobalVariables.html">GlobalVariables</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/QuestionDraft.html">QuestionDraft</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/University.html">University</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Classes</h1>
+            <p>The following classes are available globally.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)GlobalVariables"></a>
+                    <a name="//apple_ref/objc/Class/GlobalVariables" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)GlobalVariables">GlobalVariables</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This class can store multiple variable/properties across the application. However, the data will be lost if the application is terminated.
+<br/>
+For example, to get the question stored, simply create an instance of this class, then access the property using:</p>
+
+<p><code>[GlobalVariables getInstance].tempObject</code></p>
+
+                        <a href="Classes/GlobalVariables.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">GlobalVariables</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">GlobalVariables</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)QuestionDraft"></a>
+                    <a name="//apple_ref/objc/Class/QuestionDraft" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)QuestionDraft">QuestionDraft</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The data model for saving a draft.</p>
+
+<p>Each time when a user dismiss a PostQuestionTableViewController, the draft will be automatically saved.</p>
+
+<p><li>If there is no drafts, then it will initialize a new questionDrafts array, then store the current draft.</li>
+<li>If the user has a draft composed previously, then append the current draft to the array.</li>
+<li>If the user successfully posts this draft, then it will be deleted from the array.</li>
+<li><p>If the user makes any changes to the draft, then it will be considered as a new draft.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <em>This is only used to store the draft within the application lifecycle!</em></p>
+
+<p></div></li></p>
+
+                        <a href="Classes/QuestionDraft.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">QuestionDraft</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">QuestionDraft</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)University"></a>
+                    <a name="//apple_ref/objc/Class/University" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)University">University</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Parse university objects from JSON file into this class.</p>
+
+                        <a href="Classes/University.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight"><code><span class="k">@interface</span> <span class="nc">University</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">University</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external">UniPlus</a>. All rights reserved. (Last updated: 2017-03-09)</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

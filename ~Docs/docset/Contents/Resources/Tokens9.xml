@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/PostQuestionTableViewController.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/PostQuestionTableViewController</TokenIdentifier>
+			<Abstract type="html">User must enter a title, body to be able to preview/post your question. Also, users can save their draft if they want to post later.</Abstract>
+			<DeclaredIn>PostQuestionTableViewController.h</DeclaredIn>
+            
+			
+			<NodeRef refid="9"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PostQuestionTableViewController/setDelegate:</TokenIdentifier>
+			<Abstract type="html">The PostQuestionTableViewControllerDelegate property.</Abstract>
+			<DeclaredIn>PostQuestionTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) id&lt;PostQuestionTableViewControllerDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+            <NodeRef refid="9"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PostQuestionTableViewController/delegate</TokenIdentifier>
+			<Abstract type="html">The PostQuestionTableViewControllerDelegate property.</Abstract>
+			<DeclaredIn>PostQuestionTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) id&lt;PostQuestionTableViewControllerDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+            <NodeRef refid="9"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/PostQuestionTableViewController/delegate</TokenIdentifier>
+			<Abstract type="html">The PostQuestionTableViewControllerDelegate property.</Abstract>
+			<DeclaredIn>PostQuestionTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) id&lt;PostQuestionTableViewControllerDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+            <NodeRef refid="9"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PostQuestionTableViewController/setParseClass:</TokenIdentifier>
+			<Abstract type="html">The Parse class (Discussions or Questions) that the question&apos;s gonna post to.</Abstract>
+			<DeclaredIn>PostQuestionTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *parseClass</Declaration>
+			
+			
+			<Anchor>//api/name/parseClass</Anchor>
+            <NodeRef refid="9"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PostQuestionTableViewController/parseClass</TokenIdentifier>
+			<Abstract type="html">The Parse class (Discussions or Questions) that the question&apos;s gonna post to.</Abstract>
+			<DeclaredIn>PostQuestionTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *parseClass</Declaration>
+			
+			
+			<Anchor>//api/name/parseClass</Anchor>
+            <NodeRef refid="9"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/PostQuestionTableViewController/parseClass</TokenIdentifier>
+			<Abstract type="html">The Parse class (Discussions or Questions) that the question&apos;s gonna post to.</Abstract>
+			<DeclaredIn>PostQuestionTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *parseClass</Declaration>
+			
+			
+			<Anchor>//api/name/parseClass</Anchor>
+            <NodeRef refid="9"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PostQuestionTableViewController/setTopic:</TokenIdentifier>
+			<Abstract type="html">The topic that the question belongs to.</Abstract>
+			<DeclaredIn>PostQuestionTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *topic</Declaration>
+			
+			
+			<Anchor>//api/name/topic</Anchor>
+            <NodeRef refid="9"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PostQuestionTableViewController/topic</TokenIdentifier>
+			<Abstract type="html">The topic that the question belongs to.</Abstract>
+			<DeclaredIn>PostQuestionTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *topic</Declaration>
+			
+			
+			<Anchor>//api/name/topic</Anchor>
+            <NodeRef refid="9"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/PostQuestionTableViewController/topic</TokenIdentifier>
+			<Abstract type="html">The topic that the question belongs to.</Abstract>
+			<DeclaredIn>PostQuestionTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *topic</Declaration>
+			
+			
+			<Anchor>//api/name/topic</Anchor>
+            <NodeRef refid="9"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PostQuestionTableViewController/setEditingQuestion:</TokenIdentifier>
+			<Abstract type="html">Whether or not the user is editing the question.</Abstract>
+			<DeclaredIn>PostQuestionTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL editingQuestion</Declaration>
+			
+			
+			<Anchor>//api/name/editingQuestion</Anchor>
+            <NodeRef refid="9"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PostQuestionTableViewController/editingQuestion</TokenIdentifier>
+			<Abstract type="html">Whether or not the user is editing the question.</Abstract>
+			<DeclaredIn>PostQuestionTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL editingQuestion</Declaration>
+			
+			
+			<Anchor>//api/name/editingQuestion</Anchor>
+            <NodeRef refid="9"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/PostQuestionTableViewController/editingQuestion</TokenIdentifier>
+			<Abstract type="html">Whether or not the user is editing the question.</Abstract>
+			<DeclaredIn>PostQuestionTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL editingQuestion</Declaration>
+			
+			
+			<Anchor>//api/name/editingQuestion</Anchor>
+            <NodeRef refid="9"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PostQuestionTableViewController/setQuestionToBeEdited:</TokenIdentifier>
+			<Abstract type="html">The question to be edited.</Abstract>
+			<DeclaredIn>PostQuestionTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) PFObject *questionToBeEdited</Declaration>
+			
+			
+			<Anchor>//api/name/questionToBeEdited</Anchor>
+            <NodeRef refid="9"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/PostQuestionTableViewController/questionToBeEdited</TokenIdentifier>
+			<Abstract type="html">The question to be edited.</Abstract>
+			<DeclaredIn>PostQuestionTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) PFObject *questionToBeEdited</Declaration>
+			
+			
+			<Anchor>//api/name/questionToBeEdited</Anchor>
+            <NodeRef refid="9"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/PostQuestionTableViewController/questionToBeEdited</TokenIdentifier>
+			<Abstract type="html">The question to be edited.</Abstract>
+			<DeclaredIn>PostQuestionTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) PFObject *questionToBeEdited</Declaration>
+			
+			
+			<Anchor>//api/name/questionToBeEdited</Anchor>
+            <NodeRef refid="9"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

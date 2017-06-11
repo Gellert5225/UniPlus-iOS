@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>PZPullToRefreshView Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/PZPullToRefreshView" class="dashAnchor"></a>
+    <a title="PZPullToRefreshView Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">UniPlus Docs</a> (100% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">UniPlus Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        PZPullToRefreshView Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/ConfigNotification.html">ConfigNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PZPullToRefreshView.html">PZPullToRefreshView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/RefreshState.html">RefreshState</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/PZPullToRefreshDelegate.html">PZPullToRefreshDelegate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>PZPullToRefreshView</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">PZPullToRefreshView</span><span class="p">:</span> <span class="kt">UIView</span></code></pre>
+
+                </div>
+              </div>
+            <p>Custom pull to refresh view.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/UI%20Configuration"></a>
+                <a name="//apple_ref/swift/Section/UI Configuration" class="dashAnchor"></a>
+                <a href="#/UI%20Configuration">
+                  <h3 class="section-name">UI Configuration</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC7UniPlus19PZPullToRefreshView15statusTextColorCSo7UIColor"></a>
+                    <a name="//apple_ref/swift/Property/statusTextColor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC7UniPlus19PZPullToRefreshView15statusTextColorCSo7UIColor">statusTextColor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The color of the status text (Loading/Pull down to refresh/Release to refresh).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">statusTextColor</span> <span class="o">=</span> <span class="kt">UIColor</span><span class="p">(</span><span class="nv">red</span><span class="p">:</span> <span class="mi">76</span><span class="o">/</span><span class="mf">255.0</span><span class="p">,</span> <span class="nv">green</span><span class="p">:</span><span class="mi">145</span><span class="o">/</span><span class="mf">255.0</span><span class="p">,</span> <span class="nv">blue</span><span class="p">:</span><span class="mi">218</span><span class="o">/</span><span class="mf">255.0</span><span class="p">,</span> <span class="nv">alpha</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC7UniPlus19PZPullToRefreshView13timeTextColorCSo7UIColor"></a>
+                    <a name="//apple_ref/swift/Property/timeTextColor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC7UniPlus19PZPullToRefreshView13timeTextColorCSo7UIColor">timeTextColor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The color of the time text (Last updated:&hellip;).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">timeTextColor</span> <span class="o">=</span> <span class="kt">UIColor</span><span class="p">(</span><span class="nv">red</span><span class="p">:</span> <span class="mi">76</span><span class="o">/</span><span class="mf">255.0</span><span class="p">,</span> <span class="nv">green</span><span class="p">:</span><span class="mi">145</span><span class="o">/</span><span class="mf">255.0</span><span class="p">,</span> <span class="nv">blue</span><span class="p">:</span><span class="mi">218</span><span class="o">/</span><span class="mf">255.0</span><span class="p">,</span> <span class="nv">alpha</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC7UniPlus19PZPullToRefreshView7bgColorCSo7UIColor"></a>
+                    <a name="//apple_ref/swift/Property/bgColor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC7UniPlus19PZPullToRefreshView7bgColorCSo7UIColor">bgColor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The background color of the refresh view.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">bgColor</span> <span class="o">=</span> <span class="kt">UIColor</span><span class="p">(</span><span class="nv">red</span><span class="p">:</span><span class="mi">239</span><span class="o">/</span><span class="mf">255.0</span><span class="p">,</span> <span class="nv">green</span><span class="p">:</span><span class="mi">239</span><span class="o">/</span><span class="mf">255.0</span><span class="p">,</span> <span class="nv">blue</span><span class="p">:</span><span class="mi">244</span><span class="o">/</span><span class="mf">255.0</span><span class="p">,</span> <span class="nv">alpha</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC7UniPlus19PZPullToRefreshView20flipAnimatioDutationSd"></a>
+                    <a name="//apple_ref/swift/Property/flipAnimatioDutation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC7UniPlus19PZPullToRefreshView20flipAnimatioDutationSd">flipAnimatioDutation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The animation duration for the little arrow.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">flipAnimatioDutation</span><span class="p">:</span> <span class="kt">CFTimeInterval</span> <span class="o">=</span> <span class="mf">0.18</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC7UniPlus19PZPullToRefreshView14thresholdValueV12CoreGraphics7CGFloat"></a>
+                    <a name="//apple_ref/swift/Property/thresholdValue" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC7UniPlus19PZPullToRefreshView14thresholdValueV12CoreGraphics7CGFloat">thresholdValue</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The threshold for the change of <a href="file:///Users/JiaheLi/Desktop/UniPlus/JazzyDocSwift/Enums/RefreshState.html">RefreshState</a></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">thresholdValue</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="o">=</span> <span class="mf">40.0</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC7UniPlus19PZPullToRefreshView17isShowUpdatedTimeSb"></a>
+                    <a name="//apple_ref/swift/Property/isShowUpdatedTime" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC7UniPlus19PZPullToRefreshView17isShowUpdatedTimeSb">isShowUpdatedTime</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Whether the refresh view should show the time text or not.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isShowUpdatedTime</span> <span class="o">=</span> <span class="kc">true</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Outlets"></a>
+                <a name="//apple_ref/swift/Section/Outlets" class="dashAnchor"></a>
+                <a href="#/Outlets">
+                  <h3 class="section-name">Outlets</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC7UniPlus19PZPullToRefreshView16lastUpdatedLabelGSqCSo7UILabel_"></a>
+                    <a name="//apple_ref/swift/Property/lastUpdatedLabel" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC7UniPlus19PZPullToRefreshView16lastUpdatedLabelGSqCSo7UILabel_">lastUpdatedLabel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The label that displays the last updated time</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">lastUpdatedLabel</span><span class="p">:</span> <span class="kt">UILabel</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC7UniPlus19PZPullToRefreshView11statusLabelGSqCSo7UILabel_"></a>
+                    <a name="//apple_ref/swift/Property/statusLabel" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC7UniPlus19PZPullToRefreshView11statusLabelGSqCSo7UILabel_">statusLabel</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The label that displays the refresh view status</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">statusLabel</span><span class="p">:</span> <span class="kt">UILabel</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC7UniPlus19PZPullToRefreshView10arrowImageGSqCSo7CALayer_"></a>
+                    <a name="//apple_ref/swift/Property/arrowImage" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC7UniPlus19PZPullToRefreshView10arrowImageGSqCSo7CALayer_">arrowImage</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The image layer that diplays the little arrow</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">arrowImage</span><span class="p">:</span> <span class="kt">CALayer</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC7UniPlus19PZPullToRefreshView12activityViewGSqCSo23UIActivityIndicatorView_"></a>
+                    <a name="//apple_ref/swift/Property/activityView" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC7UniPlus19PZPullToRefreshView12activityViewGSqCSo23UIActivityIndicatorView_">activityView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An animating activity indicator if the current state is <code>.loading</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">activityView</span><span class="p">:</span> <span class="kt">UIActivityIndicatorView</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Logics"></a>
+                <a name="//apple_ref/swift/Section/Logics" class="dashAnchor"></a>
+                <a href="#/Logics">
+                  <h3 class="section-name">Logics</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC7UniPlus19PZPullToRefreshView9isLoadingSb"></a>
+                    <a name="//apple_ref/swift/Property/isLoading" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC7UniPlus19PZPullToRefreshView9isLoadingSb">isLoading</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Whether the refresh view is loading or not.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isLoading</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC7UniPlus19PZPullToRefreshView6_stateOS_12RefreshState"></a>
+                    <a name="//apple_ref/swift/Property/_state" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC7UniPlus19PZPullToRefreshView6_stateOS_12RefreshState">_state</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The current state of the refresh view: <code>.normal</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">_state</span><span class="p">:</span> <span class="kt"><a href="../Enums/RefreshState.html">RefreshState</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">normal</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC7UniPlus19PZPullToRefreshView8delegateGSqPS_23PZPullToRefreshDelegate__"></a>
+                    <a name="//apple_ref/swift/Property/delegate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC7UniPlus19PZPullToRefreshView8delegateGSqPS_23PZPullToRefreshDelegate__">delegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The PZPullToRefreshDelegate</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/PZPullToRefreshDelegate.html">PZPullToRefreshDelegate</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Instance%20Methods"></a>
+                <a name="//apple_ref/swift/Section/Instance Methods" class="dashAnchor"></a>
+                <a href="#/Instance%20Methods">
+                  <h3 class="section-name">Instance Methods</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC7UniPlus19PZPullToRefreshView22refreshLastUpdatedDateFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/refreshLastUpdatedDate()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC7UniPlus19PZPullToRefreshView22refreshLastUpdatedDateFT_T_">refreshLastUpdatedDate()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set the latest updated date.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">refreshLastUpdatedDate</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/ScrollView%20Methods"></a>
+                <a name="//apple_ref/swift/Section/ScrollView Methods" class="dashAnchor"></a>
+                <a href="#/ScrollView%20Methods">
+                  <h3 class="section-name">ScrollView Methods</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC7UniPlus19PZPullToRefreshView26refreshScrollViewDidScrollFCSo12UIScrollViewT_"></a>
+                    <a name="//apple_ref/swift/Method/refreshScrollViewDidScroll(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC7UniPlus19PZPullToRefreshView26refreshScrollViewDidScrollFCSo12UIScrollViewT_">refreshScrollViewDidScroll(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Change the state of the refresh view by comparing the scroll view offset with the threshold value</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">refreshScrollViewDidScroll</span><span class="p">(</span><span class="n">_</span> <span class="nv">scrollView</span><span class="p">:</span> <span class="kt">UIScrollView</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>scrollView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The scroll view in which the refresh view is contained.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC7UniPlus19PZPullToRefreshView31refreshScrollViewDidEndDraggingFCSo12UIScrollViewT_"></a>
+                    <a name="//apple_ref/swift/Method/refreshScrollViewDidEndDragging(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC7UniPlus19PZPullToRefreshView31refreshScrollViewDidEndDraggingFCSo12UIScrollViewT_">refreshScrollViewDidEndDragging(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Determines whether the refresh view should start animating or go back to <code>.normal</code> state.</p>
+
+<pre class="highlight plaintext"><code>if scrollView.contentOffset.y &lt;= -thresholdValue &amp;&amp; !loading {
+   state = .loading
+   delegate?.pullToRefreshDidTrigger(self)
+}
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">refreshScrollViewDidEndDragging</span><span class="p">(</span><span class="n">_</span> <span class="nv">scrollView</span><span class="p">:</span> <span class="kt">UIScrollView</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>scrollView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The scroll view in which the refresh view is contained.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC7UniPlus19PZPullToRefreshView45refreshScrollViewDataSourceDidFinishedLoadingFCSo12UIScrollViewT_"></a>
+                    <a name="//apple_ref/swift/Method/refreshScrollViewDataSourceDidFinishedLoading(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC7UniPlus19PZPullToRefreshView45refreshScrollViewDataSourceDidFinishedLoadingFCSo12UIScrollViewT_">refreshScrollViewDataSourceDidFinishedLoading(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Animate the refresh view back to <code>.normal</code> if the table view finishes loading.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">refreshScrollViewDataSourceDidFinishedLoading</span><span class="p">(</span><span class="n">_</span> <span class="nv">scrollView</span><span class="p">:</span> <span class="kt">UIScrollView</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>scrollView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The scroll view in which the refresh view is contained.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC7UniPlus19PZPullToRefreshView12beginRefreshFCSo12UIScrollViewT_"></a>
+                    <a name="//apple_ref/swift/Method/beginRefresh(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC7UniPlus19PZPullToRefreshView12beginRefreshFCSo12UIScrollViewT_">beginRefresh(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Let the refresh view begin refreshing.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">beginRefresh</span> <span class="p">(</span><span class="n">_</span> <span class="nv">scrollView</span><span class="p">:</span> <span class="kt">UIScrollView</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>scrollView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The scroll view in which the refresh view is contained.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">UniPlus</a>. All rights reserved. (Last updated: 2016-10-07)</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

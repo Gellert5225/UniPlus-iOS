@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ConfigNotification Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/ConfigNotification" class="dashAnchor"></a>
+    <a title="ConfigNotification Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">UniPlus Docs</a> (100% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">UniPlus Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        ConfigNotification Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/ConfigNotification.html">ConfigNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PZPullToRefreshView.html">PZPullToRefreshView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/RefreshState.html">RefreshState</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/PZPullToRefreshDelegate.html">PZPullToRefreshDelegate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>ConfigNotification</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">class</span> <span class="kt">ConfigNotification</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UIGestureRecognizerDelegate</span></code></pre>
+
+                </div>
+              </div>
+            <p>This class is just to use the Swift Struct, since it&rsquo;s not possible to access in an Objective-C class.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC7UniPlus18ConfigNotification21configureNotificationFT16inViewControllerCSo16UIViewController9withErrorSb9withTitleSS8withBodySS_T_"></a>
+                    <a name="//apple_ref/swift/Method/configureNotification(inViewController:withError:withTitle:withBody:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC7UniPlus18ConfigNotification21configureNotificationFT16inViewControllerCSo16UIViewController9withErrorSb9withTitleSS8withBodySS_T_">configureNotification(inViewController:withError:withTitle:withBody:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Configure the notification and recursively resend the post if the action fails.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">configureNotification</span><span class="p">(</span><span class="n">inViewController</span> <span class="nv">viewController</span><span class="p">:</span><span class="kt">UIViewController</span><span class="p">,</span> <span class="n">withError</span> <span class="nv">error</span><span class="p">:</span><span class="kt">Bool</span><span class="p">,</span> <span class="n">withTitle</span> <span class="nv">title</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="n">withBody</span> <span class="nv">body</span><span class="p">:</span><span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>viewController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The view controller in which the alert gonna present</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>error</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Determines the alert type</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>title</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The alert title</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>body</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The alert body</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">UniPlus</a>. All rights reserved. (Last updated: 2016-10-07)</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/SearchMajorTableViewController.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/SearchMajorTableViewController</TokenIdentifier>
+			<Abstract type="html">  A list of all majors will be displayed here.</Abstract>
+			<DeclaredIn>SearchMajorTableViewController.h</DeclaredIn>
+            
+			
+			<NodeRef refid="18"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SearchMajorTableViewController/setMajors:</TokenIdentifier>
+			<Abstract type="html">A list of all majors</Abstract>
+			<DeclaredIn>SearchMajorTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSArray *majors</Declaration>
+			
+			
+			<Anchor>//api/name/majors</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SearchMajorTableViewController/majors</TokenIdentifier>
+			<Abstract type="html">A list of all majors</Abstract>
+			<DeclaredIn>SearchMajorTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSArray *majors</Declaration>
+			
+			
+			<Anchor>//api/name/majors</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/SearchMajorTableViewController/majors</TokenIdentifier>
+			<Abstract type="html">A list of all majors</Abstract>
+			<DeclaredIn>SearchMajorTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSArray *majors</Declaration>
+			
+			
+			<Anchor>//api/name/majors</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SearchMajorTableViewController/setDelegate:</TokenIdentifier>
+			<Abstract type="html">SearchMajorTableViewControllerDelegate</Abstract>
+			<DeclaredIn>SearchMajorTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) id&lt;SearchMajorTableViewControllerDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SearchMajorTableViewController/delegate</TokenIdentifier>
+			<Abstract type="html">SearchMajorTableViewControllerDelegate</Abstract>
+			<DeclaredIn>SearchMajorTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) id&lt;SearchMajorTableViewControllerDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/SearchMajorTableViewController/delegate</TokenIdentifier>
+			<Abstract type="html">SearchMajorTableViewControllerDelegate</Abstract>
+			<DeclaredIn>SearchMajorTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) id&lt;SearchMajorTableViewControllerDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

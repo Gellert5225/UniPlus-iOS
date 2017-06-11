@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G12b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-UI-Text-Medium.otf">
+            <string>SFUIText-Medium</string>
+        </array>
+        <array key="SF-UI-Text-Regular.otf">
+            <string>SFUIText-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="J8i-xu-okY" customClass="UPHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BG" translatesAutoresizingMaskIntoConstraints="NO" id="82m-qu-U1M" customClass="PFImageView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KAt-7z-NHh">
+                    <rect key="frame" x="0.0" y="21" width="320" height="147"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LnW-Gi-rtb" customClass="PFImageView">
+                            <rect key="frame" x="128" y="8" width="64" height="64"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="64" id="Fum-Hg-lIn"/>
+                                <constraint firstAttribute="width" constant="64" id="arl-nM-B0W"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mark Zuckerburg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YmA-bE-RN5">
+                            <rect key="frame" x="94" y="77" width="133" height="19.5"/>
+                            <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="612 Reputation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zwc-Eh-1iV">
+                            <rect key="frame" x="113" y="127" width="95" height="16"/>
+                            <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="13"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City Colleges of Chicago-Kennedy-King College" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zqx-Wg-nph">
+                            <rect key="frame" x="25" y="104.5" width="271" height="14.5"/>
+                            <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="LnW-Gi-rtb" firstAttribute="centerX" secondItem="KAt-7z-NHh" secondAttribute="centerX" id="2Uk-RD-aNf"/>
+                        <constraint firstItem="LnW-Gi-rtb" firstAttribute="top" secondItem="KAt-7z-NHh" secondAttribute="top" constant="8" id="3Eg-vN-uHi"/>
+                        <constraint firstItem="YmA-bE-RN5" firstAttribute="centerX" secondItem="KAt-7z-NHh" secondAttribute="centerX" id="C1b-vN-lKh"/>
+                        <constraint firstItem="Zwc-Eh-1iV" firstAttribute="centerX" secondItem="KAt-7z-NHh" secondAttribute="centerX" id="RPg-DX-l1R"/>
+                        <constraint firstAttribute="bottom" secondItem="Zwc-Eh-1iV" secondAttribute="bottom" constant="4" id="Tfh-gV-LFH"/>
+                        <constraint firstItem="Zwc-Eh-1iV" firstAttribute="top" secondItem="Zqx-Wg-nph" secondAttribute="bottom" constant="8" id="W1t-pT-Dvg"/>
+                        <constraint firstItem="YmA-bE-RN5" firstAttribute="top" secondItem="LnW-Gi-rtb" secondAttribute="bottom" constant="5" id="cIl-SC-6gg"/>
+                        <constraint firstItem="Zqx-Wg-nph" firstAttribute="centerX" secondItem="KAt-7z-NHh" secondAttribute="centerX" id="mbc-H9-RO5"/>
+                        <constraint firstItem="Zqx-Wg-nph" firstAttribute="top" secondItem="YmA-bE-RN5" secondAttribute="bottom" constant="8" id="rMR-gg-c59"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="82m-qu-U1M" secondAttribute="bottom" id="502-Dh-oXn"/>
+                <constraint firstItem="KAt-7z-NHh" firstAttribute="centerY" secondItem="J8i-xu-okY" secondAttribute="centerY" constant="4" id="6Rl-x0-jCo"/>
+                <constraint firstItem="82m-qu-U1M" firstAttribute="leading" secondItem="J8i-xu-okY" secondAttribute="leading" id="7wf-re-cnm"/>
+                <constraint firstAttribute="trailing" secondItem="82m-qu-U1M" secondAttribute="trailing" id="FKt-FY-UvL"/>
+                <constraint firstAttribute="trailing" secondItem="KAt-7z-NHh" secondAttribute="trailing" id="P6W-Vz-BTu"/>
+                <constraint firstItem="KAt-7z-NHh" firstAttribute="leading" secondItem="J8i-xu-okY" secondAttribute="leading" id="seY-kZ-CP0"/>
+                <constraint firstItem="82m-qu-U1M" firstAttribute="top" secondItem="J8i-xu-okY" secondAttribute="top" id="yRT-CK-G6H"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="headerImageBottomConstraint" destination="502-Dh-oXn" id="AB5-Ke-e5m"/>
+                <outlet property="headerImageTopConstraint" destination="yRT-CK-G6H" id="yuU-Eo-6xQ"/>
+                <outlet property="headerImageView" destination="82m-qu-U1M" id="Vlf-Mm-prb"/>
+                <outlet property="institutionLabel" destination="Zqx-Wg-nph" id="bgy-rQ-tao"/>
+                <outlet property="profileImageView" destination="LnW-Gi-rtb" id="bjr-YA-pAF"/>
+                <outlet property="reputationLabel" destination="Zwc-Eh-1iV" id="Ogf-X9-bGC"/>
+                <outlet property="userNameLabel" destination="YmA-bE-RN5" id="RE8-bs-glk"/>
+            </connections>
+            <point key="canvasLocation" x="-20" y="-578"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="BG" width="1816" height="936"/>
+    </resources>
+</document>

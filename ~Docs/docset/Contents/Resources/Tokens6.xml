@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/GlobalVariables.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/GlobalVariables</TokenIdentifier>
+			<Abstract type="html">This class can store multiple variable/properties across the application. However, the data will be lost if the application is terminated.
+&lt;br/&gt;
+For example, to get the question stored, simply create an instance of this class, then access the property using:</Abstract>
+			<DeclaredIn>GlobalVariables.h</DeclaredIn>
+            
+			
+			<NodeRef refid="6"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/GlobalVariables/setTempObject:</TokenIdentifier>
+			<Abstract type="html">The question object stored within current application lifecycle</Abstract>
+			<DeclaredIn>GlobalVariables.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) PFObject *tempObject</Declaration>
+			
+			
+			<Anchor>//api/name/tempObject</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/GlobalVariables/tempObject</TokenIdentifier>
+			<Abstract type="html">The question object stored within current application lifecycle</Abstract>
+			<DeclaredIn>GlobalVariables.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) PFObject *tempObject</Declaration>
+			
+			
+			<Anchor>//api/name/tempObject</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/GlobalVariables/tempObject</TokenIdentifier>
+			<Abstract type="html">The question object stored within current application lifecycle</Abstract>
+			<DeclaredIn>GlobalVariables.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) PFObject *tempObject</Declaration>
+			
+			
+			<Anchor>//api/name/tempObject</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/GlobalVariables/getInstance</TokenIdentifier>
+			<Abstract type="html">Create an instance of the GlobalVariables class</Abstract>
+			<DeclaredIn>GlobalVariables.h</DeclaredIn>
+			
+			<Declaration>+ (GlobalVariables *)getInstance</Declaration>
+			
+			<ReturnValue><Abstract type="html">It returns a GlobalVariables instance</Abstract></ReturnValue>
+			<Anchor>//api/name/getInstance</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

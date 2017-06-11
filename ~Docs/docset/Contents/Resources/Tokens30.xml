@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/SearchInstitutionTableViewControllerDelegate.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/SearchInstitutionTableViewControllerDelegate</TokenIdentifier>
+			<Abstract type="html">This will be called in the view controller who&apos;s gonna diplay the selected results.</Abstract>
+			<DeclaredIn>SearchInstitutionTableViewController.h</DeclaredIn>
+            
+			
+			<NodeRef refid="30"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/SearchInstitutionTableViewControllerDelegate/addUniversity:didFinishPickingUniversity:</TokenIdentifier>
+			<Abstract type="html">Pass the selected institution back to previous view controller.</Abstract>
+			<DeclaredIn>SearchInstitutionTableViewController.h</DeclaredIn>
+			
+			<Declaration>- (void)addUniversity:(SearchInstitutionTableViewController *)search didFinishPickingUniversity:(NSString *)university</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>search</Name>
+					<Abstract type="html">The search view controller</Abstract>
+				</Parameter><Parameter>
+					<Name>university</Name>
+					<Abstract type="html">The selected institution</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/addUniversity:didFinishPickingUniversity:</Anchor>
+            <NodeRef refid="30"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

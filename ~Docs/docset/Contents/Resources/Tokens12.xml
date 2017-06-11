@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/Question.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/Question</TokenIdentifier>
+			<Abstract type="html">This class represents a Question object that a user posted. It has all the attributes that a Questions class on the Parse server has.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+            
+			
+			<NodeRef refid="12"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Question/setTitle:</TokenIdentifier>
+			<Abstract type="html">The title of the question.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *title</Declaration>
+			
+			
+			<Anchor>//api/name/title</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Question/title</TokenIdentifier>
+			<Abstract type="html">The title of the question.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *title</Declaration>
+			
+			
+			<Anchor>//api/name/title</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Question/title</TokenIdentifier>
+			<Abstract type="html">The title of the question.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *title</Declaration>
+			
+			
+			<Anchor>//api/name/title</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Question/setBody:</TokenIdentifier>
+			<Abstract type="html">The body of the question.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *body</Declaration>
+			
+			
+			<Anchor>//api/name/body</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Question/body</TokenIdentifier>
+			<Abstract type="html">The body of the question.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *body</Declaration>
+			
+			
+			<Anchor>//api/name/body</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Question/body</TokenIdentifier>
+			<Abstract type="html">The body of the question.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *body</Declaration>
+			
+			
+			<Anchor>//api/name/body</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Question/setCategory:</TokenIdentifier>
+			<Abstract type="html">Which topic the question belongs to.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *category</Declaration>
+			
+			
+			<Anchor>//api/name/category</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Question/category</TokenIdentifier>
+			<Abstract type="html">Which topic the question belongs to.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *category</Declaration>
+			
+			
+			<Anchor>//api/name/category</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Question/category</TokenIdentifier>
+			<Abstract type="html">Which topic the question belongs to.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *category</Declaration>
+			
+			
+			<Anchor>//api/name/category</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Question/setNumberOfComments:</TokenIdentifier>
+			<Abstract type="html">Number of comments of the question.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSNumber *numberOfComments</Declaration>
+			
+			
+			<Anchor>//api/name/numberOfComments</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Question/numberOfComments</TokenIdentifier>
+			<Abstract type="html">Number of comments of the question.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSNumber *numberOfComments</Declaration>
+			
+			
+			<Anchor>//api/name/numberOfComments</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Question/numberOfComments</TokenIdentifier>
+			<Abstract type="html">Number of comments of the question.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSNumber *numberOfComments</Declaration>
+			
+			
+			<Anchor>//api/name/numberOfComments</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Question/setNumberOfFavs:</TokenIdentifier>
+			<Abstract type="html">Number of users who favourite this question.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSNumber *numberOfFavs</Declaration>
+			
+			
+			<Anchor>//api/name/numberOfFavs</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Question/numberOfFavs</TokenIdentifier>
+			<Abstract type="html">Number of users who favourite this question.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSNumber *numberOfFavs</Declaration>
+			
+			
+			<Anchor>//api/name/numberOfFavs</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Question/numberOfFavs</TokenIdentifier>
+			<Abstract type="html">Number of users who favourite this question.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSNumber *numberOfFavs</Declaration>
+			
+			
+			<Anchor>//api/name/numberOfFavs</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Question/setViews:</TokenIdentifier>
+			<Abstract type="html">Total views of the question.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSNumber *views</Declaration>
+			
+			
+			<Anchor>//api/name/views</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Question/views</TokenIdentifier>
+			<Abstract type="html">Total views of the question.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSNumber *views</Declaration>
+			
+			
+			<Anchor>//api/name/views</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Question/views</TokenIdentifier>
+			<Abstract type="html">Total views of the question.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSNumber *views</Declaration>
+			
+			
+			<Anchor>//api/name/views</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Question/setComments:</TokenIdentifier>
+			<Abstract type="html">The array of Comment of the question.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSMutableArray *comments</Declaration>
+			
+			
+			<Anchor>//api/name/comments</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Question/comments</TokenIdentifier>
+			<Abstract type="html">The array of Comment of the question.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSMutableArray *comments</Declaration>
+			
+			
+			<Anchor>//api/name/comments</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Question/comments</TokenIdentifier>
+			<Abstract type="html">The array of Comment of the question.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSMutableArray *comments</Declaration>
+			
+			
+			<Anchor>//api/name/comments</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Question/setAnswers:</TokenIdentifier>
+			<Abstract type="html">The array of Answer of the question.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSMutableArray *answers</Declaration>
+			
+			
+			<Anchor>//api/name/answers</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Question/answers</TokenIdentifier>
+			<Abstract type="html">The array of Answer of the question.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSMutableArray *answers</Declaration>
+			
+			
+			<Anchor>//api/name/answers</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Question/answers</TokenIdentifier>
+			<Abstract type="html">The array of Answer of the question.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSMutableArray *answers</Declaration>
+			
+			
+			<Anchor>//api/name/answers</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Question/setSolved:</TokenIdentifier>
+			<Abstract type="html">Whether the question is solved or not.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL solved</Declaration>
+			
+			
+			<Anchor>//api/name/solved</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Question/solved</TokenIdentifier>
+			<Abstract type="html">Whether the question is solved or not.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL solved</Declaration>
+			
+			
+			<Anchor>//api/name/solved</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Question/solved</TokenIdentifier>
+			<Abstract type="html">Whether the question is solved or not.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL solved</Declaration>
+			
+			
+			<Anchor>//api/name/solved</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Question/setMarkedByUser:</TokenIdentifier>
+			<Abstract type="html">Whether the question is marked by user or not.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL markedByUser</Declaration>
+			
+			
+			<Anchor>//api/name/markedByUser</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Question/markedByUser</TokenIdentifier>
+			<Abstract type="html">Whether the question is marked by user or not.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL markedByUser</Declaration>
+			
+			
+			<Anchor>//api/name/markedByUser</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Question/markedByUser</TokenIdentifier>
+			<Abstract type="html">Whether the question is marked by user or not.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL markedByUser</Declaration>
+			
+			
+			<Anchor>//api/name/markedByUser</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Question/setCorrectAnswer:</TokenIdentifier>
+			<Abstract type="html">The correct answer of this question.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) PFObject *correctAnswer</Declaration>
+			
+			
+			<Anchor>//api/name/correctAnswer</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Question/correctAnswer</TokenIdentifier>
+			<Abstract type="html">The correct answer of this question.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) PFObject *correctAnswer</Declaration>
+			
+			
+			<Anchor>//api/name/correctAnswer</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Question/correctAnswer</TokenIdentifier>
+			<Abstract type="html">The correct answer of this question.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) PFObject *correctAnswer</Declaration>
+			
+			
+			<Anchor>//api/name/correctAnswer</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Question/incrementPropertyByKey:</TokenIdentifier>
+			<Abstract type="html">Increment the value by 1.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>- (void)incrementPropertyByKey:(PropertyType)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">The property that needs to increment.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/incrementPropertyByKey:</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Question/incrementPropertyByKey:amount:</TokenIdentifier>
+			<Abstract type="html">Increment the value by a certain amout.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>- (void)incrementPropertyByKey:(PropertyType)key amount:(NSNumber *)amount</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">The property that needs to be incremented.</Abstract>
+				</Parameter><Parameter>
+					<Name>amount</Name>
+					<Abstract type="html">The amount that needs to increment.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/incrementPropertyByKey:amount:</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Question/getQuestionObjectWithObjectId:completionBlock:</TokenIdentifier>
+			<Abstract type="html">Retrive the entire Question object including comments and answers. This is running in background thread, after the completion block, it goes back to main thread.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+			
+			<Declaration>+ (void)getQuestionObjectWithObjectId:(NSString *)objectId completionBlock:(void ( ^ ) ( BOOL success , NSError *error , PFObject *pfQuestion , Question *question ))block</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>objectId</Name>
+					<Abstract type="html">The question&apos;s ID.</Abstract>
+				</Parameter><Parameter>
+					<Name>block</Name>
+					<Abstract type="html">The completion block that handle the action after complete.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getQuestionObjectWithObjectId:completionBlock:</Anchor>
+            <NodeRef refid="12"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

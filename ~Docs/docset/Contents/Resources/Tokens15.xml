@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/QuestionDraft.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/QuestionDraft</TokenIdentifier>
+			<Abstract type="html">The data model for saving a draft.</Abstract>
+			<DeclaredIn>QuestionDraft.h</DeclaredIn>
+            
+			
+			<NodeRef refid="15"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/QuestionDraft/setQuestionDrafts:</TokenIdentifier>
+			<Abstract type="html">An array of PFObject ) used to store drafts</Abstract>
+			<DeclaredIn>QuestionDraft.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSMutableArray *questionDrafts</Declaration>
+			
+			
+			<Anchor>//api/name/questionDrafts</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/QuestionDraft/questionDrafts</TokenIdentifier>
+			<Abstract type="html">An array of PFObject ) used to store drafts</Abstract>
+			<DeclaredIn>QuestionDraft.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSMutableArray *questionDrafts</Declaration>
+			
+			
+			<Anchor>//api/name/questionDrafts</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/QuestionDraft/questionDrafts</TokenIdentifier>
+			<Abstract type="html">An array of PFObject ) used to store drafts</Abstract>
+			<DeclaredIn>QuestionDraft.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSMutableArray *questionDrafts</Declaration>
+			
+			
+			<Anchor>//api/name/questionDrafts</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/QuestionDraft/deleteDraft:</TokenIdentifier>
+			<Abstract type="html">  Delete this draft when a user successfully posts a draft.</Abstract>
+			<DeclaredIn>QuestionDraft.h</DeclaredIn>
+			
+			<Declaration>- (void)deleteDraft:(PFObject *)question</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>question</Name>
+					<Abstract type="html">The question object that has been saved as draft</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/deleteDraft:</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/QuestionDraft/addDraft:</TokenIdentifier>
+			<Abstract type="html">Add this draft when a user dismiss the PostQuestionTableViewChontroller.</Abstract>
+			<DeclaredIn>QuestionDraft.h</DeclaredIn>
+			
+			<Declaration>- (void)addDraft:(PFObject *)question</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>question</Name>
+					<Abstract type="html">The question object that has been saved as draft</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/addDraft:</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/QuestionDraft/getDraftAtIndex:</TokenIdentifier>
+			<Abstract type="html">Get the draft when a user click on a draft.</Abstract>
+			<DeclaredIn>QuestionDraft.h</DeclaredIn>
+			
+			<Declaration>- (PFObject *)getDraftAtIndex:(NSInteger)index</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>index</Name>
+					<Abstract type="html">The index of the draft</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getDraftAtIndex:</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/QuestionDraft/getDrafts</TokenIdentifier>
+			<Abstract type="html">Create an instance of the QuestionDraft class.</Abstract>
+			<DeclaredIn>QuestionDraft.h</DeclaredIn>
+			
+			<Declaration>+ (QuestionDraft *)getDrafts</Declaration>
+			
+			<ReturnValue><Abstract type="html">It returns a QuestionDraft instance.</Abstract></ReturnValue>
+			<Anchor>//api/name/getDrafts</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

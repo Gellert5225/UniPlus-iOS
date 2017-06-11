@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/SearchInstitutionTableViewController.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/SearchInstitutionTableViewController</TokenIdentifier>
+			<Abstract type="html">A list of all US Institutions will be displayed here.</Abstract>
+			<DeclaredIn>SearchInstitutionTableViewController.h</DeclaredIn>
+            
+			
+			<NodeRef refid="17"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SearchInstitutionTableViewController/setUniversities:</TokenIdentifier>
+			<Abstract type="html">A full list of all US institutions.</Abstract>
+			<DeclaredIn>SearchInstitutionTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSMutableArray *universities</Declaration>
+			
+			
+			<Anchor>//api/name/universities</Anchor>
+            <NodeRef refid="17"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SearchInstitutionTableViewController/universities</TokenIdentifier>
+			<Abstract type="html">A full list of all US institutions.</Abstract>
+			<DeclaredIn>SearchInstitutionTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSMutableArray *universities</Declaration>
+			
+			
+			<Anchor>//api/name/universities</Anchor>
+            <NodeRef refid="17"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/SearchInstitutionTableViewController/universities</TokenIdentifier>
+			<Abstract type="html">A full list of all US institutions.</Abstract>
+			<DeclaredIn>SearchInstitutionTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSMutableArray *universities</Declaration>
+			
+			
+			<Anchor>//api/name/universities</Anchor>
+            <NodeRef refid="17"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SearchInstitutionTableViewController/setDelegate:</TokenIdentifier>
+			<Abstract type="html">The SearchInstitutionTableViewControllerDelegate property.</Abstract>
+			<DeclaredIn>SearchInstitutionTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) id&lt;SearchInstitutionTableViewControllerDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+            <NodeRef refid="17"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/SearchInstitutionTableViewController/delegate</TokenIdentifier>
+			<Abstract type="html">The SearchInstitutionTableViewControllerDelegate property.</Abstract>
+			<DeclaredIn>SearchInstitutionTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) id&lt;SearchInstitutionTableViewControllerDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+            <NodeRef refid="17"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/SearchInstitutionTableViewController/delegate</TokenIdentifier>
+			<Abstract type="html">The SearchInstitutionTableViewControllerDelegate property.</Abstract>
+			<DeclaredIn>SearchInstitutionTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) id&lt;SearchInstitutionTableViewControllerDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+            <NodeRef refid="17"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

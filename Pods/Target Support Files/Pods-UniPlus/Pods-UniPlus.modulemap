@@ -1,0 +1,6 @@
+framework module Pods_UniPlus {
+  umbrella header "Pods-UniPlus-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/UPSearchControllerDelegate.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/UPSearchControllerDelegate</TokenIdentifier>
+			<Abstract type="html">Tracking the events</Abstract>
+			<DeclaredIn>UPSearchController.h</DeclaredIn>
+            
+			
+			<NodeRef refid="34"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/UPSearchControllerDelegate/didStartSearching</TokenIdentifier>
+			<Abstract type="html">User did tap on search bar</Abstract>
+			<DeclaredIn>UPSearchController.h</DeclaredIn>
+			
+			<Declaration>- (void)didStartSearching</Declaration>
+			
+			
+			<Anchor>//api/name/didStartSearching</Anchor>
+            <NodeRef refid="34"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/UPSearchControllerDelegate/didTapOnSearchButton</TokenIdentifier>
+			<Abstract type="html">User did start searching</Abstract>
+			<DeclaredIn>UPSearchController.h</DeclaredIn>
+			
+			<Declaration>- (void)didTapOnSearchButton</Declaration>
+			
+			
+			<Anchor>//api/name/didTapOnSearchButton</Anchor>
+            <NodeRef refid="34"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/UPSearchControllerDelegate/didTapOnCancelButton</TokenIdentifier>
+			<Abstract type="html">User did cancel searching</Abstract>
+			<DeclaredIn>UPSearchController.h</DeclaredIn>
+			
+			<Declaration>- (void)didTapOnCancelButton</Declaration>
+			
+			
+			<Anchor>//api/name/didTapOnCancelButton</Anchor>
+            <NodeRef refid="34"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/UPSearchControllerDelegate/didChangeSearchText:</TokenIdentifier>
+			<Abstract type="html">User did enter text</Abstract>
+			<DeclaredIn>UPSearchController.h</DeclaredIn>
+			
+			<Declaration>- (void)didChangeSearchText:(NSString *)searchText</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>searchText</Name>
+					<Abstract type="html">The search string
+  </Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/didChangeSearchText:</Anchor>
+            <NodeRef refid="34"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

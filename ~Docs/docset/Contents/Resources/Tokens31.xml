@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/SearchMajorTableViewControllerDelegate.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/SearchMajorTableViewControllerDelegate</TokenIdentifier>
+			<Abstract type="html">Pass the selected major back to previous view controller.&lt;br/&gt;
+This will be called in the view controller who&apos;s gonna diplay the selected results.</Abstract>
+			<DeclaredIn>SearchMajorTableViewController.h</DeclaredIn>
+            
+			
+			<NodeRef refid="31"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/SearchMajorTableViewControllerDelegate/addMajor:didFinishPickingMajor:</TokenIdentifier>
+			<Abstract type="html">Pass the selected major back to previous view controller.</Abstract>
+			<DeclaredIn>SearchMajorTableViewController.h</DeclaredIn>
+			
+			<Declaration>- (void)addMajor:(SearchMajorTableViewController *)search didFinishPickingMajor:(NSString *)major</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>search</Name>
+					<Abstract type="html">The search view controller</Abstract>
+				</Parameter><Parameter>
+					<Name>major</Name>
+					<Abstract type="html">Selected major</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/addMajor:didFinishPickingMajor:</Anchor>
+            <NodeRef refid="31"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

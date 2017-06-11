@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-UI-Text-Regular.otf">
+            <string>SFUIText-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell tag="11" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="previewcell2" id="KGk-i7-Jjw" customClass="PreviewCell2">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <frame key="frameInset" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Website" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yzp-sd-QLy">
+                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="13"/>
+                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="next"/>
+                        <connections>
+                            <outlet property="delegate" destination="-1" id="a9F-gi-6GJ"/>
+                        </connections>
+                    </textField>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="web" translatesAutoresizingMaskIntoConstraints="NO" id="jmK-em-Yn2">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="gWd-TS-cUl"/>
+                            <constraint firstAttribute="width" constant="20" id="pzu-x8-nm4"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="jmK-em-Yn2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="9Ts-Z0-kCa"/>
+                    <constraint firstItem="yzp-sd-QLy" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="9jD-8R-tQJ"/>
+                    <constraint firstItem="jmK-em-Yn2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="V5G-k9-6SO"/>
+                    <constraint firstItem="yzp-sd-QLy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-1" id="V7w-ei-Rwl"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="yzp-sd-QLy" secondAttribute="bottom" constant="-1.5" id="Yxl-tb-69O"/>
+                    <constraint firstItem="yzp-sd-QLy" firstAttribute="leading" secondItem="jmK-em-Yn2" secondAttribute="trailing" constant="13" id="n5e-Tb-sQe"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="jmK-em-Yn2" secondAttribute="bottom" constant="3.5" id="r1Z-Zn-t9m"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="webField" destination="yzp-sd-QLy" id="Ea9-4P-RNn"/>
+            </connections>
+            <point key="canvasLocation" x="105" y="208"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="web" width="30" height="30"/>
+    </resources>
+</document>

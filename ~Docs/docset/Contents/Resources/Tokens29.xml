@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/SRActionSheetDelegate.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/SRActionSheetDelegate</TokenIdentifier>
+			<Abstract type="html">Handle the events if the user select the action sheet at a specific index.</Abstract>
+			<DeclaredIn>SRActionSheet.h</DeclaredIn>
+            
+			
+			<NodeRef refid="29"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/SRActionSheetDelegate/actionSheet:didSelectSheet:</TokenIdentifier>
+			<Abstract type="html">Delegate&apos;s method</Abstract>
+			<DeclaredIn>SRActionSheet.h</DeclaredIn>
+			
+			<Declaration>- (void)actionSheet:(SRActionSheet *)actionSheet didSelectSheet:(NSInteger)index</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>actionSheet</Name>
+					<Abstract type="html">The SRActionSheet</Abstract>
+				</Parameter><Parameter>
+					<Name>index</Name>
+					<Abstract type="html">top is 0 and 0++ to down but cancelBtn&apos;s index is -1</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/actionSheet:didSelectSheet:</Anchor>
+            <NodeRef refid="29"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

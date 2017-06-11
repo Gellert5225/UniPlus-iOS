@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/UPLeftMenuTableViewController.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/UPLeftMenuTableViewController</TokenIdentifier>
+			<Abstract type="html">It is the left view controller of the SWRevealViewController. User can have access to all contents here.</Abstract>
+			<DeclaredIn>UPLeftMenuTableViewController.h</DeclaredIn>
+            
+			
+			<NodeRef refid="21"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPLeftMenuTableViewController/setMenuMajorArray:</TokenIdentifier>
+			<Abstract type="html">The academic topics that the user selected</Abstract>
+			<DeclaredIn>UPLeftMenuTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSMutableArray *menuMajorArray</Declaration>
+			
+			
+			<Anchor>//api/name/menuMajorArray</Anchor>
+            <NodeRef refid="21"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPLeftMenuTableViewController/menuMajorArray</TokenIdentifier>
+			<Abstract type="html">The academic topics that the user selected</Abstract>
+			<DeclaredIn>UPLeftMenuTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSMutableArray *menuMajorArray</Declaration>
+			
+			
+			<Anchor>//api/name/menuMajorArray</Anchor>
+            <NodeRef refid="21"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/UPLeftMenuTableViewController/menuMajorArray</TokenIdentifier>
+			<Abstract type="html">The academic topics that the user selected</Abstract>
+			<DeclaredIn>UPLeftMenuTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSMutableArray *menuMajorArray</Declaration>
+			
+			
+			<Anchor>//api/name/menuMajorArray</Anchor>
+            <NodeRef refid="21"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

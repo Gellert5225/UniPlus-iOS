@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/PropertyType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/PropertyType</TokenIdentifier>
+			<Abstract type="html">Type of properties that belongs to a question.</Abstract>
+			<DeclaredIn>Question.h</DeclaredIn>
+            
+			
+			<NodeRef refid="35"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/Views</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>Views</Declaration>
+            
+            <DeclaredIn>Question.h</DeclaredIn>
+            
+            <NodeRef refid="35"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/NumberOfComments</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>NumberOfComments</Declaration>
+            
+            <DeclaredIn>Question.h</DeclaredIn>
+            
+            <NodeRef refid="35"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/UpVotes</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>UpVotes</Declaration>
+            
+            <DeclaredIn>Question.h</DeclaredIn>
+            
+            <NodeRef refid="35"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/NumberOfFavs</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>NumberOfFavs</Declaration>
+            
+            <DeclaredIn>Question.h</DeclaredIn>
+            
+            <NodeRef refid="35"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

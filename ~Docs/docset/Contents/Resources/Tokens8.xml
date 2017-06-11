@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/NewestQueryTableViewController.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/NewestQueryTableViewController</TokenIdentifier>
+			<Abstract type="html">It&apos;s a subclass of PFQueryTableViewController, main interface of the application, showing all the questions in one category.</Abstract>
+			<DeclaredIn>NewestQueryTableViewController.h</DeclaredIn>
+            
+			
+			<NodeRef refid="8"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NewestQueryTableViewController/setIsLoadingForTheFirstTime:</TokenIdentifier>
+			<Abstract type="html">whether the table view is loading for the first time after initialization.</Abstract>
+			<DeclaredIn>NewestQueryTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL isLoadingForTheFirstTime</Declaration>
+			
+			
+			<Anchor>//api/name/isLoadingForTheFirstTime</Anchor>
+            <NodeRef refid="8"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NewestQueryTableViewController/isLoadingForTheFirstTime</TokenIdentifier>
+			<Abstract type="html">whether the table view is loading for the first time after initialization.</Abstract>
+			<DeclaredIn>NewestQueryTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL isLoadingForTheFirstTime</Declaration>
+			
+			
+			<Anchor>//api/name/isLoadingForTheFirstTime</Anchor>
+            <NodeRef refid="8"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/NewestQueryTableViewController/isLoadingForTheFirstTime</TokenIdentifier>
+			<Abstract type="html">whether the table view is loading for the first time after initialization.</Abstract>
+			<DeclaredIn>NewestQueryTableViewController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL isLoadingForTheFirstTime</Declaration>
+			
+			
+			<Anchor>//api/name/isLoadingForTheFirstTime</Anchor>
+            <NodeRef refid="8"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NewestQueryTableViewController/initWithStyle:Topic:ParseClass:sortingOrder:</TokenIdentifier>
+			<Abstract type="html">Designated initializer for NewestQueryTableViewController.&lt;br/&gt;
+This will set the topic, parse class and sorting order used for querying.</Abstract>
+			<DeclaredIn>NewestQueryTableViewController.h</DeclaredIn>
+			
+			<Declaration>- (id)initWithStyle:(UITableViewStyle)style Topic:(NSString *)topic ParseClass:(NSString *)className sortingOrder:(NSString *)order</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>style</Name>
+					<Abstract type="html">The style of the table view</Abstract>
+				</Parameter><Parameter>
+					<Name>topic</Name>
+					<Abstract type="html">The topic of the view controller</Abstract>
+				</Parameter><Parameter>
+					<Name>className</Name>
+					<Abstract type="html">The Parse class that the query is querying to</Abstract>
+				</Parameter><Parameter>
+					<Name>order</Name>
+					<Abstract type="html">The sorting order</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instancetype</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithStyle:Topic:ParseClass:sortingOrder:</Anchor>
+            <NodeRef refid="8"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

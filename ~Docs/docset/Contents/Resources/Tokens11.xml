@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/ProfileTableViewModel.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/ProfileTableViewModel</TokenIdentifier>
+			<Abstract type="html">A view model for ProfileTableViewController.</Abstract>
+			<DeclaredIn>ProfileTableViewModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="11"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ProfileTableViewModel/setActivities:</TokenIdentifier>
+			<Abstract type="html">An array of PFObjects representing the Feeds.</Abstract>
+			<DeclaredIn>ProfileTableViewModel.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSMutableArray *activities</Declaration>
+			
+			
+			<Anchor>//api/name/activities</Anchor>
+            <NodeRef refid="11"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ProfileTableViewModel/activities</TokenIdentifier>
+			<Abstract type="html">An array of PFObjects representing the Feeds.</Abstract>
+			<DeclaredIn>ProfileTableViewModel.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSMutableArray *activities</Declaration>
+			
+			
+			<Anchor>//api/name/activities</Anchor>
+            <NodeRef refid="11"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ProfileTableViewModel/activities</TokenIdentifier>
+			<Abstract type="html">An array of PFObjects representing the Feeds.</Abstract>
+			<DeclaredIn>ProfileTableViewModel.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSMutableArray *activities</Declaration>
+			
+			
+			<Anchor>//api/name/activities</Anchor>
+            <NodeRef refid="11"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ProfileTableViewModel/setQuestions:</TokenIdentifier>
+			<Abstract type="html">An array of PFObjects representing questions asked by the user.</Abstract>
+			<DeclaredIn>ProfileTableViewModel.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSMutableArray *questions</Declaration>
+			
+			
+			<Anchor>//api/name/questions</Anchor>
+            <NodeRef refid="11"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ProfileTableViewModel/questions</TokenIdentifier>
+			<Abstract type="html">An array of PFObjects representing questions asked by the user.</Abstract>
+			<DeclaredIn>ProfileTableViewModel.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSMutableArray *questions</Declaration>
+			
+			
+			<Anchor>//api/name/questions</Anchor>
+            <NodeRef refid="11"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ProfileTableViewModel/questions</TokenIdentifier>
+			<Abstract type="html">An array of PFObjects representing questions asked by the user.</Abstract>
+			<DeclaredIn>ProfileTableViewModel.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSMutableArray *questions</Declaration>
+			
+			
+			<Anchor>//api/name/questions</Anchor>
+            <NodeRef refid="11"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ProfileTableViewModel/setAnswers:</TokenIdentifier>
+			<Abstract type="html">An array of PFObjects representing answers posted by the user.</Abstract>
+			<DeclaredIn>ProfileTableViewModel.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSMutableArray *answers</Declaration>
+			
+			
+			<Anchor>//api/name/answers</Anchor>
+            <NodeRef refid="11"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ProfileTableViewModel/answers</TokenIdentifier>
+			<Abstract type="html">An array of PFObjects representing answers posted by the user.</Abstract>
+			<DeclaredIn>ProfileTableViewModel.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSMutableArray *answers</Declaration>
+			
+			
+			<Anchor>//api/name/answers</Anchor>
+            <NodeRef refid="11"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/ProfileTableViewModel/answers</TokenIdentifier>
+			<Abstract type="html">An array of PFObjects representing answers posted by the user.</Abstract>
+			<DeclaredIn>ProfileTableViewModel.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSMutableArray *answers</Declaration>
+			
+			
+			<Anchor>//api/name/answers</Anchor>
+            <NodeRef refid="11"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ProfileTableViewModel/fetchRecentActivitiesForUser:completionBlock:</TokenIdentifier>
+			<Abstract type="html">Fetch the latesest 10 activities from the user.</Abstract>
+			<DeclaredIn>ProfileTableViewModel.h</DeclaredIn>
+			
+			<Declaration>- (void)fetchRecentActivitiesForUser:(PFUser *)user completionBlock:(void ( ^ ) ( BOOL success , NSError *error ))block</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>user</Name>
+					<Abstract type="html">The user in the ProfileViewController.</Abstract>
+				</Parameter><Parameter>
+					<Name>block</Name>
+					<Abstract type="html">Handle the completion.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/fetchRecentActivitiesForUser:completionBlock:</Anchor>
+            <NodeRef refid="11"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ProfileTableViewModel/fetchRecentQuestionsForUser:completionBlock:</TokenIdentifier>
+			<Abstract type="html">Fetch the latesest 10 questions asked by the user.</Abstract>
+			<DeclaredIn>ProfileTableViewModel.h</DeclaredIn>
+			
+			<Declaration>- (void)fetchRecentQuestionsForUser:(PFUser *)user completionBlock:(void ( ^ ) ( BOOL success , NSError *error ))block</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>user</Name>
+					<Abstract type="html">The user in the ProfileViewController.</Abstract>
+				</Parameter><Parameter>
+					<Name>block</Name>
+					<Abstract type="html">Handle the completion.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/fetchRecentQuestionsForUser:completionBlock:</Anchor>
+            <NodeRef refid="11"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/ProfileTableViewModel/fetchRecentAnswersForUser:completionBlock:</TokenIdentifier>
+			<Abstract type="html">Fetch the latesest 10 answers posted by user.</Abstract>
+			<DeclaredIn>ProfileTableViewModel.h</DeclaredIn>
+			
+			<Declaration>- (void)fetchRecentAnswersForUser:(PFUser *)user completionBlock:(void ( ^ ) ( BOOL success , NSError *error ))block</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>user</Name>
+					<Abstract type="html">The user in the ProfileViewController.</Abstract>
+				</Parameter><Parameter>
+					<Name>block</Name>
+					<Abstract type="html">Handle the completion.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/fetchRecentAnswersForUser:completionBlock:</Anchor>
+            <NodeRef refid="11"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

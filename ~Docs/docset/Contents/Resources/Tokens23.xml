@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/UPSearchBar.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/UPSearchBar</TokenIdentifier>
+			<Abstract type="html">UniPlus custom search bar</Abstract>
+			<DeclaredIn>UPSearchBar.h</DeclaredIn>
+            
+			
+			<NodeRef refid="23"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPSearchBar/setFont:</TokenIdentifier>
+			<Abstract type="html">The font of the search bar</Abstract>
+			<DeclaredIn>UPSearchBar.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIFont *font</Declaration>
+			
+			
+			<Anchor>//api/name/font</Anchor>
+            <NodeRef refid="23"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPSearchBar/font</TokenIdentifier>
+			<Abstract type="html">The font of the search bar</Abstract>
+			<DeclaredIn>UPSearchBar.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIFont *font</Declaration>
+			
+			
+			<Anchor>//api/name/font</Anchor>
+            <NodeRef refid="23"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/UPSearchBar/font</TokenIdentifier>
+			<Abstract type="html">The font of the search bar</Abstract>
+			<DeclaredIn>UPSearchBar.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIFont *font</Declaration>
+			
+			
+			<Anchor>//api/name/font</Anchor>
+            <NodeRef refid="23"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPSearchBar/setPreferredColor:</TokenIdentifier>
+			<Abstract type="html">The color of the search bar</Abstract>
+			<DeclaredIn>UPSearchBar.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIColor *preferredColor</Declaration>
+			
+			
+			<Anchor>//api/name/preferredColor</Anchor>
+            <NodeRef refid="23"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPSearchBar/preferredColor</TokenIdentifier>
+			<Abstract type="html">The color of the search bar</Abstract>
+			<DeclaredIn>UPSearchBar.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIColor *preferredColor</Declaration>
+			
+			
+			<Anchor>//api/name/preferredColor</Anchor>
+            <NodeRef refid="23"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/UPSearchBar/preferredColor</TokenIdentifier>
+			<Abstract type="html">The color of the search bar</Abstract>
+			<DeclaredIn>UPSearchBar.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIColor *preferredColor</Declaration>
+			
+			
+			<Anchor>//api/name/preferredColor</Anchor>
+            <NodeRef refid="23"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

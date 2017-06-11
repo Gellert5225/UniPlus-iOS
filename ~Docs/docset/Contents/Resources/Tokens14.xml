@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/QuestionDetailViewModel.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/QuestionDetailViewModel</TokenIdentifier>
+			<Abstract type="html">A view model for QuestionDetailTableViewController.</Abstract>
+			<DeclaredIn>QuestionDetailViewModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="14"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/QuestionDetailViewModel/setQuestion:</TokenIdentifier>
+			<Abstract type="html">The Question object that returned by fetchQuestionWithQuestionID:completionBlock: method</Abstract>
+			<DeclaredIn>QuestionDetailViewModel.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) Question *question</Declaration>
+			
+			
+			<Anchor>//api/name/question</Anchor>
+            <NodeRef refid="14"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/QuestionDetailViewModel/question</TokenIdentifier>
+			<Abstract type="html">The Question object that returned by fetchQuestionWithQuestionID:completionBlock: method</Abstract>
+			<DeclaredIn>QuestionDetailViewModel.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) Question *question</Declaration>
+			
+			
+			<Anchor>//api/name/question</Anchor>
+            <NodeRef refid="14"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/QuestionDetailViewModel/question</TokenIdentifier>
+			<Abstract type="html">The Question object that returned by fetchQuestionWithQuestionID:completionBlock: method</Abstract>
+			<DeclaredIn>QuestionDetailViewModel.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) Question *question</Declaration>
+			
+			
+			<Anchor>//api/name/question</Anchor>
+            <NodeRef refid="14"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/QuestionDetailViewModel/setQuestionID:</TokenIdentifier>
+			<Abstract type="html">The objectID of the Question.</Abstract>
+			<DeclaredIn>QuestionDetailViewModel.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *questionID</Declaration>
+			
+			
+			<Anchor>//api/name/questionID</Anchor>
+            <NodeRef refid="14"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/QuestionDetailViewModel/questionID</TokenIdentifier>
+			<Abstract type="html">The objectID of the Question.</Abstract>
+			<DeclaredIn>QuestionDetailViewModel.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *questionID</Declaration>
+			
+			
+			<Anchor>//api/name/questionID</Anchor>
+            <NodeRef refid="14"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/QuestionDetailViewModel/questionID</TokenIdentifier>
+			<Abstract type="html">The objectID of the Question.</Abstract>
+			<DeclaredIn>QuestionDetailViewModel.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *questionID</Declaration>
+			
+			
+			<Anchor>//api/name/questionID</Anchor>
+            <NodeRef refid="14"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/QuestionDetailViewModel/fetchQuestionWithQuestionID:completionBlock:</TokenIdentifier>
+			<Abstract type="html">Fetch the Question object from the server with an objectID provided by Parse</Abstract>
+			<DeclaredIn>QuestionDetailViewModel.h</DeclaredIn>
+			
+			<Declaration>- (void)fetchQuestionWithQuestionID:(NSString *)questionID completionBlock:(void ( ^ ) ( BOOL success , NSError *error ))block</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>questionID</Name>
+					<Abstract type="html">the objectID of the question.</Abstract>
+				</Parameter><Parameter>
+					<Name>block</Name>
+					<Abstract type="html">handling the completion after fetching.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/fetchQuestionWithQuestionID:completionBlock:</Anchor>
+            <NodeRef refid="14"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/QuestionDetailViewModel/acceptAnswer:accepted:</TokenIdentifier>
+			<Abstract type="html">Mark the answer as correct or not correct.</Abstract>
+			<DeclaredIn>QuestionDetailViewModel.h</DeclaredIn>
+			
+			<Declaration>- (void)acceptAnswer:(Answer *)answer accepted:(BOOL)accepted</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>answer</Name>
+					<Abstract type="html">the Answer object that is being marked.</Abstract>
+				</Parameter><Parameter>
+					<Name>accepted</Name>
+					<Abstract type="html">whether or not it is correct.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/acceptAnswer:accepted:</Anchor>
+            <NodeRef refid="14"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/QuestionDetailViewModel/commentToObject:withCommentBody:replyToComment:</TokenIdentifier>
+			<Abstract type="html">Post a comment to a Question or Answer.</Abstract>
+			<DeclaredIn>QuestionDetailViewModel.h</DeclaredIn>
+			
+			<Declaration>- (void)commentToObject:(UPObject *)object withCommentBody:(NSString *)body replyToComment:(PFObject *)toComment</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>object</Name>
+					<Abstract type="html">a generic UPObject representing the post to which the comment belongs.</Abstract>
+				</Parameter><Parameter>
+					<Name>body</Name>
+					<Abstract type="html">the comment body.</Abstract>
+				</Parameter><Parameter>
+					<Name>toComment</Name>
+					<Abstract type="html">a nullable Comment object that tells the server whether user is replying to another comment.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/commentToObject:withCommentBody:replyToComment:</Anchor>
+            <NodeRef refid="14"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/QuestionDetailViewModel/incrementNumberOfViews</TokenIdentifier>
+			<Abstract type="html">Increment the number of views.</Abstract>
+			<DeclaredIn>QuestionDetailViewModel.h</DeclaredIn>
+			
+			<Declaration>- (void)incrementNumberOfViews</Declaration>
+			
+			
+			<Anchor>//api/name/incrementNumberOfViews</Anchor>
+            <NodeRef refid="14"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/Answer.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/Answer</TokenIdentifier>
+			<Abstract type="html">This class represents the answer that a user posted under a Question. It has all the attributes that the Answers class on Parse server has.</Abstract>
+			<DeclaredIn>Answer.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Answer/setBody:</TokenIdentifier>
+			<Abstract type="html">The body of the Answer.</Abstract>
+			<DeclaredIn>Answer.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *body</Declaration>
+			
+			
+			<Anchor>//api/name/body</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Answer/body</TokenIdentifier>
+			<Abstract type="html">The body of the Answer.</Abstract>
+			<DeclaredIn>Answer.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *body</Declaration>
+			
+			
+			<Anchor>//api/name/body</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Answer/body</TokenIdentifier>
+			<Abstract type="html">The body of the Answer.</Abstract>
+			<DeclaredIn>Answer.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *body</Declaration>
+			
+			
+			<Anchor>//api/name/body</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Answer/setComments:</TokenIdentifier>
+			<Abstract type="html">All the Comment under this Answer.</Abstract>
+			<DeclaredIn>Answer.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSMutableArray *comments</Declaration>
+			
+			
+			<Anchor>//api/name/comments</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Answer/comments</TokenIdentifier>
+			<Abstract type="html">All the Comment under this Answer.</Abstract>
+			<DeclaredIn>Answer.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSMutableArray *comments</Declaration>
+			
+			
+			<Anchor>//api/name/comments</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Answer/comments</TokenIdentifier>
+			<Abstract type="html">All the Comment under this Answer.</Abstract>
+			<DeclaredIn>Answer.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSMutableArray *comments</Declaration>
+			
+			
+			<Anchor>//api/name/comments</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Answer/getAnswerFromPFObject:completionBlock:</TokenIdentifier>
+			<Abstract type="html">Retrive the Answer object from Parse server, including all the comments under this Answer.</Abstract>
+			<DeclaredIn>Answer.h</DeclaredIn>
+			
+			<Declaration>+ (void)getAnswerFromPFObject:(PFObject *)object completionBlock:(void ( ^ ) ( BOOL success , NSError *err , __weak Answer *answer ))block</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>object</Name>
+					<Abstract type="html">The Answer object in PFObject format.</Abstract>
+				</Parameter><Parameter>
+					<Name>block</Name>
+					<Abstract type="html">The completion block that handles the action after retrieving the Answer.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getAnswerFromPFObject:completionBlock:</Anchor>
+            <NodeRef refid="1"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

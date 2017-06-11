@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/MainPageViewController.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/MainPageViewController</TokenIdentifier>
+			<Abstract type="html">It is a wrapper view controller, in which there are 3 child view controllers, ie. 3 instances of NewestQueryTableViewController</Abstract>
+			<DeclaredIn>MainPageViewController.h</DeclaredIn>
+            
+			
+			<NodeRef refid="7"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MainPageViewController/initWithTopic:ParseClass:</TokenIdentifier>
+			<Abstract type="html">Designated initializer</Abstract>
+			<DeclaredIn>MainPageViewController.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithTopic:(NSString *)topic ParseClass:(NSString *)className</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>topic</Name>
+					<Abstract type="html">The topic</Abstract>
+				</Parameter><Parameter>
+					<Name>className</Name>
+					<Abstract type="html">The Parse class name</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">MainPageViewController</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithTopic:ParseClass:</Anchor>
+            <NodeRef refid="7"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

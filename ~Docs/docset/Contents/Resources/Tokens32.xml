@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/UPCommentAccessoryViewDelegate.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/UPCommentAccessoryViewDelegate</TokenIdentifier>
+			<Abstract type="html">Tracking the typing events</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+            
+			
+			<NodeRef refid="32"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/UPCommentAccessoryViewDelegate/userShouldChangeText:withText:</TokenIdentifier>
+			<Abstract type="html">Asks the delegate whether the specified text should be replaced in the text view.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+			
+			<Declaration>- (void)userShouldChangeText:(BOOL)should withText:(NSString *)text</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>should</Name>
+					<Abstract type="html">Whether the specified text should be replaced in the text view.</Abstract>
+				</Parameter><Parameter>
+					<Name>text</Name>
+					<Abstract type="html">The text to insert.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/userShouldChangeText:withText:</Anchor>
+            <NodeRef refid="32"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/UPCommentAccessoryViewDelegate/userDidTapDiscardView</TokenIdentifier>
+			<Abstract type="html">An event listener to the tap gesture recognizer, discard the UPCommentAccessoryView.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+			
+			<Declaration>- (void)userDidTapDiscardView</Declaration>
+			
+			
+			<Anchor>//api/name/userDidTapDiscardView</Anchor>
+            <NodeRef refid="32"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/UPCommentAccessoryViewDelegate/userDidEnterText</TokenIdentifier>
+			<Abstract type="html">User did enter some text.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+			
+			<Declaration>- (void)userDidEnterText</Declaration>
+			
+			
+			<Anchor>//api/name/userDidEnterText</Anchor>
+            <NodeRef refid="32"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

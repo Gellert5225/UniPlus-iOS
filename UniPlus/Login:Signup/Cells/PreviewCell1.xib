@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2333a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-UI-Text-Regular.otf">
+            <string>SFUIText-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell tag="10" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="previewcell1" id="KGk-i7-Jjw" customClass="PreviewCell1">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <frame key="frameInset" width="320" height="87.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3cG-ED-BL3">
+                        <color key="backgroundColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="zx1-8E-bOQ"/>
+                        </constraints>
+                    </view>
+                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Alias" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J83-Bg-42Z">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="Tjm-HP-oTT"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="13"/>
+                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                        <connections>
+                            <outlet property="delegate" destination="-1" id="vp0-tv-JPz"/>
+                        </connections>
+                    </textField>
+                    <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r0O-kn-bp4">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="bBD-NA-aln"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="13"/>
+                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                        <connections>
+                            <outlet property="delegate" destination="-1" id="1ji-2U-nEc"/>
+                        </connections>
+                    </textField>
+                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Clv-Vx-Nkt" customClass="PFImageView">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="JML-Gg-MgB"/>
+                            <constraint firstAttribute="width" constant="50" id="Oad-KG-tpa"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ck4-mm-cAt">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16.5" id="Fw1-Tv-u0B"/>
+                            <constraint firstAttribute="width" constant="30" id="aec-6g-EPr"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="13"/>
+                        <state key="normal" title="Edit"/>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="name" translatesAutoresizingMaskIntoConstraints="NO" id="6Yf-IH-Tix">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="CDQ-fj-MZm"/>
+                            <constraint firstAttribute="width" constant="20" id="GF0-3y-dGC"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="FcB-s4-amh">
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="CMH-b9-jkS"/>
+                            <constraint firstAttribute="height" constant="20" id="vl6-Pu-Ec8"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="FcB-s4-amh" secondAttribute="bottom" constant="3.5" id="E48-Ks-pjV"/>
+                    <constraint firstItem="J83-Bg-42Z" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="EMh-Rk-gcV"/>
+                    <constraint firstItem="ck4-mm-cAt" firstAttribute="top" secondItem="Clv-Vx-Nkt" secondAttribute="bottom" constant="8" id="HVh-4M-vMo"/>
+                    <constraint firstItem="Clv-Vx-Nkt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="IN2-60-lbN"/>
+                    <constraint firstItem="Clv-Vx-Nkt" firstAttribute="leading" secondItem="r0O-kn-bp4" secondAttribute="trailing" constant="37" id="IiA-Jh-NKK"/>
+                    <constraint firstItem="3cG-ED-BL3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="38" id="KDc-A4-ooa"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="3cG-ED-BL3" secondAttribute="trailing" constant="76" id="LXw-xg-OO4"/>
+                    <constraint firstItem="J83-Bg-42Z" firstAttribute="leading" secondItem="6Yf-IH-Tix" secondAttribute="trailing" constant="13" id="M1e-hw-Kt7"/>
+                    <constraint firstItem="FcB-s4-amh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="MzV-1e-Ta8"/>
+                    <constraint firstItem="Clv-Vx-Nkt" firstAttribute="leading" secondItem="J83-Bg-42Z" secondAttribute="trailing" constant="37" id="OJA-zg-Lck"/>
+                    <constraint firstItem="r0O-kn-bp4" firstAttribute="leading" secondItem="FcB-s4-amh" secondAttribute="trailing" constant="13" id="Tg7-aI-dQX"/>
+                    <constraint firstItem="r0O-kn-bp4" firstAttribute="top" secondItem="3cG-ED-BL3" secondAttribute="bottom" constant="7.5" id="a6f-IW-iGK"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="ck4-mm-cAt" secondAttribute="trailing" constant="14" id="fFV-sz-ycT"/>
+                    <constraint firstItem="6Yf-IH-Tix" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="o7b-t1-hly"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="ck4-mm-cAt" secondAttribute="bottom" constant="-3" id="os6-eL-LIi"/>
+                    <constraint firstItem="3cG-ED-BL3" firstAttribute="top" secondItem="J83-Bg-42Z" secondAttribute="bottom" constant="5" id="p6m-nJ-AD2"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="r0O-kn-bp4" secondAttribute="bottom" constant="-1.5" id="qlS-yU-gfV"/>
+                    <constraint firstItem="6Yf-IH-Tix" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="rlh-zy-EO0"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Clv-Vx-Nkt" secondAttribute="trailing" constant="4" id="w91-pC-qk7"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="editButton" destination="ck4-mm-cAt" id="aPB-PA-yhW"/>
+                <outlet property="nameField" destination="J83-Bg-42Z" id="Klf-g8-59q"/>
+                <outlet property="profilePhotoView" destination="Clv-Vx-Nkt" id="cPi-fg-38l"/>
+                <outlet property="usernameField" destination="r0O-kn-bp4" id="ilK-PW-3aq"/>
+            </connections>
+            <point key="canvasLocation" x="-1699" y="-99"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="name" width="30" height="30"/>
+        <image name="user" width="30" height="30"/>
+    </resources>
+</document>

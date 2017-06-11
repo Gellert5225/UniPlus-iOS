@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/UPSearchController.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/UPSearchController</TokenIdentifier>
+			<Abstract type="html">UniPlus custom search controller</Abstract>
+			<DeclaredIn>UPSearchController.h</DeclaredIn>
+            
+			
+			<NodeRef refid="24"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPSearchController/setUPDelegate:</TokenIdentifier>
+			<Abstract type="html">The UPSearchControllerDelegate</Abstract>
+			<DeclaredIn>UPSearchController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) id&lt;UPSearchControllerDelegate&gt; UPDelegate</Declaration>
+			
+			
+			<Anchor>//api/name/UPDelegate</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPSearchController/UPDelegate</TokenIdentifier>
+			<Abstract type="html">The UPSearchControllerDelegate</Abstract>
+			<DeclaredIn>UPSearchController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) id&lt;UPSearchControllerDelegate&gt; UPDelegate</Declaration>
+			
+			
+			<Anchor>//api/name/UPDelegate</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/UPSearchController/UPDelegate</TokenIdentifier>
+			<Abstract type="html">The UPSearchControllerDelegate</Abstract>
+			<DeclaredIn>UPSearchController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) id&lt;UPSearchControllerDelegate&gt; UPDelegate</Declaration>
+			
+			
+			<Anchor>//api/name/UPDelegate</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

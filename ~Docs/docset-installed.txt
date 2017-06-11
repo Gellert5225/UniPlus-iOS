@@ -1,0 +1,4 @@
+Documentation set was installed to Xcode!
+
+Path: /Users/JiaheLi/Library/Developer/Shared/Documentation/DocSets/com.Quicky.UniPlus.docset
+Time: 2017-06-11 09:43:13 +0000

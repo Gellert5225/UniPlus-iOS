@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/Comment.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/Comment</TokenIdentifier>
+			<Abstract type="html">This class represents the comment that a user posted either under a Question or an Answer. It has all the attributes that the Comments class on Parse server has.</Abstract>
+			<DeclaredIn>Comment.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Comment/setBody:</TokenIdentifier>
+			<Abstract type="html">The body of the comment.</Abstract>
+			<DeclaredIn>Comment.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *body</Declaration>
+			
+			
+			<Anchor>//api/name/body</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Comment/body</TokenIdentifier>
+			<Abstract type="html">The body of the comment.</Abstract>
+			<DeclaredIn>Comment.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *body</Declaration>
+			
+			
+			<Anchor>//api/name/body</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Comment/body</TokenIdentifier>
+			<Abstract type="html">The body of the comment.</Abstract>
+			<DeclaredIn>Comment.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *body</Declaration>
+			
+			
+			<Anchor>//api/name/body</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Comment/setToUser:</TokenIdentifier>
+			<Abstract type="html">Which user that the comment is for.</Abstract>
+			<DeclaredIn>Comment.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) PFUser *toUser</Declaration>
+			
+			
+			<Anchor>//api/name/toUser</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Comment/toUser</TokenIdentifier>
+			<Abstract type="html">Which user that the comment is for.</Abstract>
+			<DeclaredIn>Comment.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) PFUser *toUser</Declaration>
+			
+			
+			<Anchor>//api/name/toUser</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/Comment/toUser</TokenIdentifier>
+			<Abstract type="html">Which user that the comment is for.</Abstract>
+			<DeclaredIn>Comment.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) PFUser *toUser</Declaration>
+			
+			
+			<Anchor>//api/name/toUser</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/Comment/initWithPFObject:</TokenIdentifier>
+			<Abstract type="html">A designated initializer that init the Comment with a PFObject from Parse.</Abstract>
+			<DeclaredIn>Comment.h</DeclaredIn>
+			
+			<Declaration>- (id)initWithPFObject:(PFObject *)object</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>object</Name>
+					<Abstract type="html">The Comment in PFObject format.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">It returns an instance type.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithPFObject:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/Comment/commentToObject:withComment:underQuestion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>Comment.h</DeclaredIn>
+			
+			<Declaration>+ (void)commentToObject:(UPObject *)object withComment:(PFObject *)comment underQuestion:(Question *)question</Declaration>
+			
+			
+			<Anchor>//api/name/commentToObject:withComment:underQuestion:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

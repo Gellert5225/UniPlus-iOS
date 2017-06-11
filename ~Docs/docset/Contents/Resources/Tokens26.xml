@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/EditTopicTableViewControllerDelegate.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/EditTopicTableViewControllerDelegate</TokenIdentifier>
+			<Abstract type="html">Return the selected topic back to Left Menu</Abstract>
+			<DeclaredIn>EditTopicTableViewController.h</DeclaredIn>
+            
+			
+			<NodeRef refid="26"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/EditTopicTableViewControllerDelegate/passMajorArrayToLeftMenu:</TokenIdentifier>
+			<Abstract type="html">  Pass the selected major back to previous view controller</Abstract>
+			<DeclaredIn>EditTopicTableViewController.h</DeclaredIn>
+			
+			<Declaration>- (void)passMajorArrayToLeftMenu:(NSMutableArray *)array</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>array</Name>
+					<Abstract type="html">User selected topics</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/passMajorArrayToLeftMenu:</Anchor>
+            <NodeRef refid="26"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

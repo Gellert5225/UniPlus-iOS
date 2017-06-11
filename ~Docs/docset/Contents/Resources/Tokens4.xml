@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/FavouriteView.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/FavouriteView</TokenIdentifier>
+			<Abstract type="html">A custom view that handles the mark event.</Abstract>
+			<DeclaredIn>FavouriteView.h</DeclaredIn>
+            
+			
+			<NodeRef refid="4"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FavouriteView/setDelegate:</TokenIdentifier>
+			<Abstract type="html">The FavouriteView delegate</Abstract>
+			<DeclaredIn>FavouriteView.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) id&lt;FavouriteViewDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FavouriteView/delegate</TokenIdentifier>
+			<Abstract type="html">The FavouriteView delegate</Abstract>
+			<DeclaredIn>FavouriteView.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) id&lt;FavouriteViewDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/FavouriteView/delegate</TokenIdentifier>
+			<Abstract type="html">The FavouriteView delegate</Abstract>
+			<DeclaredIn>FavouriteView.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) id&lt;FavouriteViewDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FavouriteView/setMarkImgView:</TokenIdentifier>
+			<Abstract type="html">The UIImage view where shows the mark flag.</Abstract>
+			<DeclaredIn>FavouriteView.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIImageView *markImgView</Declaration>
+			
+			
+			<Anchor>//api/name/markImgView</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FavouriteView/markImgView</TokenIdentifier>
+			<Abstract type="html">The UIImage view where shows the mark flag.</Abstract>
+			<DeclaredIn>FavouriteView.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIImageView *markImgView</Declaration>
+			
+			
+			<Anchor>//api/name/markImgView</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/FavouriteView/markImgView</TokenIdentifier>
+			<Abstract type="html">The UIImage view where shows the mark flag.</Abstract>
+			<DeclaredIn>FavouriteView.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UIImageView *markImgView</Declaration>
+			
+			
+			<Anchor>//api/name/markImgView</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FavouriteView/setMarkLabel:</TokenIdentifier>
+			<Abstract type="html">The UILabel which display whether the user marked the question or not.</Abstract>
+			<DeclaredIn>FavouriteView.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UILabel *markLabel</Declaration>
+			
+			
+			<Anchor>//api/name/markLabel</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FavouriteView/markLabel</TokenIdentifier>
+			<Abstract type="html">The UILabel which display whether the user marked the question or not.</Abstract>
+			<DeclaredIn>FavouriteView.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UILabel *markLabel</Declaration>
+			
+			
+			<Anchor>//api/name/markLabel</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/FavouriteView/markLabel</TokenIdentifier>
+			<Abstract type="html">The UILabel which display whether the user marked the question or not.</Abstract>
+			<DeclaredIn>FavouriteView.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) UILabel *markLabel</Declaration>
+			
+			
+			<Anchor>//api/name/markLabel</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FavouriteView/setQuestionToFavourite:</TokenIdentifier>
+			<Abstract type="html">The question object to be marked.</Abstract>
+			<DeclaredIn>FavouriteView.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) PFObject *questionToFavourite</Declaration>
+			
+			
+			<Anchor>//api/name/questionToFavourite</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FavouriteView/questionToFavourite</TokenIdentifier>
+			<Abstract type="html">The question object to be marked.</Abstract>
+			<DeclaredIn>FavouriteView.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) PFObject *questionToFavourite</Declaration>
+			
+			
+			<Anchor>//api/name/questionToFavourite</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/FavouriteView/questionToFavourite</TokenIdentifier>
+			<Abstract type="html">The question object to be marked.</Abstract>
+			<DeclaredIn>FavouriteView.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) PFObject *questionToFavourite</Declaration>
+			
+			
+			<Anchor>//api/name/questionToFavourite</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FavouriteView/setAlreadyMarked:</TokenIdentifier>
+			<Abstract type="html">Whether or not the user has already marked the question.</Abstract>
+			<DeclaredIn>FavouriteView.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL alreadyMarked</Declaration>
+			
+			
+			<Anchor>//api/name/alreadyMarked</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/FavouriteView/alreadyMarked</TokenIdentifier>
+			<Abstract type="html">Whether or not the user has already marked the question.</Abstract>
+			<DeclaredIn>FavouriteView.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL alreadyMarked</Declaration>
+			
+			
+			<Anchor>//api/name/alreadyMarked</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/FavouriteView/alreadyMarked</TokenIdentifier>
+			<Abstract type="html">Whether or not the user has already marked the question.</Abstract>
+			<DeclaredIn>FavouriteView.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL alreadyMarked</Declaration>
+			
+			
+			<Anchor>//api/name/alreadyMarked</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

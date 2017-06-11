@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/UPCommentAccessoryView.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/UPCommentAccessoryView</TokenIdentifier>
+			<Abstract type="html">This is a custom keyboard accessory view.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+            
+			
+			<NodeRef refid="19"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPCommentAccessoryView/setDelegate:</TokenIdentifier>
+			<Abstract type="html">The UPCommentAccessoryViewDelegate.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) id&lt;UPCommentAccessoryViewDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPCommentAccessoryView/delegate</TokenIdentifier>
+			<Abstract type="html">The UPCommentAccessoryViewDelegate.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) id&lt;UPCommentAccessoryViewDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/UPCommentAccessoryView/delegate</TokenIdentifier>
+			<Abstract type="html">The UPCommentAccessoryViewDelegate.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) id&lt;UPCommentAccessoryViewDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPCommentAccessoryView/setCommentView:</TokenIdentifier>
+			<Abstract type="html">The comment text view.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UITextView *commentView</Declaration>
+			
+			
+			<Anchor>//api/name/commentView</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPCommentAccessoryView/commentView</TokenIdentifier>
+			<Abstract type="html">The comment text view.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UITextView *commentView</Declaration>
+			
+			
+			<Anchor>//api/name/commentView</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/UPCommentAccessoryView/commentView</TokenIdentifier>
+			<Abstract type="html">The comment text view.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UITextView *commentView</Declaration>
+			
+			
+			<Anchor>//api/name/commentView</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPCommentAccessoryView/setCharLimitLabel:</TokenIdentifier>
+			<Abstract type="html">The label which shows the character limit.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UILabel *charLimitLabel</Declaration>
+			
+			
+			<Anchor>//api/name/charLimitLabel</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPCommentAccessoryView/charLimitLabel</TokenIdentifier>
+			<Abstract type="html">The label which shows the character limit.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UILabel *charLimitLabel</Declaration>
+			
+			
+			<Anchor>//api/name/charLimitLabel</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/UPCommentAccessoryView/charLimitLabel</TokenIdentifier>
+			<Abstract type="html">The label which shows the character limit.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UILabel *charLimitLabel</Declaration>
+			
+			
+			<Anchor>//api/name/charLimitLabel</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPCommentAccessoryView/setReplyLabel:</TokenIdentifier>
+			<Abstract type="html">The label which shows whom to reply.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UILabel *replyLabel</Declaration>
+			
+			
+			<Anchor>//api/name/replyLabel</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPCommentAccessoryView/replyLabel</TokenIdentifier>
+			<Abstract type="html">The label which shows whom to reply.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UILabel *replyLabel</Declaration>
+			
+			
+			<Anchor>//api/name/replyLabel</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/UPCommentAccessoryView/replyLabel</TokenIdentifier>
+			<Abstract type="html">The label which shows whom to reply.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UILabel *replyLabel</Declaration>
+			
+			
+			<Anchor>//api/name/replyLabel</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPCommentAccessoryView/setBackgroundView:</TokenIdentifier>
+			<Abstract type="html">The background of the UPCommentAccessoryView.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UIView *backgroundView</Declaration>
+			
+			
+			<Anchor>//api/name/backgroundView</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPCommentAccessoryView/backgroundView</TokenIdentifier>
+			<Abstract type="html">The background of the UPCommentAccessoryView.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UIView *backgroundView</Declaration>
+			
+			
+			<Anchor>//api/name/backgroundView</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/UPCommentAccessoryView/backgroundView</TokenIdentifier>
+			<Abstract type="html">The background of the UPCommentAccessoryView.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UIView *backgroundView</Declaration>
+			
+			
+			<Anchor>//api/name/backgroundView</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPCommentAccessoryView/setDiscardView:</TokenIdentifier>
+			<Abstract type="html">The discard view when user swipes left.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UIView *discardView</Declaration>
+			
+			
+			<Anchor>//api/name/discardView</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPCommentAccessoryView/discardView</TokenIdentifier>
+			<Abstract type="html">The discard view when user swipes left.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UIView *discardView</Declaration>
+			
+			
+			<Anchor>//api/name/discardView</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/UPCommentAccessoryView/discardView</TokenIdentifier>
+			<Abstract type="html">The discard view when user swipes left.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UIView *discardView</Declaration>
+			
+			
+			<Anchor>//api/name/discardView</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPCommentAccessoryView/setFrontView:</TokenIdentifier>
+			<Abstract type="html">The front view of the UPCommentAccessoryView. This is where we add the pan gesture recognizer.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UIView *frontView</Declaration>
+			
+			
+			<Anchor>//api/name/frontView</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPCommentAccessoryView/frontView</TokenIdentifier>
+			<Abstract type="html">The front view of the UPCommentAccessoryView. This is where we add the pan gesture recognizer.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UIView *frontView</Declaration>
+			
+			
+			<Anchor>//api/name/frontView</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/UPCommentAccessoryView/frontView</TokenIdentifier>
+			<Abstract type="html">The front view of the UPCommentAccessoryView. This is where we add the pan gesture recognizer.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UIView *frontView</Declaration>
+			
+			
+			<Anchor>//api/name/frontView</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPCommentAccessoryView/setFrontViewTrailingConstraint:</TokenIdentifier>
+			<Abstract type="html">The trailing constraint of the front view.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet NSLayoutConstraint *frontViewTrailingConstraint</Declaration>
+			
+			
+			<Anchor>//api/name/frontViewTrailingConstraint</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPCommentAccessoryView/frontViewTrailingConstraint</TokenIdentifier>
+			<Abstract type="html">The trailing constraint of the front view.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet NSLayoutConstraint *frontViewTrailingConstraint</Declaration>
+			
+			
+			<Anchor>//api/name/frontViewTrailingConstraint</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/UPCommentAccessoryView/frontViewTrailingConstraint</TokenIdentifier>
+			<Abstract type="html">The trailing constraint of the front view.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet NSLayoutConstraint *frontViewTrailingConstraint</Declaration>
+			
+			
+			<Anchor>//api/name/frontViewTrailingConstraint</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPCommentAccessoryView/setFrontViewLeadingConstraint:</TokenIdentifier>
+			<Abstract type="html">The leading constraint of the front view.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet NSLayoutConstraint *frontViewLeadingConstraint</Declaration>
+			
+			
+			<Anchor>//api/name/frontViewLeadingConstraint</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPCommentAccessoryView/frontViewLeadingConstraint</TokenIdentifier>
+			<Abstract type="html">The leading constraint of the front view.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet NSLayoutConstraint *frontViewLeadingConstraint</Declaration>
+			
+			
+			<Anchor>//api/name/frontViewLeadingConstraint</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/UPCommentAccessoryView/frontViewLeadingConstraint</TokenIdentifier>
+			<Abstract type="html">The leading constraint of the front view.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet NSLayoutConstraint *frontViewLeadingConstraint</Declaration>
+			
+			
+			<Anchor>//api/name/frontViewLeadingConstraint</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/UPCommentAccessoryView/initWithNibName:</TokenIdentifier>
+			<Abstract type="html">A designated initializer that initializes the view from interface biulder.</Abstract>
+			<DeclaredIn>UPCommentAccessoryView.h</DeclaredIn>
+			
+			<Declaration>- (id)initWithNibName:(NSString *)nib</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>nib</Name>
+					<Abstract type="html">The nib name of the xib.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance type.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithNibName:</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

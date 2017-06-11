@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/FavouriteViewDelegate.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/FavouriteViewDelegate</TokenIdentifier>
+			<Abstract type="html">Event controller for marking the question as favourite.</Abstract>
+			<DeclaredIn>FavouriteView.h</DeclaredIn>
+            
+			
+			<NodeRef refid="27"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/FavouriteViewDelegate/didTapFavouriteView</TokenIdentifier>
+			<Abstract type="html">Handle the marking action.</Abstract>
+			<DeclaredIn>FavouriteView.h</DeclaredIn>
+			
+			<Declaration>- (void)didTapFavouriteView</Declaration>
+			
+			
+			<Anchor>//api/name/didTapFavouriteView</Anchor>
+            <NodeRef refid="27"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>
