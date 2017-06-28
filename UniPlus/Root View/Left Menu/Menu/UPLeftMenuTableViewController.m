@@ -22,6 +22,8 @@
 #import <Parse/Parse.h>
 #import <GKFadeNavigationController/GKFadeNavigationController.h>
 
+#define COLOR_SCHEME [UIColor colorWithRed:53/255.0 green:111/255.0 blue:177/255.0 alpha:1.0]
+
 @interface UPLeftMenuTableViewController () {
     UITableView *leftMenu;
     SWRevealViewController *revealController;
@@ -42,7 +44,7 @@
     
     self.view = leftMenu;
     
-    leftMenu.backgroundColor = [UIColor colorWithRed:53/255.0 green:111/255.0 blue:177/255.0 alpha:1.0];
+    leftMenu.backgroundColor = [UIColor whiteColor];
     [leftMenu setSeparatorColor:[UIColor clearColor]];
     
     self.clearsSelectionOnViewWillAppear = YES;
@@ -56,7 +58,7 @@
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
+    return UIStatusBarStyleDefault;
 }
 
 #pragma mark - SLExpandableTableViewDataSource
@@ -101,6 +103,8 @@
             cell2.cellImg.image = [UIImage imageNamed:@"Topic"];
             cell2.cellText.text = @"General Discussion";
             cell2.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell2.cellImg.image = [cell2.cellImg.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+            [cell2.cellImg setTintColor:COLOR_SCHEME];
             break;
         case 2:
             cell.cellImg.image     = [UIImage imageNamed:@"Academic"];
@@ -132,6 +136,9 @@
         default:
             break;
     }
+    
+    cell.cellImg.image = [cell.cellImg.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [cell.cellImg setTintColor:COLOR_SCHEME];
     
     if (section == 1) {
         return cell2;
@@ -223,7 +230,7 @@
     
     //set selection color
     UIView *bgColorView = [[UIView alloc] init];
-    bgColorView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.2];
+    bgColorView.backgroundColor = [UIColor colorWithWhite:0.7 alpha:0.2];
     [cell1 setSelectedBackgroundView:bgColorView];
     
     cell2.selectionStyle = UITableViewCellSelectionStyleNone;

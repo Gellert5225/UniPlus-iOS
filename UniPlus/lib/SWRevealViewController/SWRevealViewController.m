@@ -70,7 +70,7 @@ static CGFloat scaledValue( CGFloat v1, CGFloat min2, CGFloat max2, CGFloat min1
 
 - (void)reloadShadow {
     CALayer *frontViewLayer = _frontView.layer;
-    frontViewLayer.shadowColor = [UIColor blackColor].CGColor;
+    frontViewLayer.shadowColor = _c.frontViewShadowColor;
     frontViewLayer.shadowOpacity = _c.frontViewShadowOpacity;
     frontViewLayer.shadowOffset = _c.frontViewShadowOffset;
     frontViewLayer.shadowRadius = _c.frontViewShadowRadius;
@@ -566,6 +566,11 @@ const int FrontViewPositionNone = 0xff;
 
 - (void)setFrontViewShadowOpacity:(CGFloat)frontViewShadowOpacity {
     _frontViewShadowOpacity = frontViewShadowOpacity;
+    [_contentView reloadShadow];
+}
+
+- (void)setFrontViewShadowColor:(CGColorRef)frontViewShadowColor {
+    _frontViewShadowColor = frontViewShadowColor;
     [_contentView reloadShadow];
 }
 

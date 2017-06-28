@@ -90,6 +90,7 @@ typedef enum {
 
 @property (nonatomic) CGFloat frontViewShadowOpacity;
 
+@property (nonatomic) CGColorRef frontViewShadowColor;
 
 @property (nonatomic,weak) id<SWRevealViewControllerDelegate> delegate;
 

@@ -16,6 +16,8 @@
 
 #import "QuestionDetailCells.h"
 
+#define COLOR_SCHEME [UIColor colorWithRed:53/255.0 green:111/255.0 blue:177/255.0 alpha:1.0]
+
 @interface QuestionDetailTableViewController ()<PZPullToRefreshDelegate,UIGestureRecognizerDelegate, UINavigationControllerDelegate, UpVoteViewDelegate, DownVoteViewDelegate, UITextViewDelegate, AnswerTableViewControllerDelegate, FavouriteViewDelegate, EditViewDelegate, AcceptAnswerCellDelegate, UPErrorDelegate, GKFadeNavigationControllerDelegate>
 
 @property (strong, nonatomic) UPCommentAccessoryView  *commentAccView;
@@ -313,7 +315,7 @@
     }
 }
 
-#pragma - PZPullToRefresh
+#pragma - mark PZPullToRefresh
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (!self.isLoading) {
@@ -556,6 +558,7 @@
             if (!refreshControl && !weakSelf.isLoading) {
                 refreshControl = [[PZPullToRefreshView alloc] initWithFrame:CGRectMake(0, 0 - tableViewHeight, tableViewWidth, tableViewHeight)];
                 refreshControl.thresholdValue = 40.0 + inset.top;
+                refreshControl.statusTextColor = COLOR_SCHEME;
                 refreshControl.delegate = weakSelf;
                 [weakSelf.tableView addSubview:refreshControl];
             }

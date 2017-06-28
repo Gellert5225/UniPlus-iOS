@@ -21,6 +21,8 @@
 #import <arpa/inet.h>
 #import <GKFadeNavigationController/GKFadeNavigationController.h>
 
+#define COLOR_SCHEME [UIColor colorWithRed:53/255.0 green:111/255.0 blue:177/255.0 alpha:1.0]
+
 @interface AppDelegate ()
 
 @end
@@ -63,6 +65,10 @@
         UPLeftMenuTableViewController *leftMenuVC = [[UPLeftMenuTableViewController alloc]init];
         leftMenuVC.menuMajorArray = topicArray;
         SWRevealViewController *revealController = [[SWRevealViewController alloc]initWithRearViewController:leftMenuVC frontViewController:nav2];
+        revealController.frontViewShadowColor = [UIColor colorWithWhite:0.4 alpha:1].CGColor;
+        revealController.frontViewShadowOpacity = 0.3;
+        revealController.frontViewShadowOffset = CGSizeMake(0.0, 0.0);
+        revealController.frontViewShadowRadius = 2.0;
         revealController.delegate = self;
         
         self.window.rootViewController = revealController;

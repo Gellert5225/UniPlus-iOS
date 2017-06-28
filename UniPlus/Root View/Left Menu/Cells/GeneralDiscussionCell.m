@@ -7,6 +7,7 @@
 //
 
 #import "GeneralDiscussionCell.h"
+#define COLOR_SCHEME [UIColor colorWithRed:53/255.0 green:111/255.0 blue:177/255.0 alpha:1.0]
 
 @implementation GeneralDiscussionCell
 

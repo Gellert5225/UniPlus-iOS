@@ -16,12 +16,15 @@
 #import "SRActionSheet.h"
 #import "QuestionDetailTableViewController.h"
 
+#import "UniPlus-Swift.h"
+
 #define kGKHeaderHeight 180.f
 #define kGKHeaderVisibleThreshold 30.f
 #define kGKNavbarHeight 64.f
 #define COLOR_SCHEME [UIColor colorWithRed:53/255.0 green:111/255.0 blue:177/255.0 alpha:1.0]
+#define kRefreshControlThreshold 40.0f
 
-@interface ProfileTableViewController ()
+@interface ProfileTableViewController () <PZPullToRefreshDelegate>
 
 @property (nonatomic) GKFadeNavigationControllerNavigationBarVisibility navigationBarVisibility;
 @property (strong, nonatomic) UIImageView *menuImgView;
@@ -31,7 +34,9 @@
 
 @end
 
-@implementation ProfileTableViewController
+@implementation ProfileTableViewController {
+    PZPullToRefreshView *refreshControl;
+}
 
 #pragma - mark Accessors
 
@@ -178,6 +183,8 @@
     // Stretch the header view if neccessary
     if (scrollOffsetY > kGKHeaderHeight) {
         _headerView.headerImageTopConstraint.constant = kGKHeaderHeight-scrollOffsetY;
+        NSLog(@"%f", scrollView.contentOffset.y);
+        _headerView.contentWrapperView.alpha = scrollOffsetY;
     } else {
         _headerView.headerImageTopConstraint.constant = (kGKHeaderHeight-scrollOffsetY)/2.f;
         _headerView.headerImageBottomConstraint.constant = -(kGKHeaderHeight-scrollOffsetY)/2.f;
@@ -189,6 +196,8 @@
     } else {
         self.navigationBarVisibility = GKFadeNavigationControllerNavigationBarVisibilityHidden;
     }
+    
+    [refreshControl refreshScrollViewDidScroll:scrollView];
 }
 
 #pragma mark GKFadeNavigationControllerDelegate
@@ -257,13 +266,49 @@
     [self setNeedsStatusBarAppearanceUpdate];
 }
 
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    [refreshControl refreshScrollViewDidEndDragging:scrollView];
+}
+
+- (void)pullToRefreshDidTrigger:(PZPullToRefreshView *)view {
+    [self loadObjects];
+}
+
+- (NSDate *)pullToRefreshLastUpdated:(PZPullToRefreshView *)view {
+    NSDate *date = [[NSDate alloc]init];
+    return date;
+}
+
+- (void)configureRefreshView {
+    refreshControl.arrow = [UIImage imageNamed:@"arrow"];
+    refreshControl.bgColor = [UIColor clearColor];
+    refreshControl.statusTextColor = [UIColor whiteColor];
+}
+
 - (void)loadObjects {
+//    CGFloat tableViewHeight = self.tableView.bounds.size.height;
+//    CGFloat tableViewWidth  = self.tableView.bounds.size.width;
     _isLoading = YES;
     __weak typeof(self) weakSelf = self;
     [_viewModel fetchRecentActivitiesForUser:_profileUser completionBlock:^(BOOL success, NSError *error) {
-        _isLoading = NO;
+        if (success) {
+            weakSelf.isLoading = NO;
+            if (!refreshControl && !weakSelf.isLoading) {
+//                refreshControl = [[PZPullToRefreshView alloc]initWithFrame:CGRectMake(0, 0 - tableViewHeight, tableViewWidth, tableViewHeight)];
+//                [self configureRefreshView];
+//                refreshControl.thresholdValue = 40.0;
+//                refreshControl.delegate = weakSelf;
+//                [weakSelf.tableView addSubview:refreshControl];
+            }
+        }
+        refreshControl.isLoading = NO;
         [weakSelf.tableView reloadData];
         [weakSelf.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+        [refreshControl refreshScrollViewDataSourceDidFinishedLoading:weakSelf.tableView];
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:0.3];
+        [weakSelf.tableView setContentOffset:CGPointZero animated:YES];
+        [UIView commitAnimations];
     }];
 }
 

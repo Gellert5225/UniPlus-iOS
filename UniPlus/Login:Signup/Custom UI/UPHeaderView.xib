@@ -27,7 +27,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KAt-7z-NHh">
-                    <rect key="frame" x="0.0" y="21" width="320" height="147"/>
+                    <rect key="frame" x="0.0" y="21.5" width="320" height="146"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LnW-Gi-rtb" customClass="PFImageView">
                             <rect key="frame" x="128" y="8" width="64" height="64"/>
@@ -37,19 +37,19 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mark Zuckerburg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YmA-bE-RN5">
-                            <rect key="frame" x="94" y="77" width="133" height="19.5"/>
+                            <rect key="frame" x="94" y="77" width="133" height="19"/>
                             <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="16"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="612 Reputation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zwc-Eh-1iV">
-                            <rect key="frame" x="113" y="127" width="95" height="16"/>
+                            <rect key="frame" x="113" y="126" width="95" height="16"/>
                             <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="13"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City Colleges of Chicago-Kennedy-King College" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zqx-Wg-nph">
-                            <rect key="frame" x="25" y="104.5" width="271" height="14.5"/>
+                            <rect key="frame" x="25" y="104" width="271" height="14"/>
                             <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
@@ -81,6 +81,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="contentWrapperView" destination="KAt-7z-NHh" id="YgK-7q-Suf"/>
                 <outlet property="headerImageBottomConstraint" destination="502-Dh-oXn" id="AB5-Ke-e5m"/>
                 <outlet property="headerImageTopConstraint" destination="yRT-CK-G6H" id="yuU-Eo-6xQ"/>
                 <outlet property="headerImageView" destination="82m-qu-U1M" id="Vlf-Mm-prb"/>

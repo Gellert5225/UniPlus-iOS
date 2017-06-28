@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *institutionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *reputationLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerImageBottomConstraint;
+@property (weak, nonatomic) IBOutlet UIView *contentWrapperView;
 
 @property (strong, nonatomic) PFUser *user;
 

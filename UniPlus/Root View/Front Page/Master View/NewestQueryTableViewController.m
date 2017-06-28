@@ -22,6 +22,8 @@
 #import <PopupDialog/PopupDialog-Swift.h>
 #import <SwiftMessages/SwiftMessages-Swift.h>
 
+#define COLOR_SCHEME [UIColor colorWithRed:53/255.0 green:111/255.0 blue:177/255.0 alpha:1.0]
+
 @interface NewestQueryTableViewController ()<PZPullToRefreshDelegate>
 
 @property (strong, nonatomic) NSMutableDictionary *cellHeightsDictionary;
@@ -244,7 +246,7 @@
     }
 }
 
-#pragma - PZPullToRefresh
+#pragma - mark PZPullToRefresh
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [refreshControl refreshScrollViewDidScroll:scrollView];
@@ -263,7 +265,6 @@
 }
 
 - (void)pullToRefreshDidTrigger:(PZPullToRefreshView *)view {
-    refreshControl.isLoading = YES;
     [self loadObjects:0 clear:YES completionBlock:^(NSArray * _Nonnull foundObjects, NSError * _Nonnull error) {
         if (error) {
             [self showAlertWithErrorString:[NSString stringWithFormat:@"%@",[error userInfo][@"error"]]];
@@ -336,6 +337,7 @@
     
     if (!refreshControl) {
         refreshControl = [[PZPullToRefreshView alloc] initWithFrame:CGRectMake(0, 0 - tableViewHeight, tableViewWidth, tableViewHeight)];
+        refreshControl.statusTextColor = COLOR_SCHEME;
         refreshControl.delegate = self;
         [self.tableView addSubview:refreshControl];
     }

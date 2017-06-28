@@ -48,7 +48,12 @@ open class PZPullToRefreshView: UIView {
     /**
      The color of the status text (Loading/Pull down to refresh/Release to refresh).
      */
-    open var statusTextColor = UIColor(red: 53/255.0, green:111/255.0, blue:177/255.0, alpha: 1)
+    open var statusTextColor: UIColor? {
+        didSet {
+            activityView?.color = statusTextColor
+            statusLabel?.textColor = statusTextColor
+        }
+    }//UIColor(red: 53/255.0, green:111/255.0, blue:177/255.0, alpha: 1)
     /**
      The color of the time text (Last updated:...).
      */
@@ -56,7 +61,11 @@ open class PZPullToRefreshView: UIView {
     /**
      The background color of the refresh view.
      */
-    open var bgColor = UIColor(red:239/255.0, green:239/255.0, blue:244/255.0, alpha: 1)
+    open var bgColor: UIColor? {
+        didSet {
+            backgroundColor = bgColor
+        }
+    }//= UIColor(red:239/255.0, green:239/255.0, blue:244/255.0, alpha: 1)
     /**
      The animation duration for the little arrow.
      */
@@ -91,6 +100,12 @@ open class PZPullToRefreshView: UIView {
      An animating activity indicator if the current state is `.loading`
      */
     open var activityView: UIActivityIndicatorView?
+    
+    open var arrow: UIImage? {
+        didSet {
+            arrowImage?.contents = arrow?.cgImage
+        }
+    }
     
     // MARK: Logics
     
@@ -172,27 +187,24 @@ open class PZPullToRefreshView: UIView {
         }
         //addSubview(label)
         
-        let label2 = UILabel(frame: CGRect(x: 50, y: frame.size.height - 30.0, width: frame.size.width - 50, height: 20.0))
-        label2.autoresizingMask = UIViewAutoresizing.flexibleWidth
-        label2.font             = UIFont(name: "SFUIText-Regular", size: 12)
-        label2.textColor        = statusTextColor
-        label2.backgroundColor  = UIColor.clear
-        label2.textAlignment    = .left
-        statusLabel             = label2
-        addSubview(label2)
+        statusLabel = UILabel(frame: CGRect(x: 50, y: frame.size.height - 30.0, width: frame.size.width - 50, height: 20.0))
+        statusLabel?.autoresizingMask = UIViewAutoresizing.flexibleWidth
+        statusLabel?.font             = UIFont(name: "SFUIText-Regular", size: 12)
+        statusLabel?.textColor        = statusTextColor
+        statusLabel?.backgroundColor  = UIColor.clear
+        statusLabel?.textAlignment    = .left
+        addSubview(statusLabel!)
         
-        let caLayer = CALayer()
-        caLayer.frame           = CGRect(x: 15, y: frame.size.height - 40.0, width: 25.0, height: 40.0)
-        caLayer.contentsGravity = kCAGravityResizeAspect
-        caLayer.contents        = UIImage(named: "whiteArrow")?.cgImage
-        arrowImage              = caLayer
-        layer.addSublayer(caLayer)
+        arrowImage = CALayer()
+        arrowImage?.frame           = CGRect(x: 15, y: frame.size.height - 40.0, width: 25.0, height: 40.0)
+        arrowImage?.contentsGravity = kCAGravityResizeAspect
+        arrowImage?.contents        = (arrow ?? UIImage(named:"whiteArrow")!).cgImage
+        layer.addSublayer(arrowImage!)
         
-        let view     = UIActivityIndicatorView(activityIndicatorStyle: .white)
-        view.color   = statusTextColor
-        view.frame   = CGRect(x: 20, y: frame.size.height - 26.0, width: 15.0, height: 15.0)
-        activityView = view
-        addSubview(view)
+        activityView     = UIActivityIndicatorView(activityIndicatorStyle: .white)
+        activityView?.color   = statusTextColor
+        activityView?.frame   = CGRect(x: 20, y: frame.size.height - 26.0, width: 15.0, height: 15.0)
+        addSubview(activityView!)
         
         state = .normal
     }
@@ -237,16 +249,19 @@ open class PZPullToRefreshView: UIView {
      */
     open func refreshScrollViewDidScroll(_ scrollView: UIScrollView) {
         if state == .loading {
+            print(state)
             UIView.beginAnimations(nil, context: nil)
             UIView.setAnimationDuration(0.2)
             var offset = max(scrollView.contentOffset.y * -1, 0)
             offset = min(offset, thresholdValue)
+            //scrollView.setContentOffset(CGPoint(x:0.0, y:-offset), animated: true)
             scrollView.contentInset = UIEdgeInsetsMake(offset, 0.0, 0.0, 0.0)
             UIView.commitAnimations()
 
         } else if scrollView.isDragging {
+            print(state)
             let loading = false
-            if state == .pulling && scrollView.contentOffset.y > -thresholdValue && scrollView.contentOffset.y < 0.0 && !loading {
+            if state == .pulling && scrollView.contentOffset.y > -thresholdValue && scrollView.contentOffset.y <= 0.0 && !loading {
                 state = .normal
 
             } else if state == .normal && scrollView.contentOffset.y < -thresholdValue && !loading {
@@ -270,6 +285,7 @@ open class PZPullToRefreshView: UIView {
     open func refreshScrollViewDidEndDragging(_ scrollView: UIScrollView) {
         let loading = false
         if scrollView.contentOffset.y <= -thresholdValue && !loading {
+            print(scrollView.contentOffset.y)
             state = .loading
             delegate?.pullToRefreshDidTrigger(self)
         }
@@ -303,12 +319,11 @@ open class PZPullToRefreshView: UIView {
      - parameter scrollView: The scroll view in which the refresh view is contained.
      */
     func beginRefresh (_ scrollView: UIScrollView){
-        state = .loading;
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationDuration(0.2)
         var offset = max(scrollView.contentOffset.y * -1, 0)
         offset = min(offset, thresholdValue)
-        scrollView.contentInset = UIEdgeInsetsMake(offset, 0.0, 0.0, 0.0)
+        scrollView.contentInset = UIEdgeInsetsMake(thresholdValue, 0.0, 0.0, 0.0)
         UIView.commitAnimations()
     }
     

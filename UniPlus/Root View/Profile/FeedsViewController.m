@@ -311,6 +311,7 @@
     
     if (!refreshControl && !self.isLoading) {
         refreshControl = [[PZPullToRefreshView alloc] initWithFrame:CGRectMake(0, 0 - tableViewHeight, tableViewWidth, tableViewHeight)];
+        refreshControl.statusTextColor = COLOR_SCHEME;
         refreshControl.delegate = self;
         [self.tableView addSubview:refreshControl];
     }

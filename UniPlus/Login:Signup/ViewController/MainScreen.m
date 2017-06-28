@@ -239,6 +239,10 @@
                  UPLeftMenuTableViewController *leftMenuVC = [[UPLeftMenuTableViewController alloc]init];
                  leftMenuVC.menuMajorArray = majorArray;
                  SWRevealViewController *revealController = [[SWRevealViewController alloc]initWithRearViewController:leftMenuVC frontViewController:nav];
+                 revealController.frontViewShadowColor = [UIColor colorWithWhite:0.4 alpha:1].CGColor;
+                 revealController.frontViewShadowOpacity = 0.3;
+                 revealController.frontViewShadowOffset = CGSizeMake(0.0, 0.0);
+                 revealController.frontViewShadowRadius = 2.0;
                  revealController.delegate = self;
                  
                  [self presentViewController:revealController animated:YES completion:nil];
