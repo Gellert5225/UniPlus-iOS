@@ -247,7 +247,7 @@
 }
 
 - (void)dismiss {
-    
+    [_delegate actionSheet:self willDismissFromSuperView:self.coverView];
     [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.9f initialSpringVelocity:0.7f
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{

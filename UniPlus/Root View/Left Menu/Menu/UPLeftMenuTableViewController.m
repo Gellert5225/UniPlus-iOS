@@ -111,6 +111,8 @@
             cell.cellText.text     = @"Coursework Q&A";
             cell.selectionStyle    = UITableViewCellSelectionStyleNone;
             cell.editImage.image   = [UIImage imageNamed:@"Edit"];
+            cell.editImage.image = [cell.editImage.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+            [cell.editImage setTintColor:COLOR_SCHEME];
             [cell.editView addGestureRecognizer:tap];
             break;
         case 3:

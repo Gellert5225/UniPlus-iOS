@@ -51,6 +51,16 @@
     [self setNeedsStatusBarAppearanceUpdate];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        self.navigationController.view.transform = CGAffineTransformMakeScale(1.0, 1.0);
+    } completion:^(BOOL finished){
+        
+    }];
+}
+
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleDefault;
 }
@@ -193,6 +203,11 @@
     PQTVC.delegate   = NQTVC;
     GKFadeNavigationController *nav = [[GKFadeNavigationController alloc]initWithRootViewController:PQTVC];
     [self presentViewController:nav animated:YES completion:nil];
+    [UIView animateWithDuration:0.2 animations:^{
+        self.navigationController.view.transform = CGAffineTransformMakeScale(0.93, 0.93);
+    } completion:^(BOOL finished){
+        
+    }];
 }
 
 @end

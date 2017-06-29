@@ -24,7 +24,7 @@
 #define COLOR_SCHEME [UIColor colorWithRed:53/255.0 green:111/255.0 blue:177/255.0 alpha:1.0]
 #define kRefreshControlThreshold 40.0f
 
-@interface ProfileTableViewController () <PZPullToRefreshDelegate>
+@interface ProfileTableViewController () <PZPullToRefreshDelegate, SRActionSheetDelegate>
 
 @property (nonatomic) GKFadeNavigationControllerNavigationBarVisibility navigationBarVisibility;
 @property (strong, nonatomic) UIImageView *menuImgView;
@@ -313,17 +313,31 @@
 }
 
 - (void)moreMenu {
-    [SRActionSheet sr_showActionSheetViewWithTitle:@"More"
-                                 cancelButtonTitle:@"Cancel"
-                            destructiveButtonTitle:nil
-                                 otherButtonTitles:@[@"Edit Profile"]
-                                  selectSheetBlock:^(SRActionSheet *actionSheetView, NSInteger actionIndex) {
-                                      if (actionIndex == 0) {
-                                          
-                                      } else if (actionIndex == 1){
-                                          
-                                      }
-                                  }];
+    [UIView animateWithDuration:0.2 animations:^{
+        self.view.transform = CGAffineTransformMakeScale(0.93, 0.93);
+    } completion:^(BOOL finished){
+        
+    }];
+    
+    SRActionSheet *actionSheet = [[SRActionSheet alloc]initWithTitle:@"More"
+                                                   cancelButtonTitle:@"Cancel"
+                                              destructiveButtonTitle:nil
+                                                   otherButtonTitles:@[@"Edit Profile"]
+                                                            delegate:self];
+    
+    [actionSheet show];
+}
+
+- (void)actionSheet:(SRActionSheet *)actionSheet willDismissFromSuperView:(UIView *)superView {
+    [UIView animateWithDuration:0.2 animations:^{
+        self.navigationController.view.transform = CGAffineTransformMakeScale(1.0, 1.0);
+    } completion:^(BOOL finished){
+        
+    }];
+}
+
+- (void)actionSheet:(SRActionSheet *)actionSheet didSelectSheet:(NSInteger)index {
+    
 }
 
 @end

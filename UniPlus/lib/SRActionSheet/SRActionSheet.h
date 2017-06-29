@@ -25,6 +25,8 @@
  */
 - (void)actionSheet:(SRActionSheet *)actionSheet didSelectSheet:(NSInteger)index;
 
+- (void)actionSheet:(SRActionSheet *)actionSheet willDismissFromSuperView:(UIView *)superView;
+
 @end
 
 /**
@@ -141,5 +143,7 @@ typedef void (^ActionSheetDidSelectSheetBlock)(SRActionSheet *actionSheetView, N
        destructiveButtonTitle:(NSString *)destructiveButtonTitle
             otherButtonTitles:(NSArray  *)otherButtonTitles
                      delegate:(id<SRActionSheetDelegate>)delegate;
+
+- (void)show;
 
 @end
