@@ -62,7 +62,7 @@
     _questionObject = object;
     _isFromProfile = fromProfile;
     _isLoading = loading;
-    self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     
     return self;
 }
@@ -80,27 +80,28 @@
     _tv = [[UITextView alloc]initWithFrame:CGRectMake(0, 0, 0, 0)];
     _tv.tag = 999;
     _tv.delegate = self;
-
+    
     if (!_preview) {
         [self loadObjects];
     }
     
     [self configureNavbar];
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    //[self.navigationController setNavigationBarHidden:NO animated:YES];
+    self.automaticallyAdjustsScrollViewInsets = YES;
     self.tableView.separatorStyle     = UITableViewCellSeparatorStyleNone;
     self.tableView.tableHeaderView    = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableView.bounds.size.width, 0.01f)];
     self.tableView.rowHeight          = UITableViewAutomaticDimension;
+    //self.tableView.contentInset = UIEdgeInsetsZero;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+        
     self.navigationController.navigationBar.translucent = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     __weak id weakSelf = self;
@@ -515,6 +516,7 @@
     
     self.navigationItem.leftBarButtonItem = backButtonItem;
     self.navigationItem.rightBarButtonItem = helpButtonItem;
+    [self.navigationController.navigationBar setTintColor:COLOR_SCHEME];
     [navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
     navigationController.navigationBar.translucent = NO;
     
@@ -559,8 +561,6 @@
 - (void)loadObjects {
     CGFloat tableViewHeight = self.tableView.bounds.size.height;
     CGFloat tableViewWidth  = self.tableView.bounds.size.width;
-    UIEdgeInsets inset = self.tableView.contentInset;
-    //inset.top = _isFromProfile ? 64.0 : 0.0;
     __weak typeof(self) weakSelf = self;
     [_viewModel fetchQuestionWithQuestionID:_questionId completionBlock:^(BOOL success, NSError *error) {
         if (success) {
@@ -569,7 +569,7 @@
             [weakSelf.tableView reloadData];
             if (!refreshControl && !weakSelf.isLoading) {
                 refreshControl = [[PZPullToRefreshView alloc] initWithFrame:CGRectMake(0, 0 - tableViewHeight, tableViewWidth, tableViewHeight)];
-                refreshControl.thresholdValue = 40.0 + inset.top;
+                refreshControl.thresholdValue = 40.0;
                 refreshControl.statusTextColor = COLOR_SCHEME;
                 refreshControl.delegate = weakSelf;
                 [weakSelf.tableView addSubview:refreshControl];
@@ -585,7 +585,7 @@
         [refreshControl refreshScrollViewDataSourceDidFinishedLoading:weakSelf.tableView];
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.3];
-        weakSelf.tableView.contentInset = inset;
+        weakSelf.tableView.contentInset = UIEdgeInsetsMake(self.navigationController.navigationBar.translucent?64:0, 0, 0, 0);
         [UIView commitAnimations];
     }];
 }

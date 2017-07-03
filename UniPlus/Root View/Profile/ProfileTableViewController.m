@@ -28,6 +28,7 @@
 @interface ProfileTableViewController () <PZPullToRefreshDelegate, SRActionSheetDelegate>
 
 @property (nonatomic) GKFadeNavigationControllerNavigationBarVisibility navigationBarVisibility;
+@property (nonatomic) GKFadeNavigationControllerNavigationBarVisibility previousNavBarVisibility;
 @property (strong, nonatomic) UIImageView *menuImgView;
 @property (strong, nonatomic) UIImageView *moreImgView;
 @property (strong, nonatomic) UIImageView *backImgView;
@@ -43,28 +44,28 @@
 #pragma - mark Accessors
 
 - (void)setNavigationBarVisibility:(GKFadeNavigationControllerNavigationBarVisibility)navigationBarVisibility {
-    if (_navigationBarVisibility != navigationBarVisibility) {
-        // Set the value
-        _navigationBarVisibility = navigationBarVisibility;
-        
-        // Play the change
-        GKFadeNavigationController *navigationController = (GKFadeNavigationController *)self.navigationController;
-        if (navigationController.topViewController) {
-            [navigationController setNeedsNavigationBarVisibilityUpdateAnimated:YES];
-        }
-        
-        self.navigationItem.titleView.hidden = _navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? YES : NO;
-        _menuImgView.image = [_menuImgView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        _moreImgView.image = [_moreImgView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        _backImgView.image = [_backImgView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        [_menuImgView setTintColor:navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? [UIColor whiteColor] : COLOR_SCHEME];
-        [_menuImgView addShadowWithOpacity:navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? 1.0 : 0.0];
-        [_moreImgView setTintColor:navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? [UIColor whiteColor] : COLOR_SCHEME];
-        [_moreImgView addShadowWithOpacity:navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? 1.0 : 0.0];
-        [_backImgView setTintColor:navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? [UIColor whiteColor] : COLOR_SCHEME];
-        [_backImgView addShadowWithOpacity:navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? 1.0 : 0.0];
-        [self.navigationController setNeedsStatusBarAppearanceUpdate];
+    // Set the value
+    _navigationBarVisibility = navigationBarVisibility;
+    NSLog(@"SETTER");
+    
+    // Play the change
+    GKFadeNavigationController *navigationController = (GKFadeNavigationController *)self.navigationController;
+    if (navigationController.topViewController) {
+        //[navigationController setNeedsNavigationBarVisibilityUpdateAnimated:YES];
     }
+    [navigationController setNeedsNavigationBarVisibilityUpdateAnimated:YES];
+    
+    self.navigationItem.titleView.hidden = _navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? YES : NO;
+    _menuImgView.image = [_menuImgView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    _moreImgView.image = [_moreImgView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    _backImgView.image = [_backImgView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [_menuImgView setTintColor:navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? [UIColor whiteColor] : COLOR_SCHEME];
+    [_menuImgView addShadowWithOpacity:navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? 1.0 : 0.0];
+    [_moreImgView setTintColor:navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? [UIColor whiteColor] : COLOR_SCHEME];
+    [_moreImgView addShadowWithOpacity:navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? 1.0 : 0.0];
+    [_backImgView setTintColor:navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? [UIColor whiteColor] : COLOR_SCHEME];
+    [_backImgView addShadowWithOpacity:navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? 1.0 : 0.0];
+    [self.navigationController setNeedsStatusBarAppearanceUpdate];
 }
 
 - (void)setProfileUser:(PFUser *)profileUser {
@@ -95,6 +96,7 @@
     [self configureNavbar];
     
     self.navigationBarVisibility = GKFadeNavigationControllerNavigationBarVisibilityHidden;
+    _previousNavBarVisibility = GKFadeNavigationControllerNavigationBarVisibilityHidden;
     
     GKFadeNavigationController *navigationController = (GKFadeNavigationController *)self.navigationController;
     [navigationController setNeedsNavigationBarVisibilityUpdateAnimated:NO];
@@ -102,15 +104,35 @@
     [self loadObjects];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    //self.navigationBarVisibility = _previousNavBarVisibility;
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
+    self.navigationBarVisibility = _previousNavBarVisibility;
     GKFadeNavigationController *navigationController = (GKFadeNavigationController *)self.navigationController;
     [navigationController.navigationBar sendSubviewToBack:navigationController.visualEffectView];
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     __weak id weakSelf = self;
     self.navigationController.interactivePopGestureRecognizer.delegate = weakSelf;
     [self.navigationController setNeedsStatusBarAppearanceUpdate];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    _previousNavBarVisibility = _navigationBarVisibility;
+    //_navigationBarVisibility = _previousNavBarVisibility;
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+
+    self.navigationBarVisibility = GKFadeNavigationControllerNavigationBarVisibilityVisible;
 }
 
 #pragma - mark Table View Data Source
@@ -177,7 +199,6 @@
     if (indexPath.section != 0 && indexPath.row != _viewModel.activities.count) {
         PFObject *question = _viewModel.activities[indexPath.row][@"toQuestion"];
         QuestionDetailTableViewController *QDTVC = [[QuestionDetailTableViewController alloc]initWithStyle:UITableViewStyleGrouped questionID:question.objectId questionObject:question setFromProfile:YES setLoading:YES];
-    
         [self.navigationController pushViewController:QDTVC animated:YES];
     }
 }
@@ -315,7 +336,6 @@
     self.navigationItem.titleView = _titleView;
     self.navigationItem.leftBarButtonItem = _isFromMenu ? menu : back;
     self.navigationItem.rightBarButtonItem = more;
-    self.navigationItem.hidesBackButton = YES;
 
     [self setNeedsStatusBarAppearanceUpdate];
 }
