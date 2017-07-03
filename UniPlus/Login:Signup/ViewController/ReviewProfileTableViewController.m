@@ -27,7 +27,7 @@
 @end
 
 @implementation ReviewProfileTableViewController
-@synthesize finish, skip, inputAccView, currentResponder, username, profileData, isFromSignUp, nickName;
+@synthesize finish, inputAccView, currentResponder, username, profileData, isFromSignUp, nickName;
 
 - (NSString *)topic {
     if (!_topic) {
@@ -83,10 +83,6 @@
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     self.currentResponder = textField;
-    
-    [self createInputAccView];
-
-    [textField setInputAccessoryView:inputAccView];
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextView *)textField {
@@ -116,39 +112,6 @@
         }
     }
     return YES;
-}
-
-- (void)createInputAccView {
-    CGRect  screenRect  = [[UIScreen mainScreen] bounds];
-    CGFloat screenWidth = screenRect.size.width;
-    
-    inputAccView = [[UIView alloc] initWithFrame:CGRectMake(10.0, 0.0, screenWidth, 40.0)];
-    [inputAccView setBackgroundColor:[UIColor colorWithWhite:0.9 alpha:1]];
-    
-    finish = [UIButton buttonWithType:UIButtonTypeCustom];
-    [finish setFrame:CGRectMake(screenWidth - 80.0f, 5.0f, 70.0, 30.0f)];
-    [finish setTitle:@"Finish" forState:UIControlStateNormal];
-    [finish setBackgroundColor:[UIColor colorWithRed:69/255.0 green:177/255.0 blue:235/255.0 alpha:1]];
-    [finish setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    finish.titleLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:13];
-    
-    finish.layer.cornerRadius = 4.0f;
-    finish.layer.masksToBounds = YES;
-    
-    skip = [UIButton buttonWithType:UIButtonTypeCustom];
-    [skip setFrame:CGRectMake(10.0f, 5.0f, 70.0, 30.0f)];
-    [skip setTitle:@"Skip" forState:UIControlStateNormal];
-    [skip setBackgroundColor:[UIColor colorWithRed:69/255.0 green:177/255.0 blue:235/255.0 alpha:1]];
-    [skip setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    skip.titleLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:13];
-    
-    skip.layer.cornerRadius = 4.0f;
-    skip.layer.masksToBounds = YES;
-    
-    [finish addTarget:self action:@selector(finishProfile) forControlEvents:UIControlEventTouchUpInside];
-    
-    [inputAccView addSubview:finish];
-    //[inputAccView addSubview:skip];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -270,15 +233,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 3) {
-        SearchInstitutionTableViewController *SIVC = [[SearchInstitutionTableViewController alloc]init];
-        SIVC.universities = self.universities;
-        SIVC.delegate     = self;
-        [self.navigationController pushViewController:SIVC animated:YES];
+        [self addInstitution];
     } else if (indexPath.row == 2) {
-        SearchMajorTableViewController *SMTVC = [[SearchMajorTableViewController alloc]init];
-        SMTVC.majors = self.majors;
-        SMTVC.delegate = self;
-        [self.navigationController pushViewController:SMTVC animated:YES];
+        [self addMajor];
     }
 }
 
@@ -334,11 +291,7 @@
     UILabel *signingUp = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 20)];
     [signingUp setCenter:self.view.center];
     
-    if (isFromSignUp) {
-        signingUp.text = @"Finishing...";
-    } else {
-        signingUp.text = @"Saving...";
-    }
+    signingUp.text = isFromSignUp ? @"Finishing..." : @"Saving";
     
     signingUp.textAlignment = NSTextAlignmentCenter;
     signingUp.textColor     = [UIColor colorWithRed:33/255.0 green:150/255.0 blue:243/255.0 alpha:0.7];
@@ -352,7 +305,6 @@
     PreviewCell1 *cell1 = (PreviewCell1 *)[self.view viewWithTag:10];
     PreviewCell2 *cell2 = (PreviewCell2 *)[self.view viewWithTag:11];
     PreviewCell3 *cell3 = (PreviewCell3 *)[self.view viewWithTag:12];
-    ChooseMajorCell *cell4 = (ChooseMajorCell *)[self.view viewWithTag:13];
     
     NSCharacterSet *charSet = [NSCharacterSet whitespaceCharacterSet];
     NSString *trimmedUserName = [cell1.usernameField.text stringByTrimmingCharactersInSet:charSet];
@@ -366,101 +318,46 @@
         
         PFUser *user = [PFUser currentUser];
         
-        //NSData *profileIMGData = UIImageJPEGRepresentation(cell1.profilePhotoView.image, 1.0);
-        if (isFromSignUp) {
-            NSData *smallPhotoData   = UIImageJPEGRepresentation([self imageWithImage:cell1.profilePhotoView.image scaledToSize:CGSizeMake(80, 80)], 1);
-            PFFile *smallProfileFile = [PFFile fileWithName:@"SmallProfileIMG" data:smallPhotoData contentType:@"image/png"];
-            PFFile *profileIMGFile   = [PFFile fileWithName:@"ProfileIMG" data:profileData contentType:@"image/png"];
-            
-            [smallProfileFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
-                 if (!error) {
-                     NSLog(@"no error saving small");
-                     [profileIMGFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error1){
-                          if (!error1) {
-                              NSLog(@"no error saving big");
-                              [user setObject:profileIMGFile forKey:@"profilePhoto"];
-                              [user setObject:smallProfileFile forKey:@"profilePhoto80"];
-                              if (![trimmedNickName isEqualToString:@""]) {
-                                  [user setObject:cell1.nameField.text forKey:@"nickName"];
-                              } else {
-                                  [user setObject:cell1.usernameField.text forKey:@"nickName"];
-                              }
-                              [user setObject:[cell1.usernameField.text lowercaseString] forKey:@"username"];
-                              [user setObject:cell2.webField.text forKey:@"website"];
-                              [user setObject:cell3.institutionText.text forKey:@"institution"];
-                              [user setObject:cell4.majorText.text forKey:@"major"];
-                              [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error2){
-                                   if (!error2) {
-                                       NSLog(@"no error saving user");
-                                       dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                                           NSMutableArray *topicArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"majorArray"];
-                                           
-                                           MainPageViewController *MPVC = [[MainPageViewController alloc]initWithTopic:@"Living" ParseClass:@"Questions"];
-                                           UINavigationController *nav3 = [[UINavigationController alloc]initWithRootViewController:MPVC];
-                                           
-                                           UPLeftMenuTableViewController *leftMenuVC = [[UPLeftMenuTableViewController alloc]init];
-                                           leftMenuVC.menuMajorArray = topicArray;
-                                           SWRevealViewController *revealController = [[SWRevealViewController alloc]initWithRearViewController:leftMenuVC frontViewController:nav3];
-                                           revealController.delegate = self;
-                                           
-                                           [self presentViewController:revealController animated:YES completion:nil];
-                                           
-                                           [spinnerView stopAnimating];
-                                           [signingUp removeFromSuperview];
-                                      });
-                                   } else {
-                                       dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                                           [spinnerView stopAnimating];
-                                           [blurView removeFromSuperview];
-                                           [signingUp removeFromSuperview];
-                                          
-                                           NSString *errorString = [error userInfo][@"error"];
-                                           [self showAlertWithErrorString:errorString];
-                                      });
-                                   }
-                               }];
-                          } else {
-                              NSString *errorString = [error userInfo][@"error"];
-                              [self showAlertWithErrorString:errorString];
-                          }
-                      }];
-                 }
-             }];
+        NSData *smallPhotoData   = UIImageJPEGRepresentation([self imageWithImage:cell1.profilePhotoView.image scaledToSize:CGSizeMake(80, 80)], 1);
+        PFFile *smallProfileFile = [PFFile fileWithName:@"SmallProfileIMG" data:smallPhotoData contentType:@"image/png"];
+        PFFile *profileIMGFile   = [PFFile fileWithName:@"ProfileIMG" data:UIImagePNGRepresentation(cell1.profilePhotoView.image) contentType:@"image/png"];
+        
+        [user setObject:profileIMGFile forKey:@"profilePhoto"];
+        [user setObject:smallProfileFile forKey:@"profilePhoto80"];
+        if (![trimmedNickName isEqualToString:@""]) {
+            [user setObject:cell1.nameField.text forKey:@"nickName"];
         } else {
-            NSData *smallPhotoData   = UIImageJPEGRepresentation([self imageWithImage:cell1.profilePhotoView.image scaledToSize:CGSizeMake(80, 80)], 1);
-            PFFile *smallProfileFile = [PFFile fileWithName:@"SmallProfileIMG" data:smallPhotoData contentType:@"image/png"];
-            PFFile *profileIMGFile   = [PFFile fileWithName:@"ProfileIMG" data:UIImagePNGRepresentation(cell1.profilePhotoView.image) contentType:@"image/png"];
-            [user setObject:profileIMGFile forKey:@"profilePhoto"];
-            [user setObject:smallProfileFile forKey:@"profilePhoto80"];
-            if (![trimmedNickName isEqualToString:@""]) {
-                [user setObject:cell1.nameField.text forKey:@"nickName"];
-            } else {
-                [user setObject:cell1.usernameField.text forKey:@"nickName"];
-            }
-            [user setObject:[cell1.usernameField.text lowercaseString] forKey:@"username"];
-            [user setObject:cell2.webField.text forKey:@"website"];
-            [user setObject:cell3.institutionText.text forKey:@"institution"];
-            [user setObject:_topic?_topic:@"" forKey:@"major"];
-            [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
-                if (!error) {
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                        [self dismissViewControllerAnimated:YES completion:nil];
-                        
-                        [spinnerView stopAnimating];
-                        [signingUp removeFromSuperview];
-                    });
-                } else {
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                        [spinnerView stopAnimating];
-                        [blurView removeFromSuperview];
-                        [signingUp removeFromSuperview];
-                        
-                        NSString *errorString = [error userInfo][@"error"];
-                        [self showAlertWithErrorString:errorString];
-                    });
-                }
-            }];
+            [user setObject:cell1.usernameField.text forKey:@"nickName"];
         }
+        [user setObject:[cell1.usernameField.text lowercaseString] forKey:@"username"];
+        [user setObject:cell2.webField.text forKey:@"website"];
+        [user setObject:cell3.institutionText.text forKey:@"institution"];
+        [user setObject:_topic?_topic:@"" forKey:@"major"];
+        [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+            if (!error) {
+                if (isFromSignUp) {
+                    NSMutableArray *topicArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"majorArray"];
+                    
+                    MainPageViewController *MPVC = [[MainPageViewController alloc]initWithTopic:@"Living" ParseClass:@"Questions"];
+                    UINavigationController *nav3 = [[UINavigationController alloc]initWithRootViewController:MPVC];
+                    
+                    UPLeftMenuTableViewController *leftMenuVC = [[UPLeftMenuTableViewController alloc]init];
+                    leftMenuVC.menuMajorArray = topicArray;
+                    SWRevealViewController *revealController = [[SWRevealViewController alloc]initWithRearViewController:leftMenuVC frontViewController:nav3];
+                    revealController.delegate = self;
+                    
+                    [self presentViewController:revealController animated:YES completion:nil];
+                } else {
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }
+            } else {
+                NSString *errorString = [error userInfo][@"error"];
+                [self showAlertWithErrorString:errorString];
+            }
+            [spinnerView stopAnimating];
+            [blurView removeFromSuperview];
+            [signingUp removeFromSuperview];
+        }];
     } else {
         [self showAlertWithErrorString:@"Please provide a username for logging in"];
     }

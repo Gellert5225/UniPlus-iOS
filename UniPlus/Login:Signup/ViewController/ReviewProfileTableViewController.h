@@ -16,7 +16,6 @@
 @interface ReviewProfileTableViewController : UITableViewController<UITextFieldDelegate, UIGestureRecognizerDelegate, UITextViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,SearchInstitutionTableViewControllerDelegate, SearchMajorTableViewControllerDelegate, SWRevealViewControllerDelegate>
 
 @property (strong, nonatomic) UIButton *finish;
-@property (strong, nonatomic) UIButton *skip;
 @property (strong, nonatomic) UIView   *inputAccView;
 @property (strong, nonatomic) NSString *username;
 @property (strong, nonatomic) NSString *nickName;
