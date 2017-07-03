@@ -63,7 +63,7 @@
 - (void)commentToObject:(UPObject *)object withCommentBody:(NSString *)body replyToComment:(PFObject *)toComment;
 
 /**
- Increment the number of views.
+ Increment the number of views by 1.
  */
 - (void)incrementNumberOfViews;
 

@@ -17,7 +17,6 @@
 #import "PreviewCell3.h"
 #import "University.h"
 #import "SRActionSheet.h"
-#import <Parse/Parse.h>
 #import <PopupDialog/PopupDialog-Swift.h>
 
 @interface ReviewProfileTableViewController ()<SRActionSheetDelegate>
@@ -28,7 +27,22 @@
 @end
 
 @implementation ReviewProfileTableViewController
-@synthesize finish, skip, inputAccView, currentResponder, username, profileData, isFromSignUp, institution, nickName, topic;
+@synthesize finish, skip, inputAccView, currentResponder, username, profileData, isFromSignUp, nickName;
+
+- (NSString *)topic {
+    if (!_topic) {
+        return [[PFUser currentUser] objectForKey:@"major"];
+    }
+    
+    return _topic;
+}
+
+- (NSString *)institution {
+    if (!_institution) {
+        return [[PFUser currentUser] objectForKey:@"institution"];
+    }
+    return _institution;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,9 +51,6 @@
     
     self.universities   = [University getUniversitiesFromJSON];
     self.majors         = [[NSArray alloc]init];
-    
-    topic       = @"";
-    institution = @"";
     
     self.majors = @[@"Argriculture",@"Anthropology",@"Archeaology",@"Architecture and Design", @"Area Studies",@"Biology",@"Business", @"Chemical Engineering",@"Chemistry", @"Civil Engineering", @"Computer Science", @"Cultural and Ethic Studies", @"Divinity", @"Earch Science",@"Economics",@"Electrical Engineering", @"Geography", @"Human History", @"Law", @"Linguistic", @"Literature", @"Logic", @"Mathmatics",@"Mechanical Engineering", @"Medicine", @"Millitary Science", @"Philosophy",@"Physics", @"Political  Science", @"Psychology",@"Public Administration", @"Sociology", @"Space Science", @"Statistics", @"System Science"];
     
@@ -56,10 +67,7 @@
         self.navigationItem.leftBarButtonItem  = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelProfile)];
     }
     
-    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:53/255.0 green:111/255.0 blue:177/255.0 alpha:1.0]];
     self.navigationController.navigationBar.translucent = NO;
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -219,14 +227,14 @@
     
     if (isFromSignUp) {
         profileInfoCell.usernameField.text    = username;
-        institutionCell.institutionText.text  = institution;
-        chooseMajorCell.majorText.text        = topic;
+        institutionCell.institutionText.text  = _institution ? _institution : @"";
+        chooseMajorCell.majorText.text        = _topic ? _topic : @"";
     } else {
         profileInfoCell.usernameField.text    = [PFUser currentUser].username;
         profileInfoCell.nameField.text        = [[PFUser currentUser] objectForKey:@"nickName"];
         websiteInfoCell.webField.text         = [[PFUser currentUser] objectForKey:@"website"];
-        institutionCell.institutionText.text  = institution;
-        chooseMajorCell.majorText.text        = topic;
+        institutionCell.institutionText.text  = _institution;
+        chooseMajorCell.majorText.text        = _topic;
     }
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(editPhoto)];
@@ -380,7 +388,7 @@
                               [user setObject:[cell1.usernameField.text lowercaseString] forKey:@"username"];
                               [user setObject:cell2.webField.text forKey:@"website"];
                               [user setObject:cell3.institutionText.text forKey:@"institution"];
-                              [user setObject:cell4.majorText.text forKey:@"Major"];
+                              [user setObject:cell4.majorText.text forKey:@"major"];
                               [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error2){
                                    if (!error2) {
                                        NSLog(@"no error saving user");
@@ -419,54 +427,39 @@
                  }
              }];
         } else {
-            NSData *smallPhotoData = UIImageJPEGRepresentation([self imageWithImage:[UIImage imageWithData:profileData] scaledToSize:CGSizeMake(80, 80)], 1);
+            NSData *smallPhotoData   = UIImageJPEGRepresentation([self imageWithImage:cell1.profilePhotoView.image scaledToSize:CGSizeMake(80, 80)], 1);
             PFFile *smallProfileFile = [PFFile fileWithName:@"SmallProfileIMG" data:smallPhotoData contentType:@"image/png"];
-            PFFile *profileIMGFile = [PFFile fileWithName:@"ProfileIMG" data:profileData contentType:@"image/png"];
-            
-            [smallProfileFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
-                 if (!error) {
-                     [profileIMGFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
-                          if (!error) {
-                              [user setObject:profileIMGFile forKey:@"profilePhoto"];
-                              [user setObject:smallProfileFile forKey:@"profilePhoto80"];
-                              if (![trimmedNickName isEqualToString:@""]) {
-                                  [user setObject:cell1.nameField.text forKey:@"nickName"];
-                              } else {
-                                  [user setObject:cell1.usernameField.text forKey:@"nickName"];
-                              }
-                              [user setObject:[cell1.usernameField.text lowercaseString] forKey:@"username"];
-                              [user setObject:cell2.webField.text forKey:@"website"];
-                              [user setObject:cell3.institutionText.text forKey:@"institution"];
-                              [user setObject:cell4.majorText.text forKey:@"major"];
-                              [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
-                                   if (!error) {
-                                       dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                                          [self dismissViewControllerAnimated:YES completion:nil];
-                                          
-                                          [spinnerView stopAnimating];
-                                          [signingUp removeFromSuperview];
-                                      });
-                                   } else {
-                                       dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                                          [spinnerView stopAnimating];
-                                          [blurView removeFromSuperview];
-                                          [signingUp removeFromSuperview];
-                                          
-                                          NSString *errorString = [error userInfo][@"error"];
-                                          [self showAlertWithErrorString:errorString];
-                                       });
-                                   }
-                               }];
-                          } else {
-                              [spinnerView stopAnimating];
-                              [signingUp removeFromSuperview];
-                              
-                              NSString *errorString = [error userInfo][@"error"];
-                              [self showAlertWithErrorString:errorString];
-                          }
-                      }];
-                 }
-             }];
+            PFFile *profileIMGFile   = [PFFile fileWithName:@"ProfileIMG" data:UIImagePNGRepresentation(cell1.profilePhotoView.image) contentType:@"image/png"];
+            [user setObject:profileIMGFile forKey:@"profilePhoto"];
+            [user setObject:smallProfileFile forKey:@"profilePhoto80"];
+            if (![trimmedNickName isEqualToString:@""]) {
+                [user setObject:cell1.nameField.text forKey:@"nickName"];
+            } else {
+                [user setObject:cell1.usernameField.text forKey:@"nickName"];
+            }
+            [user setObject:[cell1.usernameField.text lowercaseString] forKey:@"username"];
+            [user setObject:cell2.webField.text forKey:@"website"];
+            [user setObject:cell3.institutionText.text forKey:@"institution"];
+            [user setObject:_topic?_topic:@"" forKey:@"major"];
+            [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+                if (!error) {
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                        [self dismissViewControllerAnimated:YES completion:nil];
+                        
+                        [spinnerView stopAnimating];
+                        [signingUp removeFromSuperview];
+                    });
+                } else {
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                        [spinnerView stopAnimating];
+                        [blurView removeFromSuperview];
+                        [signingUp removeFromSuperview];
+                        
+                        NSString *errorString = [error userInfo][@"error"];
+                        [self showAlertWithErrorString:errorString];
+                    });
+                }
+            }];
         }
     } else {
         [self showAlertWithErrorString:@"Please provide a username for logging in"];
@@ -526,9 +519,9 @@
     profileData = UIImageJPEGRepresentation(selectedIMG, 1.0);
     
     PreviewCell1 *cell1 = (PreviewCell1 *)[self.view viewWithTag:10];
-    cell1.profilePhotoView.image = [self imageWithImage:[UIImage imageWithData:profileData] scaledToSize:CGSizeMake(80, 80)];
+    cell1.profilePhotoView.image = [UIImage imageWithData:profileData];
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)cancelProfile {
@@ -536,14 +529,18 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)actionSheet:(SRActionSheet *)actionSheet willDismissFromSuperView:(UIView *)superView {
+    
+}
+
 #pragma mark - SearchInstitutionTableViewControllerDelegate method
 
 - (void)addUniversity:(SearchInstitutionTableViewController *)search didFinishPickingUniversity:(NSString *)university{
-    institution = university;
+    _institution = university;
 }
 
 - (void)addMajor:(SearchMajorTableViewController *)search didFinishPickingMajor:(NSString *)major {
-    topic = major;
+    _topic = major;
 }
 
 @end

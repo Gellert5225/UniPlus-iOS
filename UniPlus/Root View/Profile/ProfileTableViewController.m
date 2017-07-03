@@ -15,6 +15,7 @@
 #import "LoadMoreCell.h"
 #import "SRActionSheet.h"
 #import "QuestionDetailTableViewController.h"
+#import "ReviewProfileTableViewController.h"
 
 #import "UniPlus-Swift.h"
 
@@ -29,6 +30,7 @@
 @property (nonatomic) GKFadeNavigationControllerNavigationBarVisibility navigationBarVisibility;
 @property (strong, nonatomic) UIImageView *menuImgView;
 @property (strong, nonatomic) UIImageView *moreImgView;
+@property (strong, nonatomic) UIImageView *backImgView;
 @property (strong, nonatomic) UPNavigationBarTitleView *titleView;
 @property (nonatomic) BOOL isLoading;
 
@@ -54,10 +56,13 @@
         self.navigationItem.titleView.hidden = _navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? YES : NO;
         _menuImgView.image = [_menuImgView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         _moreImgView.image = [_moreImgView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        _backImgView.image = [_backImgView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         [_menuImgView setTintColor:navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? [UIColor whiteColor] : COLOR_SCHEME];
         [_menuImgView addShadowWithOpacity:navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? 1.0 : 0.0];
         [_moreImgView setTintColor:navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? [UIColor whiteColor] : COLOR_SCHEME];
         [_moreImgView addShadowWithOpacity:navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? 1.0 : 0.0];
+        [_backImgView setTintColor:navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? [UIColor whiteColor] : COLOR_SCHEME];
+        [_backImgView addShadowWithOpacity:navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? 1.0 : 0.0];
         [self.navigationController setNeedsStatusBarAppearanceUpdate];
     }
 }
@@ -102,7 +107,9 @@
     
     GKFadeNavigationController *navigationController = (GKFadeNavigationController *)self.navigationController;
     [navigationController.navigationBar sendSubviewToBack:navigationController.visualEffectView];
-    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+    __weak id weakSelf = self;
+    self.navigationController.interactivePopGestureRecognizer.delegate = weakSelf;
     [self.navigationController setNeedsStatusBarAppearanceUpdate];
 }
 
@@ -183,7 +190,6 @@
     // Stretch the header view if neccessary
     if (scrollOffsetY > kGKHeaderHeight) {
         _headerView.headerImageTopConstraint.constant = kGKHeaderHeight-scrollOffsetY;
-        NSLog(@"%f", scrollView.contentOffset.y);
         _headerView.contentWrapperView.alpha = scrollOffsetY;
     } else {
         _headerView.headerImageTopConstraint.constant = (kGKHeaderHeight-scrollOffsetY)/2.f;
@@ -204,6 +210,43 @@
 
 - (GKFadeNavigationControllerNavigationBarVisibility)preferredNavigationBarVisibility {
     return self.navigationBarVisibility;
+}
+
+#pragma - mark SRActionSheet Delegate
+
+- (void)actionSheet:(SRActionSheet *)actionSheet willDismissFromSuperView:(UIView *)superView {
+    [self shrinkViewControllerWithDuration:0.2 transformScale:CGAffineTransformMakeScale(1.0, 1.0)];
+}
+
+- (void)actionSheet:(SRActionSheet *)actionSheet didSelectSheet:(NSInteger)index {
+    if (index == 0) {
+        ReviewProfileTableViewController *RPTVC = [[ReviewProfileTableViewController alloc] initWithNibName:@"ReviewProfileTableViewController" bundle:nil];
+        RPTVC.isFromSignUp = NO;
+        RPTVC.institution = [[PFUser currentUser] objectForKey:@"institution"];
+        RPTVC.topic = [[PFUser currentUser] objectForKey:@"major"];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:RPTVC];
+        [self presentViewController:nav animated:YES completion:nil];
+    }
+}
+
+#pragma - mark UIGestureRecognizerDelegate
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    if (!_isFromMenu) {
+        if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] && [otherGestureRecognizer isKindOfClass:[UIScreenEdgePanGestureRecognizer class]]) {
+            return YES;
+        } else {
+            return  NO;
+        }
+    }
+    return YES;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    if (_isFromMenu) {
+        return NO;
+    }
+    return [gestureRecognizer isKindOfClass:UIScreenEdgePanGestureRecognizer.class];
 }
 
 #pragma - mark Private
@@ -230,12 +273,15 @@
     
     //SWRevealViewController
     SWRevealViewController *revealController = [self revealViewController];
-    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-    [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
+    if (_isFromMenu) {
+        [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+        [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
+        self.revealViewController.draggableBorderWidth = self.view.frame.size.width/7;
+    }
     
     UITapGestureRecognizer *tapMenu = [[UITapGestureRecognizer alloc] initWithTarget:revealController action:@selector(revealToggle:)];
     UITapGestureRecognizer *tapMore = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(moreMenu)];
-    self.revealViewController.draggableBorderWidth = self.view.frame.size.width/7;
+    UITapGestureRecognizer *tapBack = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(back)];
     
     _menuImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Menu"]];
     _menuImgView.frame = CGRectMake(5, 5, 25, 25);
@@ -251,7 +297,15 @@
     [moreView addSubview:_moreImgView];
     [moreView addGestureRecognizer:tapMore];
     
+    _backImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"back"]];
+    _backImgView.frame = CGRectMake(0, 8, 12.28, 17);
+    UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 35, 35)];
+    backView.backgroundColor = [UIColor clearColor];
+    [backView addSubview:_backImgView];
+    [backView addGestureRecognizer:tapBack];
+    
     //configure the navigation bar
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:backView];
     UIBarButtonItem *menu = [[UIBarButtonItem alloc] initWithCustomView:menuView];
     UIBarButtonItem *more = [[UIBarButtonItem alloc] initWithCustomView:moreView];
     [self.navigationController.navigationBar setTintColor:COLOR_SCHEME];
@@ -259,11 +313,15 @@
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     self.navigationItem.titleView = _titleView;
-    self.navigationItem.leftBarButtonItem = menu;
+    self.navigationItem.leftBarButtonItem = _isFromMenu ? menu : back;
     self.navigationItem.rightBarButtonItem = more;
     self.navigationItem.hidesBackButton = YES;
 
     [self setNeedsStatusBarAppearanceUpdate];
+}
+
+- (void)back {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
@@ -313,11 +371,7 @@
 }
 
 - (void)moreMenu {
-    [UIView animateWithDuration:0.2 animations:^{
-        self.view.transform = CGAffineTransformMakeScale(0.93, 0.93);
-    } completion:^(BOOL finished){
-        
-    }];
+    [self shrinkViewControllerWithDuration:0.2 transformScale:CGAffineTransformMakeScale(0.93, 0.93)];
     
     SRActionSheet *actionSheet = [[SRActionSheet alloc]initWithTitle:@"More"
                                                    cancelButtonTitle:@"Cancel"
@@ -328,16 +382,10 @@
     [actionSheet show];
 }
 
-- (void)actionSheet:(SRActionSheet *)actionSheet willDismissFromSuperView:(UIView *)superView {
-    [UIView animateWithDuration:0.2 animations:^{
-        self.navigationController.view.transform = CGAffineTransformMakeScale(1.0, 1.0);
-    } completion:^(BOOL finished){
-        
-    }];
-}
-
-- (void)actionSheet:(SRActionSheet *)actionSheet didSelectSheet:(NSInteger)index {
-    
+- (void)shrinkViewControllerWithDuration:(NSTimeInterval)duration transformScale:(CGAffineTransform)scale {
+    [UIView animateWithDuration:duration animations:^{
+        self.navigationController.view.transform = scale;
+    } completion:^(BOOL finished) { }];
 }
 
 @end

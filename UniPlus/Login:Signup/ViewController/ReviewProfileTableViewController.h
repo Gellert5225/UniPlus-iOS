@@ -11,6 +11,7 @@
 #import "SearchInstitutionTableViewController.h"
 #import "SWRevealViewController.h"
 #import "SearchMajorTableViewController.h"
+#import <Parse/Parse.h>
 
 @interface ReviewProfileTableViewController : UITableViewController<UITextFieldDelegate, UIGestureRecognizerDelegate, UITextViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,SearchInstitutionTableViewControllerDelegate, SearchMajorTableViewControllerDelegate, SWRevealViewControllerDelegate>
 
@@ -24,5 +25,6 @@
 @property (strong, nonatomic) NSData   *profileData;
 @property (nonatomic, assign) id       currentResponder;
 @property (nonatomic)         BOOL     isFromSignUp;
+@property (strong, nonatomic) PFUser *user;
 
 @end

@@ -800,9 +800,7 @@ const int FrontViewPositionNone = 0xff;
     
     CGFloat baseLocation = [_contentView frontLocationForPosition:_panInitialFrontPosition];
     CGFloat xLocation = baseLocation + translation;
-    
-    //NSLog(@"%f",xLocation);
-    
+        
     if ( xLocation < 0 ) {
         if ( _rightViewController == nil ) xLocation = 0;
         [self _rightViewDeploymentForNewFrontViewPosition:FrontViewPositionLeftSide]();

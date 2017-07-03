@@ -138,7 +138,6 @@ static CGFloat const kBounceValue = 0.0f;
         }
         _currentTextViewSize = newFrame.size;
     } else {
-        NSLog(@"scroll");
     }
     [UIView setAnimationsEnabled:YES];
 }

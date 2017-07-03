@@ -15,11 +15,12 @@
 #import "EditView.h"
 #import "PostQuestionTableViewController.h"
 #import "QuestionDetailViewModel.h"
+#import "QuestionDetailCells.h"
 
 /**
  Displays the detail of a Question, including question body, author, comments, answers, votes...etc.
  */
-@interface QuestionDetailTableViewController : UITableViewController<UPCommentAccessoryViewDelegate,UpVoteViewDelegate, DownVoteViewDelegate>
+@interface QuestionDetailTableViewController : UITableViewController<UPCommentAccessoryViewDelegate,UpVoteViewDelegate, DownVoteViewDelegate, AuthorCellDelegate>
 
 /*!
  @name Properties

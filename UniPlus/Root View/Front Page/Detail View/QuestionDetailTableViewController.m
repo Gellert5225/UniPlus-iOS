@@ -11,10 +11,9 @@
 #import "GlobalVariables.h"
 #import "UPError.h"
 #import "UPNavigationBarTitleView.h"
+#import "ProfileTableViewController.h"
 
 #import <GKFadeNavigationController/GKFadeNavigationController.h>
-
-#import "QuestionDetailCells.h"
 
 #define COLOR_SCHEME [UIColor colorWithRed:53/255.0 green:111/255.0 blue:177/255.0 alpha:1.0]
 
@@ -59,8 +58,6 @@
 - (id)initWithStyle:(UITableViewStyle)style questionID:(NSString *)ID questionObject:(PFObject *)object setFromProfile:(BOOL)fromProfile setLoading:(BOOL)loading {
     self = [super initWithStyle:style];
     
-    NSLog(@"Designated Init is called");
-    
     _questionId = ID;
     _questionObject = object;
     _isFromProfile = fromProfile;
@@ -75,8 +72,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    if (self.navigationController.navigationBar.translucent) {NSLog(@"View Did Load: Translucent");}
-    
     _viewModel = [[QuestionDetailViewModel alloc]init];
     
     [self loadNibs];
@@ -87,7 +82,6 @@
     _tv.delegate = self;
 
     if (!_preview) {
-        NSLog(@"Load Objects");
         [self loadObjects];
     }
     
@@ -99,8 +93,15 @@
     self.tableView.rowHeight          = UITableViewAutomaticDimension;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.navigationController.navigationBar.translucent = NO;
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    self.navigationController.navigationBar.translucent = NO;
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     __weak id weakSelf = self;
     self.navigationController.interactivePopGestureRecognizer.delegate = weakSelf;
@@ -218,6 +219,7 @@
             return questionBodyCell;
         } else if (indexPath.row == 2) {
             AuthorCell *authorCell = [self.tableView dequeueReusableCellWithIdentifier:authorCellID forIndexPath:indexPath];
+            authorCell.delegate = self;
             authorCell.author = _viewModel.question.author;
             authorCell.askLabel.text = @"Asked";
             authorCell.creationDate = _viewModel.question.createdAt;
@@ -280,6 +282,7 @@
             }
         } else if (indexPath.row == 1) {
             AuthorCell *authorCell = [self.tableView dequeueReusableCellWithIdentifier:authorCellID forIndexPath:indexPath];
+            authorCell.delegate = self;
             authorCell.author = answer.author;
             authorCell.askLabel.text = @"Answered";
             authorCell.creationDate = answer.createdAt;
@@ -348,6 +351,15 @@
     }
     
     return YES;
+}
+
+#pragma - mark AuthorCellDelegate
+
+- (void)didTapAuthorInfo:(PFUser *)author {
+    ProfileTableViewController *PTVC = [[ProfileTableViewController alloc]initWithStyle:UITableViewStylePlain];
+    PTVC.profileUser = author;
+    //GKFadeNavigationController *nav = [[GKFadeNavigationController alloc]initWithRootViewController:PTVC];
+    [self.navigationController pushViewController:PTVC animated:YES];
 }
 
 #pragma - mark UPCommentAccessoryViewDelegate
@@ -548,7 +560,7 @@
     CGFloat tableViewHeight = self.tableView.bounds.size.height;
     CGFloat tableViewWidth  = self.tableView.bounds.size.width;
     UIEdgeInsets inset = self.tableView.contentInset;
-    inset.top = _isFromProfile ? 64.0 : 0.0;
+    //inset.top = _isFromProfile ? 64.0 : 0.0;
     __weak typeof(self) weakSelf = self;
     [_viewModel fetchQuestionWithQuestionID:_questionId completionBlock:^(BOOL success, NSError *error) {
         if (success) {

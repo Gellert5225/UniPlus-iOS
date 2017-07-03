@@ -47,11 +47,6 @@
     self.questionBody.delegate = self;
 }
 
-- (void)dealloc
-{
-    NSLog(@"PostQuestionTableVC Deallocated");
-}
-
 - (void)configureNavbar {
     //custom navigation title
     NSString *classLabelText;

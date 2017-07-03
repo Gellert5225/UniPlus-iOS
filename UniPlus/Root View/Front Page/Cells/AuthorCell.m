@@ -26,6 +26,10 @@
     topSeparatorView.layer.borderColor = [UIColor colorWithRed:209/255.0 green:209/255.0 blue:214/255.0 alpha:1].CGColor;
     topSeparatorView.layer.borderWidth = 0.5;
     [self.contentView addSubview:topSeparatorView];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(presentProfileView)];
+    tap.delegate = self;
+    [_authorInfoView addGestureRecognizer:tap];
 }
 
 - (void)setAuthor:(PFUser *)author {
@@ -43,6 +47,10 @@
 - (void)setCreationDate:(NSDate *)creationDate {
     _creationDate = creationDate;
     _timeLabel.text = [self getTimeWithPostDate:creationDate];
+}
+
+- (void)presentProfileView {
+    [_delegate didTapAuthorInfo:_author];
 }
 
 - (NSString *)getTimeWithPostDate:(NSDate *)postDate {

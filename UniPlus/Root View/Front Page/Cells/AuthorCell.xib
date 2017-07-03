@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F60a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G23a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -52,11 +52,21 @@
                                 <color key="textColor" red="0.50588235294117645" green="0.50588235294117645" blue="0.56862745098039214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tFL-Gh-NeW">
+                                <rect key="frame" x="0.0" y="0.0" width="148" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="148" id="ymW-hW-Bg6"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="OtA-1U-PGa" firstAttribute="leading" secondItem="dpl-7h-iYA" secondAttribute="trailing" constant="8" id="7UI-Wh-JWk"/>
+                            <constraint firstItem="tFL-Gh-NeW" firstAttribute="leading" secondItem="coP-H4-D8x" secondAttribute="leading" id="MDe-Bd-WZN"/>
                             <constraint firstItem="dpl-7h-iYA" firstAttribute="centerY" secondItem="coP-H4-D8x" secondAttribute="centerY" id="Ndj-Al-rvL"/>
+                            <constraint firstAttribute="bottom" secondItem="tFL-Gh-NeW" secondAttribute="bottom" id="WnD-3l-iTB"/>
+                            <constraint firstItem="tFL-Gh-NeW" firstAttribute="top" secondItem="coP-H4-D8x" secondAttribute="top" id="YKo-vP-uxc"/>
                             <constraint firstItem="dpl-7h-iYA" firstAttribute="leading" secondItem="coP-H4-D8x" secondAttribute="leading" constant="8" id="cFu-az-Mpr"/>
                             <constraint firstItem="OtA-1U-PGa" firstAttribute="top" secondItem="coP-H4-D8x" secondAttribute="top" constant="8" id="ckb-Tq-xAM"/>
                             <constraint firstItem="nFB-sp-rEN" firstAttribute="leading" secondItem="dpl-7h-iYA" secondAttribute="trailing" constant="8" id="hl8-Sn-1EW"/>
@@ -89,6 +99,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="askLabel" destination="TgX-Ic-IQ6" id="GtU-ke-WNL"/>
+                <outlet property="authorInfoView" destination="tFL-Gh-NeW" id="RPl-em-QTR"/>
                 <outlet property="profilePhotoView" destination="dpl-7h-iYA" id="1sJ-36-V9w"/>
                 <outlet property="renownLabel" destination="nFB-sp-rEN" id="vA0-OM-QIf"/>
                 <outlet property="timeLabel" destination="x5k-1T-IL6" id="NGG-bb-LcV"/>

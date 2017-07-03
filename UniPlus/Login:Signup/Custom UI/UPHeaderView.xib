@@ -90,7 +90,7 @@
                 <outlet property="reputationLabel" destination="Zwc-Eh-1iV" id="Ogf-X9-bGC"/>
                 <outlet property="userNameLabel" destination="YmA-bE-RN5" id="RE8-bs-glk"/>
             </connections>
-            <point key="canvasLocation" x="-20" y="-578"/>
+            <point key="canvasLocation" x="-55" y="-622"/>
         </view>
     </objects>
     <resources>

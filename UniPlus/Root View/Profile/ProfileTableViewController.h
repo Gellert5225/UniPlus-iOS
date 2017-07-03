@@ -17,6 +17,7 @@
 @property (strong, nonatomic) UPHeaderView *headerView;
 @property (strong, nonatomic) PFUser *profileUser;
 @property (strong, nonatomic) ProfileTableViewModel *viewModel;
+@property (nonatomic) BOOL isFromMenu;
 
 @end
 

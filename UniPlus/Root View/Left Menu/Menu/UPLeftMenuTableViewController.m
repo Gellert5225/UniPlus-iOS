@@ -264,6 +264,7 @@
     if (indexPath.section == 0) {
         //profile page
         ProfileTableViewController *PTVC = [[ProfileTableViewController alloc]initWithStyle:UITableViewStylePlain];
+        PTVC.isFromMenu = YES;
         PTVC.profileUser = [PFUser currentUser];
         GKFadeNavigationController *nav = [[GKFadeNavigationController alloc]initWithRootViewController:PTVC];
         [revealController pushFrontViewController:nav animated:YES];

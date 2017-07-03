@@ -249,7 +249,6 @@ open class PZPullToRefreshView: UIView {
      */
     open func refreshScrollViewDidScroll(_ scrollView: UIScrollView) {
         if state == .loading {
-            print(state)
             UIView.beginAnimations(nil, context: nil)
             UIView.setAnimationDuration(0.2)
             var offset = max(scrollView.contentOffset.y * -1, 0)
@@ -259,7 +258,6 @@ open class PZPullToRefreshView: UIView {
             UIView.commitAnimations()
 
         } else if scrollView.isDragging {
-            print(state)
             let loading = false
             if state == .pulling && scrollView.contentOffset.y > -thresholdValue && scrollView.contentOffset.y <= 0.0 && !loading {
                 state = .normal
@@ -285,7 +283,6 @@ open class PZPullToRefreshView: UIView {
     open func refreshScrollViewDidEndDragging(_ scrollView: UIScrollView) {
         let loading = false
         if scrollView.contentOffset.y <= -thresholdValue && !loading {
-            print(scrollView.contentOffset.y)
             state = .loading
             delegate?.pullToRefreshDidTrigger(self)
         }
@@ -306,9 +303,9 @@ open class PZPullToRefreshView: UIView {
     }
     
     open func refreshScrollViewDataSourceDidFinishedLoading(_ scrollView: UIScrollView) {
-        UIView.beginAnimations(nil, context: nil)
-        UIView.setAnimationDuration(0.3)
-        UIView.commitAnimations()
+//        UIView.beginAnimations(nil, context: nil)
+//        UIView.setAnimationDuration(0.3)
+//        UIView.commitAnimations()
         arrowImage?.isHidden = false
         state = .normal
     }

@@ -18,7 +18,7 @@
 @interface DownVoteView : UIImageView<UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) UPObject *object;
-@property (nonatomic, weak) id <DownVoteViewDelegate> delegate;
+@property (weak, nonatomic) id <DownVoteViewDelegate> delegate;
 @property (strong, nonatomic) NSString *type;
 @property (nonatomic) BOOL own;
 
