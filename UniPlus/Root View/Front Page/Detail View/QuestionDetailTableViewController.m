@@ -62,7 +62,7 @@
     _questionObject = object;
     _isFromProfile = fromProfile;
     _isLoading = loading;
-    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    //self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     
     return self;
 }

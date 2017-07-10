@@ -8,6 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@class ProfileDetailInfoCell;
+
+@protocol ProfileDetailInfoCellDelegate
+
+- (void)didTapQuestionView;
+- (void)didTapAnswerView;
+
+@end
+
 @interface ProfileDetailInfoCell : UITableViewCell
+
+@property (weak, nonatomic) IBOutlet UIView *questionView;
+@property (weak, nonatomic) IBOutlet UIView *answerView;
+@property (weak, nonatomic) id <ProfileDetailInfoCellDelegate>delegate;
 
 @end

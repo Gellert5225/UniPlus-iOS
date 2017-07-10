@@ -16,6 +16,8 @@
 #import "SRActionSheet.h"
 #import "QuestionDetailTableViewController.h"
 #import "ReviewProfileTableViewController.h"
+#import "UserQuestionPostTableViewController.h"
+#import "UserActivityTableViewController.h"
 
 #import "UniPlus-Swift.h"
 
@@ -25,7 +27,7 @@
 #define COLOR_SCHEME [UIColor colorWithRed:53/255.0 green:111/255.0 blue:177/255.0 alpha:1.0]
 #define kRefreshControlThreshold 40.0f
 
-@interface ProfileTableViewController () <PZPullToRefreshDelegate, SRActionSheetDelegate>
+@interface ProfileTableViewController () <PZPullToRefreshDelegate, SRActionSheetDelegate, ProfileDetailInfoCellDelegate>
 
 @property (nonatomic) GKFadeNavigationControllerNavigationBarVisibility navigationBarVisibility;
 @property (nonatomic) GKFadeNavigationControllerNavigationBarVisibility previousNavBarVisibility;
@@ -44,28 +46,29 @@
 #pragma - mark Accessors
 
 - (void)setNavigationBarVisibility:(GKFadeNavigationControllerNavigationBarVisibility)navigationBarVisibility {
-    // Set the value
-    _navigationBarVisibility = navigationBarVisibility;
-    NSLog(@"SETTER");
-    
-    // Play the change
-    GKFadeNavigationController *navigationController = (GKFadeNavigationController *)self.navigationController;
-    if (navigationController.topViewController) {
-        //[navigationController setNeedsNavigationBarVisibilityUpdateAnimated:YES];
+    if (navigationBarVisibility != _navigationBarVisibility) {
+        // Set the value
+        _navigationBarVisibility = navigationBarVisibility;
+        
+        // Play the change
+        GKFadeNavigationController *navigationController = (GKFadeNavigationController *)self.navigationController;
+        if (navigationController.topViewController) {
+            //[navigationController setNeedsNavigationBarVisibilityUpdateAnimated:YES];
+        }
+        [navigationController setNeedsNavigationBarVisibilityUpdateAnimated:YES];
+        
+        self.navigationItem.titleView.hidden = _navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? YES : NO;
+        _menuImgView.image = [_menuImgView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        _moreImgView.image = [_moreImgView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        _backImgView.image = [_backImgView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        [_menuImgView setTintColor:navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? [UIColor whiteColor] : COLOR_SCHEME];
+        [_menuImgView addShadowWithOpacity:navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? 1.0 : 0.0];
+        [_moreImgView setTintColor:navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? [UIColor whiteColor] : COLOR_SCHEME];
+        [_moreImgView addShadowWithOpacity:navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? 1.0 : 0.0];
+        [_backImgView setTintColor:navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? [UIColor whiteColor] : COLOR_SCHEME];
+        [_backImgView addShadowWithOpacity:navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? 1.0 : 0.0];
+        [self.navigationController setNeedsStatusBarAppearanceUpdate];
     }
-    [navigationController setNeedsNavigationBarVisibilityUpdateAnimated:YES];
-    
-    self.navigationItem.titleView.hidden = _navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? YES : NO;
-    _menuImgView.image = [_menuImgView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    _moreImgView.image = [_moreImgView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    _backImgView.image = [_backImgView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    [_menuImgView setTintColor:navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? [UIColor whiteColor] : COLOR_SCHEME];
-    [_menuImgView addShadowWithOpacity:navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? 1.0 : 0.0];
-    [_moreImgView setTintColor:navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? [UIColor whiteColor] : COLOR_SCHEME];
-    [_moreImgView addShadowWithOpacity:navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? 1.0 : 0.0];
-    [_backImgView setTintColor:navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? [UIColor whiteColor] : COLOR_SCHEME];
-    [_backImgView addShadowWithOpacity:navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden ? 1.0 : 0.0];
-    [self.navigationController setNeedsStatusBarAppearanceUpdate];
 }
 
 - (void)setProfileUser:(PFUser *)profileUser {
@@ -104,29 +107,22 @@
     [self loadObjects];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-
-    //self.navigationBarVisibility = _previousNavBarVisibility;
-}
-
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    self.navigationBarVisibility = _previousNavBarVisibility;
+    CGFloat scrollOffsetY = kGKHeaderHeight-self.tableView.contentOffset.y;
+    if (scrollOffsetY-kGKNavbarHeight < kGKHeaderVisibleThreshold) {
+        self.navigationBarVisibility = GKFadeNavigationControllerNavigationBarVisibilityVisible;
+    } else {
+        self.navigationBarVisibility = GKFadeNavigationControllerNavigationBarVisibilityHidden;
+    }
+    
     GKFadeNavigationController *navigationController = (GKFadeNavigationController *)self.navigationController;
     [navigationController.navigationBar sendSubviewToBack:navigationController.visualEffectView];
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     __weak id weakSelf = self;
     self.navigationController.interactivePopGestureRecognizer.delegate = weakSelf;
     [self.navigationController setNeedsStatusBarAppearanceUpdate];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    
-    _previousNavBarVisibility = _navigationBarVisibility;
-    //_navigationBarVisibility = _previousNavBarVisibility;
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -160,10 +156,16 @@
     UIView *headerView = [[UIView alloc] initWithFrame: CGRectMake(0, 0, tableView.frame.size.width, 25)];
     headerView.backgroundColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:244/255.0 alpha:1];
     
-    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, tableView.frame.size.width - 15, 25)];
+    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, 100, 25)];
     headerLabel.text = @"Recent Activity";
     headerLabel.font = [UIFont fontWithName:@"SFUIText-Regular" size:13];
     headerLabel.textColor = [UIColor colorWithRed:64/255.0 green:132/255.0 blue:191/255.0 alpha:1.0];
+    
+    UIButton *viewAllButton = [[UIButton alloc] initWithFrame:CGRectMake(tableView.frame.size.width - 100, 0, 100, 25)];
+    [viewAllButton setTitle:@"View All" forState:UIControlStateNormal];
+    [viewAllButton setTitleColor:[UIColor colorWithRed:64/255.0 green:132/255.0 blue:191/255.0 alpha:1.0] forState:UIControlStateNormal];
+    viewAllButton.titleLabel.font = [UIFont fontWithName:@"SFUIText-Regular" size:13];
+    [viewAllButton addTarget:self action:@selector(viewAll) forControlEvents:UIControlEventTouchUpInside];
     
     UIView *topSeparator = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 0.5)];
     topSeparator.backgroundColor = [UIColor colorWithRed:219/255.0 green:219/255.0 blue:224/255.0 alpha:1.0];
@@ -171,6 +173,7 @@
     UIView *bottomSeparator = [[UIView alloc] initWithFrame:CGRectMake(0, 24.5, tableView.frame.size.width, 0.5)];
     bottomSeparator.backgroundColor = [UIColor colorWithRed:219/255.0 green:219/255.0 blue:224/255.0 alpha:1.0];
     [headerView addSubview:headerLabel];
+    [headerView addSubview:viewAllButton];
     
     return headerView;
 }
@@ -178,6 +181,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         ProfileDetailInfoCell *profileDetailInfoCell = [self.tableView dequeueReusableCellWithIdentifier:@"profiledetailinfo" forIndexPath:indexPath];
+        profileDetailInfoCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        profileDetailInfoCell.delegate = self;
         return profileDetailInfoCell;
     } else {
         if (_isLoading) {
@@ -197,9 +202,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section != 0 && indexPath.row != _viewModel.activities.count) {
+        GKFadeNavigationController *navigationController = (GKFadeNavigationController *)self.navigationController;
         PFObject *question = _viewModel.activities[indexPath.row][@"toQuestion"];
-        QuestionDetailTableViewController *QDTVC = [[QuestionDetailTableViewController alloc]initWithStyle:UITableViewStyleGrouped questionID:question.objectId questionObject:question setFromProfile:YES setLoading:YES];
-        [self.navigationController pushViewController:QDTVC animated:YES];
+        QuestionDetailTableViewController *QDTVC = [[QuestionDetailTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        QDTVC.questionId = question.objectId;
+        QDTVC.questionObject = question;
+        QDTVC.isFromProfile = YES;
+        QDTVC.isLoading = YES;
+        [navigationController pushViewController:QDTVC animated:YES];
     }
 }
 
@@ -271,6 +281,12 @@
 }
 
 #pragma - mark Private
+
+- (void)viewAll {
+    UserActivityTableViewController *UATVC = [[UserActivityTableViewController alloc] initWithStyle:UITableViewStyleGrouped queryUser:_profileUser];
+    UATVC.isLoadingForTheFirstTime = YES;
+    [self.navigationController pushViewController:UATVC animated:YES];
+}
 
 - (void)loadNibs {
     UINib *profileDetailInfoCell = [UINib nibWithNibName:@"ProfileDetailInfoCell" bundle:nil];
@@ -355,6 +371,15 @@
 - (NSDate *)pullToRefreshLastUpdated:(PZPullToRefreshView *)view {
     NSDate *date = [[NSDate alloc]init];
     return date;
+}
+
+- (void)didTapQuestionView {
+    UserQuestionPostTableViewController *UQPTVC = [[UserQuestionPostTableViewController alloc] initWithStyle:UITableViewStyleGrouped queryUser:_profileUser];
+    [self.navigationController pushViewController:UQPTVC animated:YES];
+}
+
+- (void)didTapAnswerView {
+    
 }
 
 - (void)configureRefreshView {

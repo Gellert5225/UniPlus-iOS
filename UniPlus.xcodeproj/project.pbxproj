@@ -274,6 +274,8 @@
 		DFE3A43D1DA38DC300811165 /* AppledocSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = DFE3A43C1DA38DC300811165 /* AppledocSettings.plist */; };
 		DFEAC5BA1DB9C0AD00BA0A32 /* AccessoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DFEAC5B81DB9C0AD00BA0A32 /* AccessoryCell.m */; };
 		DFEAC5BB1DB9C0AD00BA0A32 /* AccessoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFEAC5B91DB9C0AD00BA0A32 /* AccessoryCell.xib */; };
+		DFF186811F12CEE4002FD0B4 /* UserQuestionPostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF186801F12CEE4002FD0B4 /* UserQuestionPostTableViewController.m */; };
+		DFF186841F1333DB002FD0B4 /* UserActivityTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF186831F1333DB002FD0B4 /* UserActivityTableViewController.m */; };
 		E6F491A6708D3115E832E384 /* Pods_UniPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DA7CF4337CC26A42D11A64 /* Pods_UniPlus.framework */; };
 /* End PBXBuildFile section */
 
@@ -651,6 +653,10 @@
 		DFEAC5B71DB9C0AD00BA0A32 /* AccessoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessoryCell.h; sourceTree = "<group>"; };
 		DFEAC5B81DB9C0AD00BA0A32 /* AccessoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessoryCell.m; sourceTree = "<group>"; };
 		DFEAC5B91DB9C0AD00BA0A32 /* AccessoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccessoryCell.xib; sourceTree = "<group>"; };
+		DFF1867F1F12CEE4002FD0B4 /* UserQuestionPostTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserQuestionPostTableViewController.h; path = Profile/UserQuestionPostTableViewController.h; sourceTree = "<group>"; };
+		DFF186801F12CEE4002FD0B4 /* UserQuestionPostTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserQuestionPostTableViewController.m; path = Profile/UserQuestionPostTableViewController.m; sourceTree = "<group>"; };
+		DFF186821F1333DB002FD0B4 /* UserActivityTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserActivityTableViewController.h; path = Profile/UserActivityTableViewController.h; sourceTree = "<group>"; };
+		DFF186831F1333DB002FD0B4 /* UserActivityTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserActivityTableViewController.m; path = Profile/UserActivityTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1472,6 +1478,10 @@
 				DF62FB821DAE7FD600465941 /* Cells */,
 				DFAF31EB1DAA2543004FA714 /* ProfileTableViewController.h */,
 				DFAF31EC1DAA2543004FA714 /* ProfileTableViewController.m */,
+				DFF186821F1333DB002FD0B4 /* UserActivityTableViewController.h */,
+				DFF186831F1333DB002FD0B4 /* UserActivityTableViewController.m */,
+				DFF1867F1F12CEE4002FD0B4 /* UserQuestionPostTableViewController.h */,
+				DFF186801F12CEE4002FD0B4 /* UserQuestionPostTableViewController.m */,
 				DF27C3C21EA96B2A0078726F /* FeedsViewController.h */,
 				DF27C3C31EA96B2A0078726F /* FeedsViewController.m */,
 			);
@@ -1934,6 +1944,7 @@
 				DF7F38BD1DA74A99004C15B8 /* QuestionOverviewCell.m in Sources */,
 				DFA5DD181E99E4F200A029BE /* ProfileOverViewCell.m in Sources */,
 				DF7DEBF11DA74E43003EA1F4 /* ICGFlipAnimation.m in Sources */,
+				DFF186841F1333DB002FD0B4 /* UserActivityTableViewController.m in Sources */,
 				DF6132A21D9B688700575280 /* PFQueryCollectionViewController.m in Sources */,
 				DF6132A41D9B688700575280 /* PFSignUpView.m in Sources */,
 				DF7DEBF81DA74E43003EA1F4 /* PZPullToRefreshView.swift in Sources */,
@@ -1952,6 +1963,7 @@
 				DF7F38C31DA74A99004C15B8 /* ProfileCell.m in Sources */,
 				DF6132A31D9B688700575280 /* PFQueryTableViewController.m in Sources */,
 				DF1CDE281DEC83050013379A /* AnswerAccessoryCell.m in Sources */,
+				DFF186811F12CEE4002FD0B4 /* UserQuestionPostTableViewController.m in Sources */,
 				DF6132961D9B688700575280 /* PFImage.m in Sources */,
 				DF1934CB1EAFF3880089534C /* UPError.m in Sources */,
 				DF6132A61D9B688700575280 /* PFImageView.m in Sources */,

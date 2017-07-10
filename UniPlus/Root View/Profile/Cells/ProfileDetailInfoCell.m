@@ -13,6 +13,17 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    [_questionView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapQuestion)]];
+    [_answerView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAnswer)]];
+}
+
+- (void)didTapQuestion {
+    [_delegate didTapQuestionView];
+}
+
+- (void)didTapAnswer {
+    [_delegate didTapAnswerView];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
