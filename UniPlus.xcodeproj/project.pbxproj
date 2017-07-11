@@ -80,6 +80,8 @@
 		DF523FBD1DBA6F58008B6195 /* AddCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF523FBB1DBA6F58008B6195 /* AddCommentCell.xib */; };
 		DF52A59A1DCC4DAB0007C9CE /* ProfileQuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF52A5981DCC4DAB0007C9CE /* ProfileQuestionCell.m */; };
 		DF52A59B1DCC4DAB0007C9CE /* ProfileQuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF52A5991DCC4DAB0007C9CE /* ProfileQuestionCell.xib */; };
+		DF541F8A1F14524200BCF768 /* InboxMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF541F881F14524200BCF768 /* InboxMessageCell.m */; };
+		DF541F8B1F14524200BCF768 /* InboxMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF541F891F14524200BCF768 /* InboxMessageCell.xib */; };
 		DF552F811DBDE1A800840642 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF552F7F1DBDE1A800840642 /* CommentCell.m */; };
 		DF552F821DBDE1A800840642 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF552F801DBDE1A800840642 /* CommentCell.xib */; };
 		DF56F0961DBB489600A3DCE5 /* AuthorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF56F0941DBB489600A3DCE5 /* AuthorCell.m */; };
@@ -351,6 +353,9 @@
 		DF52A5971DCC4DAB0007C9CE /* ProfileQuestionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileQuestionCell.h; path = Profile/Cells/ProfileQuestionCell.h; sourceTree = "<group>"; };
 		DF52A5981DCC4DAB0007C9CE /* ProfileQuestionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileQuestionCell.m; path = Profile/Cells/ProfileQuestionCell.m; sourceTree = "<group>"; };
 		DF52A5991DCC4DAB0007C9CE /* ProfileQuestionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProfileQuestionCell.xib; path = Profile/Cells/ProfileQuestionCell.xib; sourceTree = "<group>"; };
+		DF541F871F14524200BCF768 /* InboxMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InboxMessageCell.h; sourceTree = "<group>"; };
+		DF541F881F14524200BCF768 /* InboxMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InboxMessageCell.m; sourceTree = "<group>"; };
+		DF541F891F14524200BCF768 /* InboxMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InboxMessageCell.xib; sourceTree = "<group>"; };
 		DF552F7E1DBDE1A800840642 /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
 		DF552F7F1DBDE1A800840642 /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
 		DF552F801DBDE1A800840642 /* CommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
@@ -1412,6 +1417,9 @@
 				DF41AB901DDC4166003DD213 /* AcceptAnswerCell.h */,
 				DF41AB911DDC4166003DD213 /* AcceptAnswerCell.m */,
 				DF41AB921DDC4166003DD213 /* AcceptAnswerCell.xib */,
+				DF541F871F14524200BCF768 /* InboxMessageCell.h */,
+				DF541F881F14524200BCF768 /* InboxMessageCell.m */,
+				DF541F891F14524200BCF768 /* InboxMessageCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1737,6 +1745,7 @@
 				DF7DEBA31DA74C9B003EA1F4 /* PreviewCell1.xib in Resources */,
 				DF7F388F1DA74838004C15B8 /* SF-UI-Text-Semibold.otf in Resources */,
 				DF6132B41D9B688700575280 /* convert_images.rb in Resources */,
+				DF541F8B1F14524200BCF768 /* InboxMessageCell.xib in Resources */,
 				DF7F387C1DA74838004C15B8 /* SF-UI-Display-Black.otf in Resources */,
 				DF7F38C61DA74A99004C15B8 /* RowCell.xib in Resources */,
 				DF7F387D1DA74838004C15B8 /* SF-UI-Display-Bold.otf in Resources */,
@@ -1988,6 +1997,7 @@
 				DF523FBC1DBA6F58008B6195 /* AddCommentCell.m in Sources */,
 				DF7F38C91DA74A99004C15B8 /* EditTopicTableViewController.m in Sources */,
 				DF7DEBF91DA74E43003EA1F4 /* ExpandableTableView.m in Sources */,
+				DF541F8A1F14524200BCF768 /* InboxMessageCell.m in Sources */,
 				DF7DEC021DA74E43003EA1F4 /* SWRevealViewController.m in Sources */,
 				DF61329C1D9B688700575280 /* PFPrimaryButton.m in Sources */,
 				DF6132951D9B688700575280 /* PFColor.m in Sources */,

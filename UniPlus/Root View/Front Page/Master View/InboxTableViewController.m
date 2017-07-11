@@ -10,6 +10,8 @@
 
 #import "SWRevealViewController.h"
 
+#import "InboxMessageCell.h"
+
 #import "UniPlus-Swift.h"
 
 #import <PopupDialog/PopupDialog-Swift.h>
@@ -84,7 +86,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //[self loadNibs];
+    [self loadNibs];
     
     [self configureNavBar];
     [self setNeedsStatusBarAppearanceUpdate];
@@ -154,6 +156,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return CGFLOAT_MIN;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(nullable PFObject *)object {
+    InboxMessageCell *inboxCell = [tableView dequeueReusableCellWithIdentifier:@"inboxmessagecell"];
+    inboxCell.feedObject = object;
+    return inboxCell;
 }
 
 #pragma - mark ScrollView Delegates
@@ -241,6 +249,11 @@
     self.navigationItem.title                           = @"Inbox";
     self.navigationItem.leftBarButtonItem               = menu;
     self.navigationItem.hidesBackButton                 = YES;
+}
+
+- (void)loadNibs {
+    UINib *questionTitleCell = [UINib nibWithNibName:@"InboxMessageCell" bundle:nil];
+    [self.tableView registerNib:questionTitleCell forCellReuseIdentifier:@"inboxmessagecell"];
 }
 
 - (void)showAlertWithErrorString:(NSString *)error {
