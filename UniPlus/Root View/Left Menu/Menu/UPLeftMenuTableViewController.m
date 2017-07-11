@@ -13,6 +13,7 @@
 #import "GeneralDiscussionCell.h"
 #import "MainPageViewController.h"
 #import "ProfileTableViewController.h"
+#import "InboxTableViewController.h"
 #import "FeedsViewController.h"
 #import "SectionCell.h"
 #import "RowCell.h"
@@ -65,10 +66,8 @@
 
 - (BOOL)tableView:(SLExpandableTableView *)tableView canExpandSection:(NSInteger)section {
     switch (section) {
-        case 0:
-            return NO;
-        default:
-            return YES;
+        case 0: return NO;
+        default: return YES;
     }
 }
 
@@ -157,10 +156,9 @@
 }
 
 - (void)tableView:(SLExpandableTableView *)tableView willExpandSection:(NSUInteger)section animated:(BOOL)animated {
+    revealController = self.revealViewController;
     if (section == 6) {
         //log out and go to login screen.
-        revealController = self.revealViewController;
-        
         PFInstallation *currentInstall = [PFInstallation currentInstallation];
         [currentInstall removeObjectForKey:@"user"];
         [currentInstall saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
@@ -181,6 +179,10 @@
         
         MainScreen *MS = [[MainScreen alloc]initWithNibName:@"MainScreen" bundle:nil];
         [revealController pushFrontViewController:MS animated:YES];
+    } else if (section == 3) {
+        InboxTableViewController *ITVC = [[InboxTableViewController alloc] initWithStyle:UITableViewStyleGrouped className:@"Feeds"];
+        GKFadeNavigationController *nav = [[GKFadeNavigationController alloc] initWithRootViewController:ITVC];
+        [revealController pushFrontViewController:nav animated:YES];
     }
 }
 

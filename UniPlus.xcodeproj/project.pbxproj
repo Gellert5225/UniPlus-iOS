@@ -276,6 +276,7 @@
 		DFEAC5BB1DB9C0AD00BA0A32 /* AccessoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFEAC5B91DB9C0AD00BA0A32 /* AccessoryCell.xib */; };
 		DFF186811F12CEE4002FD0B4 /* UserQuestionPostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF186801F12CEE4002FD0B4 /* UserQuestionPostTableViewController.m */; };
 		DFF186841F1333DB002FD0B4 /* UserActivityTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF186831F1333DB002FD0B4 /* UserActivityTableViewController.m */; };
+		DFF186871F133C9D002FD0B4 /* InboxTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF186861F133C9D002FD0B4 /* InboxTableViewController.m */; };
 		E6F491A6708D3115E832E384 /* Pods_UniPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DA7CF4337CC26A42D11A64 /* Pods_UniPlus.framework */; };
 /* End PBXBuildFile section */
 
@@ -657,6 +658,8 @@
 		DFF186801F12CEE4002FD0B4 /* UserQuestionPostTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserQuestionPostTableViewController.m; path = Profile/UserQuestionPostTableViewController.m; sourceTree = "<group>"; };
 		DFF186821F1333DB002FD0B4 /* UserActivityTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserActivityTableViewController.h; path = Profile/UserActivityTableViewController.h; sourceTree = "<group>"; };
 		DFF186831F1333DB002FD0B4 /* UserActivityTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserActivityTableViewController.m; path = Profile/UserActivityTableViewController.m; sourceTree = "<group>"; };
+		DFF186851F133C9D002FD0B4 /* InboxTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InboxTableViewController.h; sourceTree = "<group>"; };
+		DFF186861F133C9D002FD0B4 /* InboxTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InboxTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1429,6 +1432,8 @@
 				DF7F38A41DA74A99004C15B8 /* MainPageViewController.m */,
 				DF7F38A51DA74A99004C15B8 /* NewestQueryTableViewController.h */,
 				DF7F38A61DA74A99004C15B8 /* NewestQueryTableViewController.m */,
+				DFF186851F133C9D002FD0B4 /* InboxTableViewController.h */,
+				DFF186861F133C9D002FD0B4 /* InboxTableViewController.m */,
 			);
 			path = "Master View";
 			sourceTree = "<group>";
@@ -1898,6 +1903,7 @@
 				DF7DEBFE1DA74E43003EA1F4 /* STPopupLeftBarItem.m in Sources */,
 				DF5895411EEB9EB600A2EB4C /* ProfileTableViewModel.m in Sources */,
 				DF7DEBAC1DA74C9B003EA1F4 /* CreateAccountViewController.m in Sources */,
+				DFF186871F133C9D002FD0B4 /* InboxTableViewController.m in Sources */,
 				DF7F385A1DA747BC004C15B8 /* AppDelegate.m in Sources */,
 				DF61329A1D9B688700575280 /* PFActionButton.m in Sources */,
 				DF7DEB751DA74B83003EA1F4 /* QuestionDraft.m in Sources */,

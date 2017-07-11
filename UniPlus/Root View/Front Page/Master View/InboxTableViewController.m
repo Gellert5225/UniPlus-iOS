@@ -1,32 +1,28 @@
 //
-//  UserActivityTableViewController.m
+//  InboxTableViewController.m
 //  UniPlus
 //
 //  Created by Jiahe Li on 09/07/2017.
 //  Copyright © 2017 Quicky Studio. All rights reserved.
 //
 
-#import "UserActivityTableViewController.h"
-#import "QuestionDetailTableViewController.h"
-#import "UPNavigationBarTitleView.h"
+#import "InboxTableViewController.h"
 
-#import "LoadMoreCell.h"
-#import "ProfileQuestionCell.h"
-
-#import <GKFadeNavigationController/GKFadeNavigationController.h>
-#import <PopupDialog/PopupDialog-Swift.h>
+#import "SWRevealViewController.h"
 
 #import "UniPlus-Swift.h"
 
+#import <PopupDialog/PopupDialog-Swift.h>
+
 #define COLOR_SCHEME [UIColor colorWithRed:53/255.0 green:111/255.0 blue:177/255.0 alpha:1.0]
 
-@interface UserActivityTableViewController ()<PZPullToRefreshDelegate>
+@interface InboxTableViewController ()<SWRevealViewControllerDelegate, PZPullToRefreshDelegate>
 
 @property (strong, nonatomic) NSMutableDictionary *cellHeightsDictionary;
 
 @end
 
-@implementation UserActivityTableViewController {
+@implementation InboxTableViewController {
     PZPullToRefreshView *refreshControl;
 }
 
@@ -41,15 +37,14 @@
 
 #pragma - mark Initializers
 
-- (id)initWithStyle:(UITableViewStyle)style queryUser:(PFUser *)user {
-    self = [super initWithStyle:style];
+- (id)initWithStyle:(UITableViewStyle)style className:(NSString *)className {
+    self = [super initWithStyle:style className:className];
     if (self) {
-        self.parseClassName       = @"_User";
+        self.parseClassName = className;
+        self.paginationEnabled = YES;
+        self.objectsPerPage = 20;
         self.pullToRefreshEnabled = NO;
-        self.paginationEnabled    = YES;
-        self.objectsPerPage       = 15;
-        self.loadingViewEnabled   = NO;
-        self.user = user;
+        self.loadingViewEnabled = NO;
     }
     return self;
 }
@@ -57,16 +52,13 @@
 #pragma - mark Inherited PFQuery
 
 - (PFQuery *)queryForTable {
-    PFRelation *feedsRelation = [self.user relationForKey:@"feeds"];
-    PFQuery    *feedsQuery    = [feedsRelation query];
-    [feedsQuery orderByDescending:@"createdAt"];
-    [feedsQuery includeKey:@"fromUser"];
-    [feedsQuery includeKey:@"toUser"];
-    [feedsQuery includeKey:@"toQuestion"];
-    [feedsQuery includeKey:@"toComment"];
-    [feedsQuery includeKey:@"toAnswer"];
-    
-    return feedsQuery;
+    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+    [query whereKey:@"toUser" equalTo:[PFUser currentUser]];
+    [query includeKey:@"fromUser"];
+    [query includeKey:@"toQuestion"];
+    [query includeKey:@"toAnswer"];
+    [query includeKey:@"toComment"];
+    return query;
 }
 
 - (PFObject *)objectAtIndexPath:(NSIndexPath *)indexPath {
@@ -92,7 +84,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self loadNibs];
+    //[self loadNibs];
     
     [self configureNavBar];
     [self setNeedsStatusBarAppearanceUpdate];
@@ -118,7 +110,7 @@
     self.navigationController.interactivePopGestureRecognizer.delegate = weakSelf;
 }
 
-#pragma - mark Table View Data Source
+#pragma - mark UITableView Delegate
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     NSIndexPath *key = indexPath;
@@ -161,91 +153,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 25.0;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
-    if (!self.isLoadingForTheFirstTime) {
-        if (indexPath.row == self.objects.count) {
-            LoadMoreCell *loadMoreCell  = (LoadMoreCell *)[self tableView:tableView cellForNextPageAtIndexPath:indexPath];
-            loadMoreCell.selectionStyle = UITableViewCellSelectionStyleNone;
-            return loadMoreCell;
-        } else {
-            ProfileQuestionCell *questionCell = [self.tableView dequeueReusableCellWithIdentifier:@"profilequestioncell" forIndexPath:indexPath];
-            
-            questionCell.object = object;
-            
-            return questionCell;
-        }
-    } else {
-        _isLoadingForTheFirstTime = NO;
-        static NSString *cellID = @"loadmore";
-        LoadMoreCell *loadcell = [tableView dequeueReusableCellWithIdentifier:cellID];
-        if (loadcell == nil) {
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"LoadMoreCell" owner:self options:nil];
-            loadcell     = [nib objectAtIndex:0];
-        }
-        
-        loadcell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        [loadcell.indicatorView startAnimating];
-        
-        return loadcell;
-    }
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *headerView = [[UIView alloc] initWithFrame: CGRectMake(0, 0, tableView.frame.size.width, 25)];
-    headerView.backgroundColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:244/255.0 alpha:1];
-    
-    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, tableView.frame.size.width - 15, 25)];
-    headerLabel.text = @"Recent Activity";
-    headerLabel.font = [UIFont fontWithName:@"SFUIText-Regular" size:13];
-    headerLabel.textColor = [UIColor colorWithRed:64/255.0 green:132/255.0 blue:191/255.0 alpha:1.0];
-    
-    UIView *topSeparator = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 0.5)];
-    topSeparator.backgroundColor = [UIColor colorWithRed:219/255.0 green:219/255.0 blue:224/255.0 alpha:1.0];
-    
-    UIView *bottomSeparator = [[UIView alloc] initWithFrame:CGRectMake(0, 24.5, tableView.frame.size.width, 0.5)];
-    bottomSeparator.backgroundColor = [UIColor colorWithRed:219/255.0 green:219/255.0 blue:224/255.0 alpha:1.0];
-    
-    if (!self.isLoading) {
-        [headerView addSubview:topSeparator];
-        [headerView addSubview:bottomSeparator];
-        [headerView addSubview:headerLabel];
-    }
-    
-    return headerView;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellID = @"loadmore";
-    LoadMoreCell *loadcell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    if (loadcell == nil) {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"LoadMoreCell" owner:self options:nil];
-        loadcell     = [nib objectAtIndex:0];
-    }
-    
-    loadcell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-    [loadcell.indicatorView startAnimating];
-    
-    return loadcell;
-}
-
-#pragma - mark Table View Delegates
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row != self.objects.count) {
-        PFObject *question = self.objects[indexPath.row][@"toQuestion"];
-        QuestionDetailTableViewController *QDTVC = [[QuestionDetailTableViewController alloc]initWithStyle:UITableViewStyleGrouped];
-        QDTVC.questionObject = question;
-        QDTVC.questionId     = question.objectId;
-        QDTVC.isLoading      = YES;
-        QDTVC.isFromProfile  = YES;
-        
-        [self.navigationController pushViewController:QDTVC animated:YES];
-    }
+    return CGFLOAT_MIN;
 }
 
 #pragma - mark ScrollView Delegates
@@ -287,34 +195,6 @@
 
 #pragma - mark Private
 
-- (void)configureNavBar {
-    UPNavigationBarTitleView *titleView = [[UPNavigationBarTitleView alloc] initWithTitle:[NSString stringWithFormat:@"%@'s Activities", _user.username]
-                                                                                 subTitle:[NSString stringWithFormat:@"%@ posts", _user[@"numberOfPosts"]]];
-    
-    GKFadeNavigationController *navigationController = (GKFadeNavigationController *)self.navigationController;
-    
-    self.navigationItem.titleView = titleView;
-    
-    UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc]initWithImage:[[UIImage imageNamed:@"back"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] style:UIBarButtonItemStyleDone target:self action:@selector(back)];
-    //UIBarButtonItem *helpButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"help"] style:UIBarButtonItemStyleDone target:self action:@selector(help)];
-    
-    self.navigationItem.leftBarButtonItem = backButtonItem;
-    //self.navigationItem.rightBarButtonItem = helpButtonItem;
-    [self.navigationController.navigationBar setTintColor:COLOR_SCHEME];
-    [navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
-    navigationController.navigationBar.translucent = NO;
-    
-    [navigationController setNeedsStatusBarAppearanceUpdate];
-}
-
-- (void)loadNibs {
-    UINib *questionCell = [UINib nibWithNibName:@"ProfileQuestionCell" bundle:nil];
-    [self.tableView registerNib:questionCell forCellReuseIdentifier:@"profilequestioncell"];
-    
-    UINib *profileOverviewCell = [UINib nibWithNibName:@"ProfileOverViewCell" bundle:nil];
-    [self.tableView registerNib:profileOverviewCell forCellReuseIdentifier:@"profileoverviewcell"];
-}
-
 - (void)configureRefreshControl {
     CGFloat tableViewHeight = self.tableView.bounds.size.height;
     CGFloat tableViewWidth  = self.tableView.bounds.size.width;
@@ -327,8 +207,40 @@
     }
 }
 
-- (void)back {
-    [self.navigationController popViewControllerAnimated:YES];
+- (void)configureNavBar {
+    //SWRevealViewController
+    SWRevealViewController *revealController = [self revealViewController];
+    revealController.delegate = self;
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
+    self.revealViewController.draggableBorderWidth = self.view.frame.size.width/7;
+    
+    //custom barButtonItem
+    UITapGestureRecognizer *tapMenu = [[UITapGestureRecognizer alloc] initWithTarget:revealController action:@selector(revealToggle:)];
+    
+    UIImageView *menuImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Menu"]];
+    menuImgView.image = [menuImgView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [menuImgView setTintColor:COLOR_SCHEME];
+    menuImgView.frame = CGRectMake(5, 5, 25, 25);
+    UIView *menuView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 35, 35)];
+    menuView.backgroundColor = [UIColor clearColor];
+    [menuView addSubview:menuImgView];
+    [menuView addGestureRecognizer:tapMenu];
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:@{
+        NSForegroundColorAttributeName:COLOR_SCHEME,
+        NSFontAttributeName:[UIFont fontWithName:@"SFUIText-Medium" size:18]
+    }];
+    
+    //configure the navigation bar
+    UIBarButtonItem *menu = [[UIBarButtonItem alloc] initWithCustomView:menuView];
+    [self.navigationController.navigationBar setTintColor:COLOR_SCHEME];
+    [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.barStyle    = UIBarStyleBlack;
+    self.navigationItem.title                           = @"Inbox";
+    self.navigationItem.leftBarButtonItem               = menu;
+    self.navigationItem.hidesBackButton                 = YES;
 }
 
 - (void)showAlertWithErrorString:(NSString *)error {
