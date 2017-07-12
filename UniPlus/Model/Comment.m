@@ -51,7 +51,7 @@
                     feed[@"repChange"]  = [NSNumber numberWithInt:0];
                     [feed saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                         if (succeeded) {
-                            NSLog(@"succeed saving feed");
+                            //NSLog(@"succeed saving feed");
                             [PFCloud callFunctionInBackground:@"commentNotification" withParameters:@{
                                 @"targetUser":object.author.objectId,
                                 @"message":[NSString stringWithFormat:@"%@ commented on your question: %@", PFUser.currentUser.username, comment[@"commentBody"]]

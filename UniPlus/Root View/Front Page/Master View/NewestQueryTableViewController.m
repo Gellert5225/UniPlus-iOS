@@ -296,7 +296,6 @@
 
 - (void)showAlertWithErrorString:(NSString *)error {
     //UI
-    NSLog(@"SHOW ALERT");
     PopupDialogDefaultView *dialogAppearance = [PopupDialogDefaultView appearance];
     dialogAppearance.titleFont   = [UIFont fontWithName:@"SFUIText-Medium" size:15];
     dialogAppearance.messageFont = [UIFont fontWithName:@"SFUIText-Regular" size:14];

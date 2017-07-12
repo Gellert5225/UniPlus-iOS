@@ -170,8 +170,7 @@
                  }];
 
              } else {
-                 NSString *errorString = [error userInfo][@"error"];
-                 NSLog(@"%@", errorString);
+#warning NEED TO HANDLE ERROR
              }
         }];
         

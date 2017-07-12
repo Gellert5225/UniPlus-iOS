@@ -155,7 +155,6 @@
                             if (succeeded) {
                                 [PFObject deleteAllInBackground:objects block:^(BOOL succeeded, NSError * _Nullable error) {
                                     if (succeeded) {
-                                        NSLog(@"deleted");
                                         block(YES, nil);
                                     } else {
                                         block(NO, error);

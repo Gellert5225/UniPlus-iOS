@@ -48,7 +48,7 @@
 }
 
 - (void)markQuestion:(PFObject *)question {
-    NSLog(@"Quesiton to fav: %@", question);
+    //NSLog(@"Quesiton to fav: %@", question);
     [_delegate didTapFavouriteView];
     if (!_alreadyMarked) {
         _alreadyMarked = YES;

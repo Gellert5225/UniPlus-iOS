@@ -54,9 +54,8 @@
         
         [UPObject upVote:_object.pfObject voteType:voteType objectType:_type byAmount:voteChange toUser:_object.author completionBlock:^(BOOL success, NSError *error) {
             if (success) {
-                NSLog(@"%@", voteType);
             } else {
-                NSLog(@"%@", error.userInfo[@"error"]);
+#warning NEED TO HANDLE ERROR
             }
             wrapper.userInteractionEnabled = YES;
         }];
