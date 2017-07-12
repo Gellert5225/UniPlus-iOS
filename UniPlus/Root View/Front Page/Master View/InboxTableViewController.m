@@ -11,6 +11,7 @@
 #import "SWRevealViewController.h"
 
 #import "InboxMessageCell.h"
+#import "LoadMoreCell.h"
 
 #import "UniPlus-Swift.h"
 
@@ -56,10 +57,13 @@
 - (PFQuery *)queryForTable {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
     [query whereKey:@"toUser" equalTo:[PFUser currentUser]];
+    [query whereKey:@"fromUser" notEqualTo:[PFUser currentUser]];
+    [query whereKey:@"type" containedIn:@[@"Answer" ,@"CommentToQuestion", @"CommentToAnswer"]];
     [query includeKey:@"fromUser"];
     [query includeKey:@"toQuestion"];
     [query includeKey:@"toAnswer"];
     [query includeKey:@"toComment"];
+    [query orderByDescending:@"createdAt"];
     return query;
 }
 
@@ -67,6 +71,7 @@
     if (indexPath.row == self.objects.count) {
         return nil;
     } else {
+        NSLog(@"%@", self.objects[indexPath.row]);
         return [self.objects objectAtIndex:indexPath.row];
     }
 }
@@ -159,9 +164,30 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(nullable PFObject *)object {
-    InboxMessageCell *inboxCell = [tableView dequeueReusableCellWithIdentifier:@"inboxmessagecell"];
-    inboxCell.feedObject = object;
-    return inboxCell;
+    if (indexPath.row == self.objects.count) {
+        LoadMoreCell *loadMoreCell  = (LoadMoreCell *)[self tableView:tableView cellForNextPageAtIndexPath:indexPath];
+        loadMoreCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return loadMoreCell;
+    } else {
+        InboxMessageCell *inboxCell = [tableView dequeueReusableCellWithIdentifier:@"inboxmessagecell"];
+        inboxCell.feedObject = object;
+        return inboxCell;
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellID = @"loadmore";
+    LoadMoreCell *loadcell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    if (loadcell == nil) {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"LoadMoreCell" owner:self options:nil];
+        loadcell     = [nib objectAtIndex:0];
+    }
+    
+    loadcell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    [loadcell.indicatorView startAnimating];
+    
+    return loadcell;
 }
 
 #pragma - mark ScrollView Delegates
