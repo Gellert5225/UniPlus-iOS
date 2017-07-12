@@ -67,6 +67,7 @@
 - (BOOL)tableView:(SLExpandableTableView *)tableView canExpandSection:(NSInteger)section {
     switch (section) {
         case 0: return NO;
+        case 3: return NO;
         default: return YES;
     }
 }
@@ -115,9 +116,9 @@
             [cell.editView addGestureRecognizer:tap];
             break;
         case 3:
-            cell.cellImg.image = [UIImage imageNamed:@"Inbox"];
-            cell.cellText.text = @"Inbox";
-            [cell setSelectedBackgroundView:bgColorView];
+//            cell.cellImg.image = [UIImage imageNamed:@"Inbox"];
+//            cell.cellText.text = @"Inbox";
+//            [cell setSelectedBackgroundView:bgColorView];
             break;
         case 4:
             cell.cellImg.image = [UIImage imageNamed:@"Search"];
@@ -179,10 +180,6 @@
         
         MainScreen *MS = [[MainScreen alloc]initWithNibName:@"MainScreen" bundle:nil];
         [revealController pushFrontViewController:MS animated:YES];
-    } else if (section == 3) {
-        InboxTableViewController *ITVC = [[InboxTableViewController alloc] initWithStyle:UITableViewStyleGrouped className:@"Feeds"];
-        GKFadeNavigationController *nav = [[GKFadeNavigationController alloc] initWithRootViewController:ITVC];
-        [revealController pushFrontViewController:nav animated:YES];
     }
 }
 
@@ -219,44 +216,55 @@
     static NSString *CellIdentifier1 = @"rowCell";
     static NSString *CellIdentifier2 = @"profileCell";
     
-    RowCell     *cell1 = [tableView dequeueReusableCellWithIdentifier:CellIdentifier1];
-    ProfileCell *cell2 = [tableView dequeueReusableCellWithIdentifier:CellIdentifier2];
+    SectionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"sectionCell"];
+    RowCell     *rowCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier1];
+    ProfileCell *profileCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier2];
     
-    if (!cell1) {
+    if (!rowCell) {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"RowCell" owner:self options:nil];
-        cell1 = [nib objectAtIndex:0];
+        rowCell = [nib objectAtIndex:0];
     }
     
-    if (!cell2) {
+    if (!profileCell) {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ProfileCell" owner:self options:nil];
-        cell2 = [nib objectAtIndex:0];
+        profileCell = [nib objectAtIndex:0];
+    }
+    
+    if (!cell) {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SectionCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
     }
     
     //set selection color
     UIView *bgColorView = [[UIView alloc] init];
     bgColorView.backgroundColor = [UIColor colorWithWhite:0.7 alpha:0.2];
-    [cell1 setSelectedBackgroundView:bgColorView];
+    [rowCell setSelectedBackgroundView:bgColorView];
     
-    cell2.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-    cell2.profilePhotoView.layer.cornerRadius = cell2.profilePhotoView.frame.size.height/2;
-    cell2.profilePhotoView.layer.masksToBounds = YES;
-    
-    cell2.nameLabel.text = [[PFUser currentUser] objectForKey:@"nickName"];
-    cell2.profilePhotoView.image = [UIImage imageNamed:@"empty-profile"];//place holder
-    cell2.profilePhotoView.file = [[PFUser currentUser] objectForKey:@"profilePhoto"];
-    [cell2.profilePhotoView loadInBackground];
-    
-    if (indexPath.row == 0) {
-        return cell2;
-    }
-    
-    if (indexPath.section == 1) {
-        cell1.cellText.text = [self.generalTopics objectAtIndex:indexPath.row - 1];
+    if (indexPath.section == 0) {
+        profileCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        profileCell.profilePhotoView.layer.cornerRadius = profileCell.profilePhotoView.frame.size.height/2;
+        profileCell.profilePhotoView.layer.masksToBounds = YES;
+        
+        profileCell.nameLabel.text = [[PFUser currentUser] objectForKey:@"nickName"];
+        profileCell.profilePhotoView.image = [UIImage imageNamed:@"empty-profile"];//place holder
+        profileCell.profilePhotoView.file = [[PFUser currentUser] objectForKey:@"profilePhoto"];
+        [profileCell.profilePhotoView loadInBackground];
+        
+        return profileCell;
+    } else if (indexPath.section == 1) {
+        rowCell.cellText.text = [self.generalTopics objectAtIndex:indexPath.row - 1];
     } else if (indexPath.section == 2) {
-        cell1.cellText.text = [self.menuMajorArray objectAtIndex:indexPath.row - 1];
+        rowCell.cellText.text = [self.menuMajorArray objectAtIndex:indexPath.row - 1];
+    } else if (indexPath.section == 3) {
+        cell.cellImg.image = [UIImage imageNamed:@"Inbox"];
+        cell.cellText.text = @"Inbox";
+        cell.cellImg.image = [cell.cellImg.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        [cell.cellImg setTintColor:COLOR_SCHEME];
+        [cell setSelectedBackgroundView:bgColorView];
+        return cell;
     }
-    return cell1;
+    return rowCell;
 }
 
 #pragma - Tableview delegate
@@ -279,6 +287,10 @@
         //present coursework q&a
         MainPageViewController *MPVC = [[MainPageViewController alloc]initWithTopic:[self.menuMajorArray objectAtIndex:indexPath.row - 1] ParseClass:@"Questions"];
         GKFadeNavigationController *nav  = [[GKFadeNavigationController alloc]initWithRootViewController:MPVC];
+        [revealController pushFrontViewController:nav animated:YES];
+    } else if (indexPath.section == 3) {
+        InboxTableViewController *ITVC = [[InboxTableViewController alloc] initWithStyle:UITableViewStyleGrouped className:@"Feeds"];
+        GKFadeNavigationController *nav = [[GKFadeNavigationController alloc] initWithRootViewController:ITVC];
         [revealController pushFrontViewController:nav animated:YES];
     }
 }
