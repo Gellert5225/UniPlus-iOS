@@ -38,7 +38,7 @@
 }
 
 - (void)updateUI {
-    _profilePhotoView.image = [UIImage imageNamed:@"empty-profile"];
+    _profilePhotoView.image = [UIImage imageNamed:@"empty-profile-small"];
     _profilePhotoView.file = _author[@"profilePhoto80"];
     [_profilePhotoView loadInBackground];
     _usernameLabel.text = _author[@"nickName"];

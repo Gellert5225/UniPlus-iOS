@@ -86,7 +86,7 @@
 - (void)updateUI {
     PFUser *questionAuthor = [_questionObject objectForKey:@"user"];
     
-    _profileImageView.image = [UIImage imageNamed:@"empty-profile"];//placeholder
+    _profileImageView.image = [UIImage imageNamed:@"empty-profile-small"];//placeholder
     _profileImageView.file  = [questionAuthor objectForKey:@"profilePhoto80"];
     [_profileImageView loadInBackground];
     

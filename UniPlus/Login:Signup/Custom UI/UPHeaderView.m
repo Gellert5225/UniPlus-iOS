@@ -16,6 +16,7 @@
     _userNameLabel.text = user[@"nickName"];
     _institutionLabel.text = user[@"institution"];
     _reputationLabel.text = [NSString stringWithFormat:@"%@ Renown", [user[@"reputation"] stringValue]?[user[@"reputation"] stringValue]:@"0"];
+    _profileImageView.image = [UIImage imageNamed:@"empty-profile"];
     _profileImageView.file = user[@"profilePhoto80"];
     [_profileImageView loadInBackground];
     

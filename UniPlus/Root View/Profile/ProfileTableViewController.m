@@ -119,7 +119,13 @@
     
     GKFadeNavigationController *navigationController = (GKFadeNavigationController *)self.navigationController;
     [navigationController.navigationBar sendSubviewToBack:navigationController.visualEffectView];
-    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    if (_isFromMenu) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    } else {
+        self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+        __weak id weakSelf = self;
+        self.navigationController.interactivePopGestureRecognizer.delegate = weakSelf;
+    }
     [self.navigationController setNeedsStatusBarAppearanceUpdate];
 }
 
