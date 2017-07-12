@@ -23,7 +23,7 @@ import UIKit
      
      - parameter view: The refresh view
      */
-    func pullToRefreshLastUpdated(_ view: PZPullToRefreshView) -> Date
+    @objc optional func pullToRefreshLastUpdated(_ view: PZPullToRefreshView) -> Date
 }
 
 /**
@@ -221,7 +221,7 @@ open class PZPullToRefreshView: UIView {
      */
     open func refreshLastUpdatedDate() {
         if isShowUpdatedTime {
-            if let date = delegate?.pullToRefreshLastUpdated(self) {
+            if let date = delegate?.pullToRefreshLastUpdated?(self) {
                 var lastUpdateText:String
                 if let customFormatter = self.lastUpdatedLabelCustomFormatter {
                     lastUpdateText = customFormatter(date)

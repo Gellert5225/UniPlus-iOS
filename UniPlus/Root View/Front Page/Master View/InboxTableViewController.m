@@ -71,7 +71,6 @@
     if (indexPath.row == self.objects.count) {
         return nil;
     } else {
-        NSLog(@"%@", self.objects[indexPath.row]);
         return [self.objects objectAtIndex:indexPath.row];
     }
 }
@@ -220,11 +219,6 @@
         refreshControl.isLoading = NO;
         [refreshControl refreshScrollViewDataSourceDidFinishedLoading:self.tableView :UIEdgeInsetsZero];
     }];
-}
-
-- (NSDate *)pullToRefreshLastUpdated:(PZPullToRefreshView *)view {
-    NSDate *date = [[NSDate alloc]init];
-    return date;
 }
 
 #pragma - mark Private

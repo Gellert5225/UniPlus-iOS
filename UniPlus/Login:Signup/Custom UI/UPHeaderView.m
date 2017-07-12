@@ -15,7 +15,7 @@
 - (void)setUser:(PFUser *)user {
     _userNameLabel.text = user[@"nickName"];
     _institutionLabel.text = user[@"institution"];
-    _reputationLabel.text = [NSString stringWithFormat:@"%@ Renown", [user[@"reputation"] stringValue]];
+    _reputationLabel.text = [NSString stringWithFormat:@"%@ Renown", [user[@"reputation"] stringValue]?[user[@"reputation"] stringValue]:@"0"];
     _profileImageView.file = user[@"profilePhoto80"];
     [_profileImageView loadInBackground];
     

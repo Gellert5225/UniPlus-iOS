@@ -249,11 +249,6 @@
     }];
 }
 
-- (NSDate *)pullToRefreshLastUpdated:(PZPullToRefreshView *)view {
-    NSDate *date = [[NSDate alloc]init];
-    return date;
-}
-
 - (void)configureNavbar {
     UPNavigationBarTitleView *titleView = [[UPNavigationBarTitleView alloc] initWithTitle:[NSString stringWithFormat:@"%@'s Questions", _user.username]
                                                                                  subTitle:[NSString stringWithFormat:@"%@ posts", _user[@"numberOfPosts"]]];

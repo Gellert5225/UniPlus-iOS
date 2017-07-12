@@ -335,11 +335,6 @@
     [self loadObjects];
 }
 
-- (NSDate *)pullToRefreshLastUpdated:(PZPullToRefreshView *)view {
-    NSDate *date = [[NSDate alloc]init];
-    return date;
-}
-
 #pragma - mark UITextView Delegates
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView {

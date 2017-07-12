@@ -280,11 +280,6 @@
     }];
 }
 
-- (NSDate *)pullToRefreshLastUpdated:(PZPullToRefreshView *)view {
-    NSDate *date = [[NSDate alloc]init];
-    return date;
-}
-
 #pragma - mark Private
 
 - (void)configureNavBar {

@@ -38,9 +38,9 @@
     
     [Parse initializeWithConfiguration:[ParseClientConfiguration
         configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
-            configuration.applicationId = DEVELOPMENT_APP_ID;
-            configuration.clientKey     = DEVELOPMENT_CLIENT_KEY;
-            configuration.server        = DEVELOPMENT_SERVER_URL;
+            configuration.applicationId = PRODUCTION_APP_ID;
+            configuration.clientKey     = PRODUCTION_CLIENT_KEY;
+            configuration.server        = PRODUCTION_SERVER_URL;
     }]];
         
     UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |

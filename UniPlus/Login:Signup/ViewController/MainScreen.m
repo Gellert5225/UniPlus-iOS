@@ -22,6 +22,7 @@
 #import "UPLeftMenuTableViewController.h"
 #import "MainPageViewController.h"
 #import <PopupDialog/PopupDialog-Swift.h>
+#import <GKFadeNavigationController/GKFadeNavigationController.h>
 
 @interface MainScreen ()<SWRevealViewControllerDelegate>
 
@@ -234,7 +235,7 @@
              
              dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                  MainPageViewController *MPVC = [[MainPageViewController alloc]initWithTopic:@"Computer Science" ParseClass:@"Questions"];
-                 UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:MPVC];
+                 GKFadeNavigationController *nav = [[GKFadeNavigationController alloc]initWithRootViewController:MPVC];
                  
                  UPLeftMenuTableViewController *leftMenuVC = [[UPLeftMenuTableViewController alloc]init];
                  leftMenuVC.menuMajorArray = majorArray;

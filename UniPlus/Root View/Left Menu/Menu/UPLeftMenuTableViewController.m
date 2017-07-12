@@ -116,9 +116,6 @@
             [cell.editView addGestureRecognizer:tap];
             break;
         case 3:
-//            cell.cellImg.image = [UIImage imageNamed:@"Inbox"];
-//            cell.cellText.text = @"Inbox";
-//            [cell setSelectedBackgroundView:bgColorView];
             break;
         case 4:
             cell.cellImg.image = [UIImage imageNamed:@"Search"];

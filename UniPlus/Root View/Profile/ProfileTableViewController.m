@@ -119,9 +119,7 @@
     
     GKFadeNavigationController *navigationController = (GKFadeNavigationController *)self.navigationController;
     [navigationController.navigationBar sendSubviewToBack:navigationController.visualEffectView];
-    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
-    __weak id weakSelf = self;
-    self.navigationController.interactivePopGestureRecognizer.delegate = weakSelf;
+    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     [self.navigationController setNeedsStatusBarAppearanceUpdate];
 }
 

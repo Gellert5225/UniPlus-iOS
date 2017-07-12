@@ -41,7 +41,7 @@
     _profilePhotoView.file = _author[@"profilePhoto80"];
     [_profilePhotoView loadInBackground];
     _usernameLabel.text = _author[@"nickName"];
-    _renownLabel.text = [_author[@"reputation"] stringValue];
+    _renownLabel.text = [_author[@"reputation"] stringValue]?[_author[@"reputation"] stringValue]:@"0";
 }
 
 - (void)setCreationDate:(NSDate *)creationDate {

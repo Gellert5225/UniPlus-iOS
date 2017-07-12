@@ -276,11 +276,6 @@
     }];
 }
 
-- (NSDate *)pullToRefreshLastUpdated:(PZPullToRefreshView *)view {
-    NSDate *date = [[NSDate alloc]init];
-    return date;
-}
-
 #pragma - PostQuestionTableViewControllerDelegate
 
 - (void)postQuestionWithQuestionObject:(PFObject *)question notificationTitle:(NSString *)title message:(NSString *)messageBody image:(UIImage *)img error:(BOOL)err{
