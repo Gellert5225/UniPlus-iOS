@@ -23,4 +23,6 @@
 @property (weak, nonatomic) IBOutlet FavouriteView *markView;
 @property (weak, nonatomic) IBOutlet EditView *editView;
 
+@property (nonatomic) BOOL belongsToAuthor;
+
 @end

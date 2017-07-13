@@ -12,6 +12,20 @@
 
 @implementation AccessoryCell
 
+- (void)setBelongsToAuthor:(BOOL)belongsToAuthor {
+    _belongsToAuthor = belongsToAuthor;
+    
+    [self updateUI];
+}
+
+- (void)updateUI {
+    _reportImageView.image = [UIImage imageNamed:_belongsToAuthor ? @"trash" : @"report"];
+    _reportLabel.text = _belongsToAuthor ? @"Delete" : @"Report";
+    
+    _reportImageView.image = [_reportImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [_reportImageView setTintColor:IMG_TINT_COLOR];
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     
@@ -20,12 +34,6 @@
     
     _editImageView.image = [_editImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     [_editImageView setTintColor:IMG_TINT_COLOR];
-    
-    _reportImageView.image = [_reportImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    [_reportImageView setTintColor:IMG_TINT_COLOR];
-    
-    _moreImageView.image = [_moreImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    [_moreImageView setTintColor:IMG_TINT_COLOR];
     
     _markLabel.backgroundColor = [UIColor whiteColor];
     _moreLabel.backgroundColor = [UIColor whiteColor];
@@ -40,9 +48,6 @@
     
     _reportImageView.layer.shouldRasterize = YES;
     _reportImageView.layer.rasterizationScale = [[UIScreen mainScreen] scale];
-    
-    _moreImageView.layer.shouldRasterize = YES;
-    _moreImageView.layer.rasterizationScale = [[UIScreen mainScreen] scale];
     
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     

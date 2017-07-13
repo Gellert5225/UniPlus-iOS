@@ -15,5 +15,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *reportImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *moreImageView;
 @property (weak, nonatomic) IBOutlet EditView *editView;
+@property (weak, nonatomic) IBOutlet UILabel *reportLabel;
+
+@property (nonatomic) BOOL belongsToAuthor;
 
 @end

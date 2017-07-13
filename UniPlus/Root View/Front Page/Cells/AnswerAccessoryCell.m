@@ -12,18 +12,25 @@
 
 @implementation AnswerAccessoryCell
 
+- (void)setBelongsToAuthor:(BOOL)belongsToAuthor {
+    _belongsToAuthor = belongsToAuthor;
+    
+    [self updateUI];
+}
+
+- (void)updateUI {
+    _reportImageView.image = [UIImage imageNamed: _belongsToAuthor ? @"trash" : @"report"];
+    _reportLabel.text = _belongsToAuthor ? @"Delete" : @"Report";
+    _reportImageView.image = [_reportImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [_reportImageView setTintColor:IMG_TINT_COLOR];
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
     
     _editImageView.image = [_editImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     [_editImageView setTintColor:IMG_TINT_COLOR];
-    
-    _reportImageView.image = [_reportImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    [_reportImageView setTintColor:IMG_TINT_COLOR];
-    
-    _moreImageView.image = [_moreImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    [_moreImageView setTintColor:IMG_TINT_COLOR];
     
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     

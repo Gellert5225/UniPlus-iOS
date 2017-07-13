@@ -231,6 +231,7 @@
             return addCommentCell;
         } else if (indexPath.row == 3) {
             AccessoryCell *accessoryCell = [self.tableView dequeueReusableCellWithIdentifier:accessoryCellID forIndexPath:indexPath];
+            accessoryCell.belongsToAuthor = [_viewModel.question.author.objectId isEqualToString:[PFUser currentUser].objectId];
             accessoryCell.markView.delegate = self;
             accessoryCell.markView.questionToFavourite = _viewModel.question.pfObject;
             accessoryCell.markView.alreadyMarked = _viewModel.question.markedByUser;
@@ -290,6 +291,7 @@
             return authorCell;
         } else if (indexPath.row == 2) {
             AnswerAccessoryCell *ansAccessoryCell = [self.tableView dequeueReusableCellWithIdentifier:answerAccId forIndexPath:indexPath];
+            ansAccessoryCell.belongsToAuthor = [answer.author.objectId isEqualToString:[PFUser currentUser].objectId];
             ansAccessoryCell.editView.delegate = self;
             ansAccessoryCell.editView.index = indexPath;
             ansAccessoryCell.editView.objectToEdit = answer.pfObject;
