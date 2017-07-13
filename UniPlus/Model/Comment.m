@@ -20,6 +20,7 @@
         self.author    = object[@"user"];
         self.upVotes   = object[@"upVotes"];
         self.pfObject  = object;
+        self.type      = TypeComment;
     }
     return self;
 }

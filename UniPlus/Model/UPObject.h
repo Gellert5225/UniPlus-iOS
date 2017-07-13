@@ -19,6 +19,12 @@ typedef NS_ENUM(NSInteger, VoteType) {
     NewDownVote
 };
 
+typedef NS_ENUM(NSInteger, ObjectType) {
+    TypeQuestion,
+    TypeAnswer,
+    TypeComment
+};
+
 /**
  This class represents the super class of Answer, Comment and Question classes.
  */
@@ -61,6 +67,8 @@ typedef NS_ENUM(NSInteger, VoteType) {
  The creation date of the object.
  */
 @property (strong, nonatomic) NSDate *createdAt;
+
+@property (nonatomic) ObjectType type;
 
 /*!
  @name Factory Methods

@@ -19,6 +19,7 @@
         self.pfObject  = object;
         self.objectId  = object.objectId;
         self.author    = object[@"author"];
+        self.type      = TypeAnswer;
     }
     return self;
 }

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "EditView.h"
+#import "ReportView.h"
 
 @interface AnswerAccessoryCell : UITableViewCell
 
@@ -16,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *moreImageView;
 @property (weak, nonatomic) IBOutlet EditView *editView;
 @property (weak, nonatomic) IBOutlet UILabel *reportLabel;
+@property (weak, nonatomic) IBOutlet ReportView *reportView;
 
 @property (nonatomic) BOOL belongsToAuthor;
 

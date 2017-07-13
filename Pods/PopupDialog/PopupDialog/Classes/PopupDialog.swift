@@ -138,7 +138,7 @@ final public class PopupDialog: UIViewController {
 
         // Set button alignment
         popupContainerView.buttonStackView.axis = buttonAlignment
-
+        
         // Allow for dialog dismissal on background tap and dialog pan gesture
         if gestureDismissal {
             let panRecognizer = UIPanGestureRecognizer(target: interactor, action: #selector(InteractiveTransition.handlePan))

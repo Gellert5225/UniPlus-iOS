@@ -104,7 +104,7 @@
                             <constraint firstItem="Uc6-6a-qKk" firstAttribute="top" secondItem="Z22-VH-14O" secondAttribute="top" id="UsB-sV-uQ5"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WD7-Qm-10d">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WD7-Qm-10d" customClass="ReportView">
                         <rect key="frame" x="208" y="0.0" width="104" height="43.5"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EUB-UO-DdU">
@@ -169,6 +169,7 @@
                 <outlet property="markView" destination="eVg-Yc-kx5" id="NV3-Mi-wh3"/>
                 <outlet property="reportImageView" destination="tgm-7n-rLe" id="8e2-Ob-iey"/>
                 <outlet property="reportLabel" destination="eHs-rG-gSr" id="2LB-gF-Z8V"/>
+                <outlet property="reportView" destination="WD7-Qm-10d" id="jUE-Nn-k45"/>
             </connections>
             <point key="canvasLocation" x="-318" y="-35"/>
         </tableViewCell>

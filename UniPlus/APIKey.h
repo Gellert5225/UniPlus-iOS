@@ -15,7 +15,7 @@ static NSString *DEVELOPMENT_APP_ID     = @"Zj9b976AHw3b7SkOgCKzaEjB7bjJoPh2Xcyx
 static NSString *DEVELOPMENT_CLIENT_KEY = @"apPXYDImrwGKdeBoSCVYSIRN13yK9q8VDjeklpbY";
 
 static NSString *LOCAL_SERVER_URL       = @"http://localhost:1337/parse";
-static NSString *LOCAL_SERVER_IP_KIM    = @"http://192.168.0.7:1337/parse";
+static NSString *LOCAL_SERVER_IP_VIO    = @"http://192.168.0.12:1337/parse";
 static NSString *LOCAL_SERVER_IP_FURKAN = @"http://192.168.0.35:1337/parse";
 static NSString *LOCAL_SERVER_IP_OCC    = @"http://10.0.94.67:1337";
 static NSString *LOCAL_SERVER_PORT      = @"1337";

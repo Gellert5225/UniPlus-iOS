@@ -12,12 +12,14 @@
 #import "UPError.h"
 #import "UPNavigationBarTitleView.h"
 #import "ProfileTableViewController.h"
+#import "ReportDialogViewController.h"
 
 #import <GKFadeNavigationController/GKFadeNavigationController.h>
+#import <PopupDialog/PopupDialog-Swift.h>
 
 #define COLOR_SCHEME [UIColor colorWithRed:53/255.0 green:111/255.0 blue:177/255.0 alpha:1.0]
 
-@interface QuestionDetailTableViewController ()<PZPullToRefreshDelegate,UIGestureRecognizerDelegate, UINavigationControllerDelegate, UpVoteViewDelegate, DownVoteViewDelegate, UITextViewDelegate, AnswerTableViewControllerDelegate, FavouriteViewDelegate, EditViewDelegate, AcceptAnswerCellDelegate, UPErrorDelegate, GKFadeNavigationControllerDelegate>
+@interface QuestionDetailTableViewController ()<PZPullToRefreshDelegate,UIGestureRecognizerDelegate, UINavigationControllerDelegate, UpVoteViewDelegate, DownVoteViewDelegate, UITextViewDelegate, AnswerTableViewControllerDelegate, FavouriteViewDelegate, EditViewDelegate, ReportViewDelegate, AcceptAnswerCellDelegate, UPErrorDelegate, GKFadeNavigationControllerDelegate, ReportDialogViewControllerDelegate>
 
 @property (strong, nonatomic) UPCommentAccessoryView  *commentAccView;
 @property (strong, nonatomic) UITextView              *tv;
@@ -26,6 +28,8 @@
 @property (strong, nonatomic) NSIndexPath             *commentIndexPath;
 @property (strong, nonatomic) Comment                 *awaitingComment;
 @property (strong, nonatomic) NSString                *commentTo;
+@property (strong, nonatomic) NSString                *reportMessage;
+@property (strong, nonatomic) UPObject                *objectToReport;
 
 @property (nonatomic) BOOL userIsInTheMiddleOfComment;
 
@@ -34,6 +38,8 @@
 @implementation QuestionDetailTableViewController {
     PZPullToRefreshView *refreshControl;
     NSIndexPath *indexPathNeedsToBeScrolled;
+    PopupDialog *reportDialog;
+    DefaultButton *submitButton;
 }
 @synthesize viewModel = _viewModel;
 
@@ -62,7 +68,6 @@
     _questionObject = object;
     _isFromProfile = fromProfile;
     _isLoading = loading;
-    //self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     
     return self;
 }
@@ -239,6 +244,10 @@
             accessoryCell.editView.delegate = self;
             accessoryCell.editView.index = indexPath;
             accessoryCell.editView.objectToEdit = _viewModel.question.pfObject;
+            
+            accessoryCell.reportView.delegate = self;
+            accessoryCell.reportView.index = indexPath;
+            accessoryCell.reportView.objectToReport = _viewModel.question;
             return accessoryCell;
         } else {
             CommentCell *commentCell = [self.tableView dequeueReusableCellWithIdentifier:commentCellID forIndexPath:indexPath];
@@ -295,6 +304,10 @@
             ansAccessoryCell.editView.delegate = self;
             ansAccessoryCell.editView.index = indexPath;
             ansAccessoryCell.editView.objectToEdit = answer.pfObject;
+            
+            ansAccessoryCell.reportView.delegate = self;
+            ansAccessoryCell.reportView.objectToReport = answer;
+            ansAccessoryCell.reportView.index = indexPath;
             return ansAccessoryCell;
         } else if (indexPath.row == answer.comments.count + 3) {
             AddCommentCell *addCommentCell = [self.tableView dequeueReusableCellWithIdentifier:addCommentCellID forIndexPath:indexPath];
@@ -426,6 +439,50 @@
     }
 }
 
+#pragma - mark ReportView Delegate
+
+- (void)didTapReportViewAtIndex:(NSIndexPath *)index objectToReport:(UPObject *)object {
+    if ([object.author.objectId isEqualToString:[PFUser currentUser].objectId]) { //cannot report yourself, delete here
+        NSLog(@"DELETE");
+    } else {
+        ReportDialogViewController *reportVC = [[ReportDialogViewController alloc] initWithNibName:@"ReportDialogViewController" bundle:nil];
+        reportVC.delegate = self;
+        
+        self.objectToReport = object;
+        
+        reportDialog = [[PopupDialog alloc] initWithViewController:reportVC
+                                                                buttonAlignment:UILayoutConstraintAxisHorizontal
+                                                                transitionStyle:PopupDialogTransitionStyleZoomIn
+                                                               gestureDismissal:NO
+                                                                     completion:^{}];
+        
+        DefaultButton *btnAppearance = [DefaultButton appearance];
+        btnAppearance.titleFont = [UIFont fontWithName:@"SFUIText-Regular" size:14];
+        btnAppearance.titleColor = [UIColor colorWithRed:53/255.0 green:111/255.0 blue:177/255.0 alpha:1.0];
+        
+        submitButton = [[DefaultButton alloc] initWithTitle:@"Submit" dismissOnTap:YES action:^{
+            self.reportMessage = reportVC.reportInfoTextField.text;
+            [self postReportMessage];
+        }];
+        
+        //submitButton.enabled = NO;
+        
+        CancelButton *cancel = [[CancelButton alloc] initWithTitle:@"Cancel" dismissOnTap:YES action:nil];
+        
+        [reportDialog addButtons: @[submitButton, cancel]];
+        
+        [self.navigationController presentViewController:reportDialog animated:YES completion:nil];
+    }
+}
+
+#pragma - mark ReportDialog Delegate
+
+- (void)textFieldDidReturnWithText:(NSString *)text {
+    [reportDialog dismiss:nil];
+    self.reportMessage = text;
+    [self postReportMessage];
+}
+
 #pragma - mark AcceptAnswerCell delegate
 
 - (void)acceptAnswer:(Answer *)answer accepted:(BOOL)accept {
@@ -437,6 +494,16 @@
 }
 
 #pragma - mark Helpers
+
+- (void)postReportMessage {
+    [PFCloud callFunctionInBackground:@"postReportMessage" withParameters:@{
+        @"message"          :self.reportMessage,
+        @"reportObjectId"   :self.objectToReport.objectId,
+        @"reportObjectType" :[NSNumber numberWithInteger:self.objectToReport.type],
+        @"toUserId"         :self.objectToReport.author.objectId,
+        @"fromUserId"       :[PFUser currentUser].objectId
+    }];
+}
 
 - (void)didTapAnswerButton:(UIButton *)sender {
     AnswerTableViewController *ATVC = [[AnswerTableViewController alloc]initWithStyle:UITableViewStylePlain];

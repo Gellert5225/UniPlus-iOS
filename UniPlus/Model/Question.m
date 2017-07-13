@@ -32,6 +32,7 @@
             question.createdAt        = object.createdAt;
             question.objectId         = object.objectId;
             question.pfObject         = object;
+            question.type             = TypeQuestion;
             
             if ([object[@"markedUsers"] containsObject:[PFUser currentUser].objectId]) {
                 question.markedByUser = YES;

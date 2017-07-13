@@ -263,6 +263,9 @@
 		DFAF31ED1DAA2543004FA714 /* ProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFAF31EC1DAA2543004FA714 /* ProfileTableViewController.m */; };
 		DFB98F951DAF42EE00F703A5 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFB98F941DAF42EE00F703A5 /* CoreImage.framework */; };
 		DFB98F971DAF42FF00F703A5 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFB98F961DAF42FF00F703A5 /* Accelerate.framework */; };
+		DFBCF2BD1F16F34500E5A4E1 /* ReportView.m in Sources */ = {isa = PBXBuildFile; fileRef = DFBCF2BC1F16F34500E5A4E1 /* ReportView.m */; };
+		DFBCF2CB1F16FA4700E5A4E1 /* ReportDialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFBCF2C91F16FA4700E5A4E1 /* ReportDialogViewController.m */; };
+		DFBCF2CC1F16FA4700E5A4E1 /* ReportDialogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFBCF2CA1F16FA4700E5A4E1 /* ReportDialogViewController.xib */; };
 		DFBF63EC1EB014E200EEE478 /* UPNavigationBarTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = DFBF63EB1EB014E200EEE478 /* UPNavigationBarTitleView.m */; };
 		DFBF63EF1EB0703900EEE478 /* QuestionDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DFBF63EE1EB0703900EEE478 /* QuestionDetailViewModel.m */; };
 		DFCA9E631DB8622D006203D1 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = DFCA9E621DB8622D006203D1 /* Question.m */; };
@@ -636,6 +639,11 @@
 		DFAF31EC1DAA2543004FA714 /* ProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileTableViewController.m; path = Profile/ProfileTableViewController.m; sourceTree = "<group>"; };
 		DFB98F941DAF42EE00F703A5 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		DFB98F961DAF42FF00F703A5 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		DFBCF2BB1F16F34500E5A4E1 /* ReportView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportView.h; sourceTree = "<group>"; };
+		DFBCF2BC1F16F34500E5A4E1 /* ReportView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportView.m; sourceTree = "<group>"; };
+		DFBCF2C81F16FA4700E5A4E1 /* ReportDialogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportDialogViewController.h; sourceTree = "<group>"; };
+		DFBCF2C91F16FA4700E5A4E1 /* ReportDialogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportDialogViewController.m; sourceTree = "<group>"; };
+		DFBCF2CA1F16FA4700E5A4E1 /* ReportDialogViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportDialogViewController.xib; sourceTree = "<group>"; };
 		DFBF63EA1EB014E200EEE478 /* UPNavigationBarTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPNavigationBarTitleView.h; sourceTree = "<group>"; };
 		DFBF63EB1EB014E200EEE478 /* UPNavigationBarTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPNavigationBarTitleView.m; sourceTree = "<group>"; };
 		DFBF63ED1EB0703900EEE478 /* QuestionDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuestionDetailViewModel.h; path = "../Root View/Front Page/Detail View/QuestionDetailViewModel.h"; sourceTree = "<group>"; };
@@ -1121,6 +1129,8 @@
 				DF1CDE201DEC1CD60013379A /* FavouriteView.m */,
 				DF1CDE221DEC77080013379A /* EditView.h */,
 				DF1CDE231DEC77080013379A /* EditView.m */,
+				DFBCF2BB1F16F34500E5A4E1 /* ReportView.h */,
+				DFBCF2BC1F16F34500E5A4E1 /* ReportView.m */,
 				DF7DEB8C1DA74C9B003EA1F4 /* UPSearchBar.h */,
 				DF7DEB8D1DA74C9B003EA1F4 /* UPSearchBar.m */,
 				DF7DEB8E1DA74C9B003EA1F4 /* UPSearchController.h */,
@@ -1371,6 +1381,9 @@
 				DF7F38991DA74A99004C15B8 /* PostQuestionTableViewController.m */,
 				DF6E0E1D1DDB4B3500277C21 /* AnswerTableViewController.h */,
 				DF6E0E1E1DDB4B3500277C21 /* AnswerTableViewController.m */,
+				DFBCF2C81F16FA4700E5A4E1 /* ReportDialogViewController.h */,
+				DFBCF2C91F16FA4700E5A4E1 /* ReportDialogViewController.m */,
+				DFBCF2CA1F16FA4700E5A4E1 /* ReportDialogViewController.xib */,
 			);
 			path = "Accessory View";
 			sourceTree = "<group>";
@@ -1696,6 +1709,7 @@
 				DF2736AA1DBA414900D0E08C /* OpenSans-Bold.ttf in Resources */,
 				DF2736AB1DBA414900D0E08C /* OpenSans-BoldItalic.ttf in Resources */,
 				DF2736AC1DBA414900D0E08C /* OpenSans-ExtraBold.ttf in Resources */,
+				DFBCF2CC1F16FA4700E5A4E1 /* ReportDialogViewController.xib in Resources */,
 				DF2736AD1DBA414900D0E08C /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				DF2736AE1DBA414900D0E08C /* OpenSans-Italic.ttf in Resources */,
 				DF2736AF1DBA414900D0E08C /* OpenSans-Light.ttf in Resources */,
@@ -1963,12 +1977,14 @@
 				DF6132A21D9B688700575280 /* PFQueryCollectionViewController.m in Sources */,
 				DF6132A41D9B688700575280 /* PFSignUpView.m in Sources */,
 				DF7DEBF81DA74E43003EA1F4 /* PZPullToRefreshView.swift in Sources */,
+				DFBCF2CB1F16FA4700E5A4E1 /* ReportDialogViewController.m in Sources */,
 				DF7DEBA41DA74C9B003EA1F4 /* PreviewCell2.m in Sources */,
 				DF52A59A1DCC4DAB0007C9CE /* ProfileQuestionCell.m in Sources */,
 				DF6132921D9B688700575280 /* PFTableViewCell.m in Sources */,
 				DF7F38C71DA74A99004C15B8 /* SectionCell.m in Sources */,
 				DF523FB71DBA6B66008B6195 /* AnswerItCell.m in Sources */,
 				DF27C3C41EA96B2A0078726F /* FeedsViewController.m in Sources */,
+				DFBCF2BD1F16F34500E5A4E1 /* ReportView.m in Sources */,
 				DF7DEBFB1DA74E43003EA1F4 /* SLExpandableTableView.m in Sources */,
 				DF7DEBF71DA74E43003EA1F4 /* MMMaterialDesignSpinner.m in Sources */,
 				DF6132941D9B688700575280 /* PFActivityIndicatorTableViewCell.m in Sources */,

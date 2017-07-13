@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "FavouriteView.h"
 #import "EditView.h"
+#import "ReportView.h"
 
 @interface AccessoryCell : UITableViewCell
 
@@ -22,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *moreLabel;
 @property (weak, nonatomic) IBOutlet FavouriteView *markView;
 @property (weak, nonatomic) IBOutlet EditView *editView;
+@property (weak, nonatomic) IBOutlet ReportView *reportView;
 
 @property (nonatomic) BOOL belongsToAuthor;
 

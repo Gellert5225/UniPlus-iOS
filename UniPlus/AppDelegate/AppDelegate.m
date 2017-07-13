@@ -40,7 +40,7 @@
         configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
             configuration.applicationId = DEVELOPMENT_APP_ID;
             configuration.clientKey     = DEVELOPMENT_CLIENT_KEY;
-            configuration.server        = DEVELOPMENT_SERVER_URL;
+            configuration.server        = LOCAL_SERVER_IP_VIO;
     }]];
         
     UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
