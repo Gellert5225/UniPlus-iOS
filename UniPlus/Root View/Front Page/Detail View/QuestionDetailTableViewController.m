@@ -32,6 +32,7 @@
 @property (strong, nonatomic) NSString                *reportMessage;
 @property (strong, nonatomic) UPObject                *objectToReport;
 @property (strong, nonatomic) UPObject                *objectToDelete;
+@property (strong, nonatomic) NSIndexPath             *deleteAnswerIndexPath;
 
 @property (nonatomic) BOOL userIsInTheMiddleOfComment;
 
@@ -446,13 +447,12 @@
 - (void)didTapReportViewAtIndex:(NSIndexPath *)index objectToReport:(UPObject *)object {
     if ([object.author.objectId isEqualToString:[PFUser currentUser].objectId]) { //cannot report yourself, delete here
         self.objectToDelete = object;
+        if (object.type == TypeAnswer) {
+            self.deleteAnswerIndexPath = index;
+        }
         [self shrinkViewControllerWithDuration:0.2 transformScale:CGAffineTransformMakeScale(0.93, 0.93)];
         
-        SRActionSheet *actionSheet = [[SRActionSheet alloc]initWithTitle:@"Delete this post?"
-                                                       cancelButtonTitle:@"Cancel"
-                                                  destructiveButtonTitle:@"Delete"
-                                                       otherButtonTitles:nil
-                                                                delegate:self];
+        SRActionSheet *actionSheet = [[SRActionSheet alloc]initWithTitle:@"Delete this post?" cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete" otherButtonTitles:nil delegate:self];
         
         [actionSheet show];
         
@@ -462,11 +462,7 @@
         
         self.objectToReport = object;
         
-        reportDialog = [[PopupDialog alloc] initWithViewController:reportVC
-                                                                buttonAlignment:UILayoutConstraintAxisHorizontal
-                                                                transitionStyle:PopupDialogTransitionStyleZoomIn
-                                                               gestureDismissal:NO
-                                                                     completion:^{}];
+        reportDialog = [[PopupDialog alloc] initWithViewController:reportVC buttonAlignment:UILayoutConstraintAxisHorizontal transitionStyle:PopupDialogTransitionStyleZoomIn gestureDismissal:NO completion:^{}];
         
         DefaultButton *btnAppearance = [DefaultButton appearance];
         btnAppearance.titleFont = [UIFont fontWithName:@"SFUIText-Regular" size:14];
@@ -476,9 +472,7 @@
             self.reportMessage = reportVC.reportInfoTextField.text;
             [self postReportMessage];
         }];
-        
-        //submitButton.enabled = NO;
-        
+                
         CancelButton *cancel = [[CancelButton alloc] initWithTitle:@"Cancel" dismissOnTap:YES action:nil];
         
         [reportDialog addButtons: @[submitButton, cancel]];
@@ -497,6 +491,14 @@
             [_delegate deleteObjectWithId:self.objectToDelete.objectId indexPath:_indexPathOfQuestion];
         } else {
             //delete answer
+            Answer *answer = _viewModel.question.answers[self.deleteAnswerIndexPath.section - 1];
+            [_viewModel.question.answers removeObjectAtIndex:self.deleteAnswerIndexPath.section - 1];
+            [self.tableView beginUpdates];
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:self.deleteAnswerIndexPath.section] withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView endUpdates];
+            [answer deleteAnswer];
+            
+            [PFCloud callFunctionInBackground:@"deleteAnswerFeed" withParameters:@{@"answerID" : answer.objectId}];
         }
     }
 }
