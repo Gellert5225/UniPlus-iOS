@@ -18,8 +18,11 @@
 #import "ReviewProfileTableViewController.h"
 #import "UserQuestionPostTableViewController.h"
 #import "UserActivityTableViewController.h"
+#import "ReportDialogViewController.h"
 
 #import "UniPlus-Swift.h"
+
+#import <PopupDialog/PopupDialog-Swift.h>
 
 #define kGKHeaderHeight 180.f
 #define kGKHeaderVisibleThreshold 30.f
@@ -27,13 +30,14 @@
 #define COLOR_SCHEME [UIColor colorWithRed:53/255.0 green:111/255.0 blue:177/255.0 alpha:1.0]
 #define kRefreshControlThreshold 40.0f
 
-@interface ProfileTableViewController () <PZPullToRefreshDelegate, SRActionSheetDelegate, ProfileDetailInfoCellDelegate>
+@interface ProfileTableViewController () <PZPullToRefreshDelegate, SRActionSheetDelegate, ProfileDetailInfoCellDelegate, ReportDialogViewControllerDelegate>
 
 @property (nonatomic) GKFadeNavigationControllerNavigationBarVisibility navigationBarVisibility;
 @property (nonatomic) GKFadeNavigationControllerNavigationBarVisibility previousNavBarVisibility;
 @property (strong, nonatomic) UIImageView *menuImgView;
 @property (strong, nonatomic) UIImageView *moreImgView;
 @property (strong, nonatomic) UIImageView *backImgView;
+@property (strong, nonatomic) NSString    *reportMessage;
 @property (strong, nonatomic) UPNavigationBarTitleView *titleView;
 @property (nonatomic) BOOL isLoading;
 
@@ -41,6 +45,8 @@
 
 @implementation ProfileTableViewController {
     PZPullToRefreshView *refreshControl;
+    PopupDialog *reportDialog;
+    DefaultButton *submitButton;
 }
 
 #pragma - mark Accessors
@@ -255,12 +261,34 @@
 
 - (void)actionSheet:(SRActionSheet *)actionSheet didSelectSheet:(NSInteger)index {
     if (index == 0) {
-        ReviewProfileTableViewController *RPTVC = [[ReviewProfileTableViewController alloc] initWithNibName:@"ReviewProfileTableViewController" bundle:nil];
-        RPTVC.isFromSignUp = NO;
-        RPTVC.institution = [[PFUser currentUser] objectForKey:@"institution"];
-        RPTVC.topic = [[PFUser currentUser] objectForKey:@"major"];
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:RPTVC];
-        [self presentViewController:nav animated:YES completion:nil];
+        if ([_profileUser.objectId isEqualToString:[PFUser currentUser].objectId]) { //edit profile
+            ReviewProfileTableViewController *RPTVC = [[ReviewProfileTableViewController alloc] initWithNibName:@"ReviewProfileTableViewController" bundle:nil];
+            RPTVC.isFromSignUp = NO;
+            RPTVC.institution = [[PFUser currentUser] objectForKey:@"institution"];
+            RPTVC.topic = [[PFUser currentUser] objectForKey:@"major"];
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:RPTVC];
+            [self presentViewController:nav animated:YES completion:nil];
+        } else { //report user
+            ReportDialogViewController *reportVC = [[ReportDialogViewController alloc] initWithNibName:@"ReportDialogViewController" bundle:nil];
+            reportVC.delegate = self;
+            
+            reportDialog = [[PopupDialog alloc] initWithViewController:reportVC buttonAlignment:UILayoutConstraintAxisHorizontal transitionStyle:PopupDialogTransitionStyleZoomIn gestureDismissal:NO completion:^{}];
+            
+            DefaultButton *btnAppearance = [DefaultButton appearance];
+            btnAppearance.titleFont = [UIFont fontWithName:@"SFUIText-Regular" size:14];
+            btnAppearance.titleColor = [UIColor colorWithRed:53/255.0 green:111/255.0 blue:177/255.0 alpha:1.0];
+            
+            submitButton = [[DefaultButton alloc] initWithTitle:@"Submit" dismissOnTap:YES action:^{
+                self.reportMessage = reportVC.reportInfoTextField.text;
+                [self postReportMessage];
+            }];
+            
+            CancelButton *cancel = [[CancelButton alloc] initWithTitle:@"Cancel" dismissOnTap:YES action:nil];
+            
+            [reportDialog addButtons: @[submitButton, cancel]];
+            
+            [self.navigationController presentViewController:reportDialog animated:YES completion:nil];
+        }
     }
 }
 
@@ -284,7 +312,26 @@
     return [gestureRecognizer isKindOfClass:UIScreenEdgePanGestureRecognizer.class];
 }
 
+#pragma - mark ReportDialog Delegate
+
+- (void)textFieldDidReturnWithText:(NSString *)text {
+    [reportDialog dismiss:nil];
+    self.reportMessage = text;
+    [self postReportMessage];
+}
+
 #pragma - mark Private
+
+- (void)postReportMessage {
+    [PFCloud callFunctionInBackground:@"postReportMessage" withParameters:@{
+        @"message"          :self.reportMessage,
+        @"reportObjectId"   :_profileUser.objectId,
+        @"reportObjectType" :[NSNumber numberWithInteger:10],
+        @"toUserId"         :_profileUser.objectId,
+        @"fromUserId"       :[PFUser currentUser].objectId
+    }];
+}
+
 
 - (void)viewAll {
     UserActivityTableViewController *UATVC = [[UserActivityTableViewController alloc] initWithStyle:UITableViewStyleGrouped queryUser:_profileUser];
@@ -425,7 +472,7 @@
     SRActionSheet *actionSheet = [[SRActionSheet alloc]initWithTitle:@"More"
                                                    cancelButtonTitle:@"Cancel"
                                               destructiveButtonTitle:nil
-                                                   otherButtonTitles:@[@"Edit Profile"]
+                                                   otherButtonTitles:@[[_profileUser.objectId isEqualToString:[PFUser currentUser].objectId]?@"Edit Profile":@"Report User"]
                                                             delegate:self];
     
     [actionSheet show];

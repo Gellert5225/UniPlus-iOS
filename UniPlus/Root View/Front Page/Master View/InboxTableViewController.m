@@ -9,6 +9,7 @@
 #import "InboxTableViewController.h"
 
 #import "SWRevealViewController.h"
+#import "QuestionDetailTableViewController.h"
 
 #import "InboxMessageCell.h"
 #import "LoadMoreCell.h"
@@ -116,7 +117,7 @@
     self.navigationController.interactivePopGestureRecognizer.delegate = weakSelf;
 }
 
-#pragma - mark UITableView Delegate
+#pragma - mark UITableView Datasource
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     NSIndexPath *key = indexPath;
@@ -187,6 +188,20 @@
     [loadcell.indicatorView startAnimating];
     
     return loadcell;
+}
+
+#pragma - mark UITableView Delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row != self.objects.count) {
+        PFObject *question = self.objects[indexPath.row][@"toQuestion"];
+        QuestionDetailTableViewController *QDTVC = [[QuestionDetailTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        QDTVC.questionId = question.objectId;
+        QDTVC.questionObject = question;
+        QDTVC.isFromProfile = NO;
+        QDTVC.isLoading = YES;
+        [self.navigationController pushViewController:QDTVC animated:YES];
+    }
 }
 
 #pragma - mark ScrollView Delegates
