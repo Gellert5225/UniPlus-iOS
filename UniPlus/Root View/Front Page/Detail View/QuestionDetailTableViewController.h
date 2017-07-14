@@ -17,6 +17,14 @@
 #import "QuestionDetailViewModel.h"
 #import "QuestionDetailCells.h"
 
+
+@class QuestionDetailTableViewController;
+
+@protocol QuestionDetailTableViewControllerDelegate
+
+- (void)deleteObjectWithId:(NSString *)objectId indexPath:(NSIndexPath *)indexPath;
+
+@end
 /**
  Displays the detail of a Question, including question body, author, comments, answers, votes...etc.
  */
@@ -50,6 +58,10 @@
  Whether the user is previewing their question.
  */
 @property (nonatomic) BOOL preview;
+
+@property (strong, nonatomic) NSIndexPath *indexPathOfQuestion;
+
+@property (weak, nonatomic) id <QuestionDetailTableViewControllerDelegate>delegate;
 
 - (id)initWithStyle:(UITableViewStyle)style questionID:(NSString *)ID questionObject:(PFObject *)object setFromProfile:(BOOL)fromProfile setLoading:(BOOL)loading;
 

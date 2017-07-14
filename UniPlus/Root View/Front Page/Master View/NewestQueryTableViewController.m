@@ -24,7 +24,7 @@
 
 #define COLOR_SCHEME [UIColor colorWithRed:53/255.0 green:111/255.0 blue:177/255.0 alpha:1.0]
 
-@interface NewestQueryTableViewController ()<PZPullToRefreshDelegate>
+@interface NewestQueryTableViewController ()<PZPullToRefreshDelegate, QuestionDetailTableViewControllerDelegate>
 
 @property (strong, nonatomic) NSMutableDictionary *cellHeightsDictionary;
 @property (strong, nonatomic) NSString *topicFilter;
@@ -242,8 +242,16 @@
         QDTVC.questionObject = question;
         QDTVC.questionId     = question.objectId;
         QDTVC.isLoading      = YES;
+        QDTVC.delegate       = self;
+        QDTVC.indexPathOfQuestion = indexPath;
         [self.navigationController pushViewController:QDTVC animated:YES];
     }
+}
+
+#pragma - mark QuestionDetailTableViewController Delegate
+
+- (void)deleteObjectWithId:(NSString *)objectId indexPath:(NSIndexPath *)indexPath {
+    [self removeObjectAtIndexPath:indexPath];
 }
 
 #pragma - mark PZPullToRefresh

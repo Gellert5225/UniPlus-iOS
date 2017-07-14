@@ -13,13 +13,14 @@
 #import "UPNavigationBarTitleView.h"
 #import "ProfileTableViewController.h"
 #import "ReportDialogViewController.h"
+#import "SRActionSheet.h"
 
 #import <GKFadeNavigationController/GKFadeNavigationController.h>
 #import <PopupDialog/PopupDialog-Swift.h>
 
 #define COLOR_SCHEME [UIColor colorWithRed:53/255.0 green:111/255.0 blue:177/255.0 alpha:1.0]
 
-@interface QuestionDetailTableViewController ()<PZPullToRefreshDelegate,UIGestureRecognizerDelegate, UINavigationControllerDelegate, UpVoteViewDelegate, DownVoteViewDelegate, UITextViewDelegate, AnswerTableViewControllerDelegate, FavouriteViewDelegate, EditViewDelegate, ReportViewDelegate, AcceptAnswerCellDelegate, UPErrorDelegate, GKFadeNavigationControllerDelegate, ReportDialogViewControllerDelegate>
+@interface QuestionDetailTableViewController ()<PZPullToRefreshDelegate,UIGestureRecognizerDelegate, UINavigationControllerDelegate, UpVoteViewDelegate, DownVoteViewDelegate, UITextViewDelegate, AnswerTableViewControllerDelegate, FavouriteViewDelegate, EditViewDelegate, ReportViewDelegate, AcceptAnswerCellDelegate, UPErrorDelegate, GKFadeNavigationControllerDelegate, ReportDialogViewControllerDelegate, SRActionSheetDelegate>
 
 @property (strong, nonatomic) UPCommentAccessoryView  *commentAccView;
 @property (strong, nonatomic) UITextView              *tv;
@@ -30,6 +31,7 @@
 @property (strong, nonatomic) NSString                *commentTo;
 @property (strong, nonatomic) NSString                *reportMessage;
 @property (strong, nonatomic) UPObject                *objectToReport;
+@property (strong, nonatomic) UPObject                *objectToDelete;
 
 @property (nonatomic) BOOL userIsInTheMiddleOfComment;
 
@@ -443,7 +445,17 @@
 
 - (void)didTapReportViewAtIndex:(NSIndexPath *)index objectToReport:(UPObject *)object {
     if ([object.author.objectId isEqualToString:[PFUser currentUser].objectId]) { //cannot report yourself, delete here
-        NSLog(@"DELETE");
+        self.objectToDelete = object;
+        [self shrinkViewControllerWithDuration:0.2 transformScale:CGAffineTransformMakeScale(0.93, 0.93)];
+        
+        SRActionSheet *actionSheet = [[SRActionSheet alloc]initWithTitle:@"Delete this post?"
+                                                       cancelButtonTitle:@"Cancel"
+                                                  destructiveButtonTitle:@"Delete"
+                                                       otherButtonTitles:nil
+                                                                delegate:self];
+        
+        [actionSheet show];
+        
     } else {
         ReportDialogViewController *reportVC = [[ReportDialogViewController alloc] initWithNibName:@"ReportDialogViewController" bundle:nil];
         reportVC.delegate = self;
@@ -475,6 +487,24 @@
     }
 }
 
+#pragma - mark SRActionSheet Delegate
+
+- (void)actionSheet:(SRActionSheet *)actionSheet didSelectSheet:(NSInteger)index {
+    if (index == 0) {
+        if (self.objectToDelete.type == TypeQuestion) { //delete question
+            [self.navigationController popViewControllerAnimated:YES];
+            [_viewModel.question deleteQuestion];
+            [_delegate deleteObjectWithId:self.objectToDelete.objectId indexPath:_indexPathOfQuestion];
+        } else {
+            //delete answer
+        }
+    }
+}
+
+- (void)actionSheet:(SRActionSheet *)actionSheet willDismissFromSuperView:(UIView *)superView {
+    [self shrinkViewControllerWithDuration:0.2 transformScale:CGAffineTransformMakeScale(1.0, 1.0)];
+}
+
 #pragma - mark ReportDialog Delegate
 
 - (void)textFieldDidReturnWithText:(NSString *)text {
@@ -494,6 +524,12 @@
 }
 
 #pragma - mark Helpers
+
+- (void)shrinkViewControllerWithDuration:(NSTimeInterval)duration transformScale:(CGAffineTransform)scale {
+    [UIView animateWithDuration:duration animations:^{
+        self.navigationController.view.transform = scale;
+    } completion:^(BOOL finished) { }];
+}
 
 - (void)postReportMessage {
     [PFCloud callFunctionInBackground:@"postReportMessage" withParameters:@{

@@ -45,6 +45,8 @@
  */
 - (id)initWithPFObject:(PFObject *)object;
 
+- (void)deleteComments;
+
 /*!
  @name Factory Methods
  */

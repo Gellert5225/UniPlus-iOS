@@ -75,4 +75,18 @@
     }];
 }
 
+- (void)deleteAnswer {
+    if (self.comments.count) {
+        for (Comment *c in self.comments) {
+            [c deleteComments];
+        }
+    }
+    PFQuery *q = [PFQuery queryWithClassName:@"Answers"];
+    [q getObjectInBackgroundWithId:self.objectId block:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        if (object) {
+            [object deleteInBackground];
+        }
+    }];
+}
+
 @end

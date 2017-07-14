@@ -25,6 +25,7 @@
  */
 - (void)actionSheet:(SRActionSheet *)actionSheet didSelectSheet:(NSInteger)index;
 
+@optional
 - (void)actionSheet:(SRActionSheet *)actionSheet willDismissFromSuperView:(UIView *)superView;
 
 @end

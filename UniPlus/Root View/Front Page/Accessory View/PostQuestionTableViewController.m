@@ -290,6 +290,7 @@
             [feed setObject:[PFUser currentUser] forKey:@"fromUser"];
             [feed setObject:question             forKey:@"toQuestion"];
             [feed setObject:[NSNumber numberWithInt:0] forKey:@"repChange"];
+            [feed setObject:question.objectId forKey:@"toQuestionID"];
             [feed saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                 if (succeeded) {
                     PFRelation *rel = [[PFUser currentUser] relationForKey:@"feeds"];

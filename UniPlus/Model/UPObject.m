@@ -18,8 +18,10 @@
         feed[@"toUser"] = user;
         if ([objType isEqualToString:@"Questions"]) {
             feed[@"toQuestion"] = object;
+            feed[@"toQuestionID"] = object.objectId;
         } else {
             feed[@"toAnswer"] = object;
+            feed[@"toAnswerID"] = object.objectId;
         }
         [feed saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
             if (succeeded) {
@@ -111,8 +113,10 @@
         feed[@"toUser"] = user;
         if ([objType isEqualToString:@"Questions"]) {
             feed[@"toQuestion"] = object;
+            feed[@"toQuestionID"] = object.objectId;
         } else {
             feed[@"toAnswer"] = object;
+            feed[@"toAnswerID"] = object.objectId;
         }
         [feed saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
             if (succeeded) {

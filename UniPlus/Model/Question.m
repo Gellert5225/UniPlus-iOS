@@ -144,6 +144,23 @@
     return _comments;
 }
 
+- (void)deleteQuestion {
+    if (self.comments.count) {
+        for (Comment *c in self.comments) {
+            [c deleteComments];
+        }
+    }
+    
+    if (self.answers.count) {
+        for (Answer *a in self.answers) {
+            [a deleteAnswer];
+        }
+    }
+    
+    //delete the feed
+    [PFCloud callFunctionInBackground:@"deleteQuestionFeed" withParameters:@{@"questionId" : self.objectId}];
+}
+
 - (void)incrementPropertyByKey:(PropertyType)key {
     if (key == Views) {
         self.views = [NSNumber numberWithInt:[self.views intValue] + 1];

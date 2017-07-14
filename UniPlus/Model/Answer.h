@@ -28,6 +28,8 @@
  All the Comment under this Answer.
  */
 @property (strong, nonatomic) NSMutableArray *comments;
+
+- (void)deleteAnswer;
 /*!
  @name Factory Methods
  */

@@ -45,6 +45,7 @@
     NSArray *barItems = @[@"Newest",@"Featured",@"Unsolved"];
     tabSwipe = [[CarbonTabSwipeNavigation alloc] initWithItems:barItems delegate:self];
     [tabSwipe insertIntoRootViewController:self];
+    tabSwipe.carbonTabSwipeScrollView.scrollEnabled = NO;
     
     [self configureNavbar];
     [self configureSegmentedControl];

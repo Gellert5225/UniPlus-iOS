@@ -47,8 +47,10 @@
                     feed[@"fromUser"]   = [PFUser currentUser];
                     feed[@"toUser"]     = object.author;
                     feed[@"toQuestion"] = question.pfObject;
-                    if ([object isKindOfClass:[Answer class]]){feed[@"toAnswer"] = objectCommentedTo;}
+                    feed[@"toQuestionID"] = question.objectId;
+                    if ([object isKindOfClass:[Answer class]]){feed[@"toAnswer"] = objectCommentedTo;feed[@"toAnswerID"] = objectCommentedTo.objectId;}
                     feed[@"toComment"]  = comment;
+                    feed[@"toCommentID"] = comment.objectId;
                     feed[@"repChange"]  = [NSNumber numberWithInt:0];
                     [feed saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                         if (succeeded) {
@@ -70,6 +72,15 @@
             }];
         } else {
             
+        }
+    }];
+}
+
+- (void)deleteComments {
+    PFQuery *q = [PFQuery queryWithClassName:@"Comments"];
+    [q getObjectInBackgroundWithId:self.objectId block:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        if (object) {
+            [object deleteInBackground];
         }
     }];
 }

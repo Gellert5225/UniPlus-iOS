@@ -220,8 +220,10 @@
             [feed setObject:@"Answer"                  forKey:@"type"];
             [feed setObject:[PFUser currentUser]       forKey:@"fromUser"];
             [feed setObject:self.question              forKey:@"toQuestion"];
+            [feed setObject:self.question.objectId     forKey:@"toQuestionID"];
             [feed setObject:self.question[@"user"]     forKey:@"toUser"];
             [feed setObject:answer                     forKey:@"toAnswer"];
+            [feed setObject:answer.objectId            forKey:@"toAnswerID"];
             [feed setObject:[NSNumber numberWithInt:0] forKey:@"repChange"];
             [feed saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                 if (succeeded) {

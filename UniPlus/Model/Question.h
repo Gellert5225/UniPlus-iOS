@@ -79,6 +79,8 @@ typedef NS_ENUM(NSInteger, PropertyType) {
  @name Instance Methods
  */
 
+- (void)deleteQuestion;
+
 /**
  Increment the value by 1.
  
