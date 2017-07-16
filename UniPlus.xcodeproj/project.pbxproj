@@ -2189,6 +2189,7 @@
 				CODE_SIGN_ENTITLEMENTS = UniPlus/UniPlus.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = XS2QV44L5G;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/UniPlus",
@@ -2218,6 +2219,7 @@
 				CODE_SIGN_ENTITLEMENTS = UniPlus/UniPlus.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = XS2QV44L5G;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/UniPlus",
