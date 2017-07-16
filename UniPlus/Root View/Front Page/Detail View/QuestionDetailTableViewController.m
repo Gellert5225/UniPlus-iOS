@@ -614,10 +614,10 @@
     self.navigationItem.titleView = titleView;
     
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc]initWithImage:[[UIImage imageNamed:@"back"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] style:UIBarButtonItemStyleDone target:self action:@selector(back)];
-    UIBarButtonItem *helpButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"help"] style:UIBarButtonItemStyleDone target:self action:@selector(help)];
+    //UIBarButtonItem *helpButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"help"] style:UIBarButtonItemStyleDone target:self action:@selector(help)];
     
     self.navigationItem.leftBarButtonItem = backButtonItem;
-    self.navigationItem.rightBarButtonItem = helpButtonItem;
+    //self.navigationItem.rightBarButtonItem = helpButtonItem;
     [self.navigationController.navigationBar setTintColor:COLOR_SCHEME];
     [navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
     navigationController.navigationBar.translucent = NO;

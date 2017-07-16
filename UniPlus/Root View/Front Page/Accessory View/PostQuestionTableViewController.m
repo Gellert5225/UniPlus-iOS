@@ -72,8 +72,8 @@
     [titleLabelView addSubview:classLabel];
     [titleLabelView addSubview:topicLabel];
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showBottomSheet)];
-    [titleLabelView addGestureRecognizer:tap];
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showBottomSheet)];
+//    [titleLabelView addGestureRecognizer:tap];
     
     //configure the navigation bar
     UIBarButtonItem *cancel  = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Cancel"]
@@ -296,6 +296,7 @@
                     PFRelation *rel = [[PFUser currentUser] relationForKey:@"feeds"];
                     [rel addObject:feed];
                     [[PFUser currentUser] incrementKey:@"numberOfPosts" byAmount:[NSNumber numberWithInt:1]];
+                    [[PFUser currentUser] incrementKey:@"numberOfQuestions"];
                     [[PFUser currentUser] saveInBackground];
                 }
             }];

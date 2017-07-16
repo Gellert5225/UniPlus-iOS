@@ -18,6 +18,7 @@
 #import "University.h"
 #import "SRActionSheet.h"
 #import <PopupDialog/PopupDialog-Swift.h>
+#import <GKFadeNavigationController/GKFadeNavigationController.h>
 
 @interface ReviewProfileTableViewController ()<SRActionSheetDelegate>
 
@@ -339,7 +340,7 @@
                     NSMutableArray *topicArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"majorArray"];
                     
                     MainPageViewController *MPVC = [[MainPageViewController alloc]initWithTopic:@"Living" ParseClass:@"Questions"];
-                    UINavigationController *nav3 = [[UINavigationController alloc]initWithRootViewController:MPVC];
+                    GKFadeNavigationController *nav3 = [[GKFadeNavigationController alloc]initWithRootViewController:MPVC];
                     
                     UPLeftMenuTableViewController *leftMenuVC = [[UPLeftMenuTableViewController alloc]init];
                     leftMenuVC.menuMajorArray = topicArray;

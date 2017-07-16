@@ -39,6 +39,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //[[PFUser currentUser] fetchInBackground];
+    
     leftMenu = [[SLExpandableTableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
     leftMenu.delegate   = self;
     leftMenu.dataSource = self;
@@ -118,20 +120,26 @@
         case 3:
             break;
         case 4:
-            cell.cellImg.image = [UIImage imageNamed:@"Search"];
-            cell.cellText.text = @"Discover";
-            [cell setSelectedBackgroundView:bgColorView];
-            break;
-        case 5:
-            cell.cellImg.image = [UIImage imageNamed:@"Settings"];
-            cell.cellText.text = @"Settings";
-            [cell setSelectedBackgroundView:bgColorView];
-            break;
-        case 6:
             cell.cellImg.image = [UIImage imageNamed:@"LogOut"];
             cell.cellText.text = @"Log Out";
             [cell setSelectedBackgroundView:bgColorView];
             break;
+            
+//        case 4:
+//            cell.cellImg.image = [UIImage imageNamed:@"Search"];
+//            cell.cellText.text = @"Discover";
+//            [cell setSelectedBackgroundView:bgColorView];
+//            break;
+//        case 5:
+//            cell.cellImg.image = [UIImage imageNamed:@"Settings"];
+//            cell.cellText.text = @"Settings";
+//            [cell setSelectedBackgroundView:bgColorView];
+//            break;
+//        case 6:
+//            cell.cellImg.image = [UIImage imageNamed:@"LogOut"];
+//            cell.cellText.text = @"Log Out";
+//            [cell setSelectedBackgroundView:bgColorView];
+//            break;
         default:
             break;
     }
@@ -155,7 +163,7 @@
 
 - (void)tableView:(SLExpandableTableView *)tableView willExpandSection:(NSUInteger)section animated:(BOOL)animated {
     revealController = self.revealViewController;
-    if (section == 6) {
+    if (section == 4) {
         //log out and go to login screen.
         PFInstallation *currentInstall = [PFInstallation currentInstallation];
         [currentInstall removeObjectForKey:@"user"];
@@ -182,7 +190,8 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 7;
+#warning NEED MORE SECTION FOR SETTINGS AND DISCOVER
+    return 5;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

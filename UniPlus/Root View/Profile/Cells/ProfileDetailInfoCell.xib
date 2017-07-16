@@ -30,7 +30,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="160" height="58.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fe2-n6-FJ6">
-                                <rect key="frame" x="69" y="8" width="22" height="28.5"/>
+                                <rect key="frame" x="69.5" y="8" width="22" height="28.5"/>
                                 <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -96,6 +96,8 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="answerView" destination="gbV-kr-vjd" id="P0f-SC-62C"/>
+                <outlet property="numberOfAnswerLabel" destination="578-wq-4aX" id="f6S-ez-4eN"/>
+                <outlet property="numberOfQuestionLabel" destination="fe2-n6-FJ6" id="l9m-PI-DEB"/>
                 <outlet property="questionView" destination="re5-SZ-BGK" id="7sw-BV-zSU"/>
             </connections>
             <point key="canvasLocation" x="-46" y="47.5"/>

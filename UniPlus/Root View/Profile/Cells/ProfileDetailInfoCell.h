@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @class ProfileDetailInfoCell;
 
@@ -19,6 +20,9 @@
 
 @interface ProfileDetailInfoCell : UITableViewCell
 
+@property (strong, nonatomic) PFUser *user;
+@property (weak, nonatomic) IBOutlet UILabel *numberOfAnswerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *numberOfQuestionLabel;
 @property (weak, nonatomic) IBOutlet UIView *questionView;
 @property (weak, nonatomic) IBOutlet UIView *answerView;
 @property (weak, nonatomic) id <ProfileDetailInfoCellDelegate>delegate;

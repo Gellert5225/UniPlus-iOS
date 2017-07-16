@@ -193,6 +193,7 @@
         ProfileDetailInfoCell *profileDetailInfoCell = [self.tableView dequeueReusableCellWithIdentifier:@"profiledetailinfo" forIndexPath:indexPath];
         profileDetailInfoCell.selectionStyle = UITableViewCellSelectionStyleNone;
         profileDetailInfoCell.delegate = self;
+        profileDetailInfoCell.user = _profileUser;
         return profileDetailInfoCell;
     } else {
         if (_isLoading) {
