@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G12b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -27,7 +27,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KAt-7z-NHh">
-                    <rect key="frame" x="0.0" y="21.5" width="320" height="146"/>
+                    <rect key="frame" x="0.0" y="21" width="320" height="146"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LnW-Gi-rtb" customClass="PFImageView">
                             <rect key="frame" x="128" y="8" width="64" height="64"/>
@@ -37,19 +37,19 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mark Zuckerburg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YmA-bE-RN5">
-                            <rect key="frame" x="94" y="77" width="133" height="19"/>
+                            <rect key="frame" x="99" y="77" width="123" height="19"/>
                             <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="16"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="612 Reputation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zwc-Eh-1iV">
-                            <rect key="frame" x="113" y="126" width="95" height="16"/>
+                            <rect key="frame" x="116" y="126" width="89" height="16"/>
                             <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="13"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City Colleges of Chicago-Kennedy-King College" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zqx-Wg-nph">
-                            <rect key="frame" x="25" y="104" width="271" height="14"/>
+                            <rect key="frame" x="31.5" y="104" width="258" height="14"/>
                             <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
@@ -72,8 +72,8 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="82m-qu-U1M" secondAttribute="bottom" id="502-Dh-oXn"/>
-                <constraint firstItem="KAt-7z-NHh" firstAttribute="centerY" secondItem="J8i-xu-okY" secondAttribute="centerY" constant="4" id="6Rl-x0-jCo"/>
                 <constraint firstItem="82m-qu-U1M" firstAttribute="leading" secondItem="J8i-xu-okY" secondAttribute="leading" id="7wf-re-cnm"/>
+                <constraint firstItem="KAt-7z-NHh" firstAttribute="top" secondItem="82m-qu-U1M" secondAttribute="bottom" constant="-159" id="7zX-Jb-XhH"/>
                 <constraint firstAttribute="trailing" secondItem="82m-qu-U1M" secondAttribute="trailing" id="FKt-FY-UvL"/>
                 <constraint firstAttribute="trailing" secondItem="KAt-7z-NHh" secondAttribute="trailing" id="P6W-Vz-BTu"/>
                 <constraint firstItem="KAt-7z-NHh" firstAttribute="leading" secondItem="J8i-xu-okY" secondAttribute="leading" id="seY-kZ-CP0"/>
@@ -94,6 +94,6 @@
         </view>
     </objects>
     <resources>
-        <image name="BG" width="1816" height="936"/>
+        <image name="BG" width="775" height="315"/>
     </resources>
 </document>

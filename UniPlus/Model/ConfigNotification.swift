@@ -27,7 +27,7 @@ class ConfigNotification: NSObject, UIGestureRecognizerDelegate {
     
      - parameter body: The alert body
      */
-    static func configureNotification(inViewController viewController:UIViewController, withError error:Bool, withTitle title:String, withBody body:String) {
+    @objc static func configureNotification(inViewController viewController:UIViewController, withError error:Bool, withTitle title:String, withBody body:String) {
         let objectAwaiting = GlobalVariables.getInstance().tempObject
         let view: MessageView
         view = MessageView.viewFromNib(.StatusLine)

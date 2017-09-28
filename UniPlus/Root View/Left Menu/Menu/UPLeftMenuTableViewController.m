@@ -24,6 +24,8 @@
 #import <GKFadeNavigationController/GKFadeNavigationController.h>
 
 #define COLOR_SCHEME [UIColor colorWithRed:53/255.0 green:111/255.0 blue:177/255.0 alpha:1.0]
+#define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
+#define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
 
 @interface UPLeftMenuTableViewController () {
     UITableView *leftMenu;
@@ -41,11 +43,17 @@
     
     //[[PFUser currentUser] fetchInBackground];
     
-    leftMenu = [[SLExpandableTableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
+    leftMenu = [[SLExpandableTableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH , SCREEN_HEIGHT) style:UITableViewStylePlain];
     leftMenu.delegate   = self;
     leftMenu.dataSource = self;
     
     self.view = leftMenu;
+    
+    if (@available(iOS 11.0, *)) {
+        leftMenu.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    } else {
+        // Fallback on earlier versions
+    }
     
     leftMenu.backgroundColor = [UIColor whiteColor];
     [leftMenu setSeparatorColor:[UIColor clearColor]];
@@ -57,6 +65,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
     [self.tableView reloadData];
 }
 
@@ -294,7 +303,7 @@
         GKFadeNavigationController *nav  = [[GKFadeNavigationController alloc]initWithRootViewController:MPVC];
         [revealController pushFrontViewController:nav animated:YES];
     } else if (indexPath.section == 3) {
-        InboxTableViewController *ITVC = [[InboxTableViewController alloc] initWithStyle:UITableViewStyleGrouped className:@"Feeds"];
+        InboxTableViewController *ITVC = [[InboxTableViewController alloc] initWithStyle:UITableViewStylePlain className:@"Feeds"];
         GKFadeNavigationController *nav = [[GKFadeNavigationController alloc] initWithRootViewController:ITVC];
         [revealController pushFrontViewController:nav animated:YES];
     }

@@ -742,7 +742,7 @@ static NSMutableSet *_retainedPopupControllers;
         _backgroundView.userInteractionEnabled = NO;
         _containerView.userInteractionEnabled = NO;
         
-        void (^animationBlock)() = ^{
+        void (^animationBlock)(void) = ^{
             _backgroundView.alpha = lastBackgroundViewAlpha;
             _containerView.alpha = 1;
             _containerView.transform = CGAffineTransformIdentity;

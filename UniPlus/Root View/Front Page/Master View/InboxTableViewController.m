@@ -91,13 +91,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if (@available(iOS 11.0, *)) {
+        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    } else {
+        // Fallback on earlier versions
+    }
+    
     [self loadNibs];
     
     [self configureNavBar];
     [self setNeedsStatusBarAppearanceUpdate];
     
+    self.tableView.contentInset = UIEdgeInsetsZero;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.automaticallyAdjustsScrollViewInsets = YES;
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:244/255.0 alpha:1];
 }

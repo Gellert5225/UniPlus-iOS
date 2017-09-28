@@ -100,7 +100,7 @@ import UIKit
         return tapRecognizer
     }()
     
-    func tapped() {
+    @objc func tapped() {
         tapHandler?(self)
     }
     

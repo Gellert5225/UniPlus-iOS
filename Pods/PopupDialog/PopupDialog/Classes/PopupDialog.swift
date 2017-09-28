@@ -82,7 +82,7 @@ final public class PopupDialog: UIViewController {
 
      - returns: Popup dialog default style
      */
-    public convenience init(
+    @objc public convenience init(
                 title: String?,
                 message: String?,
                 image: UIImage? = nil,
@@ -112,7 +112,7 @@ final public class PopupDialog: UIViewController {
 
      - returns: Popup dialog with a custom view controller
      */
-    public init(
+    @objc public init(
         viewController: UIViewController,
         buttonAlignment: UILayoutConstraintAxis = .vertical,
         transitionStyle: PopupDialogTransitionStyle = .bounceUp,
@@ -192,7 +192,7 @@ final public class PopupDialog: UIViewController {
     /*!
      Dismisses the popup dialog
      */
-    public func dismiss(_ completion: (() -> Void)? = nil) {
+    @objc public func dismiss(_ completion: (() -> Void)? = nil) {
         self.dismiss(animated: true) {
             completion?()
         }
@@ -229,7 +229,7 @@ final public class PopupDialog: UIViewController {
      Adds an array of PopupDialogButtons to the Popup dialog
      - parameter buttons: A list of PopupDialogButton instances
      */
-    public func addButtons(_ buttons: [PopupDialogButton]) {
+    @objc public func addButtons(_ buttons: [PopupDialogButton]) {
         self.buttons += buttons
     }
 

@@ -652,15 +652,15 @@ const int FrontViewPositionNone = 0xff;
 #pragma mark - Symetry
 
 - (void)_getRevealWidth:(CGFloat*)pRevealWidth revealOverDraw:(CGFloat*)pRevealOverdraw forSymetry:(int)symetry {
-    if ( symetry < 0 ) *pRevealWidth = _rightViewRevealWidth, *pRevealOverdraw = _rightViewRevealOverdraw;
-    else *pRevealWidth = _rearViewRevealWidth, *pRevealOverdraw = _rearViewRevealOverdraw;
+    if ( symetry < 0 ) (void)(*pRevealWidth = _rightViewRevealWidth), *pRevealOverdraw = _rightViewRevealOverdraw;
+    else (void)(*pRevealWidth = _rearViewRevealWidth), *pRevealOverdraw = _rearViewRevealOverdraw;
     
     if (*pRevealWidth < 0) *pRevealWidth = _contentView.bounds.size.width + *pRevealWidth;
 }
 
 - (void)_getBounceBack:(BOOL*)pBounceBack pStableDrag:(BOOL*)pStableDrag forSymetry:(int)symetry {
-    if ( symetry < 0 ) *pBounceBack = _bounceBackOnLeftOverdraw, *pStableDrag = _stableDragOnLeftOverdraw;
-    else *pBounceBack = _bounceBackOnOverdraw, *pStableDrag = _stableDragOnOverdraw;
+    if ( symetry < 0 ) (void)(*pBounceBack = _bounceBackOnLeftOverdraw), *pStableDrag = _stableDragOnLeftOverdraw;
+    else (void)(*pBounceBack = _bounceBackOnOverdraw), *pStableDrag = _stableDragOnOverdraw;
 }
 
 - (void)_getAdjustedFrontViewPosition:(FrontViewPosition*)frontViewPosition forSymetry:(int)symetry {
@@ -925,11 +925,11 @@ const int FrontViewPositionNone = 0xff;
 #pragma mark Animated view controller deployment and layout
 
 - (void)_setFrontViewPosition:(FrontViewPosition)newPosition withDuration:(NSTimeInterval)duration {
-    void (^rearDeploymentCompletion)() = [self _rearViewDeploymentForNewFrontViewPosition:newPosition];
-    void (^rightDeploymentCompletion)() = [self _rightViewDeploymentForNewFrontViewPosition:newPosition];
-    void (^frontDeploymentCompletion)() = [self _frontViewDeploymentForNewFrontViewPosition:newPosition];
+    void (^rearDeploymentCompletion)(void) = [self _rearViewDeploymentForNewFrontViewPosition:newPosition];
+    void (^rightDeploymentCompletion)(void) = [self _rightViewDeploymentForNewFrontViewPosition:newPosition];
+    void (^frontDeploymentCompletion)(void) = [self _frontViewDeploymentForNewFrontViewPosition:newPosition];
     
-    void (^animations)() = ^() {
+    void (^animations)(void) = ^() {
         if ( [self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)])
             [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate) withObject:nil];
     
@@ -976,17 +976,17 @@ const int FrontViewPositionNone = 0xff;
     UIView *view = nil;
     
     if ( operation == SWRevealControllerOperationReplaceRearController )
-        old = _rearViewController, _rearViewController = new, view = _contentView.rearView;
+        (void)(old = _rearViewController), (void)(_rearViewController = new), view = _contentView.rearView;
     
     else if ( operation == SWRevealControllerOperationReplaceFrontController )
-        old = _frontViewController, _frontViewController = new, view = _contentView.frontView;
+        (void)(old = _frontViewController), (void)(_frontViewController = new), view = _contentView.frontView;
     
     else if ( operation == SWRevealControllerOperationReplaceRightController )
-        old = _rightViewController, _rightViewController = new, view = _contentView.rightView;
+        (void)(old = _rightViewController), (void)(_rightViewController = new), view = _contentView.rightView;
 
-    void (^completion)() = [self _transitionFromViewController:old toViewController:new inView:view];
+    void (^completion)(void) = [self _transitionFromViewController:old toViewController:new inView:view];
     
-    void (^animationCompletion)() = ^ {
+    void (^animationCompletion)(void) = ^ {
         completion();
         if ( [_delegate respondsToSelector:@selector(revealController:didAddViewController:forOperation:animated:)] )
             [_delegate revealController:self didAddViewController:new forOperation:operation animated:animated];
@@ -1039,10 +1039,10 @@ const int FrontViewPositionNone = 0xff;
     
     _frontViewPosition = newPosition;
     
-    void (^deploymentCompletion)() =
+    void (^deploymentCompletion)(void) =
         [self _deploymentForViewController:_frontViewController inView:_contentView.frontView appear:appear disappear:disappear];
     
-    void (^completion)() = ^() {
+    void (^completion)(void) = ^() {
         deploymentCompletion();
         if ( positionIsChanging ) {
             if ( [_delegate respondsToSelector:@selector(revealController:didMoveToPosition:)] )
@@ -1138,11 +1138,11 @@ const int FrontViewPositionNone = 0xff;
     
     if ( toController ) [self addChildViewController:toController];
     
-    void (^deployCompletion)() = [self _deployForViewController:toController inView:view];
+    void (^deployCompletion)(void) = [self _deployForViewController:toController inView:view];
     
     [fromController willMoveToParentViewController:nil];
     
-    void (^undeployCompletion)() = [self _undeployForViewController:fromController];
+    void (^undeployCompletion)(void) = [self _undeployForViewController:fromController];
     
     void (^completionBlock)(void) = ^(void) {
         undeployCompletion() ;

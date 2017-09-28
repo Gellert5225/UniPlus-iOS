@@ -36,6 +36,12 @@
     self.navigationBarVisibility = GKFadeNavigationControllerNavigationBarVisibilityVisible;
     
     [self updateNavigationBarVisibilityForController:self.topViewController animated:NO];
+    
+    if (@available(iOS 11.0, *)) {
+        self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeNever;
+    } else {
+        // Fallback on earlier versions
+    }
 }
 
 #pragma mark - Accessors
@@ -134,7 +140,7 @@
         shadowView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.2f];
         shadowView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 
-        [self.visualEffectView addSubview:shadowView];
+        [self.visualEffectView.contentView addSubview:shadowView];
     }
     
     return _visualEffectView;

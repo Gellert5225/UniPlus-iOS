@@ -48,7 +48,7 @@ open class PZPullToRefreshView: UIView {
     /**
      The color of the status text (Loading/Pull down to refresh/Release to refresh).
      */
-    open var statusTextColor: UIColor? {
+    @objc open var statusTextColor: UIColor? {
         didSet {
             activityView?.color = statusTextColor
             statusLabel?.textColor = statusTextColor
@@ -61,7 +61,7 @@ open class PZPullToRefreshView: UIView {
     /**
      The background color of the refresh view.
      */
-    open var bgColor: UIColor? {
+    @objc open var bgColor: UIColor? {
         didSet {
             backgroundColor = bgColor
         }
@@ -73,7 +73,7 @@ open class PZPullToRefreshView: UIView {
     /**
      The threshold for the change of [RefreshState](file:///Users/JiaheLi/Desktop/UniPlus/JazzyDocSwift/Enums/RefreshState.html)
      */
-    open var thresholdValue: CGFloat = 40.0
+    @objc open var thresholdValue: CGFloat = 40.0
     
     /// :nodoc:
     open var lastUpdatedKey = "RefreshLastUpdated"
@@ -101,7 +101,7 @@ open class PZPullToRefreshView: UIView {
      */
     open var activityView: UIActivityIndicatorView?
     
-    open var arrow: UIImage? {
+    @objc open var arrow: UIImage? {
         didSet {
             arrowImage?.contents = arrow?.cgImage
         }
@@ -113,7 +113,7 @@ open class PZPullToRefreshView: UIView {
     /**
      Whether the refresh view is loading or not.
      */
-    open var isLoading: Bool {
+    @objc open var isLoading: Bool {
         get {
             return _isLoading
         }
@@ -155,7 +155,7 @@ open class PZPullToRefreshView: UIView {
     /**
      The PZPullToRefreshDelegate
      */
-    open weak var delegate: PZPullToRefreshDelegate?
+    @objc open weak var delegate: PZPullToRefreshDelegate?
     /// :nodoc:
     open var lastUpdatedLabelCustomFormatter: ( (_ date:Date)->String )?
     
@@ -219,7 +219,7 @@ open class PZPullToRefreshView: UIView {
     /**
      Set the latest updated date.
      */
-    open func refreshLastUpdatedDate() {
+    @objc open func refreshLastUpdatedDate() {
         if isShowUpdatedTime {
             if let date = delegate?.pullToRefreshLastUpdated?(self) {
                 var lastUpdateText:String
@@ -247,7 +247,7 @@ open class PZPullToRefreshView: UIView {
      
      - parameter scrollView: The scroll view in which the refresh view is contained.
      */
-    open func refreshScrollViewDidScroll(_ scrollView: UIScrollView) {
+    @objc open func refreshScrollViewDidScroll(_ scrollView: UIScrollView) {
         if state == .loading {
             UIView.beginAnimations(nil, context: nil)
             UIView.setAnimationDuration(0.2)
@@ -280,7 +280,7 @@ open class PZPullToRefreshView: UIView {
      
      - parameter scrollView: The scroll view in which the refresh view is contained.
      */
-    open func refreshScrollViewDidEndDragging(_ scrollView: UIScrollView) {
+    @objc open func refreshScrollViewDidEndDragging(_ scrollView: UIScrollView) {
         let loading = false
         if scrollView.contentOffset.y <= -thresholdValue && !loading {
             state = .loading
@@ -293,7 +293,7 @@ open class PZPullToRefreshView: UIView {
      
      - parameter scrollView: The scroll view in which the refresh view is contained.
      */
-    open func refreshScrollViewDataSourceDidFinishedLoading(_ scrollView: UIScrollView, _ inset: UIEdgeInsets) {
+    @objc open func refreshScrollViewDataSourceDidFinishedLoading(_ scrollView: UIScrollView, _ inset: UIEdgeInsets) {
         UIView.beginAnimations(nil, context: nil)
         UIView.setAnimationDuration(0.3)
         scrollView.contentInset = inset
@@ -302,7 +302,7 @@ open class PZPullToRefreshView: UIView {
         state = .normal
     }
     
-    open func refreshScrollViewDataSourceDidFinishedLoading(_ scrollView: UIScrollView) {
+    @objc open func refreshScrollViewDataSourceDidFinishedLoading(_ scrollView: UIScrollView) {
 //        UIView.beginAnimations(nil, context: nil)
 //        UIView.setAnimationDuration(0.3)
 //        UIView.commitAnimations()

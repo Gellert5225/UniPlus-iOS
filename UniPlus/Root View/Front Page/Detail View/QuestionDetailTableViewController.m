@@ -80,6 +80,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if (@available(iOS 11.0, *)) {
+        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    } else {
+        // Fallback on earlier versions
+    }
+    
     _viewModel = [[QuestionDetailViewModel alloc]init];
     
     [self loadNibs];
@@ -98,7 +104,7 @@
     self.tableView.separatorStyle     = UITableViewCellSeparatorStyleNone;
     self.tableView.tableHeaderView    = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableView.bounds.size.width, 0.01f)];
     self.tableView.rowHeight          = UITableViewAutomaticDimension;
-    //self.tableView.contentInset = UIEdgeInsetsZero;
+    //self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -587,7 +593,7 @@
         
         [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(scrollTableWithTimer:) userInfo:indexPathNeedsToBeScrolled repeats:NO];
         
-        [self.view addSubview:_tv];
+        [self.view.window addSubview:_tv];
         [_tv becomeFirstResponder];
         [_commentAccView.commentView becomeFirstResponder];
     }
@@ -687,7 +693,7 @@
         [refreshControl refreshScrollViewDataSourceDidFinishedLoading:weakSelf.tableView];
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.3];
-        weakSelf.tableView.contentInset = UIEdgeInsetsMake(self.navigationController.navigationBar.translucent?64:0, 0, 0, 0);
+        weakSelf.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
         [UIView commitAnimations];
     }];
 }

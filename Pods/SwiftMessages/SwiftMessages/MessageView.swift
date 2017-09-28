@@ -20,7 +20,7 @@ import UIKit
     /// configured to call this tap handler on `.TouchUpInside`.
     open var buttonTapHandler: ((_ button: UIButton) -> Void)?
     
-    func buttonTapped(_ button: UIButton) {
+    @objc func buttonTapped(_ button: UIButton) {
         buttonTapHandler?(button)
     }
     

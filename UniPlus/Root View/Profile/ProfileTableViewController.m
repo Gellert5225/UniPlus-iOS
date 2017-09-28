@@ -88,6 +88,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if (@available(iOS 11.0, *)) {
+        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        //[NSLayoutConstraint activateConstraints:@[[self.tableView.topAnchor constraintEqualToSystemSpacingBelowAnchor:self.tableView.safeAreaLayoutGuide.topAnchor multiplier:1]]];
+    }
+    
     _viewModel = [[ProfileTableViewModel alloc]init];
     
     [self loadNibs];
@@ -118,7 +123,7 @@
     
     CGFloat scrollOffsetY = kGKHeaderHeight-self.tableView.contentOffset.y;
     if (scrollOffsetY-kGKNavbarHeight < kGKHeaderVisibleThreshold) {
-        self.navigationBarVisibility = GKFadeNavigationControllerNavigationBarVisibilityVisible;
+        self.navigationBarVisibility = GKFadeNavigationControllerNavigationBarVisibilitySystem;
     } else {
         self.navigationBarVisibility = GKFadeNavigationControllerNavigationBarVisibilityHidden;
     }
@@ -138,7 +143,19 @@
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
 
-    self.navigationBarVisibility = GKFadeNavigationControllerNavigationBarVisibilityVisible;
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationBarVisibility = GKFadeNavigationControllerNavigationBarVisibilitySystem;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    CGFloat scrollOffsetY = kGKHeaderHeight-self.tableView.contentOffset.y;
+    if (scrollOffsetY-kGKNavbarHeight < kGKHeaderVisibleThreshold) {
+        self.navigationBarVisibility = GKFadeNavigationControllerNavigationBarVisibilitySystem;
+    } else {
+        self.navigationBarVisibility = GKFadeNavigationControllerNavigationBarVisibilityHidden;
+    }
 }
 
 #pragma - mark Table View Data Source
@@ -234,13 +251,13 @@
         _headerView.headerImageTopConstraint.constant = kGKHeaderHeight-scrollOffsetY;
         _headerView.contentWrapperView.alpha = scrollOffsetY;
     } else {
-        _headerView.headerImageTopConstraint.constant = (kGKHeaderHeight-scrollOffsetY)/2.f;
-        _headerView.headerImageBottomConstraint.constant = -(kGKHeaderHeight-scrollOffsetY)/2.f;
+        //_headerView.headerImageTopConstraint.constant = (kGKHeaderHeight-scrollOffsetY)/2.f;
+        //_headerView.headerImageBottomConstraint.constant = -(kGKHeaderHeight-scrollOffsetY)/2.f;
     }
     
     // Show or hide the navigaiton bar
     if (scrollOffsetY-kGKNavbarHeight < kGKHeaderVisibleThreshold) {
-        self.navigationBarVisibility = GKFadeNavigationControllerNavigationBarVisibilityVisible;
+        self.navigationBarVisibility = GKFadeNavigationControllerNavigationBarVisibilitySystem;
     } else {
         self.navigationBarVisibility = GKFadeNavigationControllerNavigationBarVisibilityHidden;
     }
@@ -404,6 +421,12 @@
     self.navigationItem.titleView = _titleView;
     self.navigationItem.leftBarButtonItem = _isFromMenu ? menu : back;
     self.navigationItem.rightBarButtonItem = more;
+    if (@available(iOS 11.0, *)) {
+        self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeNever;
+        [NSLayoutConstraint activateConstraints:@[[self.tableView.topAnchor constraintEqualToSystemSpacingBelowAnchor:self.tableView.safeAreaLayoutGuide.topAnchor multiplier:1.0]]];
+    } else {
+        // Fallback on earlier versions
+    }
 
     [self setNeedsStatusBarAppearanceUpdate];
 }
@@ -460,10 +483,10 @@
         [weakSelf.tableView reloadData];
         [weakSelf.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         [refreshControl refreshScrollViewDataSourceDidFinishedLoading:weakSelf.tableView];
-        [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationDuration:0.3];
-        [weakSelf.tableView setContentOffset:CGPointZero animated:YES];
-        [UIView commitAnimations];
+//        [UIView beginAnimations:nil context:nil];
+//        [UIView setAnimationDuration:0.3];
+//        [weakSelf.tableView setContentOffset:CGPointZero animated:YES];
+//        [UIView commitAnimations];
     }];
 }
 
