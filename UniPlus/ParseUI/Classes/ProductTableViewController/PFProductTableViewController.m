@@ -100,7 +100,7 @@ static NSString *const PFProductMetadataPriceLocaleKey = @"priceLocale";
                                              }
                                          }
                                            progress:^(int percentDone) {
-                                               _productProgressDictionary[product.productIdentifier] = @(percentDone);
+                                               self->_productProgressDictionary[product.productIdentifier] = @(percentDone);
                                                [cell.progressView setProgress:percentDone/100.0f animated:YES];
                                            }];
         }];
@@ -229,7 +229,7 @@ static NSString *const PFProductMetadataPriceLocaleKey = @"priceLocale";
     [validProducts enumerateObjectsUsingBlock:^(SKProduct *product,  NSUInteger idx, BOOL *stop) {
         NSDictionary *metadata = @{ PFProductMetadataPriceKey : product.price,
                                     PFProductMetadataPriceLocaleKey : product.priceLocale };
-        _productMetadataDictionary[product.productIdentifier] = metadata;
+        self->_productMetadataDictionary[product.productIdentifier] = metadata;
     }];
     [self.tableView reloadData];
 

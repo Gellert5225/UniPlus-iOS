@@ -237,7 +237,7 @@
                                       selectSheetBlock:^(SRActionSheet *actionSheetView, NSInteger actionIndex) {
                                           if (actionIndex == 0) {
                                               //post without preview
-                                              if (_editingQuestion) {
+                                              if (self->_editingQuestion) {
                                                   [self editQuestion];
                                               } else {
                                                   [self askQuestion];
@@ -268,7 +268,7 @@
             } else {
                 parseErrorString = [error userInfo][@"error"];
             }
-            [_delegate postQuestionWithQuestionObject:_questionToBeEdited notificationTitle:@"Error when posting question" message:parseErrorString image:[UIImage imageNamed:@"cross"] error:YES];
+            [self->_delegate postQuestionWithQuestionObject:self->_questionToBeEdited notificationTitle:@"Error when posting question" message:parseErrorString image:[UIImage imageNamed:@"cross"] error:YES];
         }
     }];
 }
@@ -283,7 +283,7 @@
         if (succeeded) {
             //NSLog(@"Posted a new question %@", question);
             
-            [_delegate postQuestionWithQuestionObject:question notificationTitle:@"Success!" message:@"Posted!(Tap to view)" image:[UIImage imageNamed:@"tick"] error:NO];
+            [self->_delegate postQuestionWithQuestionObject:question notificationTitle:@"Success!" message:@"Posted!(Tap to view)" image:[UIImage imageNamed:@"tick"] error:NO];
             
             PFObject *feed = [PFObject objectWithClassName:@"Feeds"];
             [feed setObject:@"Ask"               forKey:@"type"];
@@ -307,7 +307,7 @@
             } else {
                 parseErrorString = [parseError userInfo][@"error"];
             }
-            [_delegate postQuestionWithQuestionObject:question notificationTitle:@"Error when posting question" message:parseErrorString image:[UIImage imageNamed:@"cross"] error:YES];
+            [self->_delegate postQuestionWithQuestionObject:question notificationTitle:@"Error when posting question" message:parseErrorString image:[UIImage imageNamed:@"cross"] error:YES];
         }
     }];
 }

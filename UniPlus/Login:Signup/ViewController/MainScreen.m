@@ -231,27 +231,8 @@
              NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
              [defaults setObject:majorArray forKey:@"majorArray"];
              [defaults synchronize];
-             [NSThread sleepForTimeInterval:1.0f];
              
-             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                 MainPageViewController *MPVC = [[MainPageViewController alloc]initWithTopic:@"Computer Science" ParseClass:@"Questions"];
-                 GKFadeNavigationController *nav = [[GKFadeNavigationController alloc]initWithRootViewController:MPVC];
-                 
-                 UPLeftMenuTableViewController *leftMenuVC = [[UPLeftMenuTableViewController alloc]init];
-                 leftMenuVC.menuMajorArray = majorArray;
-                 SWRevealViewController *revealController = [[SWRevealViewController alloc]initWithRearViewController:leftMenuVC frontViewController:nav];
-                 revealController.frontViewShadowColor = [UIColor colorWithWhite:0.4 alpha:1].CGColor;
-                 revealController.frontViewShadowOpacity = 0.3;
-                 revealController.frontViewShadowOffset = CGSizeMake(0.0, 0.0);
-                 revealController.frontViewShadowRadius = 2.0;
-                 revealController.delegate = self;
-                 
-                 [self presentViewController:revealController animated:YES completion:nil];
-                
-                 [spinnerView stopAnimating];
-                 [blurView removeFromSuperview];
-                 [signingUp removeFromSuperview];
-            });
+             [self dismissViewControllerAnimated:YES completion:nil];
          } else {
              dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                  [spinnerView stopAnimating];

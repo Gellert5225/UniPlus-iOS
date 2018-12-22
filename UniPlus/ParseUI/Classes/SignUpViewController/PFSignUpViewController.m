@@ -298,8 +298,8 @@ NSString *const PFSignUpViewControllerDelegateInfoAdditionalKey = @"additional";
     }
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         self.loading = NO;
-        if ([_signUpView.signUpButton isKindOfClass:[PFPrimaryButton class]]) {
-            [(PFPrimaryButton *)_signUpView.signUpButton setLoading:NO];
+        if ([self->_signUpView.signUpButton isKindOfClass:[PFPrimaryButton class]]) {
+            [(PFPrimaryButton *)self->_signUpView.signUpButton setLoading:NO];
         }
 
         if (succeeded) {

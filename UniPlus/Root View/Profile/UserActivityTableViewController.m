@@ -275,8 +275,8 @@
         } else {
             self.hasContent = foundObjects.count;
         }
-        refreshControl.isLoading = NO;
-        [refreshControl refreshScrollViewDataSourceDidFinishedLoading:self.tableView :UIEdgeInsetsZero];
+        self->refreshControl.isLoading = NO;
+        [self->refreshControl refreshScrollViewDataSourceDidFinishedLoading:self.tableView :UIEdgeInsetsZero];
     }];
 }
 

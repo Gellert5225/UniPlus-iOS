@@ -334,8 +334,8 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if ([cell isKindOfClass:[CommentCell class]]) {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        if (!_userIsInTheMiddleOfComment) {
-            CommentCell *commentCell = (CommentCell *)cell;
+        CommentCell *commentCell = (CommentCell *)cell;
+        if (!_userIsInTheMiddleOfComment && commentCell.comment.author.objectId != [PFUser currentUser].objectId) {
             _commentTo = [NSString stringWithFormat:@"Reply to %@", commentCell.comment.author[@"nickName"]];
             _awaitingComment = commentCell.comment;
             [self createCommentAccessoryView:nil withIndexPath:indexPath];
@@ -673,14 +673,14 @@
     [_viewModel fetchQuestionWithQuestionID:_questionId completionBlock:^(BOOL success, NSError *error) {
         if (success) {
             weakSelf.isLoading = NO;
-            [_viewModel incrementNumberOfViews];
+            [self->_viewModel incrementNumberOfViews];
             [weakSelf.tableView reloadData];
-            if (!refreshControl && !weakSelf.isLoading) {
-                refreshControl = [[PZPullToRefreshView alloc] initWithFrame:CGRectMake(0, 0 - tableViewHeight, tableViewWidth, tableViewHeight)];
-                refreshControl.thresholdValue = 40.0;
-                refreshControl.statusTextColor = COLOR_SCHEME;
-                refreshControl.delegate = weakSelf;
-                [weakSelf.tableView addSubview:refreshControl];
+            if (!self->refreshControl && !weakSelf.isLoading) {
+                self->refreshControl = [[PZPullToRefreshView alloc] initWithFrame:CGRectMake(0, 0 - tableViewHeight, tableViewWidth, tableViewHeight)];
+                self->refreshControl.thresholdValue = 40.0;
+                self->refreshControl.statusTextColor = COLOR_SCHEME;
+                self->refreshControl.delegate = weakSelf;
+                [weakSelf.tableView addSubview:self->refreshControl];
             }
         } else {
             if ([[weakSelf.navigationController visibleViewController] isKindOfClass:[QuestionDetailTableViewController class]]) {
@@ -689,8 +689,8 @@
                 [weakSelf.navigationController presentViewController:[upError configurePopupDialog] animated:YES completion:nil];
             }
         }
-        refreshControl.isLoading = NO;
-        [refreshControl refreshScrollViewDataSourceDidFinishedLoading:weakSelf.tableView];
+        self->refreshControl.isLoading = NO;
+        [self->refreshControl refreshScrollViewDataSourceDidFinishedLoading:weakSelf.tableView];
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:0.3];
         weakSelf.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);

@@ -33,7 +33,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     //set the topicFilter if user is launching the app for the very first time
-    [[NSUserDefaults standardUserDefaults] registerDefaults:@{@"topicFilter" : @"Computer Science"}];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:@{@"topicFilter" : @"Computer Science", @"majorArray" : @[@"Computer Science"]}];
     NSMutableArray *topicArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"majorArray"];
     
     [Parse initializeWithConfiguration:[ParseClientConfiguration
@@ -54,27 +54,23 @@
 //    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:RPVC];
 //    RPVC.isFromSignUp = NO;
 
-    MainScreen *MS = [[MainScreen alloc]initWithNibName:@"MainScreen" bundle:nil];
+    //MainScreen *MS = [[MainScreen alloc]initWithNibName:@"MainScreen" bundle:nil];
     
-    if ([PFUser currentUser]) {
-        //retrieve the majorArray from NSUserDefaults
-        MainPageViewController *MPVC = [[MainPageViewController alloc]initWithTopic:[topicArray objectAtIndex:0] ParseClass:@"Questions"];
-        GKFadeNavigationController *nav2 = [[GKFadeNavigationController alloc]initWithRootViewController:MPVC];
-        //UINavigationController *nav3 = [[UINavigationController alloc]initWithRootViewController:MPVC];
-        
-        UPLeftMenuTableViewController *leftMenuVC = [[UPLeftMenuTableViewController alloc]init];
-        leftMenuVC.menuMajorArray = topicArray;
-        SWRevealViewController *revealController = [[SWRevealViewController alloc]initWithRearViewController:leftMenuVC frontViewController:nav2];
-        revealController.frontViewShadowColor = [UIColor colorWithWhite:0.4 alpha:1].CGColor;
-        revealController.frontViewShadowOpacity = 0.3;
-        revealController.frontViewShadowOffset = CGSizeMake(0.0, 0.0);
-        revealController.frontViewShadowRadius = 2.0;
-        revealController.delegate = self;
-        
-        self.window.rootViewController = revealController;
-    } else {
-        self.window.rootViewController = MS;
-    }
+    //retrieve the majorArray from NSUserDefaults
+    MainPageViewController *MPVC = [[MainPageViewController alloc]initWithTopic:[topicArray objectAtIndex:0] ParseClass:@"Questions"];
+    GKFadeNavigationController *nav2 = [[GKFadeNavigationController alloc]initWithRootViewController:MPVC];
+    //UINavigationController *nav3 = [[UINavigationController alloc]initWithRootViewController:MPVC];
+    
+    UPLeftMenuTableViewController *leftMenuVC = [[UPLeftMenuTableViewController alloc]init];
+    leftMenuVC.menuMajorArray = topicArray;
+    SWRevealViewController *revealController = [[SWRevealViewController alloc]initWithRearViewController:leftMenuVC frontViewController:nav2];
+    revealController.frontViewShadowColor = [UIColor colorWithWhite:0.4 alpha:1].CGColor;
+    revealController.frontViewShadowOpacity = 0.3;
+    revealController.frontViewShadowOffset = CGSizeMake(0.0, 0.0);
+    revealController.frontViewShadowRadius = 2.0;
+    revealController.delegate = self;
+    
+    self.window.rootViewController = revealController;
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

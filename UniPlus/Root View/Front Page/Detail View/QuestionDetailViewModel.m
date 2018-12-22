@@ -33,7 +33,7 @@
 - (void)fetchQuestionWithQuestionID:(NSString *)questionID completionBlock:(void (^)(BOOL success, NSError *error)) block {
     [Question getQuestionObjectWithObjectId:questionID completionBlock:^(BOOL success, NSError *error, PFObject *pfQuestion, __weak Question *question) {
         if (success) {
-            _question = question;
+            self->_question = question;
             block(YES, nil);
         } else {
             block(NO, error);

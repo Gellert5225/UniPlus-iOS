@@ -52,7 +52,7 @@
     DefaultButton *ok = [[DefaultButton alloc] initWithTitle:@"OK" dismissOnTap:YES action:nil];
     
     DefaultButton *retry = [[DefaultButton alloc] initWithTitle:@"RETRY" dismissOnTap:YES action:^{
-        [_delegate didTapRetryButton];
+        [self->_delegate didTapRetryButton];
     }];
     
     [popup addButtons: @[ok, retry]];

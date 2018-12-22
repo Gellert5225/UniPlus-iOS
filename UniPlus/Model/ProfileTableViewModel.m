@@ -58,7 +58,7 @@
     [feedsQuery setLimit:10];
     [feedsQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         if (!error) {
-            _activities = [NSMutableArray arrayWithArray:objects];
+            self->_activities = [NSMutableArray arrayWithArray:objects];
             block(YES, nil);
         } else {
             block(NO, error);
@@ -76,7 +76,7 @@
     [feedsQuery setLimit:5];
     [feedsQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         if (!error) {
-            _questions = [NSMutableArray arrayWithArray:objects];
+            self->_questions = [NSMutableArray arrayWithArray:objects];
             block(YES, nil);
         } else {
             block(NO, error);
@@ -96,7 +96,7 @@
     [feedsQuery setLimit:5];
     [feedsQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         if (!error) {
-            _questions = [NSMutableArray arrayWithArray:objects];
+            self->_questions = [NSMutableArray arrayWithArray:objects];
             block(YES, nil);
         } else {
             block(NO, error);

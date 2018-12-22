@@ -336,7 +336,7 @@
         [user setObject:_topic?_topic:@"" forKey:@"major"];
         [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
             if (!error) {
-                if (isFromSignUp) {
+                if (self->isFromSignUp) {
                     NSMutableArray *topicArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"majorArray"];
                     
                     MainPageViewController *MPVC = [[MainPageViewController alloc]initWithTopic:@"Living" ParseClass:@"Questions"];

@@ -292,7 +292,7 @@
                          ReviewProfileTableViewController *RPVC = [[ReviewProfileTableViewController alloc]initWithNibName:@"ReviewProfileTableViewController" bundle:nil];
                          RPVC.isFromSignUp = YES;
                          UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:RPVC];
-                         RPVC.username = [nameField.text lowercaseString];
+                         RPVC.username = [self->nameField.text lowercaseString];
                          
                          RPVC.profileData = UIImageJPEGRepresentation([UIImage imageNamed:@"white.png"], 1.0);
                          

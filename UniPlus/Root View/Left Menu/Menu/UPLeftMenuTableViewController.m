@@ -66,6 +66,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    self.menuMajorArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"majorArray"];
+    
     [self.tableView reloadData];
 }
 
@@ -191,8 +193,9 @@
              }
         }];
         
-        MainScreen *MS = [[MainScreen alloc]initWithNibName:@"MainScreen" bundle:nil];
-        [revealController pushFrontViewController:MS animated:YES];
+        MainPageViewController *MPVC = [[MainPageViewController alloc]initWithTopic:[self.menuMajorArray objectAtIndex:0] ParseClass:@"Questions"];
+        GKFadeNavigationController *nav  = [[GKFadeNavigationController alloc]initWithRootViewController:MPVC];
+        [revealController pushFrontViewController:nav animated:YES];
     }
 }
 
@@ -255,16 +258,6 @@
     [rowCell setSelectedBackgroundView:bgColorView];
     
     if (indexPath.section == 0) {
-        profileCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        profileCell.profilePhotoView.layer.cornerRadius = profileCell.profilePhotoView.frame.size.height/2;
-        profileCell.profilePhotoView.layer.masksToBounds = YES;
-        
-        profileCell.nameLabel.text = [[PFUser currentUser] objectForKey:@"nickName"];
-        profileCell.profilePhotoView.image = [UIImage imageNamed:@"empty-profile"];//place holder
-        profileCell.profilePhotoView.file = [[PFUser currentUser] objectForKey:@"profilePhoto"];
-        [profileCell.profilePhotoView loadInBackground];
-        
         return profileCell;
     } else if (indexPath.section == 1) {
         rowCell.cellText.text = [self.generalTopics objectAtIndex:indexPath.row - 1];
@@ -287,11 +280,16 @@
     revealController = self.revealViewController;
     if (indexPath.section == 0) {
         //profile page
-        ProfileTableViewController *PTVC = [[ProfileTableViewController alloc]initWithStyle:UITableViewStylePlain];
-        PTVC.isFromMenu = YES;
-        PTVC.profileUser = [PFUser currentUser];
-        GKFadeNavigationController *nav = [[GKFadeNavigationController alloc]initWithRootViewController:PTVC];
-        [revealController pushFrontViewController:nav animated:YES];
+        if ([PFUser currentUser]) {
+            ProfileTableViewController *PTVC = [[ProfileTableViewController alloc]initWithStyle:UITableViewStylePlain];
+            PTVC.isFromMenu = YES;
+            PTVC.profileUser = [PFUser currentUser];
+            GKFadeNavigationController *nav = [[GKFadeNavigationController alloc]initWithRootViewController:PTVC];
+            [revealController pushFrontViewController:nav animated:YES];
+        } else {
+            MainScreen *MS = [[MainScreen alloc]initWithNibName:@"MainScreen" bundle:nil];
+            [self presentViewController:MS animated:YES completion:nil];
+        }
     } else if (indexPath.section == 1) {
         //present general discussion
         MainPageViewController *MPVC = [[MainPageViewController alloc]initWithTopic:[self.generalTopics objectAtIndex:indexPath.row - 1] ParseClass:@"Discussions"];

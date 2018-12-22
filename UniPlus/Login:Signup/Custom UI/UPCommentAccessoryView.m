@@ -243,11 +243,11 @@ static CGFloat const kBounceValue = 0.0f;
     _frontViewLeadingConstraint.constant = kBounceValue;
     
     [self updateConstraintsIfNeeded:animated completion:^(BOOL finished) {
-        _frontViewTrailingConstraint.constant = 0;
-        _frontViewLeadingConstraint.constant = 0;
+        self->_frontViewTrailingConstraint.constant = 0;
+        self->_frontViewLeadingConstraint.constant = 0;
         
         [self updateConstraintsIfNeeded:animated completion:^(BOOL finished) {
-            self.startingRightLayoutConstraintConstant = _frontViewTrailingConstraint.constant;
+            self.startingRightLayoutConstraintConstant = self->_frontViewTrailingConstraint.constant;
         }];
     }];
 }
@@ -262,11 +262,11 @@ static CGFloat const kBounceValue = 0.0f;
     _frontViewTrailingConstraint.constant = _discardView.frame.size.width + kBounceValue;
     
     [self updateConstraintsIfNeeded:animated completion:^(BOOL finished) {
-        _frontViewLeadingConstraint.constant = -_discardView.frame.size.width;
-        _frontViewTrailingConstraint.constant = _discardView.frame.size.width;
+        self->_frontViewLeadingConstraint.constant = -self->_discardView.frame.size.width;
+        self->_frontViewTrailingConstraint.constant = self->_discardView.frame.size.width;
         
         [self updateConstraintsIfNeeded:animated completion:^(BOOL finished) {
-            self.startingRightLayoutConstraintConstant = _frontViewTrailingConstraint.constant;
+            self.startingRightLayoutConstraintConstant = self->_frontViewTrailingConstraint.constant;
         }];
     }];
 }

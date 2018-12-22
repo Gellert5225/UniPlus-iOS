@@ -471,7 +471,7 @@
     [_viewModel fetchRecentActivitiesForUser:_profileUser completionBlock:^(BOOL success, NSError *error) {
         if (success) {
             weakSelf.isLoading = NO;
-            if (!refreshControl && !weakSelf.isLoading) {
+            if (!self->refreshControl && !weakSelf.isLoading) {
 //                refreshControl = [[PZPullToRefreshView alloc]initWithFrame:CGRectMake(0, 0 - tableViewHeight, tableViewWidth, tableViewHeight)];
 //                [self configureRefreshView];
 //                refreshControl.thresholdValue = 40.0;
@@ -479,10 +479,10 @@
 //                [weakSelf.tableView addSubview:refreshControl];
             }
         }
-        refreshControl.isLoading = NO;
+        self->refreshControl.isLoading = NO;
         [weakSelf.tableView reloadData];
         [weakSelf.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-        [refreshControl refreshScrollViewDataSourceDidFinishedLoading:weakSelf.tableView];
+        [self->refreshControl refreshScrollViewDataSourceDidFinishedLoading:weakSelf.tableView];
 //        [UIView beginAnimations:nil context:nil];
 //        [UIView setAnimationDuration:0.3];
 //        [weakSelf.tableView setContentOffset:CGPointZero animated:YES];

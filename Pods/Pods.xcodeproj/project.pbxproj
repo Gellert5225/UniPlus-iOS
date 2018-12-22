@@ -11,7 +11,6 @@
 		04F9C001E67FC444496B58A14E431822 /* InteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE4DADE8F94F4CA206A7669D96FAF19 /* InteractiveTransition.swift */; };
 		156DFFECFE5F8B61315A9A97D9C3B1E3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CF0FDF386F7DBC282010D0C83561B23 /* Foundation.framework */; };
 		1C01A001CE65735EC7B6DC5EB0B9C9AB /* NSLayoutConstraint+PureLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = E50DC04B8CC06E1E11798C9D353EAF33 /* NSLayoutConstraint+PureLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DA790D5699CA34B2A90D8D0BB1D01B6 /* TabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86AD9492FFB0E83525F0B46B57C01ED9 /* TabView.xib */; };
 		2045E0AA13ED3A1AC48FA8333F5FBA1C /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CCFC190887ACB8C56D8384C7869E /* BaseView.swift */; };
 		21BAD68C2C9FA43BEBB637317C720B03 /* TransitionAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE063387012A1C86620E6F1F143513FA /* TransitionAnimations.swift */; };
 		22A9374F3AC77053D2B87C0F094498F5 /* GKFadeNavigationController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5511D045015EDD890F8BB3946A02FE97 /* GKFadeNavigationController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -78,8 +77,7 @@
 		DFB510721F690EC900E67AB1 /* MessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5312B78CC6113439F5ED26903A5DB59 /* MessageView.xib */; };
 		DFB510731F690EC900E67AB1 /* MessageViewIOS8.xib in Resources */ = {isa = PBXBuildFile; fileRef = 722BD81CF99BEABDD646A84303095658 /* MessageViewIOS8.xib */; };
 		DFB510741F690EC900E67AB1 /* StatusLine.xib in Resources */ = {isa = PBXBuildFile; fileRef = 531120FDFC268BDBCD8A57C335EC9E9B /* StatusLine.xib */; };
-		DFB510751F690EC900E67AB1 /* TabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86AD9492FFB0E83525F0B46B57C01ED9 /* TabView.xib */; };
-		DFB510761F690F2400E67AB1 /* TabView.xib in Sources */ = {isa = PBXBuildFile; fileRef = 86AD9492FFB0E83525F0B46B57C01ED9 /* TabView.xib */; };
+		DFF0B64F21CE0C22002B25D1 /* TabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFF0B64E21CE0C22002B25D1 /* TabView.xib */; };
 		E0D06CC230220A0940293C97E29223E2 /* PopupDialogOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB57E3E63F8E07B455631F1653E68D2B /* PopupDialogOverlayView.swift */; };
 		E1247D782D86816E8E9AAD86904E1FA4 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B7090997ABEA1E2678E22333714075 /* Error.swift */; };
 		E547FBC9E18F3C2748E277C6527B07A0 /* SwiftMessages-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A0ECECF71BB48DC2A392C46DB8F5F056 /* SwiftMessages-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -215,7 +213,6 @@
 		7DB6977F074A852E9EEF9CE9E64BC2E2 /* GKFadeNavigationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GKFadeNavigationController.m; path = Pod/Classes/GKFadeNavigationController.m; sourceTree = "<group>"; };
 		8059C9774767BF00F6083612CCCB91B0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		85711EBD4B0164A69B23FC7B8C581259 /* UIViewController+Visibility.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Visibility.swift"; path = "PopupDialog/Classes/UIViewController+Visibility.swift"; sourceTree = "<group>"; };
-		86AD9492FFB0E83525F0B46B57C01ED9 /* TabView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = TabView.xib; path = SwiftMessages/Resources/TabView.xib; sourceTree = "<group>"; };
 		8A617BAA20C2D44ABB2F81A5258301A0 /* PureLayoutDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PureLayoutDefines.h; path = PureLayout/PureLayout/PureLayoutDefines.h; sourceTree = "<group>"; };
 		8B56AD0DBC05791B25A81F7C8BD2055F /* GTMNSData+zlib.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "GTMNSData+zlib.m"; path = "Foundation/GTMNSData+zlib.m"; sourceTree = "<group>"; };
 		8C3B4098BF4A629EEA0D9FC2796F1EBA /* GKFadeNavigationController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GKFadeNavigationController-prefix.pch"; sourceTree = "<group>"; };
@@ -263,6 +260,7 @@
 		D9BEFD38613565146B9C71CE55E8587D /* PureLayout.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = PureLayout.modulemap; sourceTree = "<group>"; };
 		DC69586BEFD3BA1B5D084D3D528632FB /* Theme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Theme.swift; path = SwiftMessages/Theme.swift; sourceTree = "<group>"; };
 		DE9F3E9AEAC574835FFBC5FC7E765E6E /* PopupDialog.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = PopupDialog.modulemap; sourceTree = "<group>"; };
+		DFF0B64E21CE0C22002B25D1 /* TabView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabView.xib; sourceTree = "<group>"; };
 		E241DDD5BD0235F1AD6AA58851CFB151 /* Pods-UniPlus-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-UniPlus-acknowledgements.markdown"; sourceTree = "<group>"; };
 		E50DC04B8CC06E1E11798C9D353EAF33 /* NSLayoutConstraint+PureLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+PureLayout.h"; path = "PureLayout/PureLayout/NSLayoutConstraint+PureLayout.h"; sourceTree = "<group>"; };
 		EC0F9A0A29EA4D7D11B8E2395959D08D /* SwiftMessages-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftMessages-dummy.m"; sourceTree = "<group>"; };
@@ -550,7 +548,7 @@
 				F5312B78CC6113439F5ED26903A5DB59 /* MessageView.xib */,
 				722BD81CF99BEABDD646A84303095658 /* MessageViewIOS8.xib */,
 				531120FDFC268BDBCD8A57C335EC9E9B /* StatusLine.xib */,
-				86AD9492FFB0E83525F0B46B57C01ED9 /* TabView.xib */,
+				DFF0B64E21CE0C22002B25D1 /* TabView.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -950,7 +948,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0930;
 				TargetAttributes = {
 					00103D6C821BE85971C563025527BA5D = {
 						LastSwiftMigration = 0900;
@@ -1010,8 +1008,8 @@
 				DFB510721F690EC900E67AB1 /* MessageView.xib in Resources */,
 				DFB510731F690EC900E67AB1 /* MessageViewIOS8.xib in Resources */,
 				DFB510741F690EC900E67AB1 /* StatusLine.xib in Resources */,
-				DFB510751F690EC900E67AB1 /* TabView.xib in Resources */,
 				272ECD442FDE947DD1518EBEAB26BCAD /* SwiftMessages.bundle in Resources */,
+				DFF0B64F21CE0C22002B25D1 /* TabView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1024,7 +1022,6 @@
 				C3636A863B24631C458CEC1F106CD682 /* MessageView.xib in Resources */,
 				A341B0B8342F87D3284EC4A33124D40A /* MessageViewIOS8.xib in Resources */,
 				5C60DD5368119EFE7FB3D4830A047211 /* StatusLine.xib in Resources */,
-				1DA790D5699CA34B2A90D8D0BB1D01B6 /* TabView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1080,7 +1077,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DFB510761F690F2400E67AB1 /* TabView.xib in Sources */,
 				8D58D4919019F73A5EACC2F1B4599F6F /* Array+Utils.swift in Sources */,
 				001529B962523D4C9B94DC270AB55389 /* BackgroundViewable.swift in Sources */,
 				2045E0AA13ED3A1AC48FA8333F5FBA1C /* BaseView.swift in Sources */,
@@ -1317,6 +1313,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1324,6 +1321,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1580,6 +1578,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1587,6 +1586,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

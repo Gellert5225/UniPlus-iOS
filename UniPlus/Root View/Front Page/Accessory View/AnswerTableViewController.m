@@ -165,7 +165,7 @@
                                       selectSheetBlock:^(SRActionSheet *actionSheetView, NSInteger actionIndex) {
                                           if (actionIndex == 0) {
                                               //post without preview
-                                              if (_editingAnswer) {
+                                              if (self->_editingAnswer) {
                                                   [self editAnswer];
                                               } else {
                                                   [self answerQuestion];
@@ -195,7 +195,7 @@
             } else {
                 parseErrorString = [error userInfo][@"error"];
             }
-            [_delegate answerQuestionWithAnswerObject:_answerToBeEdited notificationTitle:@"Error when editing answer" message:parseErrorString image:nil withError:YES];
+            [self->_delegate answerQuestionWithAnswerObject:self->_answerToBeEdited notificationTitle:@"Error when editing answer" message:parseErrorString image:nil withError:YES];
         }
     }];
 }

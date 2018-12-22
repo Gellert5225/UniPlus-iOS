@@ -241,7 +241,7 @@
                 if (self.paginationEnabled && self.objectsPerPage) {
                     for (int i = 0; i < objects.count; i ++) {
                         PFObject *o = objects[i];
-                        if ([o.objectId isEqualToString:lastObject.objectId]) {
+                        if ([o.objectId isEqualToString:self->lastObject.objectId]) {
                             query.limit = self.objectsPerPage;
                             if (page == 0) {
                                 query.skip = 0;
@@ -264,20 +264,20 @@
                         
                         if (error) {
                             block(nil, error);
-                            _lastLoadCount = -1;
+                            self->_lastLoadCount = -1;
                             [self _refreshPaginationCell];
                         } else {
-                            _currentPage = page;
-                            _lastLoadCount = [foundObjects count];
+                            self->_currentPage = page;
+                            self->_lastLoadCount = [foundObjects count];
                             if (foundObjects.count) {
-                                lastObject = foundObjects[_lastLoadCount-1];
+                                self->lastObject = foundObjects[self->_lastLoadCount-1];
                             }
                             
                             if (clear) {
-                                [_mutableObjects removeAllObjects];
+                                [self->_mutableObjects removeAllObjects];
                             }
                             
-                            [_mutableObjects addObjectsFromArray:foundObjects];
+                            [self->_mutableObjects addObjectsFromArray:foundObjects];
                             CGPoint offset = self.tableView.contentOffset;
                             [self.tableView reloadData];
                             [self.tableView layoutIfNeeded];
@@ -316,19 +316,19 @@
             
             if (error) {
                 block(nil, error);
-                _lastLoadCount = -1;
+                self->_lastLoadCount = -1;
                 [self _refreshPaginationCell];
             } else {
-                _currentPage = page;
-                _lastLoadCount = [foundObjects count];
+                self->_currentPage = page;
+                self->_lastLoadCount = [foundObjects count];
                 if (foundObjects.count) {
-                    lastObject = foundObjects[_lastLoadCount-1];
+                    self->lastObject = foundObjects[self->_lastLoadCount-1];
                     //NSLog(@"%@",lastObject.objectId);
                 }
                 if (clear) {
-                    [_mutableObjects removeAllObjects];
+                    [self->_mutableObjects removeAllObjects];
                 }
-                [_mutableObjects addObjectsFromArray:foundObjects];
+                [self->_mutableObjects addObjectsFromArray:foundObjects];
                 CGPoint offset = self.tableView.contentOffset;
                 [self.tableView reloadData];
                 [self.tableView layoutIfNeeded];
@@ -383,7 +383,7 @@
                 if (self.paginationEnabled && self.objectsPerPage) {
                     for (int i = 0; i < objects.count; i ++) {
                         PFObject *o = objects[i];
-                        if ([o.objectId isEqualToString:lastObject.objectId]) {
+                        if ([o.objectId isEqualToString:self->lastObject.objectId]) {
                             query.limit = self.objectsPerPage;
                             if (page == 0) {
                                 query.skip = 0;
@@ -406,20 +406,20 @@
                     self.loading = NO;
                     
                     if (error) {
-                        _lastLoadCount = -1;
+                        self->_lastLoadCount = -1;
                         [self _refreshPaginationCell];
                     } else {
-                        _currentPage = page;
-                        _lastLoadCount = [foundObjects count];
+                        self->_currentPage = page;
+                        self->_lastLoadCount = [foundObjects count];
                         if (foundObjects.count) {
-                            lastObject = foundObjects[_lastLoadCount-1];
+                            self->lastObject = foundObjects[self->_lastLoadCount-1];
                         }
                         
                         if (clear) {
-                            [_mutableObjects removeAllObjects];
+                            [self->_mutableObjects removeAllObjects];
                         }
                         
-                        [_mutableObjects addObjectsFromArray:foundObjects];
+                        [self->_mutableObjects addObjectsFromArray:foundObjects];
                         CGPoint offset = self.tableView.contentOffset;
                         [self.tableView reloadData];
                         [self.tableView layoutIfNeeded];
@@ -454,20 +454,20 @@
             self.loading = NO;
             
             if (error) {
-                _lastLoadCount = -1;
+                self->_lastLoadCount = -1;
                 [self _refreshPaginationCell];
             } else {
-                _currentPage = page;
-                _lastLoadCount = [foundObjects count];
+                self->_currentPage = page;
+                self->_lastLoadCount = [foundObjects count];
                 if (foundObjects.count) {
-                    lastObject = foundObjects[_lastLoadCount-1];
+                    self->lastObject = foundObjects[self->_lastLoadCount-1];
                     //NSLog(@"QWER: %@",lastObject.objectId);
                 }
                 if (clear) {
-                    [_mutableObjects removeAllObjects];
+                    [self->_mutableObjects removeAllObjects];
                 }
                 
-                [_mutableObjects addObjectsFromArray:foundObjects];
+                [self->_mutableObjects addObjectsFromArray:foundObjects];
                 CGPoint offset = self.tableView.contentOffset;
                 [self.tableView reloadData];
                 [self.tableView layoutIfNeeded];
