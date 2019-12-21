@@ -30,7 +30,7 @@ class ConfigNotification: NSObject, UIGestureRecognizerDelegate {
     @objc static func configureNotification(inViewController viewController:UIViewController, withError error:Bool, withTitle title:String, withBody body:String) {
         let objectAwaiting = GlobalVariables.getInstance().tempObject
         let view: MessageView
-        view = MessageView.viewFromNib(.StatusLine)
+        view = MessageView.viewFromNib(layout: .statusLine)
         if error {
             view.configureTheme(.error)
         } else {
@@ -38,7 +38,7 @@ class ConfigNotification: NSObject, UIGestureRecognizerDelegate {
         }
         
         view.configureDropShadow()
-        view.configureContent(title, body: body)
+        view.configureContent(title: title, body: body)
         view.tapHandler = {_ in
             if !error {
                 
@@ -69,7 +69,7 @@ class ConfigNotification: NSObject, UIGestureRecognizerDelegate {
         config.duration = .seconds(seconds: 10)
         
         if error {
-            SwiftMessages.show(config, view: view);
+            SwiftMessages.show(config: config, view: view);
         }
     }
 }

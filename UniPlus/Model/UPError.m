@@ -55,7 +55,7 @@
         [self->_delegate didTapRetryButton];
     }];
     
-    [popup addButtons: @[ok, retry]];
+    [popup addButtonsWithButtons:@[ok, retry]];
     
     return popup;
 }

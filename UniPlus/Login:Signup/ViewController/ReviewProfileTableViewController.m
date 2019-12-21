@@ -320,8 +320,8 @@
         PFUser *user = [PFUser currentUser];
         
         NSData *smallPhotoData   = UIImageJPEGRepresentation([self imageWithImage:cell1.profilePhotoView.image scaledToSize:CGSizeMake(80, 80)], 1);
-        PFFile *smallProfileFile = [PFFile fileWithName:@"SmallProfileIMG" data:smallPhotoData contentType:@"image/png"];
-        PFFile *profileIMGFile   = [PFFile fileWithName:@"ProfileIMG" data:UIImagePNGRepresentation(cell1.profilePhotoView.image) contentType:@"image/png"];
+        PFFileObject *smallProfileFile = [PFFileObject fileObjectWithName:@"SmallProfileIMG" data:smallPhotoData contentType:@"image/png"];
+        PFFileObject *profileIMGFile   = [PFFileObject fileObjectWithName:@"ProfileIMG" data:UIImagePNGRepresentation(cell1.profilePhotoView.image) contentType:@"image/png"];
         
         [user setObject:profileIMGFile forKey:@"profilePhoto"];
         [user setObject:smallProfileFile forKey:@"profilePhoto80"];
@@ -387,7 +387,7 @@
         
     }];
     
-    [popup addButtons: @[ok]];
+    [popup addButtonsWithButtons:@[ok]];
     
     [self.navigationController presentViewController:popup animated:YES completion:nil];
 }

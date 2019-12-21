@@ -10,7 +10,7 @@
 #import "SWRevealViewController.h"
 #import "NewestQueryTableViewController.h"
 #import "PostQuestionTableViewController.h"
-#import "CarbonKit.h"
+#import <CarbonKit/CarbonKit.h>
 
 #import <GKFadeNavigationController/GKFadeNavigationController.h>
 

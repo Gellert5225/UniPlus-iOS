@@ -96,9 +96,9 @@ typedef void (^PFQueryArrayResultBlock)(NSArray<PFGenericObject> *_Nullable obje
 
 /**
  Make the query include `PFObject`s that have a reference stored at the provided keys.
- 
+
  @param keys The keys to load child `PFObject`s for.
- 
+
  @return The same instance of `PFQuery` as the receiver. This allows method chaining.
  */
 - (instancetype)includeKeys:(NSArray<NSString *> *)keys;
@@ -195,6 +195,17 @@ typedef void (^PFQueryArrayResultBlock)(NSArray<PFGenericObject> *_Nullable obje
  @return The same instance of `PFQuery` as the receiver. This allows method chaining.
  */
 - (instancetype)whereKey:(NSString *)key notEqualTo:(id)object;
+
+/**
+ Add a constraint for finding string values that contain a provided
+ string using Full Text Search
+
+ @param key The key to be constrained.
+ @param text the substring that the value must contain.
+
+ @return The same instance of `PFQuery` as the receiver. This allows method chaining.
+ */
+- (instancetype)whereKey:(NSString *)key matchesText:(NSString *)text;
 
 /**
  Add a constraint to the query that requires a particular key's object
@@ -307,6 +318,33 @@ typedef void (^PFQueryArrayResultBlock)(NSArray<PFGenericObject> *_Nullable obje
  @return The same instance of `PFQuery` as the receiver. This allows method chaining.
  */
 - (instancetype)whereKey:(NSString *)key withinGeoBoxFromSouthwest:(PFGeoPoint *)southwest toNortheast:(PFGeoPoint *)northeast;
+
+/**
+ * Add a constraint to the query that requires a particular key's
+ * coordinates be contained within and on the bounds of a given polygon
+ * Supports closed and open (last point is connected to first) paths.
+ * (Requires parse-server@2.5.0)
+ *
+ * Polygon must have at least 3 points
+ *
+ * @param key The key to be constrained.
+ * @param points The polygon points as an Array of `PFGeoPoint`'s.
+ *
+ * @return The same instance of `PFQuery` as the receiver. This allows method chaining.
+ */
+- (instancetype)whereKey:(NSString *)key withinPolygon:(NSArray<PFGeoPoint *> *)points;
+
+/**
+ * Add a constraint to the query that requires a particular key's
+ * coordinates that contains a `PFGeoPoint`
+ * (Requires parse-server@2.6.0)
+ *
+ * @param key The key to be constrained.
+ * @param point `PFGeoPoint`.
+ *
+ * @return The same instance of `PFQuery` as the receiver. This allows method chaining.
+ */
+- (instancetype)whereKey:(NSString *)key polygonContains:(PFGeoPoint *)point;
 
 ///--------------------------------------
 #pragma mark - Adding String Constraints

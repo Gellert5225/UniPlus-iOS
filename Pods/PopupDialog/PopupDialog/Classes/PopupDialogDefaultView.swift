@@ -28,7 +28,7 @@ import UIKit
 import TZStackView
 
 /// The main view of the popup dialog
-final public class PopupDialogDefaultView: UIView {
+@objc final public class PopupDialogDefaultView: UIView {
 
     // MARK: - Appearance
 
@@ -124,7 +124,7 @@ final public class PopupDialogDefaultView: UIView {
         addSubview(messageLabel)
 
         // Layout views
-        let views = ["imageView": imageView, "titleLabel": titleLabel, "messageLabel": messageLabel] as [String : Any]
+        let views = ["imageView": imageView, "titleLabel": titleLabel, "messageLabel": messageLabel]
         var constraints = [NSLayoutConstraint]()
 
         constraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|[imageView]|", options: [], metrics: nil, views: views)

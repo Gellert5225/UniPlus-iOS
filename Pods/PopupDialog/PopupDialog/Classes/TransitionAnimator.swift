@@ -43,17 +43,17 @@ internal class TransitionAnimator: NSObject, UIViewControllerAnimatedTransitioni
     }
 
     internal func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return direction == .in ? inDuration : outDuration
+        return direction == .In ? inDuration : outDuration
     }
 
     internal func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         switch direction {
-        case .in:
+        case .In:
             to = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!
             from = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)!
             let container = transitionContext.containerView
             container.addSubview(to.view)
-        case .out:
+        case .Out:
             to = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!
             from = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)!
         }

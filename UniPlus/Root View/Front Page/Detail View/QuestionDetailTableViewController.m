@@ -101,6 +101,7 @@
     
     [self configureNavbar];
     self.automaticallyAdjustsScrollViewInsets = YES;
+    self.view.backgroundColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:244/255.0 alpha:1];
     self.tableView.separatorStyle     = UITableViewCellSeparatorStyleNone;
     self.tableView.tableHeaderView    = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableView.bounds.size.width, 0.01f)];
     self.tableView.rowHeight          = UITableViewAutomaticDimension;
@@ -481,7 +482,7 @@
                 
         CancelButton *cancel = [[CancelButton alloc] initWithTitle:@"Cancel" dismissOnTap:YES action:nil];
         
-        [reportDialog addButtons: @[submitButton, cancel]];
+        [reportDialog addButtonsWithButtons:@[submitButton, cancel]];
         
         [self.navigationController presentViewController:reportDialog animated:YES completion:nil];
     }
@@ -516,7 +517,7 @@
 #pragma - mark ReportDialog Delegate
 
 - (void)textFieldDidReturnWithText:(NSString *)text {
-    [reportDialog dismiss:nil];
+    [reportDialog dismissWithCompletion:nil];
     self.reportMessage = text;
     [self postReportMessage];
 }

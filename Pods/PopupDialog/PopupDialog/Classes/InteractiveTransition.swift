@@ -38,7 +38,7 @@ final internal class InteractiveTransition: UIPercentDrivenInteractiveTransition
     // with attached gesture recognizers
     weak var viewController: UIViewController? = nil
 
-    @objc func handlePan(_ sender: UIPanGestureRecognizer) {
+    @objc func handlePan(sender: UIPanGestureRecognizer) {
 
         guard let vc = viewController else { return }
 

@@ -13,7 +13,7 @@
 
 @interface GKFadeNavigationController () <UINavigationControllerDelegate>
 
-@property (nonatomic, strong) UIView *fakeNavigationBarBackground;
+@property (nonatomic, strong) UIVisualEffectView *visualEffectView;
 
 @property (nonatomic) GKFadeNavigationControllerNavigationBarVisibility navigationBarVisibility;
 @property (nonatomic, strong) UIColor *originalTintColor;
@@ -36,12 +36,13 @@
     self.navigationBarVisibility = GKFadeNavigationControllerNavigationBarVisibilityVisible;
     
     [self updateNavigationBarVisibilityForController:self.topViewController animated:NO];
+}
+
+- (void)viewDidLayoutSubviews {
+    CGFloat navigationBarHeight = CGRectGetHeight(self.navigationBar.frame);
+    CGFloat statusBarHeight = [self statusBarHeight];
     
-    if (@available(iOS 11.0, *)) {
-        self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeNever;
-    } else {
-        // Fallback on earlier versions
-    }
+    self.visualEffectView.frame = CGRectMake(0, -statusBarHeight, self.view.frame.size.width, navigationBarHeight+statusBarHeight);
 }
 
 #pragma mark - Accessors
@@ -84,7 +85,7 @@
             
             // We have a system navigation bar and we transition to hidden
             [self setupCustomNavigationBar];
-            [self showCustomNavigaitonBar:NO withFadeAnimation:animated];
+            [self showCustomNavigationBar:NO withFadeAnimation:animated];
         }
         
     } else if (_navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden) {
@@ -93,13 +94,13 @@
         if (navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilitySystem) {
             
             // We have a custom, hidden navigation bar, we animate back then transition to custom
-            [self showCustomNavigaitonBar:YES withFadeAnimation:animated];
+            [self showCustomNavigationBar:YES withFadeAnimation:animated];
             [self setupSystemNavigationBar];
             
         } else if (navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityVisible) {
             
             // We have a custom, hidden navigation bar, we animate it back
-            [self showCustomNavigaitonBar:YES withFadeAnimation:animated];
+            [self showCustomNavigationBar:YES withFadeAnimation:animated];
             
         }
     } else if (_navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityVisible) {
@@ -112,7 +113,7 @@
         } else if (navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden) {
             
             // We have a visible custom navigation bar which we need to hide
-            [self showCustomNavigaitonBar:NO withFadeAnimation:animated];
+            [self showCustomNavigationBar:NO withFadeAnimation:animated];
         }
 
     }
@@ -128,22 +129,42 @@
     if (!_visualEffectView) {
         // Create a the fake navigation bar background
         UIVisualEffect *blurEffect;
-        blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
-        
+        if ([self isNavigationStyleBlack]) {
+            blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+        } else {
+            blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
+        }
+
+        CGFloat navigationBarHeight = CGRectGetHeight(self.navigationBar.frame);
+        CGFloat statusBarHeight = [self statusBarHeight];
+
         _visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-        _visualEffectView.frame = CGRectMake(0, -20.f, self.view.frame.size.width, 64.f);
+        _visualEffectView.frame = CGRectMake(0, -statusBarHeight, self.view.frame.size.width, navigationBarHeight+statusBarHeight);
         _visualEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         _visualEffectView.userInteractionEnabled = NO;
         
         // Shadow line
-        UIView *shadowView = [[UIView alloc] initWithFrame:CGRectMake(0, 63.5f, self.view.frame.size.width, 0.5f)];
+        UIView *shadowView = [[UIView alloc] initWithFrame:CGRectMake(0, navigationBarHeight+statusBarHeight-0.5, self.view.frame.size.width, 0.5f)];
         shadowView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.2f];
         shadowView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 
-        [self.visualEffectView.contentView addSubview:shadowView];
+        [_visualEffectView.contentView addSubview:shadowView];
     }
     
     return _visualEffectView;
+}
+
+
+/**
+ Returns the current status bar height, this might be different that 20pt, depending on the device model, orientation and other
+ factors like incomming call (in iPhone X Portrait the status bar height is 44pt). See http://stackoverflow.com/questions/12991935/how-to-programmatically-get-ios-status-bar-height/16598350#16598350
+
+ @return The current status bar height
+ */
+- (CGFloat)statusBarHeight {
+    CGSize statusBarSize = [[UIApplication sharedApplication] statusBarFrame].size;
+    //Check for the MIN dimention is the easiest way to get the correct height for the current orientation
+    return MIN(statusBarSize.width, statusBarSize.height);
 }
 
 #pragma mark - UI support
@@ -152,7 +173,11 @@
     if (self.navigationBarVisibility == GKFadeNavigationControllerNavigationBarVisibilityHidden) {
         return UIStatusBarStyleLightContent;
     } else {
-        return UIStatusBarStyleDefault;
+        if ([self isNavigationStyleBlack]) {
+            return UIStatusBarStyleLightContent;
+        } else {
+            return UIStatusBarStyleDefault;
+        }
     }
 }
 
@@ -183,7 +208,7 @@
     [self.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.navigationBar.translucent = YES;
     self.navigationBar.shadowImage = [UIImage new];
-
+    
     [self.navigationBar addSubview:self.visualEffectView];
     [self.navigationBar sendSubviewToBack:self.visualEffectView];
 }
@@ -226,16 +251,22 @@
  @param show If YES, the navigation bar will be shown. If no, it will be hidden.
  @param animated Animate the change or not
  */
-- (void)showCustomNavigaitonBar:(BOOL)show withFadeAnimation:(BOOL)animated {
+- (void)showCustomNavigationBar:(BOOL)show withFadeAnimation:(BOOL)animated {
     [UIView animateWithDuration:(animated ? 0.2 : 0) animations:^{
         if (show) {
             self.visualEffectView.alpha = 1;
             self.navigationBar.tintColor = [self originalTintColor];
-            self.navigationBar.titleTextAttributes = [[UINavigationBar appearance] titleTextAttributes];
+            [self.navigationBar setTitleVerticalPositionAdjustment:0 forBarMetrics:UIBarMetricsDefault];
+            [self.navigationBar setTitleVerticalPositionAdjustment:0 forBarMetrics:UIBarMetricsDefaultPrompt];
+            [self.navigationBar setTitleVerticalPositionAdjustment:0 forBarMetrics:UIBarMetricsCompact];
+            [self.navigationBar setTitleVerticalPositionAdjustment:0 forBarMetrics:UIBarMetricsCompactPrompt];
         } else {
             self.visualEffectView.alpha = 0;
             self.navigationBar.tintColor = [UIColor whiteColor];
-            self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor clearColor]};
+            [self.navigationBar setTitleVerticalPositionAdjustment:-500 forBarMetrics:UIBarMetricsDefault];
+            [self.navigationBar setTitleVerticalPositionAdjustment:-500 forBarMetrics:UIBarMetricsDefaultPrompt];
+            [self.navigationBar setTitleVerticalPositionAdjustment:-500 forBarMetrics:UIBarMetricsCompact];
+            [self.navigationBar setTitleVerticalPositionAdjustment:-500 forBarMetrics:UIBarMetricsCompactPrompt];
         }
     } completion:^(BOOL finished) {
         [self setNeedsStatusBarAppearanceUpdate];
@@ -263,6 +294,18 @@
         }
     } else {
         NSLog(@"GKFadeNavigationController error: setNeedsNavigationBarVisibilityUpdateAnimated is called but %@ does not conform to GKFadeNavigationControllerDelegate protocol!", self.topViewController);
+    }
+}
+
+#pragma mark - Helper
+
+- (BOOL)isNavigationStyleBlack {
+    if (self.navigationBar.barStyle == UIBarStyleBlackTranslucent ||
+        self.navigationBar.barStyle == UIBarStyleBlack ||
+        self.navigationBar.barStyle == UIBarStyleBlackOpaque) {
+        return YES;
+    } else {
+        return NO;
     }
 }
 

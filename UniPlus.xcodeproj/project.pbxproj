@@ -43,6 +43,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		D9318BD223AE218400575C21 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9318BD123AE218400575C21 /* Parse.framework */; };
+		D9318BD423AE26EC00575C21 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9318BD323AE26EC00575C21 /* Bolts.framework */; };
 		DF0004EE1D800C00002CEC0C /* white.png in Resources */ = {isa = PBXBuildFile; fileRef = DF0004ED1D800C00002CEC0C /* white.png */; };
 		DF0004FE1D8022C8002CEC0C /* USA_institution.json in Resources */ = {isa = PBXBuildFile; fileRef = DF0004FD1D8022C8002CEC0C /* USA_institution.json */; };
 		DF0B537C1DB531D50068B315 /* US_Degree_Institution.json in Resources */ = {isa = PBXBuildFile; fileRef = DF0B537B1DB531D50068B315 /* US_Degree_Institution.json */; };
@@ -108,8 +110,6 @@
 		DF5F61F01D7ED4FF00F55743 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF5F61EE1D7ED4FF00F55743 /* LaunchScreen.storyboard */; };
 		DF5F61FB1D7ED4FF00F55743 /* UniPlusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5F61FA1D7ED4FF00F55743 /* UniPlusTests.m */; };
 		DF5F62061D7ED4FF00F55743 /* UniPlusUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DF5F62051D7ED4FF00F55743 /* UniPlusUITests.m */; };
-		DF5F62161D7EEB2300F55743 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF5F62141D7EEB2300F55743 /* Bolts.framework */; };
-		DF5F62171D7EEB2300F55743 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF5F62151D7EEB2300F55743 /* Parse.framework */; };
 		DF5F62191D7EEBE200F55743 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF5F62181D7EEBE200F55743 /* AudioToolbox.framework */; };
 		DF5F621B1D7EEBEA00F55743 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF5F621A1D7EEBEA00F55743 /* CFNetwork.framework */; };
 		DF5F621D1D7EEBF200F55743 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF5F621C1D7EEBF200F55743 /* CoreGraphics.framework */; };
@@ -185,9 +185,6 @@
 		DF7DEBB11DA74C9B003EA1F4 /* ReviewProfileTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF7DEB991DA74C9B003EA1F4 /* ReviewProfileTableViewController.xib */; };
 		DF7DEBB21DA74C9B003EA1F4 /* SearchInstitutionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF7DEB9B1DA74C9B003EA1F4 /* SearchInstitutionTableViewController.m */; };
 		DF7DEBB31DA74C9B003EA1F4 /* SearchMajorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF7DEB9D1DA74C9B003EA1F4 /* SearchMajorTableViewController.m */; };
-		DF7DEBED1DA74E43003EA1F4 /* CarbonTabSwipeNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = DF7DEBB81DA74E43003EA1F4 /* CarbonTabSwipeNavigation.m */; };
-		DF7DEBEE1DA74E43003EA1F4 /* CarbonTabSwipeScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF7DEBBA1DA74E43003EA1F4 /* CarbonTabSwipeScrollView.m */; };
-		DF7DEBEF1DA74E43003EA1F4 /* CarbonTabSwipeSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = DF7DEBBC1DA74E43003EA1F4 /* CarbonTabSwipeSegmentedControl.m */; };
 		DF7DEBF01DA74E43003EA1F4 /* ICGBaseAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = DF7DEBBF1DA74E43003EA1F4 /* ICGBaseAnimation.m */; };
 		DF7DEBF11DA74E43003EA1F4 /* ICGFlipAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = DF7DEBC11DA74E43003EA1F4 /* ICGFlipAnimation.m */; };
 		DF7DEBF21DA74E43003EA1F4 /* ICGLayerAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = DF7DEBC31DA74E43003EA1F4 /* ICGLayerAnimation.m */; };
@@ -254,8 +251,6 @@
 		DF7F38C81DA74A99004C15B8 /* SectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF7F38B41DA74A99004C15B8 /* SectionCell.xib */; };
 		DF7F38C91DA74A99004C15B8 /* EditTopicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF7F38B71DA74A99004C15B8 /* EditTopicTableViewController.m */; };
 		DF7F38CA1DA74A99004C15B8 /* UPLeftMenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF7F38B91DA74A99004C15B8 /* UPLeftMenuTableViewController.m */; };
-		DF842C0E1DA8C30E00F0003A /* Bolts.framework in Resources */ = {isa = PBXBuildFile; fileRef = DF5F62141D7EEB2300F55743 /* Bolts.framework */; };
-		DF842C0F1DA8C30E00F0003A /* Parse.framework in Resources */ = {isa = PBXBuildFile; fileRef = DF5F62151D7EEB2300F55743 /* Parse.framework */; };
 		DF8888EF1DA39151004A5DDB /* ObjcDoc.markdown in Resources */ = {isa = PBXBuildFile; fileRef = DF8888EE1DA39151004A5DDB /* ObjcDoc.markdown */; };
 		DFA5DD181E99E4F200A029BE /* ProfileOverViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA5DD161E99E4F200A029BE /* ProfileOverViewCell.m */; };
 		DFA5DD191E99E4F200A029BE /* ProfileOverViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFA5DD171E99E4F200A029BE /* ProfileOverViewCell.xib */; };
@@ -305,6 +300,8 @@
 		8878DA6CF448EA1A89050395 /* Pods-UniPlus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniPlus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UniPlus/Pods-UniPlus.debug.xcconfig"; sourceTree = "<group>"; };
 		B8ABFDCB29277D9F753D4A8B /* Pods-UniPlus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniPlus.release.xcconfig"; path = "Pods/Target Support Files/Pods-UniPlus/Pods-UniPlus.release.xcconfig"; sourceTree = "<group>"; };
 		C3DA7CF4337CC26A42D11A64 /* Pods_UniPlus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UniPlus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9318BD123AE218400575C21 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		D9318BD323AE26EC00575C21 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		DF0004ED1D800C00002CEC0C /* white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white.png; sourceTree = "<group>"; };
 		DF0004FD1D8022C8002CEC0C /* USA_institution.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = USA_institution.json; sourceTree = "<group>"; };
 		DF044D791DA74E9A005131EB /* UniPlus-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UniPlus-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -396,8 +393,6 @@
 		DF5F62011D7ED4FF00F55743 /* UniPlusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UniPlusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF5F62051D7ED4FF00F55743 /* UniPlusUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UniPlusUITests.m; sourceTree = "<group>"; };
 		DF5F62071D7ED4FF00F55743 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DF5F62141D7EEB2300F55743 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		DF5F62151D7EEB2300F55743 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		DF5F62181D7EEBE200F55743 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		DF5F621A1D7EEBEA00F55743 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		DF5F621C1D7EEBF200F55743 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -524,13 +519,6 @@
 		DF7DEB9B1DA74C9B003EA1F4 /* SearchInstitutionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchInstitutionTableViewController.m; sourceTree = "<group>"; };
 		DF7DEB9C1DA74C9B003EA1F4 /* SearchMajorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchMajorTableViewController.h; sourceTree = "<group>"; };
 		DF7DEB9D1DA74C9B003EA1F4 /* SearchMajorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchMajorTableViewController.m; sourceTree = "<group>"; };
-		DF7DEBB61DA74E43003EA1F4 /* CarbonKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarbonKit.h; sourceTree = "<group>"; };
-		DF7DEBB71DA74E43003EA1F4 /* CarbonTabSwipeNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarbonTabSwipeNavigation.h; sourceTree = "<group>"; };
-		DF7DEBB81DA74E43003EA1F4 /* CarbonTabSwipeNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarbonTabSwipeNavigation.m; sourceTree = "<group>"; };
-		DF7DEBB91DA74E43003EA1F4 /* CarbonTabSwipeScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarbonTabSwipeScrollView.h; sourceTree = "<group>"; };
-		DF7DEBBA1DA74E43003EA1F4 /* CarbonTabSwipeScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarbonTabSwipeScrollView.m; sourceTree = "<group>"; };
-		DF7DEBBB1DA74E43003EA1F4 /* CarbonTabSwipeSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarbonTabSwipeSegmentedControl.h; sourceTree = "<group>"; };
-		DF7DEBBC1DA74E43003EA1F4 /* CarbonTabSwipeSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarbonTabSwipeSegmentedControl.m; sourceTree = "<group>"; };
 		DF7DEBBE1DA74E43003EA1F4 /* ICGBaseAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICGBaseAnimation.h; sourceTree = "<group>"; };
 		DF7DEBBF1DA74E43003EA1F4 /* ICGBaseAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICGBaseAnimation.m; sourceTree = "<group>"; };
 		DF7DEBC01DA74E43003EA1F4 /* ICGFlipAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICGFlipAnimation.h; sourceTree = "<group>"; };
@@ -679,10 +667,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9318BD423AE26EC00575C21 /* Bolts.framework in Frameworks */,
 				DFB98F971DAF42FF00F703A5 /* Accelerate.framework in Frameworks */,
 				DFB98F951DAF42EE00F703A5 /* CoreImage.framework in Frameworks */,
 				DF5F622B1D7EEC2D00F55743 /* libsqlite3.tbd in Frameworks */,
 				DF5F62291D7EEC2300F55743 /* libz.tbd in Frameworks */,
+				D9318BD223AE218400575C21 /* Parse.framework in Frameworks */,
 				DF5F62271D7EEC1C00F55743 /* SystemConfiguration.framework in Frameworks */,
 				DF5F62251D7EEC1400F55743 /* StoreKit.framework in Frameworks */,
 				DF5F62231D7EEC0B00F55743 /* Security.framework in Frameworks */,
@@ -691,8 +681,6 @@
 				DF5F621D1D7EEBF200F55743 /* CoreGraphics.framework in Frameworks */,
 				DF5F621B1D7EEBEA00F55743 /* CFNetwork.framework in Frameworks */,
 				DF5F62191D7EEBE200F55743 /* AudioToolbox.framework in Frameworks */,
-				DF5F62171D7EEB2300F55743 /* Parse.framework in Frameworks */,
-				DF5F62161D7EEB2300F55743 /* Bolts.framework in Frameworks */,
 				E6F491A6708D3115E832E384 /* Pods_UniPlus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -817,6 +805,8 @@
 				DF6132371D9B688700575280 /* ParseUI */,
 				DF5F622A1D7EEC2D00F55743 /* libsqlite3.tbd */,
 				DF5F62281D7EEC2300F55743 /* libz.tbd */,
+				D9318BD323AE26EC00575C21 /* Bolts.framework */,
+				D9318BD123AE218400575C21 /* Parse.framework */,
 				DF5F62261D7EEC1C00F55743 /* SystemConfiguration.framework */,
 				DF5F62241D7EEC1400F55743 /* StoreKit.framework */,
 				DF5F62221D7EEC0B00F55743 /* Security.framework */,
@@ -825,8 +815,6 @@
 				DF5F621C1D7EEBF200F55743 /* CoreGraphics.framework */,
 				DF5F621A1D7EEBEA00F55743 /* CFNetwork.framework */,
 				DF5F62181D7EEBE200F55743 /* AudioToolbox.framework */,
-				DF5F62141D7EEB2300F55743 /* Bolts.framework */,
-				DF5F62151D7EEB2300F55743 /* Parse.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1170,7 +1158,6 @@
 			isa = PBXGroup;
 			children = (
 				DF7DEBCF1DA74E43003EA1F4 /* PZPullToRefreshView.swift */,
-				DF7DEBB51DA74E43003EA1F4 /* CarbonKit */,
 				DF7DEBBD1DA74E43003EA1F4 /* ICGAnimation */,
 				DF7DEBCC1DA74E43003EA1F4 /* MMMaterialDesignSpinner */,
 				DF7DEBD01DA74E43003EA1F4 /* SLExpandableTable */,
@@ -1180,20 +1167,6 @@
 				DF7DEBE91DA74E43003EA1F4 /* SZTextView */,
 			);
 			path = lib;
-			sourceTree = "<group>";
-		};
-		DF7DEBB51DA74E43003EA1F4 /* CarbonKit */ = {
-			isa = PBXGroup;
-			children = (
-				DF7DEBB61DA74E43003EA1F4 /* CarbonKit.h */,
-				DF7DEBB71DA74E43003EA1F4 /* CarbonTabSwipeNavigation.h */,
-				DF7DEBB81DA74E43003EA1F4 /* CarbonTabSwipeNavigation.m */,
-				DF7DEBB91DA74E43003EA1F4 /* CarbonTabSwipeScrollView.h */,
-				DF7DEBBA1DA74E43003EA1F4 /* CarbonTabSwipeScrollView.m */,
-				DF7DEBBB1DA74E43003EA1F4 /* CarbonTabSwipeSegmentedControl.h */,
-				DF7DEBBC1DA74E43003EA1F4 /* CarbonTabSwipeSegmentedControl.m */,
-			);
-			path = CarbonKit;
 			sourceTree = "<group>";
 		};
 		DF7DEBBD1DA74E43003EA1F4 /* ICGAnimation */ = {
@@ -1567,7 +1540,6 @@
 				DF5F61E01D7ED4FF00F55743 /* Frameworks */,
 				DF5F61E11D7ED4FF00F55743 /* Resources */,
 				07F99AE7636AE86BCB856088 /* [CP] Embed Pods Frameworks */,
-				13769EBEEEA46BB2D647B106 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1663,7 +1635,7 @@
 			};
 			buildConfigurationList = DF5F61DE1D7ED4FF00F55743 /* Build configuration list for PBXProject "UniPlus" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -1802,8 +1774,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF842C0E1DA8C30E00F0003A /* Bolts.framework in Resources */,
-				DF842C0F1DA8C30E00F0003A /* Parse.framework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1823,13 +1793,26 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UniPlus/Pods-UniPlus-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CarbonKit/CarbonKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GKFadeNavigationController/GKFadeNavigationController.framework",
+				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
+				"${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
+				"${BUILT_PRODUCTS_DIR}/TZStackView/TZStackView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CarbonKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GKFadeNavigationController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PureLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TZStackView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UniPlus/Pods-UniPlus-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UniPlus/Pods-UniPlus-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		092C8D3ABCA3CF80F64C3D72 /* [CP] Check Pods Manifest.lock */ = {
@@ -1838,28 +1821,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UniPlus-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		13769EBEEEA46BB2D647B106 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UniPlus/Pods-UniPlus-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DF0B8BA51DA696E1006AFB93 /* ShellScript */ = {
@@ -1934,7 +1905,6 @@
 				DF7DEB9E1DA74C9B003EA1F4 /* ChooseMajorCell.m in Sources */,
 				DF7DEBFA1DA74E43003EA1F4 /* HeaderView.m in Sources */,
 				DF61329D1D9B688700575280 /* PFTextButton.m in Sources */,
-				DF7DEBEF1DA74E43003EA1F4 /* CarbonTabSwipeSegmentedControl.m in Sources */,
 				DF6E0DA31DD994E300277C21 /* NoQuestionsCell.m in Sources */,
 				DF7DEBF61DA74E43003EA1F4 /* ICGViewController.m in Sources */,
 				DF6132A81D9B688700575280 /* PFResources.m in Sources */,
@@ -2016,14 +1986,12 @@
 				DF61329C1D9B688700575280 /* PFPrimaryButton.m in Sources */,
 				DF6132951D9B688700575280 /* PFColor.m in Sources */,
 				DF7F38C01DA74A99004C15B8 /* NewestQueryTableViewController.m in Sources */,
-				DF7DEBED1DA74E43003EA1F4 /* CarbonTabSwipeNavigation.m in Sources */,
 				DF7DEC011DA74E43003EA1F4 /* UIViewController+STPopup.m in Sources */,
 				DF7F38C51DA74A99004C15B8 /* RowCell.m in Sources */,
 				DF6132991D9B688700575280 /* PFImageCache.m in Sources */,
 				DF7F38CA1DA74A99004C15B8 /* UPLeftMenuTableViewController.m in Sources */,
 				DF61329B1D9B688700575280 /* PFDismissButton.m in Sources */,
 				DF7DEBAE1DA74C9B003EA1F4 /* MainScreen.m in Sources */,
-				DF7DEBEE1DA74E43003EA1F4 /* CarbonTabSwipeScrollView.m in Sources */,
 				DF7DEB761DA74B83003EA1F4 /* University.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2139,6 +2107,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -2188,6 +2157,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -2212,6 +2182,62 @@
 				INFOPLIST_FILE = UniPlus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreVideo\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GKFadeNavigationController\"",
+					"-framework",
+					"\"MediaPlayer\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"PopupDialog\"",
+					"-framework",
+					"\"PureLayout\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SwiftMessages\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"TZStackView\"",
+					"-framework",
+					"\"UIKit\"",
+					"-weak_framework",
+					"\"JavaScriptCore\"",
+					"-weak_framework",
+					"\"SafariServices\"",
+					"-weak_framework",
+					"\"WebKit\"",
+					"-fprofile-instr-generate",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.JiaheLi.UniPlus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -2219,7 +2245,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Uniplus/UniPlus-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -2243,13 +2269,69 @@
 				INFOPLIST_FILE = UniPlus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreVideo\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GKFadeNavigationController\"",
+					"-framework",
+					"\"MediaPlayer\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"PopupDialog\"",
+					"-framework",
+					"\"PureLayout\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SwiftMessages\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"TZStackView\"",
+					"-framework",
+					"\"UIKit\"",
+					"-weak_framework",
+					"\"JavaScriptCore\"",
+					"-weak_framework",
+					"\"SafariServices\"",
+					"-weak_framework",
+					"\"WebKit\"",
+					"-fprofile-instr-generate",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.JiaheLi.UniPlus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Uniplus/UniPlus-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

@@ -213,9 +213,11 @@
 }
 
 - (void)clear {
-    [_mutableObjects removeAllObjects];
-    [self.tableView reloadData];
-    _currentPage = 0;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [_mutableObjects removeAllObjects];
+        [self.tableView reloadData];
+        _currentPage = 0;
+    });
 }
 
 - (BFTask<NSArray<__kindof PFObject *> *> *)loadObjects:(NSInteger)page clear:(BOOL)clear completionBlock:(void (^)(NSArray *foundObjects, NSError *error))block {
@@ -237,113 +239,123 @@
     }
     if (self.lastObject) {
         [q findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-            if (!error) {
-                if (self.paginationEnabled && self.objectsPerPage) {
-                    for (int i = 0; i < objects.count; i ++) {
-                        PFObject *o = objects[i];
-                        if ([o.objectId isEqualToString:self->lastObject.objectId]) {
-                            query.limit = self.objectsPerPage;
-                            if (page == 0) {
-                                query.skip = 0;
-                            } else {
-                                query.skip  = (i + 1);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (!error) {
+                    if (self.paginationEnabled && self.objectsPerPage) {
+                        for (int i = 0; i < objects.count; i ++) {
+                            PFObject *o = objects[i];
+                            if ([o.objectId isEqualToString:self->lastObject.objectId]) {
+                                query.limit = self.objectsPerPage;
+                                if (page == 0) {
+                                    query.skip = 0;
+                                } else {
+                                    query.skip  = (i + 1);
+                                }
+                                break;
                             }
-                            break;
                         }
+                        
+                        [query findObjectsInBackgroundWithBlock:^(NSArray *foundObjects, NSError *error) {
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                if (![Parse isLocalDatastoreEnabled] &&
+                                    query.cachePolicy != kPFCachePolicyCacheOnly &&
+                                    error.code == kPFErrorCacheMiss) {
+                                    // no-op on cache miss
+                                    return;
+                                }
+                                
+                                self.loading = NO;
+                                
+                                if (error) {
+                                    block(nil, error);
+                                    self->_lastLoadCount = -1;
+                                    [self _refreshPaginationCell];
+                                } else {
+                                    self->_currentPage = page;
+                                    self->_lastLoadCount = [foundObjects count];
+                                    if (foundObjects.count) {
+                                        self->lastObject = foundObjects[self->_lastLoadCount-1];
+                                    }
+                                    
+                                    if (clear) {
+                                        [self->_mutableObjects removeAllObjects];
+                                    }
+                                    
+                                    [self->_mutableObjects addObjectsFromArray:foundObjects];
+                                    CGPoint offset = self.tableView.contentOffset;
+                                    dispatch_async(dispatch_get_main_queue(), ^{
+                                        [self.tableView reloadData];
+                                        [self.tableView layoutIfNeeded];
+                                        [self.tableView setContentOffset:offset];
+                                        block(foundObjects, nil);
+                                    });
+                                }
+                                
+                                [self.refreshControl endRefreshing];
+                                
+                                if (error) {
+                                    [source trySetError:error];
+                                } else {
+                                    [source trySetResult:foundObjects];
+                                }
+                            });
+                        }];
                     }
-                    
-                    [query findObjectsInBackgroundWithBlock:^(NSArray *foundObjects, NSError *error) {
-                        if (![Parse isLocalDatastoreEnabled] &&
-                            query.cachePolicy != kPFCachePolicyCacheOnly &&
-                            error.code == kPFErrorCacheMiss) {
-                            // no-op on cache miss
-                            return;
-                        }
-                        
-                        self.loading = NO;
-                        
-                        if (error) {
-                            block(nil, error);
-                            self->_lastLoadCount = -1;
-                            [self _refreshPaginationCell];
-                        } else {
-                            self->_currentPage = page;
-                            self->_lastLoadCount = [foundObjects count];
-                            if (foundObjects.count) {
-                                self->lastObject = foundObjects[self->_lastLoadCount-1];
-                            }
-                            
-                            if (clear) {
-                                [self->_mutableObjects removeAllObjects];
-                            }
-                            
-                            [self->_mutableObjects addObjectsFromArray:foundObjects];
-                            CGPoint offset = self.tableView.contentOffset;
-                            [self.tableView reloadData];
-                            [self.tableView layoutIfNeeded];
-                            [self.tableView setContentOffset:offset];
-                            block(foundObjects, nil);
-                        }
-                        
-                        [self.refreshControl endRefreshing];
-                        
-                        if (error) {
-                            [source trySetError:error];
-                        } else {
-                            [source trySetResult:foundObjects];
-                        }
-                    }];
+                } else {
+                    self.loading = NO;
+                    block(nil, error);
                 }
-            } else {
-                self.loading = NO;
-                block(nil, error);
-            }
-            
-            [self objectsDidLoad:error];
+                
+                [self objectsDidLoad:error];
+            });
         }];
     } else {
         query.limit = self.objectsPerPage;
         query.skip  = page*self.objectsPerPage;
         [query findObjectsInBackgroundWithBlock:^(NSArray *foundObjects, NSError *error) {
-            if (![Parse isLocalDatastoreEnabled] &&
-                query.cachePolicy != kPFCachePolicyCacheOnly &&
-                error.code == kPFErrorCacheMiss) {
-                // no-op on cache miss
-                return;
-            }
-            
-            self.loading = NO;
-            
-            if (error) {
-                block(nil, error);
-                self->_lastLoadCount = -1;
-                [self _refreshPaginationCell];
-            } else {
-                self->_currentPage = page;
-                self->_lastLoadCount = [foundObjects count];
-                if (foundObjects.count) {
-                    self->lastObject = foundObjects[self->_lastLoadCount-1];
-                    //NSLog(@"%@",lastObject.objectId);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (![Parse isLocalDatastoreEnabled] &&
+                    query.cachePolicy != kPFCachePolicyCacheOnly &&
+                    error.code == kPFErrorCacheMiss) {
+                    // no-op on cache miss
+                    return;
                 }
-                if (clear) {
-                    [self->_mutableObjects removeAllObjects];
+                
+                self.loading = NO;
+                
+                if (error) {
+                    block(nil, error);
+                    self->_lastLoadCount = -1;
+                    [self _refreshPaginationCell];
+                } else {
+                    self->_currentPage = page;
+                    self->_lastLoadCount = [foundObjects count];
+                    if (foundObjects.count) {
+                        self->lastObject = foundObjects[self->_lastLoadCount-1];
+                        //NSLog(@"%@",lastObject.objectId);
+                    }
+                    if (clear) {
+                        [self->_mutableObjects removeAllObjects];
+                    }
+                    [self->_mutableObjects addObjectsFromArray:foundObjects];
+                    CGPoint offset = self.tableView.contentOffset;
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.tableView reloadData];
+                        [self.tableView layoutIfNeeded];
+                        [self.tableView setContentOffset:offset];
+                        block(foundObjects, nil);
+                    });
                 }
-                [self->_mutableObjects addObjectsFromArray:foundObjects];
-                CGPoint offset = self.tableView.contentOffset;
-                [self.tableView reloadData];
-                [self.tableView layoutIfNeeded];
-                [self.tableView setContentOffset:offset];
-                block(foundObjects, nil);
-            }
-            
-            [self objectsDidLoad:error];
-            [self.refreshControl endRefreshing];
-            
-            if (error) {
-                [source trySetError:error];
-            } else {
-                [source trySetResult:foundObjects];
-            }
+                
+                [self objectsDidLoad:error];
+                [self.refreshControl endRefreshing];
+                
+                if (error) {
+                    [source trySetError:error];
+                } else {
+                    [source trySetResult:foundObjects];
+                }
+            });
         }];
     }
     
@@ -379,109 +391,117 @@
     if (self.lastObject) {
         //NSLog(@"%@", lastObject.objectId);
         [q findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-            if (!error) {
-                if (self.paginationEnabled && self.objectsPerPage) {
-                    for (int i = 0; i < objects.count; i ++) {
-                        PFObject *o = objects[i];
-                        if ([o.objectId isEqualToString:self->lastObject.objectId]) {
-                            query.limit = self.objectsPerPage;
-                            if (page == 0) {
-                                query.skip = 0;
-                            } else {
-                                query.skip  = (i + 1);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (!error) {
+                    if (self.paginationEnabled && self.objectsPerPage) {
+                        for (int i = 0; i < objects.count; i ++) {
+                            PFObject *o = objects[i];
+                            if ([o.objectId isEqualToString:self->lastObject.objectId]) {
+                                query.limit = self.objectsPerPage;
+                                if (page == 0) {
+                                    query.skip = 0;
+                                } else {
+                                    query.skip  = (i + 1);
+                                }
+                                //NSLog(@"%ld", (long)query.skip);
+                                break;
                             }
-                            //NSLog(@"%ld", (long)query.skip);
-                            break;
                         }
                     }
-                }
-                [query findObjectsInBackgroundWithBlock:^(NSArray *foundObjects, NSError *error) {
-                    if (![Parse isLocalDatastoreEnabled] &&
-                        query.cachePolicy != kPFCachePolicyCacheOnly &&
-                        error.code == kPFErrorCacheMiss) {
-                        // no-op on cache miss
-                        return;
-                    }
-                    
+                    [query findObjectsInBackgroundWithBlock:^(NSArray *foundObjects, NSError *error) {
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            if (![Parse isLocalDatastoreEnabled] &&
+                                query.cachePolicy != kPFCachePolicyCacheOnly &&
+                                error.code == kPFErrorCacheMiss) {
+                                // no-op on cache miss
+                                return;
+                            }
+                            
+                            self.loading = NO;
+                            
+                            if (error) {
+                                self->_lastLoadCount = -1;
+                                [self _refreshPaginationCell];
+                            } else {
+                                self->_currentPage = page;
+                                self->_lastLoadCount = [foundObjects count];
+                                if (foundObjects.count) {
+                                    self->lastObject = foundObjects[self->_lastLoadCount-1];
+                                }
+                                
+                                if (clear) {
+                                    [self->_mutableObjects removeAllObjects];
+                                }
+                                
+                                [self->_mutableObjects addObjectsFromArray:foundObjects];
+                                CGPoint offset = self.tableView.contentOffset;
+                                [self.tableView reloadData];
+                                [self.tableView layoutIfNeeded];
+                                [self.tableView setContentOffset:offset];
+                            }
+                            
+                            [self.refreshControl endRefreshing];
+                            
+                            if (error) {
+                                [source trySetError:error];
+                            } else {
+                                [source trySetResult:foundObjects];
+                            }
+                        });
+                    }];
+                } else {
                     self.loading = NO;
-                    
-                    if (error) {
-                        self->_lastLoadCount = -1;
-                        [self _refreshPaginationCell];
-                    } else {
-                        self->_currentPage = page;
-                        self->_lastLoadCount = [foundObjects count];
-                        if (foundObjects.count) {
-                            self->lastObject = foundObjects[self->_lastLoadCount-1];
-                        }
-                        
-                        if (clear) {
-                            [self->_mutableObjects removeAllObjects];
-                        }
-                        
-                        [self->_mutableObjects addObjectsFromArray:foundObjects];
-                        CGPoint offset = self.tableView.contentOffset;
-                        [self.tableView reloadData];
-                        [self.tableView layoutIfNeeded];
-                        [self.tableView setContentOffset:offset];
-                    }
-                    
-                    [self.refreshControl endRefreshing];
-                    
-                    if (error) {
-                        [source trySetError:error];
-                    } else {
-                        [source trySetResult:foundObjects];
-                    }
-                }];
-            } else {
-                self.loading = NO;
-            }
-            [self objectsDidLoad:error];
+                }
+                [self objectsDidLoad:error];
+            });
         }];
     } else {
         //NSLog(@"Last object is nil");
         query.limit = self.objectsPerPage;
         query.skip  = page * self.objectsPerPage;
         [query findObjectsInBackgroundWithBlock:^(NSArray *foundObjects, NSError *error) {
-            if (![Parse isLocalDatastoreEnabled] &&
-                query.cachePolicy != kPFCachePolicyCacheOnly &&
-                error.code == kPFErrorCacheMiss) {
-                // no-op on cache miss
-                return;
-            }
-            
-            self.loading = NO;
-            
-            if (error) {
-                self->_lastLoadCount = -1;
-                [self _refreshPaginationCell];
-            } else {
-                self->_currentPage = page;
-                self->_lastLoadCount = [foundObjects count];
-                if (foundObjects.count) {
-                    self->lastObject = foundObjects[self->_lastLoadCount-1];
-                    //NSLog(@"QWER: %@",lastObject.objectId);
-                }
-                if (clear) {
-                    [self->_mutableObjects removeAllObjects];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (![Parse isLocalDatastoreEnabled] &&
+                    query.cachePolicy != kPFCachePolicyCacheOnly &&
+                    error.code == kPFErrorCacheMiss) {
+                    // no-op on cache miss
+                    return;
                 }
                 
-                [self->_mutableObjects addObjectsFromArray:foundObjects];
-                CGPoint offset = self.tableView.contentOffset;
-                [self.tableView reloadData];
-                [self.tableView layoutIfNeeded];
-                [self.tableView setContentOffset:offset];
-            }
-            
-            [self objectsDidLoad:error];
-            [self.refreshControl endRefreshing];
-            
-            if (error) {
-                [source trySetError:error];
-            } else {
-                [source trySetResult:foundObjects];
-            }
+                self.loading = NO;
+                
+                if (error) {
+                    self->_lastLoadCount = -1;
+                    [self _refreshPaginationCell];
+                } else {
+                    self->_currentPage = page;
+                    self->_lastLoadCount = [foundObjects count];
+                    if (foundObjects.count) {
+                        self->lastObject = foundObjects[self->_lastLoadCount-1];
+                        //NSLog(@"QWER: %@",lastObject.objectId);
+                    }
+                    if (clear) {
+                        [self->_mutableObjects removeAllObjects];
+                    }
+                    
+                    [self->_mutableObjects addObjectsFromArray:foundObjects];
+                    CGPoint offset = self.tableView.contentOffset;
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.tableView reloadData];
+                        [self.tableView layoutIfNeeded];
+                        [self.tableView setContentOffset:offset];
+                    });
+                }
+                
+                [self objectsDidLoad:error];
+                [self.refreshControl endRefreshing];
+                
+                if (error) {
+                    [source trySetError:error];
+                } else {
+                    [source trySetResult:foundObjects];
+                }
+            });
         }];
     }
 

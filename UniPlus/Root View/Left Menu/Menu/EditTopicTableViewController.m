@@ -150,7 +150,7 @@
         
     }];
     
-    [popup addButtons: @[ok]];
+    [popup addButtonsWithButtons:@[ok]];
     
     [self.navigationController presentViewController:popup animated:YES completion:nil];
 }

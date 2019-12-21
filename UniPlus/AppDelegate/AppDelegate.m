@@ -30,6 +30,9 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    if (@available(iOS 13, *)) {
+        self.window.overrideUserInterfaceStyle = UIUserInterfaceStyleLight;
+    }
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     //set the topicFilter if user is launching the app for the very first time

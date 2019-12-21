@@ -116,7 +116,11 @@
     
     self.viewIsLoadingForTheFirstTime         = YES;
     self.automaticallyAdjustsScrollViewInsets = YES;
-    self.tableView.tableHeaderView            = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableView.bounds.size.width, 0.01f)];
+    self.view.backgroundColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:244/255.0 alpha:1];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.tableView.tableHeaderView           = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableView.bounds.size.width, 0.01f)];
+    });
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -274,13 +278,15 @@
 
 - (void)pullToRefreshDidTrigger:(PZPullToRefreshView *)view {
     [self loadObjects:0 clear:YES completionBlock:^(NSArray * _Nonnull foundObjects, NSError * _Nonnull error) {
-        if (error) {
-            [self showAlertWithErrorString:[NSString stringWithFormat:@"%@",[error userInfo][@"error"]]];
-        } else {
-            self.hasContent = foundObjects.count;
-        }
-        refreshControl.isLoading = NO;
-        [refreshControl refreshScrollViewDataSourceDidFinishedLoading:self.tableView :UIEdgeInsetsZero];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error) {
+                [self showAlertWithErrorString:[NSString stringWithFormat:@"%@",[error userInfo][@"error"]]];
+            } else {
+                self.hasContent = foundObjects.count;
+            }
+            self->refreshControl.isLoading = NO;
+            [self->refreshControl refreshScrollViewDataSourceDidFinishedLoading:self.tableView :UIEdgeInsetsZero];
+        });
     }];
 }
 
@@ -328,7 +334,7 @@
         [self loadObjects:self.pageToLoad clear:self.clearing];
     }];
     
-    [popup addButtons: @[ok, retry]];
+    [popup addButtonsWithButtons:@[ok, retry]];
     
     [self.navigationController presentViewController:popup animated:YES completion:nil];
 }

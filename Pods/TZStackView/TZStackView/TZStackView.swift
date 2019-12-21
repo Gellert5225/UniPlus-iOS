@@ -25,7 +25,7 @@ open class TZStackView: UIView {
         }
     }
 
-    open var axis: UILayoutConstraintAxis = .horizontal {
+    open var axis: NSLayoutConstraint.Axis = .horizontal {
         didSet {
             setNeedsUpdateConstraints()
         }
@@ -89,7 +89,7 @@ open class TZStackView: UIView {
     }
     
     fileprivate func removeHiddenListener(_ view: UIView) {
-        if let index = registeredKvoSubviews.index(of: view) {
+        if let index = registeredKvoSubviews.firstIndex(of: view) {
             view.removeObserver(self, forKeyPath: "hidden", context: &kvoContext)
             registeredKvoSubviews.remove(at: index)
         }
@@ -125,7 +125,7 @@ open class TZStackView: UIView {
     
     fileprivate func didFinishSettingHiddenValue(_ arrangedSubview: UIView, hidden: Bool) {
         arrangedSubview.isHidden = hidden
-        if let index = animatingToHiddenViews.index(of: arrangedSubview) {
+        if let index = animatingToHiddenViews.firstIndex(of: arrangedSubview) {
             animatingToHiddenViews.remove(at: index)
         }
         addHiddenListener(arrangedSubview)
@@ -141,7 +141,7 @@ open class TZStackView: UIView {
             }
         }
         for entry in queueEntriesToRemove {
-            if let index = animationDidStopQueueEntries.index(of: entry) {
+            if let index = animationDidStopQueueEntries.firstIndex(of: entry) {
                 animationDidStopQueueEntries.remove(at: index)
             }
         }
@@ -154,7 +154,7 @@ open class TZStackView: UIView {
     }
     
     open func removeArrangedSubview(_ view: UIView) {
-        if let index = arrangedSubviews.index(of: view) {
+        if let index = arrangedSubviews.firstIndex(of: view) {
             arrangedSubviews.remove(at: index)
         }
     }
@@ -186,6 +186,8 @@ open class TZStackView: UIView {
                     guideConstraint = constraint(item: arrangedSubview, attribute: .height, toItem: nil, attribute: .notAnAttribute, constant: 0, priority: 25)
                 case .vertical:
                     guideConstraint = constraint(item: arrangedSubview, attribute: .width, toItem: nil, attribute: .notAnAttribute, constant: 0, priority: 25)
+                @unknown default:
+                    fatalError()
                 }
                 subviewConstraints.append(guideConstraint)
                 arrangedSubview.addConstraint(guideConstraint)
@@ -198,6 +200,8 @@ open class TZStackView: UIView {
                     hiddenConstraint = constraint(item: arrangedSubview, attribute: .width, toItem: nil, attribute: .notAnAttribute, constant: 0)
                 case .vertical:
                     hiddenConstraint = constraint(item: arrangedSubview, attribute: .height, toItem: nil, attribute: .notAnAttribute, constant: 0)
+                @unknown default:
+                    fatalError()
                 }
                 subviewConstraints.append(hiddenConstraint)
                 arrangedSubview.addConstraint(hiddenConstraint)
@@ -262,6 +266,8 @@ open class TZStackView: UIView {
                     }
                 case .vertical:
                     stackViewConstraints.append(constraint(item: self, attribute: .height, toItem: nil, attribute: .notAnAttribute, priority: 49))
+                @unknown default:
+                    fatalError()
                 }
 
                 stackViewConstraints += createFillConstraints(views, constant: 0)
@@ -288,6 +294,8 @@ open class TZStackView: UIView {
                     }
                 case .vertical:
                     stackViewConstraints.append(constraint(item: self, attribute: .height, toItem: nil, attribute: .notAnAttribute, priority: 49))
+                @unknown default:
+                    fatalError()
                 }
 
                 var previousArrangedSubview: UIView?
@@ -302,6 +310,8 @@ open class TZStackView: UIView {
                         case .vertical:
                             stackViewConstraints.append(constraint(item: previousArrangedSubview, attribute: .centerY, toItem: spacerView, attribute: .top))
                             stackViewConstraints.append(constraint(item: arrangedSubview, attribute: .centerY, toItem: spacerView, attribute: .bottom))
+                        @unknown default:
+                            fatalError()
                         }
                     }
                     previousArrangedSubview = arrangedSubview
@@ -348,10 +358,10 @@ open class TZStackView: UIView {
         }
         
         var topPriority: Float = 1000
-        var topRelation: NSLayoutRelation = .lessThanOrEqual
+        var topRelation: NSLayoutConstraint.Relation = .lessThanOrEqual
         
         var bottomPriority: Float = 1000
-        var bottomRelation: NSLayoutRelation = .greaterThanOrEqual
+        var bottomRelation: NSLayoutConstraint.Relation = .greaterThanOrEqual
         
         if alignment == .top || alignment == .leading {
             topPriority = 999.5
@@ -372,6 +382,8 @@ open class TZStackView: UIView {
             case .vertical:
                 constraints.append(constraint(item: spacerView, attribute: .leading, relatedBy: topRelation, toItem: view, priority: topPriority))
                 constraints.append(constraint(item: spacerView, attribute: .trailing, relatedBy: bottomRelation, toItem: view, priority: bottomPriority))
+            @unknown default:
+                fatalError()
             }
         }
         switch axis {
@@ -379,6 +391,8 @@ open class TZStackView: UIView {
             constraints.append(constraint(item: spacerView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, constant: 0, priority: 51))
         case .vertical:
             constraints.append(constraint(item: spacerView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, constant: 0, priority: 51))
+        @unknown default:
+            fatalError()
         }
         return constraints
     }
@@ -397,6 +411,8 @@ open class TZStackView: UIView {
                 totalSize += arrangedSubview.intrinsicContentSize.width
             case .vertical:
                 totalSize += arrangedSubview.intrinsicContentSize.height
+            @unknown default:
+                fatalError()
             }
             totalCount += 1
         }
@@ -419,6 +435,8 @@ open class TZStackView: UIView {
             case .vertical:
                 let multiplier = arrangedSubview.intrinsicContentSize.height / totalSize
                 constraints.append(constraint(item: arrangedSubview, attribute: .height, toItem: self, multiplier: multiplier, priority: priority))
+            @unknown default:
+                fatalError()
             }
         }
         
@@ -433,11 +451,13 @@ open class TZStackView: UIView {
             
         case .vertical:
             return equalAttributes(views.filter({ !self.isHidden($0) }), attribute: .height, priority: priority)
+        @unknown default:
+            fatalError()
         }
     }
     
     // Chains together the given views using Leading/Trailing or Top/Bottom
-    fileprivate func createFillConstraints(_ views: [UIView], priority: Float = 1000, relatedBy relation: NSLayoutRelation = .equal, constant: CGFloat) -> [NSLayoutConstraint] {
+    fileprivate func createFillConstraints(_ views: [UIView], priority: Float = 1000, relatedBy relation: NSLayoutConstraint.Relation = .equal, constant: CGFloat) -> [NSLayoutConstraint] {
         var constraints = [NSLayoutConstraint]()
 
         var previousView: UIView?
@@ -457,6 +477,8 @@ open class TZStackView: UIView {
                     
                 case .vertical:
                     constraints.append(constraint(item: view, attribute: .top, relatedBy: relation, toItem: previousView, attribute: .bottom, constant: c, priority: priority))
+                @unknown default:
+                    fatalError()
                 }
             }
             previousView = view
@@ -498,6 +520,8 @@ open class TZStackView: UIView {
             case .firstBaseline:
                 constraints += []
             }
+        @unknown default:
+            fatalError()
         }
         return constraints
     }
@@ -527,6 +551,8 @@ open class TZStackView: UIView {
                 case .vertical:
                     topView = spacerViews[0]
                     bottomView = spacerViews[0]
+                @unknown default:
+                    fatalError()
                 }
             }
         }
@@ -562,12 +588,14 @@ open class TZStackView: UIView {
             if alignment == .center {
                 constraints.append(constraint(item: firstItem, attribute: .centerX, toItem: arrangedSubviews.first!))
             }
+        @unknown default:
+            fatalError()
         }
         
         return constraints
     }
     
-    fileprivate func equalAttributes(_ views: [UIView], attribute: NSLayoutAttribute, priority: Float = 1000) -> [NSLayoutConstraint] {
+    fileprivate func equalAttributes(_ views: [UIView], attribute: NSLayoutConstraint.Attribute, priority: Float = 1000) -> [NSLayoutConstraint] {
         var currentPriority = priority
         var constraints = [NSLayoutConstraint]()
         if views.count > 0 {
@@ -590,7 +618,7 @@ open class TZStackView: UIView {
     }
 
     // Convenience method to help make NSLayoutConstraint in a less verbose way
-    fileprivate func constraint(item view1: AnyObject, attribute attr1: NSLayoutAttribute, relatedBy relation: NSLayoutRelation = .equal, toItem view2: AnyObject?, attribute attr2: NSLayoutAttribute? = nil, multiplier: CGFloat = 1, constant c: CGFloat = 0, priority: Float = 1000) -> NSLayoutConstraint {
+    fileprivate func constraint(item view1: AnyObject, attribute attr1: NSLayoutConstraint.Attribute, relatedBy relation: NSLayoutConstraint.Relation = .equal, toItem view2: AnyObject?, attribute attr2: NSLayoutConstraint.Attribute? = nil, multiplier: CGFloat = 1, constant c: CGFloat = 0, priority: Float = 1000) -> NSLayoutConstraint {
 
         let attribute2 = attr2 != nil ? attr2! : attr1
 
@@ -603,6 +631,6 @@ open class TZStackView: UIView {
         if view.isHidden {
             return true
         }
-        return animatingToHiddenViews.index(of: view) != nil
+        return animatingToHiddenViews.firstIndex(of: view) != nil
     }
 }

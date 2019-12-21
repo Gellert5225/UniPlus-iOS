@@ -28,7 +28,7 @@ import UIKit
 
 final internal class PresentationController: UIPresentationController {
 
-    fileprivate lazy var overlay: PopupDialogOverlayView = {
+    private lazy var overlay: PopupDialogOverlayView = {
         return PopupDialogOverlayView(frame: .zero)
     }()
 

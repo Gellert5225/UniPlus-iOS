@@ -40,7 +40,7 @@ final public class PopupDialogContainerView: UIView {
     }
 
     /// The corner radius of the popup view
-    @objc public dynamic var cornerRadius: Float {
+    public dynamic var cornerRadius: Float {
         get { return Float(shadowContainer.layer.cornerRadius) }
         set {
             let radius = CGFloat(newValue)
@@ -50,13 +50,13 @@ final public class PopupDialogContainerView: UIView {
     }
 
     /// Enable / disable shadow rendering
-    @objc public dynamic var shadowEnabled: Bool {
+    public dynamic var shadowEnabled: Bool {
         get { return shadowContainer.layer.shadowRadius > 0 }
         set { shadowContainer.layer.shadowRadius = newValue ? 5 : 0 }
     }
 
     /// The shadow color
-    @objc public dynamic var shadowColor: UIColor? {
+    public dynamic var shadowColor: UIColor? {
         get {
             guard let color = shadowContainer.layer.shadowColor else {
                 return nil
@@ -141,7 +141,7 @@ final public class PopupDialogContainerView: UIView {
         var constraints = [NSLayoutConstraint]()
 
         // Shadow container constraints
-        constraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|-(>=20,==30@900)-[shadowContainer(<=340,>=280)]-(>=20,==30@900)-|", options: [], metrics: nil, views: views)
+        constraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|-(>=10,==20@900)-[shadowContainer(<=340,>=300)]-(>=10,==20@900)-|", options: [], metrics: nil, views: views)
         constraints += [NSLayoutConstraint(item: shadowContainer, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0)]
         centerYConstraint = NSLayoutConstraint(item: shadowContainer, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0)
         constraints.append(centerYConstraint!)

@@ -352,7 +352,7 @@
         [self loadObjects:self.pageToLoad clear:self.clearing];
     }];
     
-    [popup addButtons: @[ok, retry]];
+    [popup addButtonsWithButtons:@[ok, retry]];
     
     [self.navigationController presentViewController:popup animated:YES completion:nil];
 }

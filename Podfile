@@ -6,8 +6,7 @@ target ‘UniPlus’ do
 pod 'PopupDialog', :git => 'https://github.com/Orderella/PopupDialog.git', :tag => '0.4.0'
 pod 'PureLayout'
 pod 'SwiftMessages'
-pod 'Firebase/Core'
-pod 'Firebase/AdMob'
+pod 'CarbonKit'
 pod ‘GKFadeNavigationController’
 
 post_install do |installer|

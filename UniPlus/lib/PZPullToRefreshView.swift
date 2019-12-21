@@ -173,7 +173,7 @@ open class PZPullToRefreshView: UIView {
         backgroundColor = bgColor
 
         let label = UILabel(frame: CGRect(x: 0, y: frame.size.height - 22.0, width: frame.size.width, height: 20.0))
-        label.autoresizingMask = UIViewAutoresizing.flexibleWidth
+        label.autoresizingMask = UIView.AutoresizingMask.flexibleWidth
         label.font = UIFont(name: "SFUIText-Light", size: 12)
         label.textColor = timeTextColor
         label.backgroundColor = UIColor.clear
@@ -188,7 +188,7 @@ open class PZPullToRefreshView: UIView {
         //addSubview(label)
         
         statusLabel = UILabel(frame: CGRect(x: 50, y: frame.size.height - 30.0, width: frame.size.width - 50, height: 20.0))
-        statusLabel?.autoresizingMask = UIViewAutoresizing.flexibleWidth
+        statusLabel?.autoresizingMask = UIView.AutoresizingMask.flexibleWidth
         statusLabel?.font             = UIFont(name: "SFUIText-Regular", size: 12)
         statusLabel?.textColor        = statusTextColor
         statusLabel?.backgroundColor  = UIColor.clear
@@ -197,11 +197,11 @@ open class PZPullToRefreshView: UIView {
         
         arrowImage = CALayer()
         arrowImage?.frame           = CGRect(x: 15, y: frame.size.height - 40.0, width: 25.0, height: 40.0)
-        arrowImage?.contentsGravity = kCAGravityResizeAspect
+        arrowImage?.contentsGravity = CALayerContentsGravity.resizeAspect
         arrowImage?.contents        = (arrow ?? UIImage(named:"whiteArrow")!).cgImage
         layer.addSublayer(arrowImage!)
         
-        activityView     = UIActivityIndicatorView(activityIndicatorStyle: .white)
+        activityView     = UIActivityIndicatorView(style: .white)
         activityView?.color   = statusTextColor
         activityView?.frame   = CGRect(x: 20, y: frame.size.height - 26.0, width: 15.0, height: 15.0)
         addSubview(activityView!)
@@ -254,7 +254,7 @@ open class PZPullToRefreshView: UIView {
             var offset = max(scrollView.contentOffset.y * -1, 0)
             offset = min(offset, thresholdValue)
             //scrollView.setContentOffset(CGPoint(x:0.0, y:-offset), animated: true)
-            scrollView.contentInset = UIEdgeInsetsMake(offset, 0.0, 0.0, 0.0)
+            scrollView.contentInset = UIEdgeInsets(top: offset, left: 0.0, bottom: 0.0, right: 0.0)
             UIView.commitAnimations()
 
         } else if scrollView.isDragging {
@@ -320,7 +320,7 @@ open class PZPullToRefreshView: UIView {
         UIView.setAnimationDuration(0.2)
         var offset = max(scrollView.contentOffset.y * -1, 0)
         offset = min(offset, thresholdValue)
-        scrollView.contentInset = UIEdgeInsetsMake(thresholdValue, 0.0, 0.0, 0.0)
+        scrollView.contentInset = UIEdgeInsets(top: thresholdValue, left: 0.0, bottom: 0.0, right: 0.0)
         UIView.commitAnimations()
     }
     

@@ -11,6 +11,8 @@
 
 #import <Parse/PFConstants.h>
 
+@protocol PFFileUploadController;
+
 NS_ASSUME_NONNULL_BEGIN
 
 /**
@@ -49,6 +51,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, copy) NSString *server;
 
+/**
+ Sets a custom file upload controller that uploads PFFiles using its own policy.
+ */
+@property (nonatomic, strong, readwrite, nullable) id<PFFileUploadController> fileUploadController;
+
 ///--------------------------------------
 #pragma mark - Enabling Local Datastore
 ///--------------------------------------
@@ -70,18 +77,23 @@ NS_ASSUME_NONNULL_BEGIN
  After enabling - Local Datastore, `PFUser.+currentUser`, `PFInstallation.+currentInstallation` and all eventually commands
  are going to be available to every application/extension in a group that have the same Parse applicationId.
  */
-@property (nullable, nonatomic, copy) NSString *applicationGroupIdentifier PF_TV_UNAVAILABLE PF_WATCH_UNAVAILABLE;
+@property (nullable, nonatomic, copy) NSString *applicationGroupIdentifier PF_WATCH_UNAVAILABLE;
 
 /**
  When set, controls the bundle identifier of the parent bundle to connect to.
 
  @warning This property should only be set from inside an extension environment.
  */
-@property (nullable, nonatomic, copy) NSString *containingApplicationBundleIdentifier PF_TV_UNAVAILABLE PF_WATCH_UNAVAILABLE;
+@property (nullable, nonatomic, copy) NSString *containingApplicationBundleIdentifier PF_WATCH_UNAVAILABLE;
 
 ///--------------------------------------
-#pragma mark - Other Properties
+#pragma mark - Network Properties
 ///--------------------------------------
+
+/**
+ A custom NSURLSessionConfiguration configuration that will be used from the SDK.
+ */
+@property (nonatomic, strong) NSURLSessionConfiguration *URLSessionConfiguration;
 
 /**
  The maximum number of retry attempts to make upon a failed network request.
@@ -120,6 +132,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, copy, readonly) NSString *server;
 
+/**
+ The custom upload controller that synchronously uploads PFFiles using its own policy.
+ */
+@property (nonatomic, strong, readonly, nullable) id<PFFileUploadController> fileUploadController;
+
 ///--------------------------------------
 #pragma mark - Enabling Local Datastore
 ///--------------------------------------
@@ -151,8 +168,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy, readonly) NSString *containingApplicationBundleIdentifier;
 
 ///--------------------------------------
-#pragma mark - Other Properties
+#pragma mark - Network Properties
 ///--------------------------------------
+
+/**
+ The NSURLSessionConfiguration configuration used by the SDK.
+
+ The default value is NSURLSessionConfiguration.defaultSessionConfiguration
+ */
+@property (nonatomic, strong, readonly) NSURLSessionConfiguration *URLSessionConfiguration;
 
 /**
  The maximum number of retry attempts to make upon a failed network request.

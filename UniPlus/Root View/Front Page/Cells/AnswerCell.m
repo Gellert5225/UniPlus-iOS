@@ -30,6 +30,7 @@
     [self.contentView addSubview:topSeparatorView];
     
     [_answerBody sizeToFit];
+    _answerBody.backgroundColor = [UIColor whiteColor];
     _answerBody.contentInset = UIEdgeInsetsMake(0,-1,0,-4);
     
     self.selectionStyle = UITableViewCellSelectionStyleNone;

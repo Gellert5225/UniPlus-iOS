@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CarbonKit.h"
+#import <CarbonKit/CarbonKit.h>
 
 /**
  It is a wrapper view controller, in which there are 3 child view controllers, ie. 3 instances of NewestQueryTableViewController

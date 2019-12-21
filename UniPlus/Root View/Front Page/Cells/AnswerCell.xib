@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -20,30 +18,30 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="173"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="172"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="173"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ao-Ne-fas">
-                        <rect key="frame" x="0.0" y="0.0" width="40" height="172.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="40" height="173"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eRM-HV-LjQ">
-                                <rect key="frame" x="0.0" y="27" width="40" height="88.5"/>
+                                <rect key="frame" x="0.0" y="27" width="40" height="88"/>
                                 <subviews>
                                     <label userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wI1-Ji-xaG">
-                                        <rect key="frame" x="0.0" y="36" width="40" height="17"/>
+                                        <rect key="frame" x="0.0" y="35.5" width="40" height="17"/>
                                         <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="14"/>
                                         <color key="textColor" red="0.42745098039215684" green="0.42745098039215684" blue="0.49019607843137253" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tri-down" translatesAutoresizingMaskIntoConstraints="NO" id="kF4-Lw-fSH" customClass="DownVoteView">
-                                        <rect key="frame" x="8" y="59" width="25" height="30"/>
+                                        <rect key="frame" x="7.5" y="58.5" width="25" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Q1w-7X-Dmp"/>
                                             <constraint firstAttribute="width" constant="25" id="gZi-MQ-zqp"/>
                                         </constraints>
                                     </imageView>
                                     <imageView tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tri-up-sel" translatesAutoresizingMaskIntoConstraints="NO" id="1wY-ux-dQA" customClass="UpVoteView">
-                                        <rect key="frame" x="7" y="0.0" width="25" height="30"/>
+                                        <rect key="frame" x="7.5" y="-0.5" width="25" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="4ZD-pa-Vof"/>
                                             <constraint firstAttribute="width" constant="25" id="YZJ-P6-5od"/>
@@ -74,7 +72,7 @@
                         </constraints>
                     </view>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nQR-8w-6qx">
-                        <rect key="frame" x="44" y="0.0" width="276" height="172.5"/>
+                        <rect key="frame" x="44" y="0.0" width="276" height="173"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <attributedString key="attributedText">
                             <fragment>
@@ -88,6 +86,7 @@
                         <dataDetectorType key="dataDetectorTypes" link="YES"/>
                     </textView>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="nQR-8w-6qx" secondAttribute="bottom" id="DBx-GZ-4HE"/>
                     <constraint firstItem="nQR-8w-6qx" firstAttribute="leading" secondItem="6Ao-Ne-fas" secondAttribute="trailing" constant="4" id="Dyi-iB-5yP"/>
@@ -108,7 +107,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="tri-down" width="30" height="35"/>
-        <image name="tri-up-sel" width="30" height="35"/>
+        <image name="tri-down" width="30" height="35.5"/>
+        <image name="tri-up-sel" width="30" height="35.5"/>
     </resources>
 </document>

@@ -8,24 +8,26 @@
 
 import UIKit
 
-class PassthroughView: UIView {
-    
-    var tapRecognizer: UITapGestureRecognizer?
-    
-    var tappedHander: (() -> Void)? {
-        didSet {
-            if let tap = tapRecognizer {
-                removeGestureRecognizer(tap)
-            }
-            if tappedHander == nil { return }
-            let tap = UITapGestureRecognizer(target: self, action: #selector(PassthroughView.tapped))
-            addGestureRecognizer(tap)
-        }
+class PassthroughView: UIControl {
+
+    var tappedHander: (() -> Void)?
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initCommon()
     }
-    
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        initCommon()
+    }
+
+    private func initCommon() {
+        addTarget(self, action: #selector(tapped), for: .touchUpInside)
+    }
+
     @objc func tapped() {
         tappedHander?()
-        print("passing throung")
     }
     
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {

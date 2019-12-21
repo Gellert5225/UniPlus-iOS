@@ -31,13 +31,13 @@ final public class PopupDialogOverlayView: UIView {
     // MARK: - Appearance
 
     ///  The blur radius of the overlay view
-    @objc public dynamic var blurRadius: Float {
+    public dynamic var blurRadius: Float {
         get { return Float(blurView.blurRadius) }
         set { blurView.blurRadius = CGFloat(newValue) }
     }
 
     /// Turns the blur of the overlay view on or off
-    @objc public dynamic var blurEnabled: Bool {
+    public dynamic var blurEnabled: Bool {
         get { return blurView.isBlurEnabled }
         set {
             blurView.isBlurEnabled = newValue
@@ -47,19 +47,19 @@ final public class PopupDialogOverlayView: UIView {
 
     /// Whether the blur view should allow for
     /// dynamic rendering of the background
-    @objc public dynamic var liveBlur: Bool {
+    public dynamic var liveBlur: Bool {
         get { return blurView.isDynamic }
         set { return blurView.isDynamic = newValue }
     }
 
     /// The background color of the overlay view
-    @objc public dynamic var color: UIColor? {
+    public dynamic var color: UIColor? {
         get { return overlay.backgroundColor }
         set { overlay.backgroundColor = newValue }
     }
 
     /// The opacity of the overay view
-    @objc public dynamic var opacity: Float {
+    public dynamic var opacity: Float {
         get { return Float(overlay.alpha) }
         set { overlay.alpha = CGFloat(newValue) }
     }
@@ -96,7 +96,7 @@ final public class PopupDialogOverlayView: UIView {
 
     // MARK: - View setup
 
-    fileprivate func setupView() {
+    private func setupView() {
 
         // Self appearance
         self.autoresizingMask = [.flexibleHeight, .flexibleWidth]

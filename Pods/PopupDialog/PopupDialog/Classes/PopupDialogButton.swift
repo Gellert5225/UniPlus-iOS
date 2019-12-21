@@ -27,32 +27,32 @@ import Foundation
 import UIKit
 
 /// Represents the default button for the popup dialog
-open class PopupDialogButton: UIButton {
+@objc open class PopupDialogButton: UIButton {
 
     public typealias PopupDialogButtonAction = () -> Void
 
     // MARK: Public
 
     /// The font and size of the button title
-    @objc open dynamic var titleFont: UIFont? {
+    @objc public dynamic var titleFont: UIFont? {
         get { return titleLabel?.font }
         set { titleLabel?.font = newValue }
     }
 
     /// The title color of the button
-    @objc open dynamic var titleColor: UIColor? {
-        get { return self.titleColor(for: UIControlState()) }
-        set { setTitleColor(newValue, for: UIControlState()) }
+    @objc public dynamic var titleColor: UIColor? {
+        get { return titleColor(for: .normal) }
+        set { setTitleColor(newValue, for: .normal) }
     }
 
     /// The background color of the button
-    @objc open dynamic var buttonColor: UIColor? {
+    @objc public dynamic var buttonColor: UIColor? {
         get { return backgroundColor }
         set { backgroundColor = newValue }
     }
 
     /// The separator color of this button
-    @objc open dynamic var separatorColor: UIColor? {
+    @objc public dynamic var separatorColor: UIColor? {
         get { return separator.backgroundColor }
         set {
             separator.backgroundColor = newValue
@@ -61,26 +61,26 @@ open class PopupDialogButton: UIButton {
     }
 
     /// Default appearance of the button
-    open var defaultTitleFont      = UIFont.systemFont(ofSize: 14)
-    open var defaultTitleColor     = UIColor(red: 0.25, green: 0.53, blue: 0.91, alpha: 1)
-    open var defaultButtonColor    = UIColor.clear
-    open var defaultSeparatorColor = UIColor(white: 0.9, alpha: 1)
+    @objc public var defaultTitleFont      = UIFont.systemFont(ofSize: 14)
+    @objc public var defaultTitleColor     = UIColor(red: 0.25, green: 0.53, blue: 0.91, alpha: 1)
+    @objc public var defaultButtonColor    = UIColor.clear
+    @objc public var defaultSeparatorColor = UIColor(white: 0.9, alpha: 1)
 
     /// Whether button should dismiss popup when tapped
-    open var dismissOnTap = true
+    @objc public var dismissOnTap = true
 
     /// The action called when the button is tapped
-    open fileprivate(set) var buttonAction: PopupDialogButtonAction?
+    @objc public private(set) var buttonAction: PopupDialogButtonAction?
 
     // MARK: Private
 
-    fileprivate lazy var separator: UIView = {
+    private lazy var separator: UIView = {
         let line = UIView(frame: .zero)
         line.translatesAutoresizingMaskIntoConstraints = false
         return line
     }()
 
-    fileprivate lazy var leftSeparator: UIView = {
+    private lazy var leftSeparator: UIView = {
         let line = UIView(frame: .zero)
         line.translatesAutoresizingMaskIntoConstraints = false
         line.alpha = 0
@@ -114,7 +114,7 @@ open class PopupDialogButton: UIButton {
         super.init(frame: .zero)
 
         // Set the button title
-        setTitle(title, for: UIControlState())
+        setTitle(title, for: .normal)
 
         self.dismissOnTap = dismissOnTap
 
@@ -128,10 +128,10 @@ open class PopupDialogButton: UIButton {
 
     // MARK: View setup
 
-    open func setupView() {
+    @objc public func setupView() {
 
         // Default appearance
-        setTitleColor(defaultTitleColor, for: UIControlState())
+        setTitleColor(defaultTitleColor, for: .normal)
         titleLabel?.font              = defaultTitleFont
         backgroundColor               = defaultButtonColor
         separator.backgroundColor     = defaultSeparatorColor
@@ -151,9 +151,9 @@ open class PopupDialogButton: UIButton {
         NSLayoutConstraint.activate(constraints)
     }
 
-    open override var isHighlighted: Bool {
+    @objc public override var isHighlighted: Bool {
         didSet {
-            isHighlighted ? pv_fade(.out, 0.5) : pv_fade(.in, 1.0)
+            isHighlighted ? pv_fade(direction: .Out, 0.5) : pv_fade(direction: .In, 1.0)
         }
     }
 }

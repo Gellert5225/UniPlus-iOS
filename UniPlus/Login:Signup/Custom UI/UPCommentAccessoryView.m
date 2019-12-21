@@ -82,6 +82,7 @@ static CGFloat const kBounceValue = 0.0f;
     _commentView.delegate = self;
     _commentView.layer.cornerRadius = 3.0f;
     _commentView.textContainerInset = UIEdgeInsetsMake(7.5, 0, 7.5, 0);
+    _commentView.backgroundColor = [UIColor whiteColor];
     
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineHeightMultiple = 16.0f;

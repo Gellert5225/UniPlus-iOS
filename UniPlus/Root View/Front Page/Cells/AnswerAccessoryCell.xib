@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G24b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -21,24 +18,24 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="390" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="390" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KG3-j8-luF" customClass="EditView">
-                        <rect key="frame" x="0.0" y="0.0" width="191" height="43"/>
+                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="44"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eLF-uE-393">
-                                <rect key="frame" x="75.5" y="0.0" width="41" height="43"/>
+                                <rect key="frame" x="73.5" y="0.0" width="41" height="44"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil" translatesAutoresizingMaskIntoConstraints="NO" id="KE5-0Z-Ddi">
-                                        <rect key="frame" x="0.0" y="14" width="15" height="15"/>
+                                        <rect key="frame" x="0.0" y="14.5" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="15" id="8Mb-O8-xGn"/>
                                             <constraint firstAttribute="height" constant="15" id="gwF-Bf-2ao"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aV3-N0-DRp">
-                                        <rect key="frame" x="20" y="14" width="21" height="15"/>
+                                        <rect key="frame" x="20" y="14.5" width="21" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="TeR-rC-APa"/>
                                         </constraints>
@@ -65,20 +62,20 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cqM-Ve-ZIy" customClass="ReportView">
-                        <rect key="frame" x="191" y="0.0" width="191" height="43"/>
+                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="44"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pxi-bN-siO">
-                                <rect key="frame" x="68" y="0.0" width="56" height="43"/>
+                                <rect key="frame" x="66" y="0.0" width="56" height="44"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="report" translatesAutoresizingMaskIntoConstraints="NO" id="uXN-aT-y3o">
-                                        <rect key="frame" x="0.0" y="14" width="15" height="15"/>
+                                        <rect key="frame" x="0.0" y="14.5" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="CMj-Ly-ZC5"/>
                                             <constraint firstAttribute="width" constant="15" id="vrj-zj-kee"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Report" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQK-Fx-uYB">
-                                        <rect key="frame" x="20" y="14" width="36" height="15"/>
+                                        <rect key="frame" x="20" y="14.5" width="36" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="J6L-PA-iUZ"/>
                                             <constraint firstAttribute="width" constant="36" id="JOB-ZS-ZC5"/>
@@ -106,6 +103,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="cqM-Ve-ZIy" firstAttribute="leading" secondItem="KG3-j8-luF" secondAttribute="trailing" id="0fH-60-HzZ"/>
                     <constraint firstItem="KG3-j8-luF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="0zq-9U-sjK"/>

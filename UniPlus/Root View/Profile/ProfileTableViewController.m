@@ -88,10 +88,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    if (@available(iOS 11.0, *)) {
-        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        //[NSLayoutConstraint activateConstraints:@[[self.tableView.topAnchor constraintEqualToSystemSpacingBelowAnchor:self.tableView.safeAreaLayoutGuide.topAnchor multiplier:1]]];
-    }
+//    if (@available(iOS 11.0, *)) {
+//        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//        //[NSLayoutConstraint activateConstraints:@[[self.tableView.topAnchor constraintEqualToSystemSpacingBelowAnchor:self.tableView.safeAreaLayoutGuide.topAnchor multiplier:1]]];
+//    }
     
     _viewModel = [[ProfileTableViewModel alloc]init];
     
@@ -129,7 +129,7 @@
     }
     
     GKFadeNavigationController *navigationController = (GKFadeNavigationController *)self.navigationController;
-    [navigationController.navigationBar sendSubviewToBack:navigationController.visualEffectView];
+    [navigationController.navigationBar sendSubviewToBack:navigationController.view];
     if (_isFromMenu) {
         self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     } else {
@@ -303,7 +303,7 @@
             
             CancelButton *cancel = [[CancelButton alloc] initWithTitle:@"Cancel" dismissOnTap:YES action:nil];
             
-            [reportDialog addButtons: @[submitButton, cancel]];
+            [reportDialog addButtonsWithButtons:@[submitButton, cancel]];
             
             [self.navigationController presentViewController:reportDialog animated:YES completion:nil];
         }
@@ -333,7 +333,7 @@
 #pragma - mark ReportDialog Delegate
 
 - (void)textFieldDidReturnWithText:(NSString *)text {
-    [reportDialog dismiss:nil];
+    [reportDialog dismissWithCompletion:nil];
     self.reportMessage = text;
     [self postReportMessage];
 }

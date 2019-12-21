@@ -134,13 +134,13 @@
     
     if (screenHeight == 480) {
         [UIView animateWithDuration:0.5 animations:^{
-            titleLayer.transform = CGAffineTransformMakeTranslation(titleLayer.bounds.origin.x ,titleLayer.bounds.origin.y-20);
-            mainLayer.transform  = CGAffineTransformMakeTranslation(mainLayer.bounds.origin.x, mainLayer.bounds.origin.y-50);
+            self->titleLayer.transform = CGAffineTransformMakeTranslation(self->titleLayer.bounds.origin.x ,self->titleLayer.bounds.origin.y-20);
+            self->mainLayer.transform  = CGAffineTransformMakeTranslation(self->mainLayer.bounds.origin.x, self->mainLayer.bounds.origin.y-50);
         } completion:nil];
     } else {
         [UIView animateWithDuration:0.5 animations:^{
-            titleLayer.transform = CGAffineTransformMakeTranslation(titleLayer.bounds.origin.x ,titleLayer.bounds.origin.y);
-            mainLayer.transform  = CGAffineTransformMakeTranslation(mainLayer.bounds.origin.x, mainLayer.bounds.origin.y-30);
+            self->titleLayer.transform = CGAffineTransformMakeTranslation(self->titleLayer.bounds.origin.x ,self->titleLayer.bounds.origin.y);
+            self->mainLayer.transform  = CGAffineTransformMakeTranslation(self->mainLayer.bounds.origin.x, self->mainLayer.bounds.origin.y-30);
         } completion:nil];
     }
 }
@@ -153,15 +153,15 @@
         titleLayer.transform = CGAffineTransformMakeTranslation(titleLayer.bounds.origin.x, titleLayer.bounds.origin.y-20);
         mainLayer.transform  = CGAffineTransformMakeTranslation(mainLayer.bounds.origin.x, mainLayer.bounds.origin.y-50);
         [UIView animateWithDuration:0.5 animations:^{
-            titleLayer.transform = CGAffineTransformMakeTranslation(titleLayer.bounds.origin.x ,titleLayer.bounds.origin.y);
-            mainLayer.transform  = CGAffineTransformMakeTranslation(mainLayer.bounds.origin.x, mainLayer.bounds.origin.y);
+            self->titleLayer.transform = CGAffineTransformMakeTranslation(self->titleLayer.bounds.origin.x ,self->titleLayer.bounds.origin.y);
+            self->mainLayer.transform  = CGAffineTransformMakeTranslation(self->mainLayer.bounds.origin.x, self->mainLayer.bounds.origin.y);
         } completion:nil];
     } else {
         titleLayer.transform = CGAffineTransformMakeTranslation(titleLayer.bounds.origin.x, titleLayer.bounds.origin.y-30);
         mainLayer.transform  = CGAffineTransformMakeTranslation(mainLayer.bounds.origin.x, mainLayer.bounds.origin.y-30);
         [UIView animateWithDuration:0.5 animations:^{
-            titleLayer.transform = CGAffineTransformMakeTranslation(titleLayer.bounds.origin.x ,titleLayer.bounds.origin.y);
-            mainLayer.transform  = CGAffineTransformMakeTranslation(mainLayer.bounds.origin.x, mainLayer.bounds.origin.y);
+            self->titleLayer.transform = CGAffineTransformMakeTranslation(self->titleLayer.bounds.origin.x ,self->titleLayer.bounds.origin.y);
+            self->mainLayer.transform  = CGAffineTransformMakeTranslation(self->mainLayer.bounds.origin.x, self->mainLayer.bounds.origin.y);
         } completion:nil];
     }
 }
@@ -268,7 +268,7 @@
         
     }];
     
-    [popup addButtons: @[ok]];
+    [popup addButtonsWithButtons:@[ok]];
     
     [self presentViewController:popup animated:YES completion:nil];
 }

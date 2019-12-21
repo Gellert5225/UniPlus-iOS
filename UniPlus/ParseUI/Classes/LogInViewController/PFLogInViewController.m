@@ -333,8 +333,8 @@ NSString *const PFLogInCancelNotification = @"com.parse.ui.login.cancel";
     PFUserResultBlock resultBlock = ^(PFUser *user, NSError *error) {
         __strong typeof(wself) sself = wself;
         sself.loading = NO;
-        if ([_logInView.facebookButton isKindOfClass:[PFActionButton class]]) {
-            [(PFActionButton *)_logInView.facebookButton setLoading:NO];
+        if ([self->_logInView.facebookButton isKindOfClass:[PFActionButton class]]) {
+            [(PFActionButton *)self->_logInView.facebookButton setLoading:NO];
         }
 
         if (user) {
@@ -392,8 +392,8 @@ NSString *const PFLogInCancelNotification = @"com.parse.ui.login.cancel";
     if (twitterUtils && [twitterUtils respondsToSelector:@selector(logInWithBlock:)]) {
         [twitterUtils logInWithBlock:^(PFUser *user, NSError *error) {
             self.loading = NO;
-            if ([_logInView.facebookButton isKindOfClass:[PFActionButton class]]) {
-                [(PFActionButton *)_logInView.twitterButton setLoading:NO];
+            if ([self->_logInView.facebookButton isKindOfClass:[PFActionButton class]]) {
+                [(PFActionButton *)self->_logInView.twitterButton setLoading:NO];
             }
 
             if (user) {
@@ -433,8 +433,8 @@ NSString *const PFLogInCancelNotification = @"com.parse.ui.login.cancel";
 
     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser *user, NSError *error) {
         self.loading = NO;
-        if ([_logInView.logInButton isKindOfClass:[PFPrimaryButton class]]) {
-            [(PFPrimaryButton *)_logInView.logInButton setLoading:NO];
+        if ([self->_logInView.logInButton isKindOfClass:[PFPrimaryButton class]]) {
+            [(PFPrimaryButton *)self->_logInView.logInButton setLoading:NO];
         }
 
         if (user) {
